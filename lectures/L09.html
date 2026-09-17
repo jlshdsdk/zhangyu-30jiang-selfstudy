@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一元函数积分学的计算 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L08.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L10.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第9讲 · 一元函数积分学的计算</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P277–P309</p>
+<h2>本讲导读</h2>
+<p>本讲是积分学的"手艺活"：考研考不定积分、定积分、变限积分和反常积分四类计算，选择、填空、解答题都出。张宇把内容排成五块——基本积分公式、不定积分的四种方法（凑微分/换元/分部/有理函数与三角有理式）、定积分技巧、变限积分、反常积分，后面三块全部建立在前两块上。重难点按书里的话是：不定积分和反常积分的计算、定积分的方法、变限积分的计算与结论，以及"有些原函数无法用初等函数表示"（例9.19 那类题就是考你遇到积不出来的函数怎么办）。我的建议：公式表和 13 条凑微分公式背到条件反射，再按方法各做一两道代表题；定积分部分把"偶倍奇零、周期平移、区间再现、点火公式"四件套练熟，性价比最高。</p>
+<h2>知识框架</h2>
+<ul>
+<li>一、基本积分公式（10 组，必须默写）</li>
+<li>二、不定积分的积分法</li>
+<li>凑微分法（13 条常用凑微分公式）</li>
+<li>换元法（三角代换、恒等变形后三角代换、根式代换、倒代换、复杂函数直接代换）</li>
+<li>分部积分法（u,v 选取口诀"反、对、幂、指、三"；推广公式/表格法）</li>
+<li>有理函数的积分（真分式/假分式，最简分式四条拆法，定系数两法）</li>
+<li>三角函数有理式（万能公式、三个凑微分判定）</li>
+<li>三、定积分的计算</li>
+<li>牛顿–莱布尼茨公式及其推广（分段有原函数的情形）</li>
+<li>定积分换元法（换元要"三换"）、定积分分部积分法</li>
+<li>对称性结论：偶倍奇零、周期函数区间平移</li>
+<li>区间再现公式</li>
+<li>华里士（点火）公式</li>
+<li>四、变限积分的计算</li>
+<li>求导公式（上下限是函数；被积函数含 x 时先换元移出）</li>
+<li>重要结论（变限积分的奇偶性、周期性）</li>
+<li>五、反常积分的计算</li>
+<li>识别奇点（端点、内部），拆区间去绝对值</li>
+<li>收敛条件下换元可实现反常积分与定积分互化</li>
+<li>Γ 函数（递推式、\(\Gamma(\tfrac12)=\sqrt{\pi}\)、\(\Gamma(n+1)=n!\)）</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>一、基本积分公式表</h3>
+<p>所有积分计算最后都化归到这张表，10 组必须牢记。两个易错点先说：\(\int \dfrac{1}{x}\mathrm{d}x=\ln|x|+C\) 别丢绝对值；\(\int \sec x\,\mathrm{d}x=\ln|\sec x+\tan x|+C\) 书里标了星，常考。\(\int \tan x\,\mathrm{d}x=-\ln|\cos x|+C\) 既可以用"求导验证"也可以用凑微分推，两个角度书里都给了。</p>
+<figure class="shot"><img src="../assets/img/L09-001.webp" alt="原书 基本积分公式表(①–⑥) · 印P278" loading="lazy" width="1100" height="1440"><figcaption>原书 基本积分公式表(①–⑥) · 印P278</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L09-002.webp" alt="原书 基本积分公式表(⑦–⑩) · 印P279" loading="lazy" width="1076" height="677"><figcaption>原书 基本积分公式表(⑦–⑩) · 印P279</figcaption></figure>
+<p>后五组里最值得背的是：\(\int \dfrac{\mathrm{d}x}{a^2+x^2}=\dfrac{1}{a}\arctan\dfrac{x}{a}+C\)、\(\int \dfrac{\mathrm{d}x}{\sqrt{a^2-x^2}}=\arcsin\dfrac{x}{a}+C\)（\(a&gt;0\)），以及降幂公式 \(\sin^2 x=\dfrac{1-\cos 2x}{2}\)、\(\cos^2 x=\dfrac{1+\cos 2x}{2}\)——书里说记 2 次方即可，3 次方不用背。第⑨条 \(\int \sqrt{a^2-x^2}\,\mathrm{d}x=\dfrac{a^2}{2}\arcsin\dfrac{x}{a}+\dfrac{x}{2}\sqrt{a^2-x^2}+C\) 会在例9.3 里现场推一遍。</p>
+<h3>二、凑微分法</h3>
+<p>核心思想一句话：把被积函数的一部分放进 \(\mathrm{d}\) 后面，若能凑成 \(\int f(u)\,\mathrm{d}u\) 落入基本公式，就成功了。</p>
+<p>\[\int f[g(x)]g'(x)\,\mathrm{d}x=\int f[g(x)]\,\mathrm{d}[g(x)]=\int f(u)\,\mathrm{d}u\quad(u=g(x)).\]</p>
+<p>比如 \(\displaystyle\int\frac{\ln^5 x}{x}\mathrm{d}x=\int\ln^5 x\,\mathrm{d}(\ln x)=\frac{\ln^6 x}{6}+C\)。书里注 2 整理了 13 条常用凑微分公式，这是基本功，我建议按"谁求导是剩下的那块"来记，不用死背。</p>
+<figure class="shot"><img src="../assets/img/L09-003.webp" alt="原书 常用凑微分公式(注2) · 印P280" loading="lazy" width="1041" height="1281"><figcaption>原书 常用凑微分公式(注2) · 印P280</figcaption></figure>
+<h3>三、换元法</h3>
+<p>适用于被积函数里带根式、反三角函数这类"不好积"的家伙。设 \(x=g(u)\)，则 \(\int f(x)\,\mathrm{d}x=\int f[g(u)]g'(u)\,\mathrm{d}u\)；注意 \(g(u)\) 须单调可导，算完要用 \(u=g^{-1}(x)\) 回代。常用换元有五种，书里印 P282 一张图全总结：</p>
+<ul>
+<li>三角代换：\(\sqrt{a^2-x^2}\) 令 \(x=a\sin t\)；\(\sqrt{a^2+x^2}\) 令 \(x=a\tan t\)；\(\sqrt{x^2-a^2}\) 令 \(x=a\sec t\)；</li>
+<li>恒等变形后三角代换：\(\sqrt{ax^2+bx+c}\) 先配方成 \(\sqrt{\varphi^2(x)\pm k^2}\) 或 \(\sqrt{k^2-\varphi^2(x)}\)；</li>
+<li>根式代换（书里标了三星）：含 \(\sqrt[n]{ax+b}\) 就令 \(\sqrt[n]{ax+b}=t\)，既含 \(\sqrt[n]{\ }\) 又含 \(\sqrt[m]{\ }\) 时取最小公倍数 \(l\)，令 \(\sqrt[l]{ax+b}=t\)；</li>
+<li>倒代换：分母的幂次比分子高两次及以上时令 \(x=\dfrac{1}{t}\)，但书里也提醒未必一定用；</li>
+<li>复杂函数直接代换：含 \(\ln x\)、\(\arcsin x\)、\(\arctan x\)、\(a^x\)、\(\mathrm{e}^x\) 可直接令其为 \(t\)；不过它们与多项式 \(P_n(x)\) 或 \(\mathrm{e}^{ax}\) 相乘时优先考虑分部积分法。</li>
+</ul>
+<figure class="shot"><img src="../assets/img/L09-004.webp" alt="原书 换元法：三角代换/根式代换/倒代换 · 印P282" loading="lazy" width="1100" height="1122"><figcaption>原书 换元法：三角代换/根式代换/倒代换 · 印P282</figcaption></figure>
+<p>例9.3 用 \(x=a\sin t\) 推了 \(\int \sqrt{a^2-x^2}\,\mathrm{d}x=a^2\int\cos^2 t\,\mathrm{d}t=\dfrac{a^2}{2}t+\dfrac{a^2}{4}\sin 2t+C\)，回代后就是公式⑨，记结论考场直接用。</p>
+<h3>四、分部积分法</h3>
+<p>\[\int u\,\mathrm{d}v=uv-\int v\,\mathrm{d}u.\]</p>
+<p>u,v 怎么选：口诀"反、对、幂、指、三"（arcsin/ln、幂、e^x、sin），排左边的做 \(u\)（求导），排右边的做 \(v\)（积分）。对应三类典型形式：\(P_n(x)\mathrm{e}^{kx}\)、\(P_n(x)\sin ax\)、\(P_n(x)\cos ax\) 取 \(u=P_n(x)\)；\(\mathrm{e}^{ax}\sin bx\) 这类 \(u\) 任取；\(P_n(x)\ln x\)、\(P_n(x)\arcsin x\)、\(P_n(x)\arctan x\) 取反三角或对数做 \(u\)。</p>
+<figure class="shot"><img src="../assets/img/L09-005.webp" alt="原书 分部积分法与 u,v 选取原则 · 印P283" loading="lazy" width="1100" height="1208"><figcaption>原书 分部积分法与 u,v 选取原则 · 印P283</figcaption></figure>
+<p>对付 \(P_n(x)\mathrm{e}^{kx}\) 型还有个机械化的推广公式（表格法）：\(u\) 各阶导数与 \(v^{(n+1)}\) 的各阶原函数"左上右下错位相乘"，符号 \(+、-\) 相间，最后补 \(\int u^{(n+1)}v\,\mathrm{d}x\)：</p>
+<p>\[\int uv^{(n+1)}\mathrm{d}x=uv^{(n)}-u'v^{(n-1)}+u''v^{(n-2)}-\cdots+(-1)^n u^{(n)}v+(-1)^{n+1}\int u^{(n+1)}v\,\mathrm{d}x.\]</p>
+<p>书里用 \(\int (x^3+2x+6)\mathrm{e}^{2x}\mathrm{d}x=\left(\dfrac{x^3}{2}-\dfrac{3x^2}{4}+\dfrac{7x}{4}+\dfrac{17}{8}\right)\mathrm{e}^{2x}+C\) 演示了整个表格。</p>
+<figure class="shot"><img src="../assets/img/L09-006.webp" alt="原书 分部积分法的推广公式（表格法） · 印P284" loading="lazy" width="1100" height="1555"><figcaption>原书 分部积分法的推广公式（表格法） · 印P284</figcaption></figure>
+<p>再补一个巧用：例9.7 的 \(\int \mathrm{e}^{2x}(\tan x+1)^2\mathrm{d}x\)，展开成 \(\sec^2 x+2\tan x\) 后分部，会出现两个正负相反的 \(\int \mathrm{e}^{2x}\tan x\,\mathrm{d}x\) 直接相消，答案 \(\mathrm{e}^{2x}\tan x+C\)。</p>
+<h3>五、有理函数的积分</h3>
+<p>形如 \(\displaystyle\int\frac{P_n(x)}{Q_m(x)}\mathrm{d}x\)：\(n&lt;m\) 是真分式，直接拆；\(n\ge m\) 是假分式，先多项式除法化成"多项式 + 真分式"（如 \(\dfrac{x^2}{x+1}=x-1+\dfrac{1}{x+1}\)）。拆法的四条规则见截图：一次单因式给一项，\(k\) 重一次因式给 \(k\) 项，二次单因式（\(q^2-4pr&lt;0\)）给一项 \(\dfrac{Ax+B}{px^2+qx+r}\)，\(k\) 重二次因式给 \(k\) 项。</p>
+<figure class="shot"><img src="../assets/img/L09-007.webp" alt="原书 有理函数·最简分式的四条拆法 · 印P287" loading="lazy" width="1100" height="566"><figcaption>原书 有理函数·最简分式的四条拆法 · 印P287</figcaption></figure>
+<p>定系数有两种办法：比较同次幂系数（解方程组，死板）和赋值法（代根、代 \(x=0\)，快），例9.8 里两种都做了。分母是二次因式时常用"分子凑 \(k(\text{分母})'+\text{常数}\)"，如例9.10 的 \(\displaystyle\int\frac{2x+3}{x^2-x+1}\mathrm{d}x=\ln(x^2-x+1)+\frac{8\sqrt{3}}{3}\arctan\frac{2x-1}{\sqrt{3}}+C\)。</p>
+<h3>六、三角函数有理式</h3>
+<p>形如 \(R(\sin x,\cos x)\)。兜底方案是万能公式 \(t=\tan\dfrac{x}{2}\)：\(\sin x=\dfrac{2t}{1+t^2}\)，\(\cos x=\dfrac{1-t^2}{1+t^2}\)，\(\mathrm{d}x=\dfrac{2\,\mathrm{d}t}{1+t^2}\)，一定化成有理函数，但计算量大。先看三个判定能不能凑微分省事：\(R(-\sin x,\cos x)=-R\) 时令 \(\cos x=t\)；\(R(\sin x,-\cos x)=-R\) 时令 \(\sin x=t\)；\(R(-\sin x,-\cos x)=R\) 时令 \(\tan x=t\)。</p>
+<figure class="shot"><img src="../assets/img/L09-008.webp" alt="原书 三角函数有理式：万能公式与凑微分判定 · 印P289" loading="lazy" width="1100" height="608"><figcaption>原书 三角函数有理式：万能公式与凑微分判定 · 印P289</figcaption></figure>
+<h3>七、定积分的计算</h3>
+<p>牛顿–莱布尼茨公式 \(\displaystyle\int_a^b f(x)\mathrm{d}x=F(b)-F(a)\)。推广（书里标星）也常考：\(f\) 在 \([a,b]\) 上分段有原函数（\([a,c)\) 上 \(F_1\)，\((c,b]\) 上 \(F_2\)），则分两段相加 \(F_1(c-0)-F_1(a)+F_2(b)-F_2(c+0)\)；两个单侧极限都存在才收敛。</p>
+<figure class="shot"><img src="../assets/img/L09-009.webp" alt="原书 牛顿–莱布尼茨公式及其推广 · 印P290" loading="lazy" width="1100" height="1208"><figcaption>原书 牛顿–莱布尼茨公式及其推广 · 印P290</figcaption></figure>
+<p>定积分换元要"三换"：被积函数换 \(f(x)\to f[\varphi(t)]\)、\(\mathrm{d}x\to\varphi'(t)\mathrm{d}t\)、上下限换 \(\int_a^b\to\int_\alpha^\beta\)，缺一不可。分部积分公式带上限 \(u(x)v(x)\big|_a^b\)。常考的诱导互化：令 \(x=\dfrac{\pi}{2}\pm t\)，则 \(\sin(\dfrac{\pi}{2}\pm t)=\cos t\)，\(\cos(\dfrac{\pi}{2}\pm t)=\mp\sin t\)。下面是定积分最值钱的三个结论包：</p>
+<figure class="shot"><img src="../assets/img/L09-010.webp" alt="原书 定积分换元（三换）/分部 与 偶倍奇零·周期结论 · 印P291" loading="lazy" width="1100" height="1294"><figcaption>原书 定积分换元（三换）/分部 与 偶倍奇零·周期结论 · 印P291</figcaption></figure>
+<ul>
+<li>对称区间：\(f\) 连续偶函数 \(\int_{-a}^{a}f\,\mathrm{d}x=2\int_0^a f\,\mathrm{d}x\)（偶倍），奇函数则为 0（奇零）；</li>
+<li>周期：\(f\) 以 \(T\) 为周期连续，则 \(\int_a^{a+T}f\,\mathrm{d}x=\int_0^T f\,\mathrm{d}x\)，与区间起点无关；</li>
+<li>区间再现：\(\int_a^b f(x)\mathrm{d}x=\int_a^b f(a+b-x)\mathrm{d}x\)。若 \(f(x)\) 复杂而 \(f(x)+f(a+b-x)\) 简单，就取平均，如 \(\displaystyle\int_0^{\frac{\pi}{4}}\ln(1+\tan x)\mathrm{d}x=\frac{\pi}{8}\ln 2\)。</li>
+</ul>
+<figure class="shot"><img src="../assets/img/L09-011.webp" alt="原书 区间再现公式与华里士（点火）公式 · 印P292" loading="lazy" width="1011" height="1226"><figcaption>原书 区间再现公式与华里士（点火）公式 · 印P292</figcaption></figure>
+<p>华里士公式（点火公式），背 0 到 \(\frac{\pi}{2}\) 这条就够，其余靠对称推：</p>
+<p>\[\int_0^{\frac{\pi}{2}}\sin^n x\,\mathrm{d}x=\int_0^{\frac{\pi}{2}}\cos^n x\,\mathrm{d}x=
+\begin{cases}
+\dfrac{n-1}{n}\cdot\dfrac{n-3}{n-2}\cdots\dfrac{2}{3}\cdot 1, &amp; n\ \text{为大于}1\text{的奇数},\\[3mm]
+\dfrac{n-1}{n}\cdot\dfrac{n-3}{n-2}\cdots\dfrac{1}{2}\cdot\dfrac{\pi}{2}, &amp; n\ \text{为正偶数}.
+\end{cases}\]</p>
+<p>\(\int_0^{\pi}\sin^n x\,\mathrm{d}x\) 是它的 2 倍；\(\int_0^{\pi}\cos^n x\,\mathrm{d}x\) 当 \(n\) 为奇数时是 0、偶数时同 2 倍；\(\int_0^{2\pi}\) 上奇数为 0、偶数为 4 倍。书里的示范：\(\displaystyle\int_0^{\frac{\pi}{2}}\sin^8x\,\mathrm{d}x=\frac{7}{8}\cdot\frac{5}{6}\cdot\frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2}=\frac{35\pi}{256}\)，\(\displaystyle\int_0^{\pi}\sin^9x\,\mathrm{d}x=2\cdot\frac{8}{9}\cdot\frac{6}{7}\cdot\frac{4}{5}\cdot\frac{2}{3}\cdot 1=\frac{256}{315}\)。</p>
+<h3>八、变限积分的计算</h3>
+<p>求导公式（\(f\) 连续，\(\varphi_1,\varphi_2\) 可导且值域落在 \([a,b]\) 内）：</p>
+<p>\[F'(x)=\frac{\mathrm{d}}{\mathrm{d}x}\left[\int_{\varphi_1(x)}^{\varphi_2(x)}f(t)\,\mathrm{d}t\right]=f[\varphi_2(x)]\varphi_2'(x)-f[\varphi_1(x)]\varphi_1'(x).\]</p>
+<p>书里注得很清楚：\(x\) 是"求导变量"、\(t\) 是"积分变量"，被积函数里只含 \(t\) 才能直接求导；混进了 \(x\) 必须先恒等变形（换元）移出去，如 \(f(xt)\) 中令 \(xt=u\)，把 \(x\) 当常量。</p>
+<figure class="shot"><img src="../assets/img/L09-012.webp" alt="原书 变限积分求导公式 · 印P296" loading="lazy" width="1100" height="783"><figcaption>原书 变限积分求导公式 · 印P296</figcaption></figure>
+<p>三条重要结论（考研常客，注意"可积"就够了，"连续"才能谈原函数）：奇函数的变限积分 \(\int_0^x f(t)\mathrm{d}t\) 是偶函数，且连续奇函数的全体原函数都是偶函数；偶函数的 \(\int_0^x f(t)\mathrm{d}t\) 是奇函数，连续偶函数的原函数中仅有这一个奇函数；周期函数的 \(\int_0^x f(t)\mathrm{d}t\) 以 \(T\) 为周期 \(\Leftrightarrow \int_0^T f(x)\mathrm{d}x=0\)，而 \(\int_a^x f(t)\mathrm{d}t=\int_a^0+\int_0^x\) 恒为周期函数。</p>
+<figure class="shot"><img src="../assets/img/L09-013.webp" alt="原书 变限积分的重要结论（奇偶性/周期性） · 印P298" loading="lazy" width="1100" height="1066"><figcaption>原书 变限积分的重要结论（奇偶性/周期性） · 印P298</figcaption></figure>
+<h3>九、反常积分的计算</h3>
+<p>先做的事只有一件：找奇点，端点要查，区间内部的更要查（书里特意圈了"内部"，例9.26 的 \(x=1\) 就藏在中间）。有绝对值就拆区间去绝对值，瑕点处取极限。另一个好用的事实：在收敛的条件下，换元可以让反常积分与定积分互相转化，如例9.27 用 \(x-1=\sec\theta\) 把无穷限积分化成了定积分。</p>
+<p>Γ 函数是反常积分的外挂：\(\Gamma(\alpha)=\displaystyle\int_0^{+\infty}x^{\alpha-1}\mathrm{e}^{-x}\mathrm{d}x\)（\(\alpha&gt;0\) 时收敛），满足 \(\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\)，\(\Gamma(1)=1\)，\(\Gamma(\tfrac12)=\sqrt{\pi}\)，于是 \(\Gamma(n+1)=n!\)，\(\Gamma(\tfrac52)=\dfrac32\cdot\dfrac12\cdot\sqrt{\pi}=\dfrac{3\sqrt{\pi}}{4}\)。</p>
+<h2>典型例题精讲</h2>
+<figure class="shot"><img src="../assets/img/L09-014.webp" alt="原书 例9.2 · 印P281" loading="lazy" width="1100" height="617"><figcaption>原书 例9.2 · 印P281</figcaption></figure>
+<p><strong>思路</strong> 这题不匹配任何一条常用凑微分公式。书里给的一般套路：对被积函数的复杂部分 \(g(\theta)=\dfrac{\sin\theta}{\cos\theta+\sin\theta}\) 求导，若恰好等于剩下的因子，就能凑成 \(\int \mathrm{e}^g\,\mathrm{d}g\)。</p>
+<p><strong>要点</strong> 求导验证：</p>
+<p>\[\left(\frac{\sin\theta}{\cos\theta+\sin\theta}\right)'=\frac{\cos\theta(\cos\theta+\sin\theta)-\sin\theta(-\sin\theta+\cos\theta)}{(\cos\theta+\sin\theta)^2}=\frac{1}{(\cos\theta+\sin\theta)^2},\]</p>
+<p>于是 原式 \(=\displaystyle\int \mathrm{e}^{\frac{\sin\theta}{\cos\theta+\sin\theta}}\,\mathrm{d}\!\left(\frac{\sin\theta}{\cos\theta+\sin\theta}\right)=\mathrm{e}^{\frac{\sin\theta}{\cos\theta+\sin\theta}}+C\)。</p>
+<p><strong>注</strong> 书里标注"真题中大题最后一步"，即 \(\int f(x)g(x)\mathrm{d}x\) 中若 \(g'(x)=f(x)\)，就写 \(\int g(x)\,\mathrm{d}[g(x)]\)。</p>
+<figure class="shot"><img src="../assets/img/L09-015.webp" alt="原书 例9.4 · 印P285" loading="lazy" width="873" height="608"><figcaption>原书 例9.4 · 印P285</figcaption></figure>
+<p><strong>思路</strong> 带根号且根号内无平方项，整体代换：令 \(u=\sqrt{\mathrm{e}^x-1}\)，则 \(x=\ln(1+u^2)\)，\(\mathrm{d}x=\dfrac{2u}{1+u^2}\mathrm{d}u\)。</p>
+<p><strong>要点</strong> </p>
+<p>\[\int\frac{x\mathrm{e}^x}{\sqrt{\mathrm{e}^x-1}}\mathrm{d}x=2\int\ln(1+u^2)\mathrm{d}u=2u\ln(1+u^2)-\int\frac{4u^2}{1+u^2}\mathrm{d}u=2u\ln(1+u^2)-4u+4\arctan u+C,\]</p>
+<p>回代得 \(2x\sqrt{\mathrm{e}^x-1}-4\sqrt{\mathrm{e}^x-1}+4\arctan\sqrt{\mathrm{e}^x-1}+C\)。</p>
+<p><strong>注</strong> 换元 + 分部的组合拳；书里分析还有一句口诀"\(\triangle\mathrm{d}x\to\nabla\mathrm{d}x\)"：难求的部分先放着，先把容易处理的因子送进 \(\mathrm{d}\) 里。</p>
+<figure class="shot"><img src="../assets/img/L09-016.webp" alt="原书 例9.5 及注 · 印P285" loading="lazy" width="1100" height="1070"><figcaption>原书 例9.5 及注 · 印P285</figcaption></figure>
+<p><strong>思路</strong> 分母是 \((1+x^2)^{3/2}\)，根号内有平方项，三角代换 \(x=\tan t\)。</p>
+<p><strong>要点</strong> 换元后化为 \(\int \mathrm{e}^t\sin t\,\mathrm{d}t\)。分部一次后右边重现自身：</p>
+<p>\[\int \mathrm{e}^t\sin t\,\mathrm{d}t=-\mathrm{e}^t\cos t+\mathrm{e}^t\sin t-\int \mathrm{e}^t\sin t\,\mathrm{d}t,\]</p>
+<p>移项解出 \(=\dfrac{1}{2}\mathrm{e}^t(\sin t-\cos t)+C\)。回代 \(t=\arctan x\)，\(\sin t=\dfrac{x}{\sqrt{1+x^2}}\)，\(\cos t=\dfrac{1}{\sqrt{1+x^2}}\)，故原式 \(=\dfrac{(x-1)\,\mathrm{e}^{\arctan x}}{2\sqrt{1+x^2}}+C\)。</p>
+<p><strong>注</strong> 书里说"分部积分可能会建立求积分的过程"——出现自身别慌，移项。截图下方给了可直接套的公式：\(\displaystyle\int\mathrm{e}^{ax}\sin bx\,\mathrm{d}x=\frac{\mathrm{e}^{ax}(a\sin bx-b\cos bx)}{a^2+b^2}+C\)，\(\displaystyle\int\mathrm{e}^{ax}\cos bx\,\mathrm{d}x=\frac{\mathrm{e}^{ax}(a\cos bx+b\sin bx)}{a^2+b^2}+C\)。</p>
+<figure class="shot"><img src="../assets/img/L09-017.webp" alt="原书 例9.8 · 印P288" loading="lazy" width="1100" height="1323"><figcaption>原书 例9.8 · 印P288</figcaption></figure>
+<p><strong>思路</strong> 有理函数：设 \(\dfrac{4x^2-6x-1}{(x+1)(2x-1)^2}=\dfrac{A}{x+1}+\dfrac{B}{2x-1}+\dfrac{C}{(2x-1)^2}\)，通分后分子恒等。</p>
+<p><strong>要点</strong> \(4x^2-6x-1\equiv A(2x-1)^2+B(x+1)(2x-1)+C(x+1)\)。赋值法：令 \(x=-1\)，\(9=9A\)，\(A=1\)；令 \(x=\dfrac12\)，\(-3=\dfrac32C\)，\(C=-2\)；令 \(x=0\)，\(-1=A-B+C\)，\(B=0\)（与展开比较系数法结果一致）。于是</p>
+<p>\[\int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}\mathrm{d}x=\int\frac{\mathrm{d}x}{x+1}-\int\frac{2\,\mathrm{d}x}{(2x-1)^2}=\ln|x+1|+\frac{1}{2x-1}+C_1.\]</p>
+<p><strong>注</strong> 书里原话：比较系数法"比较死板，且解系数满足的方程组有时较繁琐"，赋值代定系数是首选。</p>
+<figure class="shot"><img src="../assets/img/L09-018.webp" alt="原书 例9.13 · 印P293" loading="lazy" width="1100" height="616"><figcaption>原书 例9.13 · 印P293</figcaption></figure>
+<p><strong>思路</strong> 偶函数先折半；\(\sqrt{1-x^2}\) 根号内有平方项，令 \(x=\sin t\)，取 \(t\in[0,\frac{\pi}{2}]\)。</p>
+<p><strong>要点</strong> </p>
+<p>\[\int_{-1}^{1}x^2\sqrt{1-x^2}\,\mathrm{d}x=2\int_0^{\frac{\pi}{2}}\sin^2t\cos^2t\,\mathrm{d}t=2\left(\int_0^{\frac{\pi}{2}}\sin^2t\,\mathrm{d}t-\int_0^{\frac{\pi}{2}}\sin^4t\,\mathrm{d}t\right)=2\left(\frac12\cdot\frac{\pi}{2}-\frac34\cdot\frac12\cdot\frac{\pi}{2}\right)=\frac{\pi}{8}.\]</p>
+<p><strong>注</strong> 书里注：换元后上下限取法不唯一（\(x=0\) 可取 \(t=0,\pm\pi,\pm2\pi,\cdots\)），但 \(\sqrt{1-x^2}=|\cos t|\) 的绝对值处理有简有繁，选 \(t\in[0,\frac{\pi}{2}]\) 别自找麻烦。</p>
+<figure class="shot"><img src="../assets/img/L09-019.webp" alt="原书 例9.18 · 印P295" loading="lazy" width="1100" height="588"><figcaption>原书 例9.18 · 印P295</figcaption></figure>
+<p><strong>思路</strong> \(x f(\sin x)\) 在 \([0,\pi]\) 上难算，区间再现：令 \(x=\pi-t\)。</p>
+<p><strong>要点</strong> 记 \(I=\displaystyle\int_0^{\pi}xf(\sin x)\mathrm{d}x\)，换元得 \(I=\displaystyle\int_0^{\pi}(\pi-x)f(\sin x)\mathrm{d}x=\pi\int_0^{\pi}f(\sin x)\mathrm{d}x-I\)，故 \(I=\dfrac{\pi}{2}\displaystyle\int_0^{\pi}f(\sin x)\mathrm{d}x\)。取 \(f(u)=u^9\)：</p>
+<p>\[\int_0^{\pi}x\sin^9x\,\mathrm{d}x=\frac{\pi}{2}\int_0^{\pi}\sin^9x\,\mathrm{d}x=\pi\times\frac{8}{9}\times\frac{6}{7}\times\frac{4}{5}\times\frac{2}{3}=\frac{128\pi}{315}.\]</p>
+<p><strong>注</strong> 其中 \(\int_0^{\pi}\sin^9x\,\mathrm{d}x=2\cdot\frac{8}{9}\cdot\frac{6}{7}\cdot\frac{4}{5}\cdot\frac{2}{3}\cdot 1\) 用的就是点火公式，两招连招是常见组合。</p>
+<figure class="shot"><img src="../assets/img/L09-020.webp" alt="原书 例9.20 · 印P296" loading="lazy" width="1100" height="414"><figcaption>原书 例9.20 · 印P296</figcaption></figure>
+<p><strong>思路</strong> 求法线方程三步：确认点在曲线上，求切线斜率（变限积分求导），取负倒数。</p>
+<p><strong>要点</strong> \((0,0)\) 显然在曲线 \(y=\displaystyle\int_0^{\sin x}\mathrm{e}^{t^2}\mathrm{d}t\) 上。\(y'=\mathrm{e}^{\sin^2x}\cdot\cos x\)，\(y'\big|_{x=0}=1\)，切线斜率 \(k=1\)，法线斜率 \(-\dfrac{1}{k}=-1\)，法线方程 \(y=-x\)，选 (D)。</p>
+<p><strong>注</strong> 变限积分求导在这里就是"上限代入再乘上限导数"，没有多余动作。</p>
+<figure class="shot"><img src="../assets/img/L09-021.webp" alt="原书 例9.26 · 印P300" loading="lazy" width="975" height="913"><figcaption>原书 例9.26 · 印P300</figcaption></figure>
+<p><strong>思路</strong> 被积函数带绝对值，且 \(x=1\) 是区间内部的瑕点（\(\lim_{x\to1}\frac{1}{\sqrt{|x-x^2|}}=\infty\)），必须拆区间去绝对值。</p>
+<p><strong>要点</strong> </p>
+<p>\[\int_{\frac12}^{\frac32}\frac{\mathrm{d}x}{\sqrt{|x-x^2|}}=\int_{\frac12}^{1}\frac{\mathrm{d}x}{\sqrt{x-x^2}}+\int_{1}^{\frac32}\frac{\mathrm{d}x}{\sqrt{x^2-x}}=\frac{\pi}{2}+\ln(2+\sqrt{3}).\]</p>
+<p>第一段配方成 \(\sqrt{\frac14-(x-\frac12)^2}\) 用 arcsin，第二段配方成 \(\sqrt{(x-\frac12)^2-\frac14}\) 用对数，\(x=1\) 处都取极限。</p>
+<p><strong>注</strong> 反常积分第一步永远是找奇点，端点和内部都查；漏了内部瑕点直接按定积分算就错了。</p>
+<figure class="shot"><img src="../assets/img/L09-022.webp" alt="原书 例9.28 与 Γ 函数注 · 印P301" loading="lazy" width="1088" height="983"><figcaption>原书 例9.28 与 Γ 函数注 · 印P301</figcaption></figure>
+<p><strong>思路</strong> \(I_n=\displaystyle\int_0^{+\infty}x^n\mathrm{e}^{-x}\mathrm{d}x\) 中 \(n\) 在变，用分部积分建立递推 \(I_n=f(I_{n-1})\)。</p>
+<p><strong>要点</strong> \(I_n=-\displaystyle\int_0^{+\infty}x^n\mathrm{d}(\mathrm{e}^{-x})=(-x^n\mathrm{e}^{-x})\Big|_0^{+\infty}+n\int_0^{+\infty}x^{n-1}\mathrm{e}^{-x}\mathrm{d}x=nI_{n-1}\)（其中 \(\lim_{x\to+\infty}x^n\mathrm{e}^{-x}=0\)）。又 \(I_0=\displaystyle\int_0^{+\infty}\mathrm{e}^{-x}\mathrm{d}x=1\)，所以 \(I_n=n!=\)。比如 \(\displaystyle\int_0^{+\infty}x^3\mathrm{e}^{-x}\mathrm{d}x=3!=6\)。</p>
+<p><strong>注</strong> Γ 函数版本：\(\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\)，\(\Gamma(\tfrac12)=\sqrt{\pi}\)，\(\Gamma(n+1)=n!\)。例9.29 就用它秒算出 \(\displaystyle\int_0^{+\infty}x^2f(x)\mathrm{d}x=\frac32a^2\)（其中 \(f(x)=\dfrac{4x^2}{a^3\sqrt{\pi}}\mathrm{e}^{-x^2/a^2}\)，\(x&gt;0\)）。</p>
+<h2>易错点与技巧</h2>
+<ul>
+<li>凑微分放进 \(\mathrm{d}\) 后面的是"整体"：\(\int\sqrt{x}\,f(x^{3/2})\mathrm{d}x=\dfrac23\int f(x^{3/2})\,\mathrm{d}(x^{3/2})\)，系数 \(\frac23\) 别丢（印P279–280）。</li>
+<li>定积分换元"三换"：被积函数、\(\mathrm{d}x\)、上下限一起换，少一个就错（印P291）。</li>
+<li>三角代换回代时 \(\sqrt{1-\sin^2t}=|\cos t|\)：把 \(t\) 限制在主值区间（如 \([0,\frac{\pi}{2}]\)），绝对值自然去掉，处理最省事（印P293 注）。</li>
+<li>反常积分先找奇点，端点和区间内部都要查；内部的瑕点（例9.26 的 \(x=1\)）最容易漏（印P300）。</li>
+<li>原函数在区间内无定义时不能直接套牛顿–莱布尼茨公式，如 \(\int_0^{\frac{3\pi}{4}}\dfrac{\mathrm{d}x}{1+\cos^2x}\) 要在 \(x=\frac{\pi}{2}\) 处分段取极限（习题9.10，印P306）。</li>
+<li>被积函数里含"求导变量" \(x\) 时不能直接对变限积分求导，先换元移出去：\(f(xt)\) 令 \(xt=u\)，\(x\) 当常量（印P296 注）。</li>
+<li>\(\int_0^{\pi}\cos^nx\,\mathrm{d}x\) 当 \(n\) 为奇数时是 0，别和华里士公式里 \(\sin\) 的"永远加倍"混在一起（印P292）。</li>
+<li>有理函数定系数优先赋值法：代根、代 \(x=0\)，比重展开比较系数快得多（印P288）。</li>
+</ul>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">能默写 10 组基本积分公式，特别是 \(\int\sec x\,\mathrm{d}x=\ln|\sec x+\tan x|+C\) 和 \(\int\csc x\,\mathrm{d}x=\ln|\csc x-\cot x|+C\)</label></li>
+<li><label><input type="checkbox">会用两种角度处理 \(\int\tan x\,\mathrm{d}x\)：求导验证与凑微分</label></li>
+<li><label><input type="checkbox">能写出 13 条常用凑微分公式（从 \(\int x f(x^2)\mathrm{d}x=\frac12\int f(u)\mathrm{d}u\) 到 \(\int\frac{f(\arcsin x)}{\sqrt{1-x^2}}\mathrm{d}x\)）</label></li>
+<li><label><input type="checkbox">记住三大三角代换的对应关系：\(\sqrt{a^2-x^2}\)、\(\sqrt{a^2+x^2}\)、\(\sqrt{x^2-a^2}\) 各用什么代换</label></li>
+<li><label><input type="checkbox">会根式代换：含 \(\sqrt[n]{ax+b}\) 令其等于 \(t\)，双重根式取次数的最小公倍数</label></li>
+<li><label><input type="checkbox">说得出倒代换的适用条件：分母幂次比分子高两次及以上</label></li>
+<li><label><input type="checkbox">记住"反、对、幂、指、三"顺序，并能为 \(P_n\mathrm{e}^{kx}\)、\(\mathrm{e}^{ax}\sin bx\)、\(P_n\ln x\) 三类形式正确选 \(u\)</label></li>
+<li><label><input type="checkbox">会用表格法算 \(\int P_n(x)\mathrm{e}^{kx}\mathrm{d}x\)：错位相乘、符号相间、末项补积分</label></li>
+<li><label><input type="checkbox">会按四条规则把真分式拆成最简分式，并用赋值法定系数</label></li>
+<li><label><input type="checkbox">记住万能公式三个表达式，以及 \(R(-\sin,\cos)=-R\) 等三个凑微分判定</label></li>
+<li><label><input type="checkbox">会叙述牛顿–莱布尼茨公式的分段推广，并判断收敛与否</label></li>
+<li><label><input type="checkbox">定积分换元能自觉做到"三换"</label></li>
+<li><label><input type="checkbox">会用偶倍奇零与周期函数区间平移公式化简对称区间积分</label></li>
+<li><label><input type="checkbox">会推并会用区间再现公式 \(\int_a^b f(x)\mathrm{d}x=\int_a^b f(a+b-x)\mathrm{d}x\)</label></li>
+<li><label><input type="checkbox">会用华里士公式算 \(\int_0^{\pi/2}\)、\(\int_0^{\pi}\)、\(\int_0^{2\pi}\) 上的 \(\sin^nx\)、\(\cos^nx\)</label></li>
+<li><label><input type="checkbox">会用变限积分求导公式，且被积函数含 \(x\) 时知道先换元</label></li>
+<li><label><input type="checkbox">记住变限积分奇偶性结论：奇的原函数全偶，偶的原函数仅 \(\int_0^x\) 一个为奇</label></li>
+<li><label><input type="checkbox">记住周期函数结论：\(\int_0^x f(t)\mathrm{d}t\) 以 \(T\) 为周期 \(\Leftrightarrow \int_0^T f(x)\mathrm{d}x=0\)</label></li>
+<li><label><input type="checkbox">算反常积分前会先找奇点并拆区间，记住 \(\Gamma(\tfrac12)=\sqrt{\pi}\)、\(\Gamma(n+1)=n!\)</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong> 求不定积分 \(\displaystyle\int\frac{\arcsin\sqrt{x}}{\sqrt{x}}\,\mathrm{d}x\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 根号内无平方项，整体代换：令 \(\sqrt{x}=t\)，\(x=t^2\)，\(\mathrm{d}x=2t\,\mathrm{d}t\)，则</p>
+<p>\[原式=2\int\arcsin t\,\mathrm{d}t=2\left(t\arcsin t+\sqrt{1-t^2}\right)+C=2\sqrt{x}\arcsin\sqrt{x}+2\sqrt{1-x}+C.\]</p>
+<p>（对应习题9.5：先凑 \(\frac{\mathrm{d}x}{\sqrt{x}}=2\mathrm{d}(\sqrt{x})\)，再分部。）</p>
+</details>
+<p><strong>2.</strong> 用华里士公式计算 \(\displaystyle\int_0^{\frac{\pi}{2}}\cos^7x\,\mathrm{d}x\) 与 \(\displaystyle\int_0^{\pi}\sin^8x\,\mathrm{d}x\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(\displaystyle\int_0^{\frac{\pi}{2}}\cos^7x\,\mathrm{d}x=\frac{6}{7}\cdot\frac{4}{5}\cdot\frac{2}{3}\cdot 1=\frac{16}{35}\)。</p>
+<p>\(\displaystyle\int_0^{\pi}\sin^8x\,\mathrm{d}x=2\int_0^{\frac{\pi}{2}}\sin^8x\,\mathrm{d}x=2\cdot\frac{7}{8}\cdot\frac{5}{6}\cdot\frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2}=\frac{35\pi}{128}\)。</p>
+</details>
+<p><strong>3.</strong> 计算 \(I=\displaystyle\int_0^{\pi}\frac{x\sin x}{1+\cos^2x}\,\mathrm{d}x\)（习题9.12）。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 区间再现，令 \(x=\pi-t\)：</p>
+<p>\[I=\int_0^{\pi}\frac{(\pi-t)\sin t}{1+\cos^2t}\,\mathrm{d}t=\pi\int_0^{\pi}\frac{\sin t}{1+\cos^2t}\,\mathrm{d}t-I,\]</p>
+<p>故 \(I=\dfrac{\pi}{2}\displaystyle\int_0^{\pi}\frac{\sin t}{1+\cos^2t}\mathrm{d}t=-\dfrac{\pi}{2}\int_0^{\pi}\frac{\mathrm{d}(\cos t)}{1+\cos^2t}=-\dfrac{\pi}{2}\arctan(\cos t)\Big|_0^{\pi}=\dfrac{\pi^2}{4}\)。</p>
+</details>
+<p><strong>4.</strong> 设 \(f(x)=\displaystyle\int_1^{x^2}\mathrm{e}^{-t^2}\,\mathrm{d}t\)，计算 \(\displaystyle\int_0^1 x f(x)\,\mathrm{d}x\)（例9.19）。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(\mathrm{e}^{-t^2}\) 积不出来，先分部再求导：</p>
+<p>\[\int_0^1 x f(x)\,\mathrm{d}x=\frac{x^2}{2}f(x)\Big|_0^1-\int_0^1\frac{x^2}{2}f'(x)\,\mathrm{d}x.\]</p>
+<p>由 \(f(1)=\displaystyle\int_1^1\mathrm{e}^{-t^2}\mathrm{d}t=0\)，\(f'(x)=\mathrm{e}^{-x^4}\cdot 2x\)，得</p>
+<p>\[原式=-\int_0^1 x^3\mathrm{e}^{-x^4}\,\mathrm{d}x=\frac14\int_0^1\mathrm{e}^{-x^4}\,\mathrm{d}(-x^4)=\frac14\,\mathrm{e}^{-x^4}\Big|_0^1=\frac14\left(\mathrm{e}^{-1}-1\right).\]</p>
+</details>
+<p><strong>5.</strong> 计算 \(\displaystyle\int_0^{+\infty}x^4\mathrm{e}^{-x}\,\mathrm{d}x\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 记 \(I_n=\displaystyle\int_0^{+\infty}x^n\mathrm{e}^{-x}\mathrm{d}x\)，分部积分（\(\lim_{x\to+\infty}x^n\mathrm{e}^{-x}=0\)）得 \(I_n=nI_{n-1}\)，且 \(I_0=1\)，所以</p>
+<p>\[I_4=4\cdot 3\cdot 2\cdot 1\cdot I_0=4!=24.\]</p>
+<p>（即 \(\Gamma(5)=4!=24\)。）</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P277–P309</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

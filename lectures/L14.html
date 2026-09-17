@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>二重积分 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L13.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L15.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第14讲 · 二重积分</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P382–P418</p>
+<h2>本讲导读</h2>
+<p>这一讲考研基本以解答题形式出现，主线就三件事：把区域 \(D\) 画对、选好坐标系（直角还是极坐标）、用对称性省计算量。张宇在本讲标了三处硬骨头：对称性（书里直接写"必考题"）、极坐标定限、以及"被积函数积不出就交换积分次序"。定义、中值定理全是第 8 讲定积分的翻版，学之前把变限积分求导捡起来。另外"平面区域 \(D\) 大观"那十几页是画图素材库，图画不对后面全白搭，建议多画几遍。</p>
+<h2>知识框架</h2>
+<ul>
+<li>概念、性质与对称性</li>
+<li>概念：定义（分割、近似、求和、取极限）、几何意义（曲顶柱体）</li>
+<li>性质：区域面积、可积必有界、线性、可加、保号、估值定理、中值定理</li>
+<li>普通对称性：关于 \(y\) 轴、\(x\) 轴、原点、\(y=x\)，以及轴平移（\(x=a\)、\(y=a\)）推广</li>
+<li>轮换对称性</li>
+<li>计算</li>
+<li>直角坐标系：X 型 / Y 型累次积分、交换积分次序</li>
+<li>极坐标系：三换（\(\mathrm{d}\sigma=r\,\mathrm{d}r\,\mathrm{d}\theta\)）、极点在 \(D\) 外 / 边界上 / 内部三种公式</li>
+<li>极坐标与直角坐标的互相转化</li>
+<li>换元法（一般变换与 \(J\) 行列式）</li>
+<li>平面区域 \(D\) 大观：直线边界型、曲线边界型、极坐标方程型、参数方程型</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>1. 二重积分的定义</h3>
+<p>和定积分一个套路：分割、近似、求和、取极限，只是这次分割的是平面区域，小区面积 \(\Delta\sigma_i\) 替代了小区间长度 \(\Delta x_i\)：</p>
+<p>\[
+\iint_D f(x,y)\,\mathrm{d}\sigma=\lim_{\lambda\to 0}\sum_{i=1}^{n}f(\xi_i,\eta_i)\,\Delta\sigma_i,
+\]</p>
+<p>\(\lambda\) 是各小闭区域直径的最大值，极限存在与分法、取点均无关。注意 \(\mathrm{d}\sigma&gt;0\)，这点后面定限时（下限不能超过上限）要用。\(f\) 在有界闭区域 \(D\) 上连续，则二重积分一定存在。直观模型是平面薄板的质量：先分细，每小块近似认为密度恒定，求和取极限。</p>
+<figure class="shot"><img src="../assets/img/L14-001.webp" alt="原书 二重积分的定义 · 印P383" loading="lazy" width="1100" height="523"><figcaption>原书 二重积分的定义 · 印P383</figcaption></figure>
+<h3>2. 几何意义</h3>
+<p>\(f(x,y)\ge 0\) 时，二重积分是以 \(D\) 为底、\(z=f(x,y)\) 为顶的曲顶柱体体积；\(f\) 有正有负时，积分值等于 \(xOy\) 面上方柱体体积减去下方柱体体积——处理方式和定积分完全类似。</p>
+<figure class="shot"><img src="../assets/img/L14-002.webp" alt="原书 几何意义（曲顶柱体） · 印P384" loading="lazy" width="1100" height="476"><figcaption>原书 几何意义（曲顶柱体） · 印P384</figcaption></figure>
+<h3>3. 七条性质</h3>
+<p>照抄一元积分的性质，考得最多的是第 1、5、6、7 条：</p>
+<ul>
+<li>性质1（面积）：\(\displaystyle\iint_D 1\cdot\mathrm{d}\sigma=\iint_D \mathrm{d}\sigma=A\)，\(A\) 为 \(D\) 的面积；</li>
+<li>性质2：可积函数必有界；</li>
+<li>性质3（线性）：\(\displaystyle\iint_D [k_1f\pm k_2g]\,\mathrm{d}\sigma=k_1\iint_D f\,\mathrm{d}\sigma\pm k_2\iint_D g\,\mathrm{d}\sigma\)；</li>
+<li>性质4（可加）：\(D=D_1\cup D_2\)，\(D_1\cap D_2=\varnothing\) 时积分可拆；</li>
+<li>性质5（保号）：\(f\le g\)（在 \(D\) 上）\(\Rightarrow\iint_D f\,\mathrm{d}\sigma\le\iint_D g\,\mathrm{d}\sigma\)，特殊地 \(\left|\iint_D f\,\mathrm{d}\sigma\right|\le\iint_D|f|\,\mathrm{d}\sigma\)；</li>
+<li>性质6（估值）：\(mA\le\iint_D f\,\mathrm{d}\sigma\le MA\)，\(M,m\) 为 \(f\) 在 \(D\) 上的最大、最小值；</li>
+<li>性质7（中值定理）：\(f\) 连续时，存在 \((\xi,\eta)\in D\)，使 \(\iint_D f(x,y)\,\mathrm{d}\sigma=f(\xi,\eta)\,A\)。</li>
+</ul>
+<figure class="shot"><img src="../assets/img/L14-003.webp" alt="原书 二重积分的七条性质 · 印P384" loading="lazy" width="1100" height="1053"><figcaption>原书 二重积分的七条性质 · 印P384</figcaption></figure>
+<p>中值定理的公式栏写法是 \(\iint_D f\,\mathrm{d}\sigma=f(\xi,\eta)\cdot S_D\)。被积函数抽象或难算、又在收缩的区域上积分时，它是标配工具（见例 14.2）。</p>
+<h3>4. 普通对称性（书里标了"必考题"）</h3>
+<p>逻辑很简单：\(D\) 对称的两块上 \(\mathrm{d}\sigma\) 一样，把对称点代入函数，相等就取一半区域乘 2，相反就正负抵消为 0。口诀：<strong>看区域对称，代入验函数；相等取 2 倍，相反直接 0</strong>。</p>
+<ul>
+<li>\(D\) 关于 \(y\) 轴对称（\(D_1\) 为右半）：\(f(x,y)=f(-x,y)\Rightarrow\) 积分 \(=2\iint_{D_1}f\,\mathrm{d}\sigma\)；\(f(x,y)=-f(-x,y)\Rightarrow\) 积分 \(=0\)；</li>
+<li>\(D\) 关于 \(x\) 轴对称（\(D_1\) 为上半）：用 \(f(x,-y)\) 判断；</li>
+<li>\(D\) 关于原点对称：用 \(f(-x,-y)\) 判断；</li>
+<li>\(D\) 关于 \(y=x\) 对称：用 \(f(y,x)\) 判断；</li>
+<li>平移推广：\(D\) 关于 \(x=a\,(a\ne 0)\) 对称时对称点是 \((2a-x,\,y)\)，关于 \(y=a\) 对称时是 \((x,\,2a-y)\)，判断方式不变。</li>
+</ul>
+<figure class="shot"><img src="../assets/img/L14-004.webp" alt="原书 中值定理公式与普通对称性 · 印P387" loading="lazy" width="1100" height="713"><figcaption>原书 中值定理公式与普通对称性 · 印P387</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L14-005.webp" alt="原书 普通对称性①②与轴平移推广 · 印P388" loading="lazy" width="1100" height="1056"><figcaption>原书 普通对称性①②与轴平移推广 · 印P388</figcaption></figure>
+<h3>5. 轮换对称性</h3>
+<p>条件：直角坐标系下，把 \(x,y\) 对调后区域 \(D\) 不变（即 \(D\) 关于 \(y=x\) 对称），则</p>
+<p>\[
+\iint_D f(x,y)\,\mathrm{d}\sigma=\iint_D f(y,x)\,\mathrm{d}\sigma .
+\]</p>
+<p>道理：积分值与用什么字母表示无关，对调字母只是换了个写法。应用场景是 \(f(x,y)\) 本身难算、但 \(f(x,y)+f(y,x)\) 很简单：</p>
+<p>\[
+I=\iint_D f(x,y)\,\mathrm{d}\sigma=\frac{1}{2}\iint_D [f(x,y)+f(y,x)]\,\mathrm{d}\sigma .
+\]</p>
+<p>特别地，若 \(f(x,y)+f(y,x)=a\)（常数），则 \(I=\dfrac{a}{2}S_D\)。</p>
+<p>和普通对称性④别搞混：两者都要求 \(D\) 关于 \(y=x\) 对称，但普通对称性④看的是 \(f(x,y)\) 与 \(f(y,x)\) <strong>相等还是相反</strong>，轮换对称性看的是 \(f(x,y)+f(y,x)\) <strong>是否简单</strong>。当 \(f(x,y)=-f(y,x)\) 时两者是一回事。</p>
+<figure class="shot"><img src="../assets/img/L14-006.webp" alt="原书 轮换对称性 · 印P390" loading="lazy" width="1100" height="758"><figcaption>原书 轮换对称性 · 印P390</figcaption></figure>
+<p>书上配套的典型用法：\(D=\{(x,y)\mid x^2+y^2\le 1,\ x&gt;0,\ y&gt;0\}\) 时，</p>
+<p>\[
+\iint_D \frac{a\sqrt{f(x)}+b\sqrt{f(y)}}{\sqrt{f(x)}+\sqrt{f(y)}}\,\mathrm{d}\sigma
+=\frac{a+b}{2}\cdot\Bigl(\tfrac14\pi\cdot 1^2\Bigr)=\frac{(a+b)\pi}{8},
+\]</p>
+<p>对调后分式分子互换，与原式相加恰好凑出 \(a+b\)，再乘 \(D\) 的面积（四分之一圆）。</p>
+<h3>6. 直角坐标计算：X 型与 Y 型</h3>
+<p>直角坐标的标志是 \(\mathrm{d}\sigma=\mathrm{d}x\,\mathrm{d}y\)，用平行于坐标轴的直线切区域。定限口诀：<strong>后积先定限，限内画条线，先交写下限，后交写上限</strong>。</p>
+<ul>
+<li>X 型区域（\(\varphi_1(x)\le y\le\varphi_2(x),\ a\le x\le b\)，后积 \(x\)）：</li>
+</ul>
+<p>\[
+\iint_D f(x,y)\,\mathrm{d}\sigma=\int_a^b\mathrm{d}x\int_{\varphi_1(x)}^{\varphi_2(x)}f(x,y)\,\mathrm{d}y ;
+\]</p>
+<ul>
+<li>Y 型区域（\(\psi_1(y)\le x\le\psi_2(y),\ c\le y\le d\)，后积 \(y\)）：</li>
+</ul>
+<p>\[
+\iint_D f(x,y)\,\mathrm{d}\sigma=\int_c^d\mathrm{d}y\int_{\psi_1(y)}^{\psi_2(y)}f(x,y)\,\mathrm{d}x .
+\]</p>
+<p>因为 \(\mathrm{d}x&gt;0,\ \mathrm{d}y&gt;0\)，所有下限必须不超过上限；交换上下限要添负号。选次序的原则：\(f\) 易对 \(y\) 积分或 \(D\) 是 X 型，就先 \(y\) 后 \(x\)；\(f\) 易对 \(x\) 积分或 \(D\) 是 Y 型，就先 \(x\) 后 \(y\)。定限的关键是把 \(D\) 的边界图画出来；图不好画时，写出 \(D\) 的不等式组再定限。</p>
+<figure class="shot"><img src="../assets/img/L14-007.webp" alt="原书 X型与Y型的累次积分公式 · 印P392" loading="lazy" width="1100" height="855"><figcaption>原书 X型与Y型的累次积分公式 · 印P392</figcaption></figure>
+<h3>7. 交换积分次序与"积不出"清单</h3>
+<p>遇到下面这些积分，原函数不是初等函数，一律先交换积分次序再动手：</p>
+<p>\[
+\int\frac{\sin x}{x}\mathrm{d}x,\quad
+\int\frac{\cos x}{x}\mathrm{d}x,\quad
+\int\frac{\ln(1+x)}{x}\mathrm{d}x,\quad
+\int\frac{\mathrm{d}x}{\ln x},\quad
+\int\sin x^2\,\mathrm{d}x,\quad
+\int\cos x^2\,\mathrm{d}x,
+\]
+\[
+\int\sin\frac1x\,\mathrm{d}x,\quad
+\int\cos\frac1x\,\mathrm{d}x,\quad
+\int\frac{\tan x}{x}\mathrm{d}x,\quad
+\int\frac{\mathrm{e}^x}{x}\mathrm{d}x,\quad
+\int\tan x^2\,\mathrm{d}x,\quad
+\int\mathrm{e}^{ax^2+bx+c}\,\mathrm{d}x\ (a\ne 0).
+\]</p>
+<figure class="shot"><img src="../assets/img/L14-008.webp" alt="原书 没有初等原函数的常见积分 · 印P393" loading="lazy" width="1100" height="353"><figcaption>原书 没有初等原函数的常见积分 · 印P393</figcaption></figure>
+<h3>8. 极坐标计算（三换）</h3>
+<p>被积函数与区域都"中心对称"时上极坐标。三换：\(x=r\cos\theta\)，\(y=r\sin\theta\)，\(\mathrm{d}\sigma=r\,\mathrm{d}r\,\mathrm{d}\theta\)（近似看成小矩形，面积是 \(r\,\mathrm{d}r\,\mathrm{d}\theta\)，<strong>这个 \(r\) 最容易丢</strong>）。一般先积 \(r\) 后积 \(\theta\)。</p>
+<p>极点位置决定公式：</p>
+<p>\[
+\iint_D f\,\mathrm{d}\sigma=\int_{\alpha}^{\beta}\mathrm{d}\theta\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos\theta,\,r\sin\theta)\,r\,\mathrm{d}r
+\quad(\text{极点 } O \text{ 在 } D \text{ 外部})，
+\]</p>
+<p>\[
+\iint_D f\,\mathrm{d}\sigma=\int_{\alpha}^{\beta}\mathrm{d}\theta\int_{0}^{r(\theta)}f(r\cos\theta,\,r\sin\theta)\,r\,\mathrm{d}r
+\quad(\text{极点 } O \text{ 在 } D \text{ 边界上})，
+\]</p>
+<p>\[
+\iint_D f\,\mathrm{d}\sigma=\int_{0}^{2\pi}\mathrm{d}\theta\int_{0}^{r(\theta)}f(r\cos\theta,\,r\sin\theta)\,r\,\mathrm{d}r
+\quad(\text{极点 } O \text{ 在 } D \text{ 内部}) .
+\]</p>
+<p>定 \(\theta\) 的办法：从 \(Ox\) 轴逆时针出发，先碰到区域时记 \(\theta=\alpha\)（下限），离开区域时记 \(\theta=\beta\)（上限）；然后限内画条射线，先交的（内）曲线记 \(r=r_1(\theta)\)，后交的（外）曲线记 \(r=r_2(\theta)\)。</p>
+<figure class="shot"><img src="../assets/img/L14-009.webp" alt="原书 极坐标系下的计算方法 · 印P394" loading="lazy" width="1100" height="795"><figcaption>原书 极坐标系下的计算方法 · 印P394</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L14-010.webp" alt="原书 极点在边界上/内部的公式 · 印P395" loading="lazy" width="1100" height="228"><figcaption>原书 极点在边界上/内部的公式 · 印P395</figcaption></figure>
+<h3>9. 用极坐标还是直角坐标</h3>
+<p>书里给的两条判断依据：一看被积函数是否为 \(f(x^2+y^2)\)、\(f\!\left(\dfrac{y}{x}\right)\)、\(f\!\left(\dfrac{x}{y}\right)\) 等形式；二看积分区域是否为圆或圆的一部分。<strong>至少满足其一就优先极坐标，否则优先直角坐标</strong>——主要看被积函数那条。</p>
+<figure class="shot"><img src="../assets/img/L14-011.webp" alt="原书 极坐标与直角坐标的选择原则 · 印P395" loading="lazy" width="1100" height="355"><figcaption>原书 极坐标与直角坐标的选择原则 · 印P395</figcaption></figure>
+<h3>10. 换元法（供参考，能用直接用）</h3>
+<p>一般换元 \(x=x(u,v),\ y=y(u,v)\) 要求是一对一映射、有一阶连续偏导且雅可比行列式不为零，"三换"：换被积函数、换积分区域、换微元 \(\mathrm{d}x\,\mathrm{d}y\to\left|\dfrac{\partial(x,y)}{\partial(u,v)}\right|\mathrm{d}u\,\mathrm{d}v\)：</p>
+<p>\[
+\iint_{D_{xy}}f(x,y)\,\mathrm{d}x\,\mathrm{d}y
+=\iint_{D_{uv}}f[x(u,v),\,y(u,v)]\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\mathrm{d}u\,\mathrm{d}v .
+\]</p>
+<p>取 \(x=r\cos\theta,\ y=r\sin\theta\) 算出 \(|J|=r\)，就退回极坐标公式——所以极坐标只是换元法的特例。书上例 14.15 用 \(x+y=u,\ y=v\) 算 \(\iint_D \mathrm{e}^{y/(x+y)}\mathrm{d}\sigma\)（\(D\) 为三角形 \(0\le x\le 1-y,\ 0\le y\le 1\)），结果是 \(\dfrac{1}{2}(\mathrm{e}-1)\)，可以体会一下"头重脚轻"的指数怎么被换元拆掉。</p>
+<figure class="shot"><img src="../assets/img/L14-012.webp" alt="原书 二重积分换元法与J行列式 · 印P400" loading="lazy" width="1100" height="561"><figcaption>原书 二重积分换元法与J行列式 · 印P400</figcaption></figure>
+<h2>典型例题精讲</h2>
+<h3>例 14.1 同一函数在不同区域上比大小</h3>
+<figure class="shot"><img src="../assets/img/L14-013.webp" alt="原书 例14.1 · 印P385" loading="lazy" width="1100" height="673"><figcaption>原书 例14.1 · 印P385</figcaption></figure>
+<p><strong>思路</strong>：同一个被积函数在不同区域积分比大小，不用硬算，看被积函数的正负分区就行。
+<strong>要点</strong>：\(f=1-x^2-\frac12 y^2\ge 0\) 对应的区域恰好是 \(D_4\)（\(L_4:\ 2x^2+y^2=2\) 内部 \(x^2+\frac{y^2}{2}&lt;1\)）。\(D_1\subset D_4\)，故 \(I_1&lt;I_4\)；\(D_2\)、\(D_3\) 都比 \(D_4\) 多出使 \(f&lt;0\) 的部分（用可加性拆开看符号），故 \(I_2&lt;I_4\)，\(I_3&lt;I_4\)。所以 \(\max\{I_1,I_2,I_3,I_4\}=I_4\)，选 (D)。
+<strong>注</strong>：张宇这题的方法总结值得记——找让二重积分最大的区域，就是找被积函数大于等于零的区域。</p>
+<h3>例 14.2 动态区域 + 中值定理求导数</h3>
+<figure class="shot"><img src="../assets/img/L14-014.webp" alt="原书 例14.2 · 印P386" loading="lazy" width="1100" height="1028"><figcaption>原书 例14.2 · 印P386</figcaption></figure>
+<p><strong>思路</strong>：\(D(t)=\{(x,y)\mid 2x^2+3y^2\le 6t\}\) 随 \(t\) 收缩，求 \(F'_+(0)\) 用导数定义；\(\iint f\,\mathrm{d}\sigma\) 本身难算，用中值定理处理。
+<strong>要点</strong>：\(D(t)\) 是椭圆，面积 \(=\pi\sqrt{3t}\cdot\sqrt{2t}=\sqrt{6}\pi t\)。由中值定理存在 \((\xi,\eta)\in D(t)\)，使 \(F(t)=\sqrt{6}\pi t\,f(\xi,\eta)\)。于是</p>
+<p>\[
+F'_+(0)=\lim_{t\to 0^+}\frac{F(t)-F(0)}{t}=\sqrt{6}\pi f(0,0)=-\frac{\sqrt{6}\pi}{3},
+\]</p>
+<p>其中 \(f(0,0)=a=-\frac13\) 由 \(f\) 连续求得（书里引用例 13.2 的结果）。
+<strong>注</strong>：被积函数命制成抽象函数时同样这么办，书里的注给了一个 \(F(t)=\iint_{D(t)}f''_{xy}\,\mathrm{d}x\,\mathrm{d}y\) 求\(F'_+(0)\)的变式，答案是 0。</p>
+<h3>例 14.3 对称性定符号比大小</h3>
+<figure class="shot"><img src="../assets/img/L14-015.webp" alt="原书 例14.3 · 印P389" loading="lazy" width="1100" height="1098"><figcaption>原书 例14.3 · 印P389</figcaption></figure>
+<p><strong>思路</strong>：先画三个区域，再全靠对称性+\(\sqrt[3]{x-y}\) 的奇偶性判断每个积分的符号，不用算出数值。
+<strong>要点</strong>：\(D_1\) 是单位正方形，关于 \(y=x\) 对称，且 \(\sqrt[3]{x-y}=-\sqrt[3]{y-x}\)，故 \(J_1=0\)。\(D_2\) 本身不对称，作辅助线 \(y=x^2\) 分成对称的两块，对称部分积分为 0，剩下 \(D_{22}\) 上 \(\sqrt[3]{x-y}\ge 0\)，由保号性 \(J_2&gt;0\)；同理 \(D_3\) 作辅助线 \(y=\sqrt{x}\)，剩下部分上函数 \(\le 0\)，\(J_3&lt;0\)。综上 \(J_3&lt;J_1&lt;J_2\)，选 (B)。
+<strong>注</strong>：书里的方法总结原话——遇到二重积分的题目，首先应考虑对称性，看能否化简。</p>
+<h3>例 14.4 轮换对称性化简抽象积分</h3>
+<figure class="shot"><img src="../assets/img/L14-016.webp" alt="原书 例14.4 · 印P391" loading="lazy" width="1100" height="736"><figcaption>原书 例14.4 · 印P391</figcaption></figure>
+<p><strong>思路</strong>：\(D(x)\) 中 \(u,v\) 互换位置区域不变；\(g(u,v)=\dfrac{v\ln\sqrt{u^2+v^2}}{u+v}\) 与 \(g(v,u)\) 既不相等也不相反，但相加简单，考虑轮换对称性。
+<strong>要点</strong>：</p>
+<p>\[
+f(x)=\iint_{D(x)}\frac{v\ln\sqrt{u^2+v^2}}{u+v}\,\mathrm{d}u\,\mathrm{d}v
+=\frac12\iint_{D(x)}\ln\sqrt{u^2+v^2}\,\mathrm{d}u\,\mathrm{d}v
+=\frac14\iint_{D(x)}\ln(u^2+v^2)\,\mathrm{d}u\,\mathrm{d}v,
+\]</p>
+<p>选 (A)。
+<strong>注</strong>：判断顺序固定——先查普通对称性（相等/相反），不满足再看 \(f(x,y)+f(y,x)\) 是否简单。</p>
+<h3>例 14.5 交换积分次序（含反三角反解）</h3>
+<figure class="shot"><img src="../assets/img/L14-017.webp" alt="原书 例14.5 · 印P392" loading="lazy" width="1100" height="353"><figcaption>原书 例14.5 · 印P392</figcaption></figure>
+<p><strong>思路</strong>：题干后积 \(x\)、选项后积 \(y\)，先由给定的累次积分还原区域 \(D\)，再按新次序定限。
+<strong>要点</strong>：\(D=\{(x,y)\mid \sin x&lt;y&lt;1,\ \pi/2&lt;x&lt;\pi\}\)。后积 \(y\)：\(0\le y\le 1\)；左边界由 \(\pi/2&lt;x\le\pi\) 反解得 \(x=\pi-\arcsin y\)，右边界 \(x=\pi\)。所以</p>
+<p>\[
+\int_{\pi/2}^{\pi}\mathrm{d}x\int_{\sin x}^{1}f(x,y)\,\mathrm{d}y
+=\int_0^1\mathrm{d}y\int_{\pi-\arcsin y}^{\pi}f(x,y)\,\mathrm{d}x,
+\]</p>
+<p>选 (B)。
+<strong>注</strong>：在 \([\pi/2,\pi]\) 上反解 \(\sin x=y\) 要用 \(x=\pi-\arcsin y\) 而不是 \(\arcsin y\)，这里容易绕。</p>
+<h3>例 14.6 交换次序 + 等价无穷小定参数</h3>
+<figure class="shot"><img src="../assets/img/L14-018.webp" alt="原书 例14.6 · 印P393" loading="lazy" width="1100" height="697"><figcaption>原书 例14.6 · 印P393</figcaption></figure>
+<p><strong>思路</strong>：\(\dfrac{\sin\frac{y}{t}}{t}\) 对 \(t\) 积不出（无初等原函数），先交换积分次序；再算 \(f(x)\) 的等价无穷小与 \(ax^b\) 对照。
+<strong>要点</strong>：因为 \(0\le y\le x^2\) 时 \(\sqrt{y}\le x\)，内层先添负号变成 \(-\int_0^{x^2}\mathrm{d}y\int_{\sqrt y}^{x}\)，化为二重积分后交换次序：</p>
+<p>\[
+f(x)=-\iint_D\sin\frac{y}{t}\,\mathrm{d}\sigma
+=-\int_0^x\mathrm{d}t\int_0^{t^2}\sin\frac{y}{t}\,\mathrm{d}y
+=\int_0^x t(\cos t-1)\,\mathrm{d}t .
+\]</p>
+<p>由 \(\cos t-1\sim -\frac{t^2}{2}\) 得 \(f(x)\sim -\dfrac{x^4}{8}\)，即 \(a=-\frac18,\ b=4\)，故 \(ab=-\dfrac12\)。
+<strong>注</strong>：书中注 (2) 也直接给了这组常数 \(a=-\frac18,\ b=4\)；注 (1) 那张"积不出"清单建议整张背下来。</p>
+<h3>例 14.7 换序救"积不出"</h3>
+<figure class="shot"><img src="../assets/img/L14-019.webp" alt="原书 例14.7 · 印P394" loading="lazy" width="1100" height="418"><figcaption>原书 例14.7 · 印P394</figcaption></figure>
+<p><strong>思路</strong>：被积函数 \(\arcsin\sqrt{4x-4x^2}\) 只含 \(x\)，先对 \(x\) 积分很困难，交换积分次序。
+<strong>要点</strong>：区域是由 \(y=x\) 与 \(x=1\)、\(y=0\) 围成的三角形，换序后</p>
+<p>\[
+\text{原式}=\int_0^1\mathrm{d}x\int_0^x\arcsin\sqrt{4x-4x^2}\,\mathrm{d}y
+=\int_0^1 x\,\arcsin\sqrt{4x-4x^2}\,\mathrm{d}x=\frac12 .
+\]</p>
+<p><strong>注</strong>：书里顺手给了两个要记的公式：\(\displaystyle\int_0^1\arcsin\sqrt{1-x^2}\,\mathrm{d}x=1\)，\(\displaystyle\int_0^1 x\,\arcsin\sqrt{4x-4x^2}\,\mathrm{d}x=\frac12\)。</p>
+<h3>例 14.8 轮换对称性 + 极坐标（复习标杆之一）</h3>
+<figure class="shot"><img src="../assets/img/L14-020.webp" alt="原书 例14.8 · 印P395" loading="lazy" width="1100" height="578"><figcaption>原书 例14.8 · 印P395</figcaption></figure>
+<p><strong>思路</strong>：区域 \(D=\{x^2+y^2\le\sqrt2\}\) 是圆，但被积函数 \(x^2+\frac{y^2}{2}\) 不是平方和；\(x,y\) 互换 \(D\) 不变，先轮换对称性凑平方和，再上极坐标。
+<strong>要点</strong>：</p>
+<p>\[
+\iint_D\Bigl(x^2+\frac{y^2}{2}\Bigr)\mathrm{d}x\,\mathrm{d}y
+=\iint_D\Bigl(y^2+\frac{x^2}{2}\Bigr)\mathrm{d}x\,\mathrm{d}y
+=\frac12\Bigl(1+\frac12\Bigr)\iint_D(x^2+y^2)\,\mathrm{d}x\,\mathrm{d}y,
+\]</p>
+<p>极坐标下 \(\displaystyle\int_0^{2\pi}\mathrm{d}\theta\int_0^{2^{1/4}}r^3\,\mathrm{d}r=\pi\)，故原式 \(=\dfrac34\pi=\dfrac{3\pi}{4}\)。
+<strong>注</strong>：这就是"区域关于 \(y=x\) 对称，利用 \(\iint f\,\mathrm{d}\sigma=\frac12\iint[f(x,y)+f(y,x)]\,\mathrm{d}\sigma\)”的标准操作。</p>
+<h3>例 14.9 椭圆环域上的极坐标（书里的复习标杆）</h3>
+<figure class="shot"><img src="../assets/img/L14-021.webp" alt="原书 例14.9 解答 · 印P396" loading="lazy" width="1100" height="507"><figcaption>原书 例14.9 解答 · 印P396</figcaption></figure>
+<p><strong>思路</strong>：\(D\) 在第一象限，由 \(x^2+y^2-xy=1\)、\(x^2+y^2-xy=2\) 与 \(y=\sqrt3x\)、\(y=0\) 围成。边界方程 \(x,y\) 互换不变（关于 \(y=x\) 对称），曲线含 \(x^2+y^2\)，被积函数分母有平方和，用极坐标。
+<strong>要点</strong>：边界化为 \(r=\dfrac{1}{\sqrt{1-\cos\theta\sin\theta}}\) 与 \(r=\sqrt{\dfrac{2}{1-\cos\theta\sin\theta}}\)；由 \(y=\sqrt3x\) 得 \(\tan\theta=\sqrt3\)，即 \(\theta=\dfrac{\pi}{3}\)，另一条边是 \(\theta=0\)。于是</p>
+<p>\[
+\iint_D\frac{1}{3x^2+y^2}\,\mathrm{d}x\,\mathrm{d}y
+=\int_0^{\pi/3}\mathrm{d}\theta\int_{1/\sqrt{1-\cos\theta\sin\theta}}^{\sqrt{2/(1-\cos\theta\sin\theta)}}\frac{1}{r^2(3\cos^2\theta+\sin^2\theta)}\cdot r\,\mathrm{d}r
+\]</p>
+<p>\[
+=\frac{\ln 2}{2}\int_0^{\pi/3}\frac{\mathrm{d}\theta}{3\cos^2\theta+\sin^2\theta}
+=\frac{\ln 2}{2}\cdot\frac{1}{\sqrt3}\arctan\frac{\tan\theta}{\sqrt3}\Big|_0^{\pi/3}
+=\frac{\sqrt3\ln 2}{24}\pi .
+\]</p>
+<p><strong>注</strong>：书里注给了画这种"不常见曲线"的两个办法——描点法（与坐标轴、\(y=x\) 的交点连一圈）和二次型正交变换（划到线性代数）；考试时区域不好画，就按 \(D\) 的表达式直接定上下限。</p>
+<h3>例 14.11 高斯积分</h3>
+<figure class="shot"><img src="../assets/img/L14-022.webp" alt="原书 例14.11 · 印P397" loading="lazy" width="1100" height="767"><figcaption>原书 例14.11 · 印P397</figcaption></figure>
+<p><strong>思路</strong>：\(\mathrm{e}^{-x^2}\) 没有初等原函数，一维积不动；利用积分与字母无关，平方变成二重积分，再上极坐标。
+<strong>要点</strong>：设 \(I=\displaystyle\int_0^{+\infty}\mathrm{e}^{-x^2}\mathrm{d}x\)，则</p>
+<p>\[
+I^2=\int_0^{+\infty}\mathrm{e}^{-x^2}\mathrm{d}x\int_0^{+\infty}\mathrm{e}^{-y^2}\mathrm{d}y
+=\iint_{\substack{0\le x&lt;+\infty\\ 0\le y&lt;+\infty}}\mathrm{e}^{-(x^2+y^2)}\,\mathrm{d}x\,\mathrm{d}y
+=\int_0^{\pi/2}\mathrm{d}\theta\int_0^{+\infty}\mathrm{e}^{-r^2}\,r\,\mathrm{d}r=\frac{\pi}{4},
+\]</p>
+<p>由保号性 \(I&gt;0\)，故 \(I=\dfrac{\sqrt\pi}{2}\)。
+<strong>注</strong>：这个结果必须记住。配套的还有 \(\displaystyle\int_0^{+\infty}x^2\mathrm{e}^{-x^2}\mathrm{d}x=\frac{\sqrt\pi}{4}\)（例 14.12 用 \(\Gamma\) 函数 \(\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\)、\(\Gamma(\frac12)=\sqrt\pi\) 算的，不用 \(\Gamma\) 函数就分部积分，麻烦一点）。</p>
+<h2>易错点与技巧</h2>
+<ol>
+<li>对称性要"两个条件都占"：区域对称 + 函数代入对称点后相等/相反。只看区域不想函数，或者只看函数不看区域，都会翻车（印P387–388）。</li>
+<li>分不清普通对称性④和轮换对称性时记住：都要求 \(D\) 关于 \(y=x\) 对称；前者看 \(f(x,y)\) 与 \(f(y,x)\) 相等还是相反，后者看 \(f(x,y)+f(y,x)\) 好不好算（印P391）。</li>
+<li>极坐标千万别丢 \(r\)：\(\mathrm{d}\sigma=r\,\mathrm{d}r\,\mathrm{d}\theta\)。习题 14.2 的 (C) 选项就是"没乘 \(r\)"的陷阱（印P394、P415）。</li>
+<li>下限必须不超过上限，因为 \(\mathrm{d}x,\mathrm{d}y,\mathrm{d}\sigma&gt;0\)；交换上下限要添负号（印P392）。</li>
+<li>看到 \(\frac{\sin x}{x}\)、\(\mathrm{e}^{-x^2}\)、\(\sin x^2\)、\(\frac{1}{\ln x}\) 这类积分，条件反射——交换积分次序（印P393）。</li>
+<li>极坐标定 \(\theta\)：从 \(Ox\) 轴逆时针出发，先进入区域的是下限 \(\alpha\)，离开的是上限 \(\beta\)；一般先积 \(r\) 后积 \(\theta\)（印P394）。</li>
+<li>区域是圆但被积函数不是平方和时，先想想轮换对称性能不能凑出 \(x^2+y^2\)（例 14.8 的套路，印P395）。</li>
+<li>想让 \(\iint_D f\,\mathrm{d}\sigma\) 最大，就取 \(f\ge 0\) 的整个区域，混进 \(f&lt;0\) 的部分只会拉低积分（例 14.1 的注、习题 14.12，印P386、P418）。</li>
+</ol>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">能写出二重积分定义 \(\iint_D f\,\mathrm{d}\sigma=\lim_{\lambda\to 0}\sum f(\xi_i,\eta_i)\Delta\sigma_i\)，并说出 \(\lambda\) 是小区域直径的最大值</label></li>
+<li><label><input type="checkbox">知道 \(\mathrm{d}\sigma&gt;0\)，因此累次积分下限不能超过上限，交换上下限要变号</label></li>
+<li><label><input type="checkbox">会讲二重积分几何意义：\(f\ge 0\) 时是曲顶柱体体积，\(f\) 变号时等于上方体积减下方体积</label></li>
+<li><label><input type="checkbox">记得 \(\iint_D\mathrm{d}\sigma=A\)（面积）和估值定理 \(mA\le\iint_D f\,\mathrm{d}\sigma\le MA\)</label></li>
+<li><label><input type="checkbox">会用中值定理 \(\iint_D f\,\mathrm{d}\sigma=f(\xi,\eta)S_D\) 处理抽象/难算的被积函数</label></li>
+<li><label><input type="checkbox">背出普通对称性四种情形（\(y\) 轴、\(x\) 轴、原点、\(y=x\)）："相等 2 倍、相反为 0"</label></li>
+<li><label><input type="checkbox">会做轴平移推广：\(D\) 关于 \(x=a\) 对称时对称点是 \((2a-x,y)\)</label></li>
+<li><label><input type="checkbox">会说轮换对称性的条件：\(x,y\) 对调后 \(D\) 不变，\(\iint_D f(x,y)\,\mathrm{d}\sigma=\iint_D f(y,x)\,\mathrm{d}\sigma\)</label></li>
+<li><label><input type="checkbox">分得清普通对称性④与轮换对称性的区别（\(f=-f(y,x)\) 时两者是一回事）</label></li>
+<li><label><input type="checkbox">会用 \(f(x,y)+f(y,x)=a\Rightarrow I=\frac{a}{2}S_D\) 秒杀轮换对称性填空题</label></li>
+<li><label><input type="checkbox">能默写 X 型、Y 型累次积分公式和口诀"后积先定限，限内画条线，先交写下限，后交写上限"</label></li>
+<li><label><input type="checkbox">见到 \(\frac{\sin x}{x}\)、\(\mathrm{e}^{-x^2}\)、\(\sin x^2\) 等无初等原函数的积分会条件反射换序</label></li>
+<li><label><input type="checkbox">记住极坐标三换：\(x=r\cos\theta\)，\(y=r\sin\theta\)，\(\mathrm{d}\sigma=r\,\mathrm{d}r\,\mathrm{d}\theta\)，不丢 \(r\)</label></li>
+<li><label><input type="checkbox">能默写极点在 \(D\) 外、边界上、内部三种情形的累次积分公式</label></li>
+<li><label><input type="checkbox">会判断用极坐标还是直角坐标（被积函数含 \(x^2+y^2\)、\(\frac{y}{x}\) 等；区域是圆或圆的一部分）</label></li>
+<li><label><input type="checkbox">掌握极坐标定 \(\theta\)：逆时针从 \(Ox\) 轴出发先进入为下限；一般先积 \(r\) 后积 \(\theta\)</label></li>
+<li><label><input type="checkbox">会写一般换元公式 \(\iint f\,\mathrm{d}x\,\mathrm{d}y=\iint f\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\mathrm{d}u\,\mathrm{d}v\)，知道极坐标是 \(|J|=r\) 的特例</label></li>
+<li><label><input type="checkbox">记住高斯积分 \(\int_0^{+\infty}\mathrm{e}^{-x^2}\mathrm{d}x=\frac{\sqrt\pi}{2}\)、\(\int_0^{+\infty}x^2\mathrm{e}^{-x^2}\mathrm{d}x=\frac{\sqrt\pi}{4}\) 和 \(\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\)</label></li>
+<li><label><input type="checkbox">能照着不等式画出"平面区域 \(D\) 大观"里的常见区域（直线型、曲线型、极坐标型、参数型）</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong> 交换积分次序：\(\displaystyle\int_0^1\mathrm{d}y\int_{\sqrt y}^{\sqrt{2-y^2}}f(x,y)\,\mathrm{d}x\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong>：区域 \(D=\{(x,y)\mid 0\le y\le 1,\ \sqrt y\le x\le\sqrt{2-y^2}\}\)，边界为抛物线 \(y=x^2\)（即 \(x=\sqrt y\)）与圆 \(x^2+y^2=2\)（即 \(x=\sqrt{2-y^2}\)），联立解得交点 \((1,1)\)。改成后积 \(y\)，需拆成两块：</p>
+<p>\[
+\int_0^1\mathrm{d}x\int_0^{x^2}f(x,y)\,\mathrm{d}y+\int_1^{\sqrt2}\mathrm{d}x\int_0^{\sqrt{2-x^2}}f(x,y)\,\mathrm{d}y .
+\]</p>
+</details>
+<p><strong>2.</strong> 设 \(D=\{(x,y)\mid x^2+y^2\le 1\}\)，计算 \(\displaystyle I=\iint_D(x^2y+x+y+3)\,\mathrm{d}\sigma\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong>：\(D\) 关于 \(y\) 轴、\(x\) 轴都对称。\(x^2y\) 关于 \(y\) 是奇函数，积分为 0；\(x\) 关于 \(x\) 是奇函数、\(y\) 关于 \(y\) 是奇函数，积分也都是 0。只剩</p>
+<p>\[
+I=3\iint_D\mathrm{d}\sigma=3\pi .
+\]</p>
+</details>
+<p><strong>3.</strong> 计算 \(\displaystyle\iint_D\sqrt{x^2+y^2}\,\mathrm{d}\sigma\)，其中 \(D=\{(x,y)\mid 1\le x^2+y^2\le 4,\ y\ge 0\}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong>：被积函数含 \(x^2+y^2\)，区域是上半圆环，用极坐标：</p>
+<p>\[
+\iint_D\sqrt{x^2+y^2}\,\mathrm{d}\sigma=\int_0^{\pi}\mathrm{d}\theta\int_1^2 r\cdot r\,\mathrm{d}r
+=\pi\cdot\frac{7}{3}=\frac{7\pi}{3}.
+\]</p>
+</details>
+<p><strong>4.</strong> 设 \(D=\{(x,y)\mid x^2+y^2\le 1\}\)，计算 \(\displaystyle I=\iint_D(2x^2+3y^2)\,\mathrm{d}\sigma\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong>：\(D\) 关于 \(y=x\) 对称，由轮换对称性 \(\iint_D y^2\,\mathrm{d}\sigma=\iint_D x^2\,\mathrm{d}\sigma\)，于是</p>
+<p>\[
+I=2\iint_D(2y^2+3x^2)\,\mathrm{d}\sigma=5\iint_D(x^2+y^2)\,\mathrm{d}\sigma,
+\]</p>
+<p>即 \(I=\dfrac52\iint_D(x^2+y^2)\,\mathrm{d}\sigma\)。极坐标：</p>
+<p>\[
+I=\frac52\int_0^{2\pi}\mathrm{d}\theta\int_0^1 r^3\,\mathrm{d}r=\frac52\cdot 2\pi\cdot\frac14=\frac{5\pi}{4}.
+\]</p>
+</details>
+<p><strong>5.</strong> 估计 \(I=\displaystyle\iint_D\frac{\mathrm{d}\sigma}{100+\cos^2 x+\cos^2 y}\) 的范围，其中 \(D=\{(x,y)\mid |x|+|y|\le 10\}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong>：由估值定理，\(\cos^2 x+\cos^2 y\in[0,2]\)，故被积函数介于 \(\dfrac{1}{102}\) 与 \(\dfrac{1}{100}\) 之间。\(D\) 是对角线长 20 的正方形，面积 \(A=\dfrac12\cdot 20\cdot 20=200\)，所以</p>
+<p>\[
+\frac{200}{102}\le I\le\frac{200}{100},\qquad\text{即}\quad \frac{100}{51}\le I\le 2 .
+\]</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P382–P418</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

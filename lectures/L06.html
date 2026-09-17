@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一元函数微分学的应用（二）——中值定理、微分等式与微分不等式 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L05.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L07.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第6讲 · 一元函数微分学的应用（二）——中值定理、微分等式与微分不等式</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P211–P232</p>
+<h2>本讲导读</h2>
+<p>这一讲是基础30讲里证明题最集中的地方，选择、填空、解答都会出，数学一二三通吃，数二数三常考其中的方程与不等式部分。主线三块：中值定理（10条，考场上直接拿来用，无须重证）、微分等式（讨论方程根的存在性与个数）、微分不等式（三大证明路径）。张宇把重难点标在：平均值定理、罗尔定理的推论、用函数性态和中值定理证微分不等式（印P211）。学法上先把定理条件和辅助函数构造表背熟，再逐题自己动笔证——这一讲看会不等于会写，差距全在动手上。罗尔是全讲的枢纽，推广罗尔、罗尔原话、多次罗尔都从它长出来。</p>
+<h2>知识框架</h2>
+<ul>
+<li><strong>中值定理</strong>（10 大定理，考场上可直接引用）<ul>
+<li>涉及函数 \(f(x)\)：定理1 有界与最值、定理2 介值、定理3 平均值、定理4 零点（含推广）</li>
+<li>涉及导数 \(f'(x),\,f^{(n)}(x)\,(n\geqslant 2)\)：定理5 费马、定理6 罗尔（含推广与辅助函数构造）、定理7 拉格朗日、定理8 柯西、定理9 泰勒公式（拉格朗日余项 / 佩亚诺余项 / 麦克劳林）</li>
+<li>涉及积分：定理10 积分中值定理（由拉格朗日中值定理推广而来，见第8讲例8.8）</li>
+</ul>
+</li>
+<li><strong>微分等式</strong>（方程 \(f(x)=0\) 的根，即函数的零点）<ul>
+<li>零点定理证存在性 + 单调性证唯一性（配合起来考）</li>
+<li>罗尔定理及其推论（罗尔原话）</li>
+<li>实系数奇次方程至少有一个实根</li>
+</ul>
+</li>
+<li><strong>微分不等式</strong>（综合题里的小步骤）<ul>
+<li>用函数性态证明（先研究辅助函数的凹凸性、最值、正负）</li>
+<li>用常数变量化证明</li>
+<li>用中值定理证明（拉格朗日 / 泰勒）</li>
+</ul>
+</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>涉及函数的中值定理（定理1–3）</h3>
+<p>只要求 \(f(x)\) 在 \([a,b]\) 上连续。最值定理给出 \(m\leqslant f(x)\leqslant M\)；介值定理说 \(m\leqslant\mu\leqslant M\) 时存在 \(\xi\in[a,b]\) 使 \(f(\xi)=\mu\)。好用的是平均值定理（定理3）：\(a&lt;x_1&lt;x_2&lt;\cdots&lt;x_n&lt;b\) 时，在 \([x_1,x_n]\) 内至少存在一点 \(\xi\)，使</p>
+<p>\[ f(\xi)=\frac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n}. \]</p>
+<p>证明就是先用最值定理把平均值夹在 \(m,M\) 之间，再交给介值定理（印P212）。</p>
+<figure class="shot"><img src="../assets/img/L06-001.webp" alt="原书 定理1–3（有界与最值、介值、平均值） · 印P212" loading="lazy" width="1100" height="607"><figcaption>原书 定理1–3（有界与最值、介值、平均值） · 印P212</figcaption></figure>
+<h3>零点定理及推广</h3>
+<p>定理4：\(f(a)\cdot f(b)&lt;0\) 时存在 \(\xi\in(a,b)\) 使 \(f(\xi)=0\)。推广版做题很好用：若 \(f(x)\) 在 \((a,b)\) 内连续，\(\lim\limits_{x\to a^+}f(x)=\alpha\)，\(\lim\limits_{x\to b^-}f(x)=\beta\)，且 \(\alpha\cdot\beta&lt;0\)，则 \(f(x)=0\) 在 \((a,b)\) 内至少有一个根，其中 \(a,b,\alpha,\beta\) 可以是有限数也可以是无穷大（印P213）。</p>
+<figure class="shot"><img src="../assets/img/L06-002.webp" alt="原书 定理4 零点定理及推广 · 印P213" loading="lazy" width="1100" height="447"><figcaption>原书 定理4 零点定理及推广 · 印P213</figcaption></figure>
+<h3>费马定理</h3>
+<p>\(f(x)\) 在 \(x_0\) 处①可导②取极值，则 \(f'(x_0)=0\)。证明用极值定义夹出 \(f'_-(x_0)\geqslant 0\)、\(f'_+(x_0)\leqslant 0\)，可导则两者相等（印P214）。它是罗尔定理的引擎。</p>
+<figure class="shot"><img src="../assets/img/L06-003.webp" alt="原书 定理5 费马定理 · 印P214" loading="lazy" width="1100" height="154"><figcaption>原书 定理5 费马定理 · 印P214</figcaption></figure>
+<h3>罗尔定理及推广</h3>
+<p>三个条件缺一不可：①在 \([a,b]\) 上连续；②在 \((a,b)\) 内可导；③\(f(a)=f(b)\)，则存在 \(\xi\in(a,b)\) 使 \(f'(\xi)=0\)。推广的罗尔定理把"端点等值"放宽为"端点极限相等"：\(\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to b^-}f(x)=A\) 即可，区间 \((a,b)\) 可以是无穷区间，\(A\) 可以是无穷大（印P215）。</p>
+<figure class="shot"><img src="../assets/img/L06-004.webp" alt="原书 定理6 罗尔定理及推广的罗尔定理 · 印P215" loading="lazy" width="1100" height="564"><figcaption>原书 定理6 罗尔定理及推广的罗尔定理 · 印P215</figcaption></figure>
+<p>用罗尔的关键是构造辅助函数，本质是求导公式的逆用。乘积公式逆用一族（印P215）：</p>
+<figure class="shot"><img src="../assets/img/L06-005.webp" alt="原书 罗尔定理辅助函数构造（乘积公式逆用） · 印P215" loading="lazy" width="1100" height="1090"><figcaption>原书 罗尔定理辅助函数构造（乘积公式逆用） · 印P215</figcaption></figure>
+<p>商公式逆用一族（印P216）：</p>
+<figure class="shot"><img src="../assets/img/L06-006.webp" alt="原书 罗尔定理辅助函数构造（商公式逆用） · 印P216" loading="lazy" width="1100" height="550"><figcaption>原书 罗尔定理辅助函数构造（商公式逆用） · 印P216</figcaption></figure>
+<h3>拉格朗日中值定理</h3>
+<p>\(f\) 在 \([a,b]\) 连续、\((a,b)\) 内可导，则存在 \(\xi\in(a,b)\) 使</p>
+<p>\[ f(b)-f(a)=f'(\xi)(b-a),\qquad\text{或}\qquad f'(\xi)=\frac{f(b)-f(a)}{b-a}. \]</p>
+<p>原书注：见到 \(f(a)-f(b)\) 或 \(f\) 与 \(f'\) 的关系，一般想到它；作用是<strong>用导函数的值控制函数值的增减</strong>（印P218）。</p>
+<figure class="shot"><img src="../assets/img/L06-007.webp" alt="原书 定理7 拉格朗日中值定理 · 印P218" loading="lazy" width="1100" height="570"><figcaption>原书 定理7 拉格朗日中值定理 · 印P218</figcaption></figure>
+<h3>柯西中值定理</h3>
+<p>\(f,g\) 满足①\([a,b]\) 上连续②\((a,b)\) 内可导③\(g'(x)\neq 0\)，则存在 \(\xi\in(a,b)\) 使</p>
+<p>\[ \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}. \]</p>
+<p>常考"一个具体函数 + 一个抽象函数"的搭配；公式由参数方程 \(\begin{cases}x=g(t)\\ y=f(t)\end{cases}\) 引导而来，是<strong>同一个 \(\xi\)</strong>，不能当成两个拉格朗日相除（印P219）。</p>
+<figure class="shot"><img src="../assets/img/L06-008.webp" alt="原书 定理8 柯西中值定理 · 印P219" loading="lazy" width="1100" height="402"><figcaption>原书 定理8 柯西中值定理 · 印P219</figcaption></figure>
+<h3>泰勒公式（定理9）</h3>
+<p>带拉格朗日余项的 \(n\) 阶泰勒公式：\(f\) 在 \(x_0\) 某邻域内 \(n+1\) 阶导数存在，对该邻域内任意 \(x\)，</p>
+<p>\[ f(x)=f(x_0)+f'(x_0)(x-x_0)+\cdots+\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}, \]</p>
+<p>其中 \(\xi\) 介于 \(x\) 与 \(x_0\) 之间。适用于区间 \([a,b]\)，常在证明题中使用（证不等式、中值等式）。带佩亚诺余项的版本只要求 \(x_0\) 处 \(n\) 阶可导，余项为 \(o((x-x_0)^n)\)，仅适用于 \(x=x_0\) 及其邻域，用于求极限、定无穷小的阶、判极值（印P220）。</p>
+<figure class="shot"><img src="../assets/img/L06-009.webp" alt="原书 定理9 泰勒公式（两种余项） · 印P220" loading="lazy" width="1100" height="522"><figcaption>原书 定理9 泰勒公式（两种余项） · 印P220</figcaption></figure>
+<p>\(x_0=0\) 时叫麦克劳林公式。下面七个常用展开式必须背熟（印P220）：</p>
+<figure class="shot"><img src="../assets/img/L06-010.webp" alt="原书 麦克劳林公式与七个常用展开式 · 印P220" loading="lazy" width="1100" height="1143"><figcaption>原书 麦克劳林公式与七个常用展开式 · 印P220</figcaption></figure>
+<h3>微分等式（方程的根）</h3>
+<p>四条路：零点定理证存在性、单调性证至多一根、罗尔定理及其推论、实系数奇次方程至少有一个实根。核心是罗尔原话（罗尔定理的推论）：若 \(f^{(n)}(x)=0\) 至多有 \(k\) 个根，则 \(f(x)=0\) 至多有 \(k+n\) 个根——<strong>阶数升，根个数按升的阶数减</strong>（印P223）。</p>
+<figure class="shot"><img src="../assets/img/L06-011.webp" alt="原书 罗尔定理的推论（罗尔原话） · 印P223" loading="lazy" width="1100" height="618"><figcaption>原书 罗尔定理的推论（罗尔原话） · 印P223</figcaption></figure>
+<h3>微分不等式</h3>
+<p>三条证明路径里，首选函数性态（单调性、凹凸性、最值）。四条常用依据要背（印P226）：(1) \(f'(x)\geqslant 0\Rightarrow f(a)\leqslant f(x)\leqslant f(b)\)；(2) \(f''(x)\geqslant 0\Rightarrow f'(a)\leqslant f'(x)\leqslant f'(b)\)，进而 \(f'(a)&gt;0\) 时 \(f\) 增、\(f'(b)&lt;0\) 时 \(f\) 减；(3) 连续且唯一极值点 \(x_0\)：极大即最大值 \(f(x_0)\geqslant f(x)\)，极小即最小值 \(f(x_0)\leqslant f(x)\)；(4) \(f''(x)&gt;0\) 且 \(f(a)=f(b)=0\Rightarrow f(x)&lt;0\)。</p>
+<figure class="shot"><img src="../assets/img/L06-012.webp" alt="原书 用函数性态证明不等式的依据 · 印P226" loading="lazy" width="1100" height="805"><figcaption>原书 用函数性态证明不等式的依据 · 印P226</figcaption></figure>
+<h2>典型例题精讲</h2>
+<h3>例6.4 平均值定理 + 罗尔（印P216）</h3>
+<figure class="shot"><img src="../assets/img/L06-013.webp" alt="原书 例6.4 · 印P216" loading="lazy" width="1100" height="477"><figcaption>原书 例6.4 · 印P216</figcaption></figure>
+<p><strong>思路</strong> 三点函数值的算术平均恰好等于 \(f(3)\)，先用平均值定理+介值定理造出第二个等值点，再闭区间用罗尔。</p>
+<p><strong>要点</strong> ①\(f\) 在 \([0,2]\) 上连续，有最值 \(m,M\)：\(m\leqslant f(0),f(1),f(2)\leqslant M\)，故 \(m\leqslant\frac{f(0)+f(1)+f(2)}{3}=1\leqslant M\)；②由介值定理存在 \(c\in[0,2]\) 使 \(f(c)=1\)；③\(f(c)=f(3)=1\)，在 \([c,3]\) 上用罗尔，存在 \(\xi\in(c,3)\subset(0,3)\) 使 \(f'(\xi)=0\)。</p>
+<h3>例6.5 构造 \(f(x)(b-x)^a\)（印P216）</h3>
+<figure class="shot"><img src="../assets/img/L06-014.webp" alt="原书 例6.5 · 印P216" loading="lazy" width="1100" height="406"><figcaption>原书 例6.5 · 印P216</figcaption></figure>
+<p><strong>思路</strong> 结论改写为 \(f'(\xi)-\frac{a}{b-\xi}f(\xi)=0\)，对照 \(f'(x)+f(x)\varphi'(x)\)，辅助函数取 \(F(x)=f(x)\,\mathrm{e}^{\int\left(-\frac{a}{b-x}\right)\mathrm{d}x}=f(x)(b-x)^a\)。</p>
+<p><strong>要点</strong> ①令 \(F(x)=f(x)(b-x)^a\)，显然 \(F(a)=F(b)=0\)；②罗尔得 \(F'(\xi)=0\)，即 \(f'(\xi)(b-\xi)^a-af(\xi)(b-\xi)^{a-1}=0\)；③已知 \(a&gt;0\)，约去 \((b-\xi)^{a-1}\) 得 \(f(\xi)=\frac{b-\xi}{a}f'(\xi)\)。</p>
+<h3>例6.7 证方程至少有两个实根（印P217）</h3>
+<figure class="shot"><img src="../assets/img/L06-015.webp" alt="原书 例6.7 · 印P217" loading="lazy" width="1100" height="628"><figcaption>原书 例6.7 · 印P217</figcaption></figure>
+<p><strong>思路</strong> 注意 \(f(x)f''(x)+[f'(x)]^2=[f(x)f'(x)]'\)，令 \(F(x)=f(x)f'(x)\)，证 \(F'\) 有两个不同零点需要 \(F\) 有三个零点。</p>
+<p><strong>要点</strong> ①极限 \(\lim\limits_{x\to 0^+}\frac{f(x)}{x}\) 存在且 \(f\) 连续 \(\Rightarrow f(0)=0\)；②仿例6.2 用保号性：存在 \(a\in(0,1)\) 使 \(f(a)&lt;0\)，又 \(f(1)&gt;0\)，得存在 \(b\in(a,1)\) 使 \(f(b)=0\)；③\(f(0)=f(b)=0\)，罗尔得 \(c\in(0,b)\) 使 \(f'(c)=0\)；④\(F(x)=f(x)f'(x)\) 在 \([0,b]\) 上可导且 \(F(0)=0\)，\(F(c)=0\)，\(F(b)=0\)，两段各用一次罗尔，得 \(\xi\in(0,c)\)，\(\eta\in(c,b)\) 使 \(F'(\xi)=F'(\eta)=0\)，即原方程在 \((0,1)\) 内至少有两个不同实根。</p>
+<p><strong>注</strong> 原书这里给了一个方向性判断（印P217）：证 \(f^{(n)}(\xi)=0\) 用罗尔可能性大；证 \(f^{(n)}(\xi)\neq 0\)（不等式）用泰勒公式可能性大。</p>
+<h3>例6.11 柯西配 \(\ln x\)（印P219）</h3>
+<figure class="shot"><img src="../assets/img/L06-016.webp" alt="原书 例6.11 · 印P219" loading="lazy" width="1100" height="506"><figcaption>原书 例6.11 · 印P219</figcaption></figure>
+<p><strong>思路</strong> 要证 \(f(b)-f(a)=\xi\ln\frac{b}{a}f'(\xi)\)，分母里出现 \(\ln b-\ln a\)，就配 \(g(x)=\ln x\) 用柯西。</p>
+<p><strong>要点</strong> \(f(x)\) 与 \(g(x)=\ln x\) 在 \([a,b]\) 连续、\((a,b)\) 内可导，且 \(g'(x)=\frac{1}{x}\neq 0\)（\(0&lt;a&lt;b\)），满足柯西条件，故存在 \(\xi\in(a,b)\) 使 \(\frac{f(b)-f(a)}{\ln b-\ln a}=\frac{f'(\xi)}{1/\xi}\)，整理即 \(f(b)-f(a)=\xi\ln\frac{b}{a}f'(\xi)\)。</p>
+<p><strong>注</strong> 柯西的套路就是"分母想凑什么就配什么"。</p>
+<h3>例6.13 泰勒双端点展开 + 介值定理（印P221–222）</h3>
+<figure class="shot"><img src="../assets/img/L06-017.webp" alt="原书 例6.13 · 印P222" loading="lazy" width="1100" height="954"><figcaption>原书 例6.13 · 印P222</figcaption></figure>
+<p><strong>思路</strong> \(f\) 与 \(f'''\)（\(n\geqslant 2\)）的关系考虑泰勒公式；在 \(x=0\) 展开（\(f'(0)=0\) 已知），向两个端点 \(x=\pm 1\) 代入。</p>
+<p><strong>要点</strong> ①\(f(x)=f(0)+f'(0)x+\frac{1}{2}f''(0)x^2+\frac{1}{6}f'''(\eta)x^3\)，\(\eta\) 介于 \(0\) 与 \(x\) 之间；②分别令 \(x=-1\)、\(x=1\)：\(0=f(0)+\frac{1}{2}f''(0)-\frac{1}{6}f'''(\eta_1)\)（\(-1&lt;\eta_1&lt;0\)），\(1=f(0)+\frac{1}{2}f''(0)+\frac{1}{6}f'''(\eta_2)\)（\(0&lt;\eta_2&lt;1\)）；③两式相减得 \(f'''(\eta_1)+f'''(\eta_2)=6\)；④\(f'''\) 连续，在 \([\eta_1,\eta_2]\) 上有最值 \(m,M\)，则 \(m\leqslant\frac{1}{2}[f'''(\eta_1)+f'''(\eta_2)]\leqslant M\)，由介值定理存在 \(\xi\in[\eta_1,\eta_2]\subset(-1,1)\) 使 \(f'''(\xi)=\frac{1}{2}[f'''(\eta_1)+f'''(\eta_2)]=3\)。</p>
+<p><strong>注</strong> 原书点破（印P222）：展开点 \(x_0\) 取"已知导数值的点或待证导数值的点"，被展开点 \(x\) 取"已知函数值的点或特殊点（端点、中间点）"，然后设法消去未知的函数项或导数项，向结论靠拢。</p>
+<h3>例6.16 存在性 + 个数上界（印P224）</h3>
+<figure class="shot"><img src="../assets/img/L06-018.webp" alt="原书 例6.16 · 印P224" loading="lazy" width="1100" height="559"><figcaption>原书 例6.16 · 印P224</figcaption></figure>
+<p><strong>思路</strong> 存在性靠观察法 + 零点定理找三个根；"仅有"靠罗尔原话给个数上界。</p>
+<p><strong>要点</strong> ①存在性：令 \(f(x)=2^x-x^2-1\)，显然 \(x_1=0\)，\(x_2=1\) 为根，又 \(f(2)=-1&lt;0\)，\(f(5)=2^5-25-1=6&gt;0\)，零点定理得 \((2,5)\) 内至少一根，共至少三个根；②上界：\(f'(x)=2^x\ln 2-2x\)，\(f''(x)=2^x\ln^2 2-2\)，\(f'''(x)=2^x\ln^3 2\neq 0\)，即 \(f'''(x)=0\) 无实根（至多 0 个根），逐次推上去 \(f(x)=0\) 至多 \(0+3=3\) 个根；③两者夹住：有且仅有三个根。</p>
+<p><strong>注</strong> 单调性不好判断就继续求导，"以阶数换个数"（印P223）。</p>
+<h3>例6.19 单调性 vs 凹凸性证不等式（印P226）</h3>
+<figure class="shot"><img src="../assets/img/L06-019.webp" alt="原书 例6.19（方法一：单调性） · 印P226" loading="lazy" width="1100" height="421"><figcaption>原书 例6.19（方法一：单调性） · 印P226</figcaption></figure>
+<p><strong>思路</strong> 欲证 \(\sin x&gt;\frac{2x}{\pi}\)，方法一化为 \(\frac{\sin x}{x}&gt;\frac{2}{\pi}\) 走单调性（主流方法，导数定不了号就再求一次）；方法二直接对 \(f(x)=\sin x-\frac{2x}{\pi}\) 用凹凸性。</p>
+<p><strong>要点（方法一）</strong> ①令 \(f(x)=\frac{\sin x}{x}\)，\(f'(x)=\frac{x\cos x-\sin x}{x^2}\)，分子符号不定；②令 \(g(x)=x\cos x-\sin x\)，\(g'(x)=-x\sin x&lt;0\)，故 \(g(x)&lt;g(0)=0\)，于是 \(f'(x)&lt;0\)，\(f\) 在 \((0,\frac{\pi}{2})\) 单调递减，\(f(x)&gt;f(\frac{\pi}{2})=\frac{2}{\pi}\)。</p>
+<p><strong>要点（方法二）</strong> 令 \(f(x)=\sin x-\frac{2x}{\pi}\)，\(f''(x)=-\sin x&lt;0\)，曲线在 \((0,\frac{\pi}{2})\) 内是凸的，又 \(f(0)=f(\frac{\pi}{2})=0\)，故 \(f(x)&gt;0\)（印P227）。</p>
+<h3>例6.21 中值定理证双边不等式（印P228）</h3>
+<figure class="shot"><img src="../assets/img/L06-020.webp" alt="原书 例6.21 · 印P228" loading="lazy" width="1055" height="256"><figcaption>原书 例6.21 · 印P228</figcaption></figure>
+<p><strong>思路</strong> 中间量 \(\frac{\ln b-\ln a}{b-a}\) 正是 \(\ln x\) 的拉格朗日增量商。右边用单调性（常数变量化），左边用拉格朗日 + 放缩。</p>
+<p><strong>要点（右边）</strong> 构造 \(\varphi(x)=\ln x-\ln a-\frac{x-a}{\sqrt{ax}}\;(x&gt;a&gt;0)\)，则 \(\varphi'(x)=\frac{2\sqrt{ax}-x-a}{2x\sqrt{ax}}=-\frac{(\sqrt{x}-\sqrt{a})^2}{2x\sqrt{ax}}&lt;0\)，故 \(x&gt;a\) 时 \(\varphi(x)&lt;\varphi(a)=0\)，即 \(\ln x-\ln a&lt;\frac{x-a}{\sqrt{ax}}\)；特别地取 \(x=b&gt;a\)（常数变量化）得 \(\frac{\ln b-\ln a}{b-a}&lt;\frac{1}{\sqrt{ab}}\)。</p>
+<p><strong>要点（左边）</strong> 对 \(f(x)=\ln x\) 用拉格朗日中值定理：\(\frac{\ln b-\ln a}{b-a}=(\ln x)'\big|_{x=\xi}=\frac{1}{\xi}\)，\(\xi\in(a,b)\)；由 \(0&lt;a&lt;\xi&lt;b\) 且 \(a^2+b^2&gt;2ab\)，得 \(\frac{1}{\xi}&gt;\frac{1}{b}&gt;\frac{2a}{a^2+b^2}\)，故 \(\frac{\ln b-\ln a}{b-a}&gt;\frac{2a}{a^2+b^2}\)。</p>
+<p><strong>注</strong> 原书旁注给出一个可记住的结论（印P227–228）：\(\frac{1}{1+x}&lt;\ln\left(1+\frac{1}{x}\right)&lt;\frac{1}{x}\)，由对 \(\ln t\) 在 \([x,x+1]\) 用拉格朗日中值定理立得。</p>
+<h2>易错点与技巧</h2>
+<ul>
+<li>罗尔三条件缺一不可，考试爱在端点上做文章：题给 \(\lim\limits_{x\to 0^+}\frac{f(x)}{x}\) 存在且 \(f\) 连续，要先推出 \(f(0)=0\) 才能用罗尔（例6.7，印P217）。</li>
+<li>辅助函数构造表背下来（印P215–216）：见 \(f(x)f'(x)\Rightarrow f^2(x)\)；见 \([f'(x)]^2+f(x)f''(x)\Rightarrow f(x)f'(x)\)；见 \(f'(x)+kf(x)\Rightarrow f(x)\mathrm{e}^{kx}\)；见 \(xf'(x)-f(x)\Rightarrow\frac{f(x)}{x}\)；见 \(f(x)f''(x)-[f'(x)]^2\Rightarrow\frac{f'(x)}{f(x)}\) 或 \(\ln f(x)\)。</li>
+<li>题里出现 \(\xi,\eta\) 两个中值时，允许对同一函数在不同子区间分别用定理，两次取的点不必相同（习题6.6(2)、6.7，印P231）。</li>
+<li>柯西中值定理不能拆成两个拉格朗日相除——两个 \(\xi\) 未必相同；它是参数方程视角下的同一个 \(\xi\)（印P219）。</li>
+<li>泰勒公式选点口诀（印P222）：展开点取已知（或待证）导数值的点，被展开点取已知函数值的点（端点、中点），代入后相加减消未知项。</li>
+<li>泰勒公式里的 \(f''(\xi)\) 不能随意提到积分号外：例6.12 中 \(\xi=\xi(x)\) 与 \(x\) 有关，不是常数（印P221）。</li>
+<li>方向判断（印P217）：证 \(f^{(n)}(\xi)=0\) 优先罗尔，证 \(f^{(n)}(\xi)\neq 0\) 优先泰勒。</li>
+<li>方程根问题的标准结构是两段式：存在性（零点定理/罗尔/奇次方程结论）+ 唯一性（单调性/罗尔原话），例6.16、6.18 都是这个骨架（印P224–225）。</li>
+</ul>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">能默写定理1–3：有界与最值、介值、平均值定理的条件与结论（印P212）</label></li>
+<li><label><input type="checkbox">能写出零点定理及其推广版（端点极限值 \(\alpha\cdot\beta&lt;0\)，含无穷远情形）（印P213）</label></li>
+<li><label><input type="checkbox">能默写费马定理：可导 + 取极值 \(\Rightarrow f'(x_0)=0\)，并会用左右导数保号性证明（印P214）</label></li>
+<li><label><input type="checkbox">能默写罗尔定理三条件，并叙述推广的罗尔定理（端点极限相等型，\(A\) 可为无穷大）（印P215）</label></li>
+<li><label><input type="checkbox">背熟五类辅助函数构造：\(f^2\)、\(ff'\)、\(f\mathrm{e}^{kx}\)、\(f/x\)、\(f'/f\)（印P215–216）</label></li>
+<li><label><input type="checkbox">能写出拉格朗日中值定理的两种等价形式，并说出"用导数的界控制函数增减"的作用（印P218）</label></li>
+<li><label><input type="checkbox">能默写柯西中值定理，说明 \(g'(x)\neq 0\) 的条件及"同一个 \(\xi\)"的来历（印P219）</label></li>
+<li><label><input type="checkbox">能写出带拉格朗日余项与佩亚诺余项的泰勒公式，并说出各自适用场景（区间证明题 vs 一点邻域）（印P220）</label></li>
+<li><label><input type="checkbox">背出七个麦克劳林展开式：\(\mathrm{e}^x\)、\(\sin x\)、\(\cos x\)、\(\frac{1}{1-x}\)、\(\frac{1}{1+x}\)、\(\ln(1+x)\)、\((1+x)^\alpha\)（印P220）</label></li>
+<li><label><input type="checkbox">会用罗尔原话：\(f^{(n)}(x)=0\) 至多 \(k\) 个根 \(\Rightarrow f(x)=0\) 至多 \(k+n\) 个根（印P223）</label></li>
+<li><label><input type="checkbox">会证"实系数奇次方程至少有一个实根"（两端极限 + 推广零点定理）（印P223）</label></li>
+<li><label><input type="checkbox">掌握方程根问题两段式：存在性（零点/罗尔）+ 唯一性（单调/罗尔原话）</label></li>
+<li><label><input type="checkbox">会用平均值定理 + 介值定理处理 \(f(x_1)+f(x_2)+f(x_3)=\)常数 型条件（例6.4）</label></li>
+<li><label><input type="checkbox">掌握多次罗尔：找到函数值相等的三个不同点证 \(f''(\xi)=0\)（印P217）</label></li>
+<li><label><input type="checkbox">会用泰勒在端点展开、相减消项、再用介值定理证 \(f^{(n)}(\xi)=\)常数（例6.13）</label></li>
+<li><label><input type="checkbox">背出函数性态证不等式的四条依据（单调、\(f''\geqslant 0\)、唯一极值点、\(f''&gt;0\) 且两端为零）（印P226）</label></li>
+<li><label><input type="checkbox">会常数变量化：把不等式中的一个常数换成 \(x\) 构造辅助函数（例6.21，印P228）</label></li>
+<li><label><input type="checkbox">会用拉格朗日中值定理证双边不等式：中间量写成 \(\frac{f(b)-f(a)}{b-a}=f'(\xi)\) 再放缩</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong> 默写罗尔定理的条件与结论，并叙述推广的罗尔定理。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 罗尔定理：设 \(f(x)\) 满足①在 \([a,b]\) 上连续；②在 \((a,b)\) 内可导；③\(f(a)=f(b)\)，则存在 \(\xi\in(a,b)\)，使 \(f'(\xi)=0\)。</p>
+<p>推广的罗尔定理：设 \(f(x)\) 在 \((a,b)\) 内可导，且 \(\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to b^-}f(x)=A\)，则在 \((a,b)\) 内至少存在一点 \(\xi\)，使 \(f'(\xi)=0\)；其中 \((a,b)\) 可以是无穷区间，\(A\) 可以是无穷大（印P215）。</p>
+</details>
+<p><strong>2.</strong> 设 \(f(x)\) 在 \([0,1]\) 上连续，在 \((0,1)\) 内可导，且 \(f(0)=0\)，\(f(1)=1\)。证明：存在 \(\xi\in(0,1)\)，使 \(f(\xi)=1-\xi\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 令 \(F(x)=f(x)-1+x\)，则 \(F\) 在 \([0,1]\) 上连续，且 \(F(0)=f(0)-1=-1&lt;0\)，\(F(1)=f(1)-1+1=1&gt;0\)。由零点定理，存在 \(\xi\in(0,1)\) 使 \(F(\xi)=0\)，即 \(f(\xi)=1-\xi\)（习题6.6(1)，印P231）。</p>
+</details>
+<p><strong>3.</strong> 设 \(3a^2-5b&lt;0\)。证明：方程 \(x^5+2ax^3+3bx+4c=0\) 有且仅有一个实根。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 令 \(f(x)=x^5+2ax^3+3bx+4c\)。</p>
+<p>①存在性：\(f\) 是实系数奇次多项式，\(\lim\limits_{x\to+\infty}f(x)=+\infty\)，\(\lim\limits_{x\to-\infty}f(x)=-\infty\)，由推广的零点定理（实系数奇次方程至少有一个实根，印P223）知 \(f(x)=0\) 至少有一个实根。</p>
+<p>②唯一性：\(f'(x)=5x^4+6ax^2+3b\)。令 \(t=x^2\)，则 \(5t^2+6at+3b=0\) 的判别式 \(\Delta=36a^2-60b=12(3a^2-5b)&lt;0\)，且首项系数 \(5&gt;0\)，故 \(f'(x)&gt;0\) 恒成立，\(f'\) 无零点、\(f\) 单调增加。由罗尔定理的推论，\(f(x)=0\) 至多有一个根。综上，方程有且仅有一个实根（仿例6.15，印P224）。</p>
+</details>
+<p><strong>4.</strong> 证明：当 \(0&lt;x&lt;\frac{\pi}{4}\) 时，\(\tan x&lt;\frac{4}{\pi}x\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 令 \(f(x)=\tan x-\frac{4}{\pi}x\)，\(x\in\left[0,\frac{\pi}{4}\right]\)，则</p>
+<p>\[ f'(x)=\sec^2 x-\frac{4}{\pi},\qquad f''(x)=2\sec^2 x\tan x&gt;0, \]</p>
+<p>所以曲线在 \(\left(0,\frac{\pi}{4}\right)\) 内是凹的。又 \(f(0)=f\left(\frac{\pi}{4}\right)=0\)，故在 \(\left(0,\frac{\pi}{4}\right)\) 内 \(f(x)&lt;0\)，即 \(\tan x&lt;\frac{4}{\pi}x\)（习题6.9，印P232；这是例6.19方法二的孪生题，注意凹凸方向与端点为零的配合）。</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P211–P232</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

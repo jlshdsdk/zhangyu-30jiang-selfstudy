@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一元函数微分学的应用（一）——几何应用 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L04.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L06.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第5讲 · 一元函数微分学的应用（一）——几何应用</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P186–P210</p>
+<h2>本讲导读</h2>
+<p>这一讲只干一件事：不算具体数值，凭 \(f'\)、\(f''\) 的符号读出函数长什么样——哪里升哪里降、哪里是峰谷、哪里拐弯、跑向无穷时贴着哪条直线。张宇在扉页手写的话就是"画出 \(f(x)\) 大致的图像"，需要考虑定义域、奇偶性、周期性，加上极值点、拐点、渐近线、最值。考研考法：极值点与单调性、拐点与凹凸性、最值等函数性态的分析，加上渐近线求法，选择、填空、解答题都出；重难点就两条——极值点的判别、拐点的判别。位置上它上承第4讲（求导计算），是"微分学应用"的第一讲（第6讲是中值定理、不等式与零点问题），强化教材里这些方法会串成专题，这里底子必须打牢。学法建议：每个判定定理按"条件—结论—反例"三件套过一遍，渐近线照流程图走，例题里的套路自己动手推。</p>
+<h2>知识框架</h2>
+<ul>
+<li>极值</li>
+<li>定义（局部概念，左右邻域内均有定义）</li>
+<li>间断点可以是极值点（四类间断点各有一例）</li>
+<li>必要条件：可导极值点必是驻点（费马定理），极值点 = 驻点 ∪ 不可导点</li>
+<li>判别极值的第一、第二、第三充分条件</li>
+<li>单调性</li>
+<li>\(f'\) 定号判别（等号仅在有限个点成立时仍严格单调）</li>
+<li>凹凸性与拐点</li>
+<li>凹凸两个定义：中点弦式（大纲定义）、切线式</li>
+<li>拐点：连续曲线凹弧与凸弧的分界点，写 \((x_0, f(x_0))\)</li>
+<li>判别凹凸（\(f''\) 定号）；拐点的必要条件与三个充分条件</li>
+<li>极值点与拐点的重要结论（可导点不可兼得、\((x-a)^n g(x)\) 判别法、个数公式）</li>
+<li>渐近线</li>
+<li>铅直、水平、斜渐近线的定义与求解顺序（附程序流程图）</li>
+<li>最值或取值范围</li>
+<li>闭区间上连续函数的最值</li>
+<li>开区间上的最值或取值范围（单侧极限版）</li>
+<li>作函数图像（四步）</li>
+<li>曲率与曲率半径（仅数学一、数学二）</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>极值的定义</h3>
+<p>存在 \(x_0\) 的某个邻域，对邻域内任意 \(x\) 都有 \(f(x) \le f(x_0)\)（或 \(f(x) \ge f(x_0)\)），则 \(x_0\) 是极大（小）值点，\(f(x_0)\) 是极大（小）值。四条笔记（印P187 注1）：极值是局部概念；点左右邻域都得有定义，端点与间断点外侧不讨论；常函数处处取极大也处处取极小；间断点可以是极值点——原书在印P188给了四个例子：可去间断点 \(x=0\) 可以是极大值点（\(f(0)=1\)，其余 \(|x|\)）、跳跃间断点可以是极小值点、无穷间断点可以是极小值点（\(-1 + 1/x^2\) 型）、振荡间断点可以是极大值点（\(2+\sin\frac1x\) 型），值得抄一遍。</p>
+<h3>单调性的判别</h3>
+<p>设 \(y=f(x)\) 在 \([a,b]\) 上连续、在 \((a,b)\) 内可导：若 \(f'(x) \ge 0\) 且等号仅在有限个点处成立，则 \(f\) 在 \([a,b]\) 上严格单调增加；\(f'(x) \le 0\) 同理严格单调减少（印P188）。方向别背反：导数大于 0 一定严格增，但严格增不一定导数处处大于 0，\(y=x^3\) 在 \(x=0\) 处 \(f'(0)=0\) 照样严格增。</p>
+<h3>极值的必要条件（费马定理）</h3>
+<p>\(f\) 在 \(x_0\) 处可导且取极值 \(\Rightarrow f'(x_0)=0\)。所以找极值只查两种点：驻点和不可导点（\(y=x^2\) 与 \(y=|x|\) 在原点就是这两个原型）。注意 \(f'(x_0)=0\) 仅仅是必要条件，它成立时 \(f\) 在 \(x_0\) 仍可能单调（印P189 注2）。</p>
+<figure class="shot"><img src="../assets/img/L05-001.webp" alt="原书 极值第一充分条件 · 印P189" loading="lazy" width="1100" height="505"><figcaption>原书 极值第一充分条件 · 印P189</figcaption></figure>
+<p>第一充分条件：\(f\) 在 \(x_0\) 处连续、在去心邻域内可导，看 \(f'\) 左右变号——左负右正得极小，左正右负得极大，不变号就不是极值点。前提"\(x_0\) 处连续"别忘了，它排除了间断的情形；\(f\) 在 \(x_0\) 处本身可以不可导（角点照样判）。</p>
+<figure class="shot"><img src="../assets/img/L05-002.webp" alt="原书 极值第二充分条件 · 印P189" loading="lazy" width="1100" height="282"><figcaption>原书 极值第二充分条件 · 印P189</figcaption></figure>
+<p>第二充分条件：\(f'(x_0)=0\) 且 \(f''(x_0)\ne0\) 时，\(f''(x_0)&lt;0\) 取极大、\(f''(x_0)&gt;0\) 取极小。二阶导好算时最快；\(f''(x_0)=0\) 时它失效，退回第一充分条件。</p>
+<figure class="shot"><img src="../assets/img/L05-003.webp" alt="原书 极值第三充分条件 · 印P190" loading="lazy" width="1100" height="322"><figcaption>原书 极值第三充分条件 · 印P190</figcaption></figure>
+<p>第三充分条件：前 \(n-1\) 阶导数在 \(x_0\) 全为零、\(n\) 阶导不为零（\(n\ge2\)）时，\(n\) 为偶数才有极值——\(f^{(n)}(x_0)&lt;0\) 极大、\(&gt;0\) 极小。证明用洛必达或泰勒，大纲不作要求。记忆抓手：第一个不为零的导数是偶数阶管极值、奇数阶管拐点，两套条件正好对称。</p>
+<h3>凹凸性的定义</h3>
+<p>两个等价定义（印P192-193）。中点式（大纲定义1）：\(f\left(\dfrac{x_1+x_2}{2}\right) &lt; \dfrac{f(x_1)+f(x_2)}{2}\) 恒成立称凹（凹弧，弧段在弦下方，\(\cup\) 形）；反向不等式称凸。切线式（定义2）：\(f(x_0)+f'(x_0)(x-x_0) &lt; f(x)\) 恒成立称凹——曲线总在切线上方，切线在曲线下方是凹、上方是凸。广义版本 \(f(\lambda_1 x_1+\lambda_2 x_2) &lt; \lambda_1 f(x_1)+\lambda_2 f(x_2)\)（\(\lambda_1,\lambda_2&gt;0\)，\(\lambda_1+\lambda_2=1\)）是中点式的推广。</p>
+<figure class="shot"><img src="../assets/img/L05-004.webp" alt="原书 拐点的定义 · 印P193" loading="lazy" width="918" height="351"><figcaption>原书 拐点的定义 · 印P193</figcaption></figure>
+<p>拐点三条（印P193）：间断点不可能是拐点（拐点处只要求连续）；端点处单侧凹凸相接也可称有拐点；写法上极值点只写横坐标 \(x=x_0\)，拐点必须写全 \((x_0, f(x_0))\)。</p>
+<h3>凹凸性与拐点的判别</h3>
+<p>凹凸判别：\(f\) 在 \(I\) 上二阶可导，\(f''&gt;0\) 则图形是凹的，\(f''&lt;0\) 则是凸的。</p>
+<figure class="shot"><img src="../assets/img/L05-005.webp" alt="原书 拐点的必要条件与第一充分条件 · 印P194" loading="lazy" width="1100" height="1294"><figcaption>原书 拐点的必要条件与第一充分条件 · 印P194</figcaption></figure>
+<p>拐点判别和极值完全平行：必要条件是 \(f''(x_0)=0\)（若 \(f''(x_0)\) 存在），嫌疑点 = \(f''\) 的零点 ∪ \(f''\) 不存在的点——\(y=\sqrt[3]{x}\) 在 \((0,0)\) 处 \(y''\) 不存在却是拐点，是标准反例。第一充分条件看 \(f''\) 在两侧变号（正变负、负变正都行）。第二充分条件：\(f''(x_0)=0\) 且 \(f'''(x_0)\ne0\) 则是拐点（左侧凸右侧凹当 \(f'''&gt;0\)）。第三充分条件：\(f^{(m)}(x_0)=0\)（\(m=2,\dots,n-1\)）、\(f^{(n)}(x_0)\ne0\)（\(n\ge3\)）且 \(n\) 为奇数时是拐点，而且不需要 \(f'(x_0)=0\)（印P195 注2）。</p>
+<h3>极值点与拐点的重要结论</h3>
+<figure class="shot"><img src="../assets/img/L05-006.webp" alt="原书 极值点与拐点的重要结论 · 印P196" loading="lazy" width="1100" height="948"><figcaption>原书 极值点与拐点的重要结论 · 印P196</figcaption></figure>
+<p>选择题专供，均可直接使用。① 曲线的可导点不可同时为极值点和拐点；不可导点可以同时。② \(f(x)=(x-a)^n g(x)\)（\(n&gt;1\)，\(g(a)\ne0\)）：\(n\) 为偶数时 \(x=a\) 是极值点，\(n\) 为奇数时 \((a,0)\) 是拐点。③ 把 \(f\) 分解为 \(\prod_i (x-a_i)^{n_i}\)，记 \(k_1\) 为 \(n_i=1\) 的个数、\(k_2\) 为 \(n_i&gt;1\) 且偶的个数、\(k_3\) 为 \(n_i&gt;1\) 且奇的个数，则极值点个数 \(=k_1+2k_2+k_3-1\)，拐点个数 \(=k_1+2k_2+3k_3-2\)。原书例子 \(f(x)=(x-1)(x-2)^2(x-3)^3(x-4)^4(x-5)\)：\(k_1=2,k_2=2,k_3=1\)，极值点 \(2+4+1-1=6\) 个，拐点 \(2+4+3-2=7\) 个。</p>
+<h3>渐近线</h3>
+<figure class="shot"><img src="../assets/img/L05-007.webp" alt="原书 铅直与水平渐近线 · 印P198" loading="lazy" width="1100" height="913"><figcaption>原书 铅直与水平渐近线 · 印P198</figcaption></figure>
+<p>铅直渐近线找三类点：无定义点、定义区间端点、分段函数的分段点，单侧极限为 \(\infty\) 即得（如 \(y=\tan x\) 在 \(x=\frac{\pi}{2}\)、\(y=\ln x\) 在 \(x\to0^+\)）。水平渐近线 \(x\to+\infty\) 与 \(x\to-\infty\) 各看各的：可以一条（\(e^{-|x|}\) 型），也可以两条不同（\(y=\arctan x\)）。</p>
+<figure class="shot"><img src="../assets/img/L05-008.webp" alt="原书 斜渐近线 · 印P199" loading="lazy" width="1100" height="354"><figcaption>原书 斜渐近线 · 印P199</figcaption></figure>
+<p>斜渐近线 \(y=ax+b\)：\(a=\lim\limits_{x\to\infty}\dfrac{f(x)}{x}\)（须为非零常数），\(b=\lim\limits_{x\to\infty}[f(x)-ax]\)。两个极限都存在才算数——\(y=x+\sin x\) 有 \(a=1\) 但 \(b=\lim\sin x\) 不存在，于是没有斜渐近线（印P200 注4）。</p>
+<figure class="shot"><img src="../assets/img/L05-009.webp" alt="原书 渐近线求解程序流程图 · 印P200" loading="lazy" width="1100" height="480"><figcaption>原书 渐近线求解程序流程图 · 印P200</figcaption></figure>
+<p>做题顺序固定：先铅直（找三类点），再水平，最后斜；一旦某方向有水平渐近线，该方向就无斜渐近线。另外曲线与渐近线可以相交（\(y=\frac{\sin x}{x}\) 与 \(y=0\)），“渐近”不等于“永不相接”。</p>
+<h3>最值或取值范围</h3>
+<p>闭区间 \([a,b]\) 上连续函数求最值：比较内部可疑点（驻点与不可导点）的函数值与端点值 \(f(a), f(b)\)，最大者为 \(M\)、最小者为 \(m\)；问法也可以变成“求值域 \([m,M]\)”。开区间 \((a,b)\)：把端点值换成两端单侧极限 \(A=\lim\limits_{x\to a^+}f(x)\)、\(B=\lim\limits_{x\to b^-}f(x)\) 再比较，可能没有最值，问法变成“取值范围”（印P202）。极值与最值的关系：极值点不一定是最值点，最值点也不一定是极值点（端点处取的最值就不是），但区间内部的最值点必是极值点。例：\(e^x\) 在 \([0,+\infty)\) 有最小值 \(f(0)=1\) 却无极值；\(3x-x^3\) 在 \((-\infty,+\infty)\) 有极大值 \(f(1)=2\)、极小值 \(f(-1)=-2\) 却无最值。</p>
+<h3>作函数图像</h3>
+<p>四步（印P203）：① 确定定义域，考查奇偶性、周期性，用好图像变换；② 导数工具——一阶导定单调区间与极值点，二阶导定凹凸区间与拐点；③ 考查渐近线；④ 作图。直接考作图的少，但每一步都是考点，要会分析函数性态。常用曲线（心形线、星形线、平摆线）见附录2，要能手画。</p>
+<h3>曲率与曲率半径（仅数学一、二）</h3>
+<figure class="shot"><img src="../assets/img/L05-010.webp" alt="原书 曲率与曲率半径公式（仅数一、二） · 印P206" loading="lazy" width="1100" height="603"><figcaption>原书 曲率与曲率半径公式（仅数一、二） · 印P206</figcaption></figure>
+<p>\[
+k=\frac{|y''|}{[1+(y')^2]^{3/2}}, \qquad R=\frac{1}{k}=\frac{[1+(y')^2]^{3/2}}{|y''|}\quad (y''\ne0).
+\]</p>
+<p>弯曲程度越大，曲率越大，曲率圆半径越小。曲线由参数方程给出时，先用参数求导算出 \(\dfrac{dy}{dx}\)、\(\dfrac{d^2y}{dx^2}\) 再代公式（原书例5.15：星形线 \(x=\cos^3t,\ y=\sin^3t\) 在 \(t=\frac{\pi}{4}\) 处 \(k=\frac23\)）。</p>
+<h2>典型例题精讲</h2>
+<h4>例5.1 见 \(f f'\) 凑平方的导数</h4>
+<figure class="shot"><img src="../assets/img/L05-011.webp" alt="原书 例5.1 · 印P190" loading="lazy" width="1033" height="315"><figcaption>原书 例5.1 · 印P190</figcaption></figure>
+<p><strong>思路</strong> 见到 \(f(x)\cdot f'(x)\)，联想 \(\left[f^2(x)\right]'=2f(x)f'(x)\)，把条件凑成某个函数的导数看符号。
+<strong>要点</strong> 由 \(f(x)f'(x)&gt;0\) 得 \(\left[\dfrac12 f^2(x)\right]'=f(x)f'(x)&gt;0\)，所以 \(\dfrac12 f^2(x)\) 单调增加，从而 \(f^2(1)&gt;f^2(-1)\)，两端开方得 \(|f(1)|&gt;|f(-1)|\)，选 (C) 并排除 (D)。再举例：取 \(f(x)=-e^x\) 满足条件，有 \(f(1)&lt;f(-1)\)；取 \(f(x)=e^x\) 有 \(f(1)&gt;f(-1)\)，排除 (A)(B)。
+<strong>注</strong> 开方必须带绝对值，\(\sqrt{u^2}=|u|\) 而非 \(u\)；举例在选择题里只能排除选项，不能当证明（印P191 注）。</p>
+<h4>例5.2 极大值能推出 \(f''(x_0)\) 的什么</h4>
+<figure class="shot"><img src="../assets/img/L05-012.webp" alt="原书 例5.2 · 印P191" loading="lazy" width="1100" height="742"><figcaption>原书 例5.2 · 印P191</figcaption></figure>
+<p><strong>思路</strong> "二阶可导 + 取极大值"先给 \(f'(x_0)=0\)，再用第二充分条件反向排除严格不等号。
+<strong>要点</strong> 因 \(f\) 二阶可导且在 \(x_0\) 取极值，故 \(f'(x_0)=0\)；若 \(f''(x_0)&gt;0\)，由第二充分条件 \(f\) 在 \(x_0\) 应取极小值，与题设矛盾，故 \(f''(x_0)\le0\)，选 (B)。等号取得到：\(f(x)=-x^4\) 在 \(x=0\) 取极大值，但 \(f''(0)=0\)。
+<strong>注</strong> 在 \(f'(x_0)=0\) 的条件下，\(f''(x_0)&lt;0\) 是取极大值的充分不必要条件（印P191 注）。</p>
+<h4>例5.4 给 \(f\) 求 \(f^{(n)}\) 的极值</h4>
+<figure class="shot"><img src="../assets/img/L05-013.webp" alt="原书 例5.4 · 印P192" loading="lazy" width="1100" height="434"><figcaption>原书 例5.4 · 印P192</figcaption></figure>
+<p><strong>思路</strong> 先写出 \(f^{(n)}(x)=(n+x)e^x\)（例4.17 的结论），把 \(f^{(n)}\) 当成一个新函数求极值。
+<strong>要点</strong> \(f^{(n+1)}(x)=(n+1+x)e^x\)，令其为零得驻点 \(x=-(n+1)\)；代入 \(f^{(n+2)}(x)=(n+2+x)e^x\) 得 \(f^{(n+2)}\big(-(n+1)\big)=e^{-(n+1)}&gt;0\)，由第二充分条件，\(x=-(n+1)\) 是 \(f^{(n)}\) 的极小值点，极小值 \(f^{(n)}\big(-(n+1)\big)=-e^{-(n+1)}\)。
+<strong>注</strong> 方法总结（印P192）：先求 \(f^{(n)}\) 表达式，再求它的驻点，代 \(f^{(n+2)}\) 验证；求极值时函数值要代入 \(f^{(n)}\) 本身，不是代入 \(f\)。书上这行 \(e^{-n-1}\) 与计算结果一致，自己动手代一遍加深印象。</p>
+<h4>例5.5 从微分方程里榨出拐点信息</h4>
+<figure class="shot"><img src="../assets/img/L05-014.webp" alt="原书 例5.5 · 印P195" loading="lazy" width="1100" height="628"><figcaption>原书 例5.5 · 印P195</figcaption></figure>
+<p><strong>思路</strong> 不解方程，只在 \(x=0\) 处反复提取信息：先代值，再两边求导后代值。
+<strong>要点</strong> 原式 \(f''(x)+[f'(x)]^2=\sin x\) 中令 \(x=0\)，得 \(f''(0)=0\)；两边对 \(x\) 求导得 \(f'''(x)+2f'(x)f''(x)=\cos x\)，令 \(x=0\) 得 \(f'''(0)=1\ne0\)。由拐点的第二充分条件，\((0, f(0))\) 是曲线的拐点，选 (C)。(A)(B) 为何错：\(f'(0)=0\) 说明 \(x=0\) 是驻点，而"重要结论①"说可导点不可同时为极值点和拐点，故 \(f(0)\) 不是极值。
+<strong>注</strong> 敢对 \(f''\) 再求导的依据：等式一侧可导，另一侧必然可导（印P196 注）。方法总结：无须解微分方程，只需取得 \(x=0\) 处的有效信息。</p>
+<h4>例5.6 绝对值函数的极值与拐点</h4>
+<figure class="shot"><img src="../assets/img/L05-015.webp" alt="原书 例5.6（解与注） · 印P197" loading="lazy" width="1100" height="400"><figcaption>原书 例5.6（解与注） · 印P197</figcaption></figure>
+<p><strong>思路</strong> 绝对值函数先拆成分段函数；\(x=0\) 处不可导，极值用定义看，拐点看 \(f''\) 变号。
+<strong>要点</strong> \(y\big|_{x=0}=0\)，而 \(x\ne0\) 时 \(y=|x|e^{-x}&gt;0\)，由定义 \(x=0\) 是极小值点。由例4.6，\(y''=e^{-x}(2-x)\ (x&lt;0)\)，\(y''=e^{-x}(x-2)\ (x&gt;0)\)：\(x&lt;0\) 时 \(y''&gt;0\)，\(0&lt;x&lt;2\) 时 \(y''&lt;0\)，即 \(y''\) 在 \(x=0\) 的左、右邻域内符号不同，故 \((0,0)\) 是曲线的拐点。选 (D)。
+<strong>注</strong> 实际上 \((2, y(2))\) 也是拐点，只是选项没有涉及（印P197 注）。</p>
+<h4>例5.7 找 \((x-a)^n\) 型曲线的拐点</h4>
+<figure class="shot"><img src="../assets/img/L05-016.webp" alt="原书 例5.7 · 印P197" loading="lazy" width="1100" height="337"><figcaption>原书 例5.7 · 印P197</figcaption></figure>
+<p><strong>思路</strong> 套"重要结论②"：把 \(x=3\) 的因子凑成三次幂。
+<strong>要点</strong> \(y=(x-3)^3\cdot\underbrace{(x-1)(x-2)^2(x-4)^4}_{g(x)}\)，\(g(3)\ne0\)，\(n=3\) 为奇数，由结论②知 \((3,0)\) 是曲线的一个拐点，选 (C)。
+<strong>注</strong> 结论②要求 \(n&gt;1\)，所以只分析 \((3,0)\) 而不分析 \((1,0)\)（印P197 注1）。再由结论③，此曲线 \(k_1=1, k_2=2, k_3=1\)，拐点共 \(1+2\times2+3\times1-2=6\) 个。</p>
+<h4>例5.8 数拐点个数</h4>
+<figure class="shot"><img src="../assets/img/L05-017.webp" alt="原书 例5.8 · 印P197" loading="lazy" width="1100" height="408"><figcaption>原书 例5.8 · 印P197</figcaption></figure>
+<p><strong>思路</strong> 直接用个数公式，只需数清各因式的重数。
+<strong>要点</strong> \(f(x)=(x-1)^2(x-3)^3\)：无一次因式，\(k_1=0\)；\(n=2\)（偶）一个，\(k_2=1\)；\(n=3\)（奇）一个，\(k_3=1\)。拐点个数 \(=k_1+2k_2+3k_3-2=0+2+3-2=3\)，选 (D)。
+<strong>注</strong> 常规解法：由 \(f'(x)=(x-1)(x-3)^2(5x-9)\) 及 \(f'(1)=f'(\tfrac95)=f'(3)=0\) 知 \(f''(x)=k(x-x_1)(x-x_2)(x-3)\)，\(f''\) 在三点两侧都变号，同样得 3 个拐点，但计算量大得多（印P197-198 注）。</p>
+<h4>例5.9 渐近线全套</h4>
+<figure class="shot"><img src="../assets/img/L05-018.webp" alt="原书 例5.9 · 印P200" loading="lazy" width="778" height="670"><figcaption>原书 例5.9 · 印P200</figcaption></figure>
+<p><strong>思路</strong> 按"铅直、水平、斜"的顺序走流程，\(x\to+\infty\) 与 \(x\to-\infty\) 分开算。
+<strong>要点</strong> \(\lim\limits_{x\to0}\left[\dfrac1x+\ln(1+e^x)\right]=\infty\)，得铅直渐近线 \(x=0\)；\(\lim\limits_{x\to-\infty}\left[\dfrac1x+\ln(1+e^x)\right]=0\)，得 \(x\to-\infty\) 方向的水平渐近线 \(y=0\)；\(x\to+\infty\) 时 \(\dfrac{f(x)}{x}\to1\)，且 \(b=\lim\limits_{x\to+\infty}\left[\dfrac1x+\ln(1+e^{-x})\right]=0\)（用 \(\ln(1+e^x)-x=\ln(1+e^{-x})\)），得斜渐近线 \(y=x\)。共 3 条。
+<strong>注</strong> 渐近线的求解本质是对极限计算能力的考查（印P201 注），每一问都是一个极限小题。</p>
+<h4>例5.10 数列最大项：连续化再回头</h4>
+<figure class="shot"><img src="../assets/img/L05-019.webp" alt="原书 例5.10 · 印P203" loading="lazy" width="1100" height="639"><figcaption>原书 例5.10 · 印P203</figcaption></figure>
+<p><strong>思路</strong> 数列离散没法求导，先连续化成 \(f(x)=x^{1/x}\ (x&gt;0)\)，求完最大值再回到整数。
+<strong>要点</strong> \(f'(x)=x^{\frac1x}\cdot\dfrac{1-\ln x}{x^2}\)，唯一驻点 \(x=e\)；\((0,e)\) 内 \(f'&gt;0\)、\((e,+\infty)\) 内 \(f'&lt;0\)，故 \(f\) 在 \(x=e\) 取最大值 \(e^{\frac1e}\)。但 \(n\) 是正整数取不到 \(e\)，就近比较 \(\sqrt2\) 与 \(\sqrt[3]3\)：由 \((\sqrt2)^6=8&lt;9=(\sqrt[3]3)^6\) 知 \(\sqrt2&lt;\sqrt[3]3\)，故数列 \(\{\sqrt[n]{n}\}\) 的最大项是 \(\sqrt[3]3\)。
+<strong>注</strong> 实际问题套路（印P203 注2）：建立目标函数并确定定义域，若实际问题确有最值且目标函数有唯一极值点，则该极值点就是所求最值点。</p>
+<h4>例5.13 完整作图：\(y=\dfrac{e^x}{x}\)</h4>
+<figure class="shot"><img src="../assets/img/L05-020.webp" alt="原书 例5.13 · 印P205" loading="lazy" width="1100" height="982"><figcaption>原书 例5.13 · 印P205</figcaption></figure>
+<p><strong>思路</strong> 走作图四步：定义域 → 导数工具 → 渐近线 → 作图，列表整理最不容易乱。
+<strong>要点</strong> 定义域 \((-\infty,0)\cup(0,+\infty)\)。\(y'=\dfrac{e^x(x-1)}{x^2}\)，驻点 \(x=1\)（\(x=0\) 处 \(y'\) 不存在）；\(y''=\dfrac{e^x(x^2-2x+2)}{x^3}=\dfrac{e^x[(x-1)^2+1]}{x^3}\)，\(x&gt;0\) 时 \(y''&gt;0\)，\(x&lt;0\) 时 \(y''&lt;0\)。列表：\((-\infty,0)\) 凸且减，\((0,1)\) 凹且减，\(x=1\) 取极小值 \(e\)，\((1,+\infty)\) 凹且增。渐近线：\(\lim\limits_{x\to-\infty}\dfrac{e^x}{x}=0\) 得水平渐近线 \(y=0\)；\(x\to0^-\) 为 \(-\infty\)、\(x\to0^+\) 为 \(+\infty\)，得铅直渐近线 \(x=0\)；\(x\to+\infty\) 时 \(\dfrac{y}{x}\to+\infty\)，无斜渐近线。
+<strong>注</strong> \(x=0\) 处函数间断——虽然 \(y''\) 在两侧变号，按"间断点不可能是拐点"，这里不算拐点。</p>
+<h2>易错点与技巧</h2>
+<ul>
+<li>\(f'(x_0)=0\) 只是必要条件，别看到驻点就喊极值；极值点还要去不可导点里找（\(y=|x|\)，印P189）。判极值的优先级：定义或第一充分条件最稳，\(f''\) 好算时才用第二充分条件。</li>
+<li>极值是局部概念，最值是整体概念；区间内部的最值点必是极值点，端点处取的最值不是极值点（印P202，\(e^x\) 在 \([0,+\infty)\) 的例子）。</li>
+<li>间断点可以是极值点（印P188 四类各一例），但间断点不可能是拐点——拐点处只要求连续（印P193）。</li>
+<li>写法别混：极值点写 \(x=x_0\)，拐点写 \((x_0, f(x_0))\)。</li>
+<li>判拐点最稳的办法是看 \(y''\) 在两侧是否变号；\(f'''(x_0)\ne0\) 只是充分条件，它等于零时仍可能有拐点。</li>
+<li>渐近线顺序：铅直（无定义点、端点、分段点）→ 水平 → 斜；斜渐近线要求 \(a,b\) 都求出来且都存在（\(y=x+\sin x\) 是经典反例，印P200）；同一侧水平与斜不能共存。</li>
+<li>两个常用小套路：见 \(f\cdot f'\) 凑 \(\dfrac12 f^2\) 的导数（例5.1）；绝对值、分段函数先拆段再分析（例5.6）。</li>
+<li>选择题里举例（\(e^x\)、\(-x^4\) 等）只能排除选项，不能当证明（印P191 注）。</li>
+</ul>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">会背极值定义，说清它是局部概念、点左右邻域均有定义，端点处不讨论极值</label></li>
+<li><label><input type="checkbox">能举出间断点是极值点的四类例子：可去→极大、跳跃→极小、无穷→极小、振荡→极大</label></li>
+<li><label><input type="checkbox">会用"\(f'\ge0\) 且等号仅在有限个点成立"判严格单调，并能用 \(y=x^3\) 说明严格增不代表 \(f'&gt;0\) 处处成立</label></li>
+<li><label><input type="checkbox">记得费马定理：可导点取极值则 \(f'(x_0)=0\)，且极值点 = 驻点 ∪ 不可导点</label></li>
+<li><label><input type="checkbox">会用极值第一充分条件（\(f'\) 左负右正极小、左正右负极大、不变号不是），并记得前提是 \(x_0\) 处连续</label></li>
+<li><label><input type="checkbox">会用极值第二充分条件（\(f''(x_0)&lt;0\) 极大、\(&gt;0\) 极小），并知道它失效时要退回第一充分条件</label></li>
+<li><label><input type="checkbox">会用极值第三充分条件：第一个不为零的导数是偶数阶才谈极值，符号定极大极小</label></li>
+<li><label><input type="checkbox">会写凹凸的中点定义与切线定义两种形式</label></li>
+<li><label><input type="checkbox">记住拐点写 \((x_0, f(x_0))\)、间断点不可能是拐点</label></li>
+<li><label><input type="checkbox">会用 \(f''&gt;0\) 凹、\(f''&lt;0\) 凸，并会用 \(f''\) 变号判拐点（含 \(f''\) 不存在的点，如 \(\sqrt[3]x\) 在原点）</label></li>
+<li><label><input type="checkbox">会用拐点第二充分条件（\(f''(x_0)=0,\ f'''(x_0)\ne0\)）与第三充分条件（\(n\) 为奇数，不需要 \(f'(x_0)=0\)）</label></li>
+<li><label><input type="checkbox">记住：可导点不可同时为极值点和拐点，不可导点可以</label></li>
+<li><label><input type="checkbox">会用 \((x-a)^n g(x)\) 判别（\(n\) 偶则极值点、\(n\) 奇则 \((a,0)\) 为拐点，要求 \(n&gt;1\) 且 \(g(a)\ne0\)）</label></li>
+<li><label><input type="checkbox">会用 \(k_1+2k_2+k_3-1\) 与 \(k_1+2k_2+3k_3-2\) 数极值点、拐点个数</label></li>
+<li><label><input type="checkbox">会按"铅直→水平→斜"的顺序、分 \(x\to\pm\infty\) 求三种渐近线，铅直渐近线知道找无定义点、端点、分段点</label></li>
+<li><label><input type="checkbox">知道斜渐近线要求 \(a\ne0\) 且 \(b\) 存在，同一侧有水平渐近线就没有斜渐近线</label></li>
+<li><label><input type="checkbox">会求闭区间最值（可疑点函数值与端点值比大小）、开区间最值或取值范围（换两端单侧极限）</label></li>
+<li><label><input type="checkbox">能举例说明极值点未必是最值点、最值点未必是极值点、内部最值点必是极值点</label></li>
+<li><label><input type="checkbox">会按四步作图：定义域与奇偶周期变换 → 导数工具 → 渐近线 → 作图</label></li>
+<li><label><input type="checkbox">（数一、二）默写曲率与曲率半径公式，参数方程情形会先求 \(\dfrac{dy}{dx},\dfrac{d^2y}{dx^2}\) 再代公式</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong> 求曲线 \(y=\dfrac{x^2+x}{x^2-1}\) 的渐近线。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(x=1\) 处 \(y=\dfrac{x(x+1)}{(x-1)(x+1)}\)，\(\lim\limits_{x\to1}y=\lim\limits_{x\to1}\dfrac{x}{x-1}=\infty\)，得铅直渐近线 \(x=1\)（唯一的铅直渐近线）；\(x=-1\) 处极限存在（\(\dfrac12\)），不是渐近线。\(x\to\infty\) 时 \(y\to1\)，得水平渐近线 \(y=1\)；由 \(y\to1\) 知无斜渐近线。共 2 条。（原书习题 5.3）</p>
+</details>
+<p><strong>2.</strong> 求 \(y=x+2\cos x\) 在 \(\left[0,\dfrac{\pi}{2}\right]\) 上的最大值。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(y'=1-2\sin x=0\) 得 \(x=\dfrac{\pi}{6}\)；\(y''=-2\cos x\)，\(y''\left(\dfrac{\pi}{6}\right)=-\sqrt3&lt;0\)，为极大值点，且是 \(\left(0,\dfrac{\pi}{2}\right)\) 内唯一极值点。比较 \(y(0)=2\)，\(y\left(\dfrac{\pi}{6}\right)=\sqrt3+\dfrac{\pi}{6}\approx2.26\)，\(y\left(\dfrac{\pi}{2}\right)=\dfrac{\pi}{2}\)，最大值为 \(\sqrt3+\dfrac{\pi}{6}\)。（原书习题 5.6）</p>
+</details>
+<p><strong>3.</strong> 求曲线 \(y=(2x-1)e^{\frac1x}\) 的斜渐近线。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(a=\lim\limits_{x\to\infty}\dfrac{y}{x}=\lim\limits_{x\to\infty}\left(2-\dfrac1x\right)e^{\frac1x}=2\)；</p>
+<p>\[b=\lim_{x\to\infty}(y-ax)=\lim_{x\to\infty}\left[2x\left(e^{\frac1x}-1\right)-e^{\frac1x}\right]=\lim_{x\to\infty}\left[\dfrac{2\left(e^{\frac1x}-1\right)}{\frac1x}-e^{\frac1x}\right]=2-1=1.\]</p>
+<p>斜渐近线为 \(y=2x+1\)。（原书习题 5.7）</p>
+</details>
+<p><strong>4.</strong> 设 \(y=y(x)\) 由方程 \(2y^3-2y^2+2xy-x^2=1\) 确定，求 \(y(x)\) 的驻点，并判别它是否为极值点。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 方程两边对 \(x\) 求导：\(3y^2y'-2yy'+y+xy'-x=0\)。令 \(y'=0\) 得 \(y=x\)，代回原方程得 \(2x^3-x^2-1=0\)，即 \((x-1)(2x^2+x+1)=0\)，唯一驻点 \(x=1\)（此时 \(y=1\)）。(*)式两边再对 \(x\) 求导：\((3y^2-2y+x)y''+2(3y-1)(y')^2+2y'-1=0\)，代入 \(x=1,\ y=1,\ y'=0\) 得 \(y''\big|_{x=1}=\dfrac12&gt;0\)，故 \(x=1\) 是 \(y=y(x)\) 的极小值点。（原书习题 5.9）</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P186–P210</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

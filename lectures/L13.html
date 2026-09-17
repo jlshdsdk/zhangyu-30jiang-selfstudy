@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多元函数微分学 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L12.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L14.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第13讲 · 多元函数微分学</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P348–P381</p>
+<h2>本讲导读</h2>
+<p>本讲的主线就一条：把一元的「极限—连续—导数—微分」整套翻成多元版，再加两样新东西——复合与隐函数求导、极值与最值。考研常考的位置：二重极限的概念判断（选择题）、可微的判定（本讲重难点①）、抽象函数的二阶偏导、隐函数求导、无条件极值与拉格朗日条件极值（重难点②）。多元和一元最大的区别有两处：极限过程有无穷多条路径（所以才有"路径反例法"），以及可微与偏导存在不再等价——印 P359 那张关系图必须背下来。学法建议：每个概念都和一元对照着记"哪里一样、哪里不一样"；可微判定严格按三步走，不要跳步；极值大题步骤固定但计算量大，值得多动笔。</p>
+<h2>知识框架</h2>
+<ul>
+<li>基本概念</li>
+<li>邻域（\(\delta\) 邻域、去心邻域）</li>
+<li>二重极限（路径法否定存在、夹逼、脱帽法）</li>
+<li>连续</li>
+<li>偏导数（定义、几何意义、高阶混合偏导）</li>
+<li>可微（定义、必要条件、充分条件、判别三步）</li>
+<li>多元函数微分法则</li>
+<li>链式求导规则（复合结构图、全导数）</li>
+<li>全微分形式不变性</li>
+<li>隐函数存在定理（公式法）</li>
+<li>二元函数的拉格朗日定理（区域上偏导恒零推出常函数）</li>
+<li>多元函数的极值与最值</li>
+<li>无条件极值（必要条件找可疑点、\(AC-B^2\) 充分条件判别）</li>
+<li>条件最值与拉格朗日乘数法</li>
+<li>最远（近）点的垂线原理</li>
+<li>有界闭区域上连续函数的最值</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>1. 邻域与二元函数的极限</h3>
+<p>邻域是一切定义的地基：\(U(P_0,\delta)=\{(x,y)\mid\sqrt{(x-x_0)^2+(y-y_0)^2}&lt;\delta\}\)，去心邻域再加上条件 \(0&lt;|PP_0|\)。一元的邻域是区间，二元的邻域是圆盘。</p>
+<p>二重极限的 \(\varepsilon\)-\(\delta\) 定义照搬一元，只把"区间"换成"圆盘"。一元里 \(x\to x_0\) 只有左右两种方式，二元里 \((x,y)\to(x_0,y_0)\) 的方式有无穷多种——这是一切区别的根源。</p>
+<figure class="shot"><img src="../assets/img/L13-001.webp" alt="原书 二重极限定义 · 印P350" loading="lazy" width="1100" height="388"><figcaption>原书 二重极限定义 · 印P350</figcaption></figure>
+<p>判定与求法全在下面这个注里：两条路径结果不同（或某条路径极限不存在）就能否定存在；求极限时除洛必达法则和单调有界准则外，一元的手段（夹逼、等价无穷小、脱帽法 \(f(x,y)=A+\alpha\)）都能搬过来。</p>
+<figure class="shot"><img src="../assets/img/L13-002.webp" alt="原书 极限三注：路径反例、求法与脱帽法 · 印P350" loading="lazy" width="1100" height="902"><figcaption>原书 极限三注：路径反例、求法与脱帽法 · 印P350</figcaption></figure>
+<p>连续：\(\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=f(x_0,y_0)\)。有个好消息——考纲不要求讨论多元函数间断点的类型。另外二元初等函数在定义区域上连续，例13.2 就靠这句。</p>
+<h3>2. 偏导数</h3>
+<p>定义就是"只让一个变量动"的一元导数：</p>
+<p>\[ f'_x(x_0,y_0)=\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x,\,y_0)-f(x_0,y_0)}{\Delta x},\qquad f'_y(x_0,y_0)=\lim_{\Delta y\to 0}\frac{f(x_0,\,y_0+\Delta y)-f(x_0,y_0)}{\Delta y}. \]</p>
+<p>分段函数、含绝对值的函数在可疑点求偏导，一律回定义（见例13.3）。</p>
+<figure class="shot"><img src="../assets/img/L13-003.webp" alt="原书 偏导数定义 · 印P352" loading="lazy" width="1100" height="634"><figcaption>原书 偏导数定义 · 印P352</figcaption></figure>
+<p>几何意义：\(f'_x(x_0,y_0)\) 是曲面 \(z=f(x,y)\) 被平面 \(y=y_0\) 截出的曲线在该点切线对 \(x\) 轴的斜率；\(f'_y\) 同理。</p>
+<p>高阶偏导：\(\dfrac{\partial^2 z}{\partial x\,\partial y}\) 与 \(\dfrac{\partial^2 z}{\partial y\,\partial x}\) 都在区域 \(D\) 内连续时二者相等，与求导次序无关。做题时"连续"一般由初等表达式自动保证，放心交换次序。</p>
+<h3>3. 全微分与可微（重难点）</h3>
+<p>书里的引例值得看一遍：矩形面积 \(S=xy\) 的增量 \(\Delta S=y\Delta x+x\Delta y+\Delta x\Delta y\)，其中误差 \(\Delta x\Delta y\) 是比 \(\rho=\sqrt{(\Delta x)^2+(\Delta y)^2}\) 高阶的无穷小。抽象出来就是可微定义：</p>
+<figure class="shot"><img src="../assets/img/L13-004.webp" alt="原书 可微定义与必要条件 · 印P357" loading="lazy" width="1100" height="808"><figcaption>原书 可微定义与必要条件 · 印P357</figcaption></figure>
+<p>核心句：全增量能写成 \(\Delta z=A\Delta x+B\Delta y+o(\rho)\) 就可微，且必要条件 \(A=f'_x\)、\(B=f'_y\)，即 \(\mathrm{d}z=\dfrac{\partial z}{\partial x}\mathrm{d}x+\dfrac{\partial z}{\partial y}\mathrm{d}y\)。</p>
+<p>充分条件：偏导数存在且连续，则可微。判"偏导连不连续"也有固定三步（定义法求点值、公式法求表达式、看极限是否等于点值）：</p>
+<figure class="shot"><img src="../assets/img/L13-005.webp" alt="原书 可微充分条件与偏导连续判别 · 印P358" loading="lazy" width="1100" height="911"><figcaption>原书 可微充分条件与偏导连续判别 · 印P358</figcaption></figure>
+<p>可微判别三步（考试重难点①）：①写全增量；②写线性主部 \(A\Delta x+B\Delta y\)（\(A,B\) 必须取该点用定义求出的偏导）；③看</p>
+<p>\[ \lim_{(\Delta x,\Delta y)\to(0,0)}\frac{\Delta z-(A\Delta x+B\Delta y)}{\sqrt{(\Delta x)^2+(\Delta y)^2}} \]</p>
+<p>是否等于 \(0\)。等于 \(0\) 才可微。</p>
+<figure class="shot"><img src="../assets/img/L13-006.webp" alt="原书 可微判别三步 · 印P359" loading="lazy" width="1100" height="423"><figcaption>原书 可微判别三步 · 印P359</figcaption></figure>
+<h3>4. 连续、偏导、可微的关系图</h3>
+<p>一元：可微与可导等价。多元：偏导连续 \(\Rightarrow\) 可微 \(\Rightarrow\) 连续且偏导存在 \(\Rightarrow\) 极限存在，且所有箭头都不可逆。"可微"是二元的分水岭，这张图是本讲选择题的题库，务必默画得出。</p>
+<figure class="shot"><img src="../assets/img/L13-007.webp" alt="原书 图13-6 一元与多元关系图 · 印P359" loading="lazy" width="1100" height="371"><figcaption>原书 图13-6 一元与多元关系图 · 印P359</figcaption></figure>
+<h3>5. 复合与隐函数求导</h3>
+<p>链式法则：设 \(z=f(u,v)\)，\(u=\varphi(x,y)\)，\(v=\psi(x,y)\)，则</p>
+<p>\[ \frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\cdot\frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial x},\qquad \frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\cdot\frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial y}. \]</p>
+<p>只有一个自变量时叫全导数：\(\dfrac{\mathrm{d}z}{\mathrm{d}t}=\dfrac{\partial z}{\partial u}\dfrac{\mathrm{d}u}{\mathrm{d}t}+\dfrac{\partial z}{\partial v}\dfrac{\mathrm{d}v}{\mathrm{d}t}\)。动笔前先画复合结构图，口诀"链条三代，爷爷对每个孙子的爱是不变的"。更关键的纪律是：求导后的新函数仍然具有与原函数完全相同的复合结构——二阶偏导不出错全靠这句。</p>
+<figure class="shot"><img src="../assets/img/L13-008.webp" alt="原书 链式求导规则与全导数 · 印P361" loading="lazy" width="1100" height="731"><figcaption>原书 链式求导规则与全导数 · 印P361</figcaption></figure>
+<p>全微分形式不变性：无论 \(u,v\) 是自变量还是中间变量，\(\mathrm{d}z=\dfrac{\partial z}{\partial u}\mathrm{d}u+\dfrac{\partial z}{\partial v}\mathrm{d}v\) 总成立。用来求隐函数的 \(\mathrm{d}z\) 特别顺手（见例13.12）。</p>
+<p>隐函数存在定理（公式法）：\(F(x,y)=0\) 且 \(F'_y\neq0\) 时 \(\dfrac{\mathrm{d}y}{\mathrm{d}x}=-\dfrac{F'_x}{F'_y}\)；\(F(x,y,z)=0\) 且 \(F'_z\neq0\) 时 \(\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_z}\)，\(\dfrac{\partial z}{\partial y}=-\dfrac{F'_y}{F'_z}\)。注意用公式时 \(x,y,z\) 是相互独立的变量，对 \(x\) 求导时 \(z\) 不动。</p>
+<figure class="shot"><img src="../assets/img/L13-009.webp" alt="原书 隐函数存在定理1、2 · 印P364" loading="lazy" width="1100" height="532"><figcaption>原书 隐函数存在定理1、2 · 印P364</figcaption></figure>
+<p>二元拉格朗日定理：连通区域 \(D\) 上 \(f'_x\equiv0\) 且 \(f'_y\equiv0\)，则 \(f=C\)（常数）。但要小心：单独一条 \(\dfrac{\partial f}{\partial x}\equiv0\) 推不出 \(f(x,y)=g(y)\)——除非 \(D\) 内任意两点间的竖线段都在 \(D\) 内（印 P368 有反例），初学者最容易把一元结论想当然搬过来。</p>
+<h3>6. 多元极值与最值</h3>
+<p>无条件极值。必要条件：偏导存在且取极值，则 \(f'_x(x_0,y_0)=f'_y(x_0,y_0)=0\)。所以找可疑点 = 驻点 \(\cup\) 偏导不存在的点（如 \(z=\sqrt{x^2+y^2}\) 在原点取极小值但偏导不存在）。充分条件：记 \(A=f''_{xx}(x_0,y_0)\)，\(B=f''_{xy}(x_0,y_0)\)，\(C=f''_{yy}(x_0,y_0)\)，\(\Delta=AC-B^2\)：\(\Delta&gt;0\) 时取极值（\(A&lt;0\) 极大、\(A&gt;0\) 极小），\(\Delta&lt;0\) 非极值，\(\Delta=0\) 方法失效另谋他法。张宇的"开不开心少年团"口诀可以帮你记。</p>
+<figure class="shot"><img src="../assets/img/L13-010.webp" alt="原书 极值充分条件判别法 · 印P370" loading="lazy" width="1100" height="596"><figcaption>原书 极值充分条件判别法 · 印P370</figcaption></figure>
+<p>条件最值——拉格朗日乘数法（重难点②）：求 \(u=f(x,y,z)\) 在约束 \(\varphi=0\)，\(\psi=0\) 下的最值：①构造 \(F=f+\lambda\varphi+\mu\psi\)（未知量个数 = 目标函数变量数 + 约束个数）；②令 \(F\) 对所有变量偏导为零；③解出候选点 \(P_i\)，比较 \(f(P_i)\) 取最值；④实际/封闭问题由最值存在性兜底。约束容易解出时，也可以代入降元化成无条件问题。</p>
+<figure class="shot"><img src="../assets/img/L13-011.webp" alt="原书 拉格朗日乘数法步骤 · 印P371" loading="lazy" width="1100" height="589"><figcaption>原书 拉格朗日乘数法步骤 · 印P371</figcaption></figure>
+<p>有界闭区域上的最值三步：内部可疑点（驻点 + 偏导不存在点）、边界候选点（拉格朗日乘数法或代入法）、比较所有函数值。另有一个好用的几何工具——最远（近）点的垂线原理：光滑闭曲线上到曲线外一点的最远、最近点处，连线与该点切线垂直（考纲没写，但可直接用，见例13.21）。</p>
+<h2>典型例题精讲</h2>
+<h3>例13.1（二重极限：夹逼与路径反例）</h3>
+<figure class="shot"><img src="../assets/img/L13-012.webp" alt="原书 例13.1 解答 · 印P351" loading="lazy" width="1100" height="494"><figcaption>原书 例13.1 解答 · 印P351</figcaption></figure>
+<p><strong>题</strong> 设 \(I_1=\lim\limits_{(x,y)\to(0,0)}\dfrac{|xy|}{\sqrt{x^2+y^2}}\)，\(I_2=\lim\limits_{(x,y)\to(0,0)}\dfrac{x|y|}{x^2+y^2}\)，判断其存在性。</p>
+<p><strong>思路</strong> \(I_1\) 分子二次、分母一次，"分子阶数高"首选夹逼；\(I_2\) 分子分母同阶，多半要找路径反例。</p>
+<p><strong>要点</strong> 用 \(|xy|\le\dfrac{x^2+y^2}{2}\)：\(0\le I_1\le\lim\limits_{(x,y)\to(0,0)}\dfrac{1}{2}\sqrt{x^2+y^2}=0\)，由夹逼准则 \(I_1=0\) 存在。\(I_2\) 取路径 \(y=x\)：\(x\to0^+\) 时 \(\dfrac{x\cdot x}{2x^2}=\dfrac12\)，\(x\to0^-\) 时 \(\dfrac{-x^2}{2x^2}=-\dfrac12\)，极限不存在，故 \(I_2\) 不存在。应选 (A)。</p>
+<p><strong>注</strong> "低阶夹逼、同阶找路径"是面对二重极限存在性问题的第一反应，例13.8 还要回头用这两发子弹。</p>
+<h3>例13.2（连续定义反求参数）</h3>
+<figure class="shot"><img src="../assets/img/L13-013.webp" alt="原书 例13.2 · 印P352" loading="lazy" width="1100" height="690"><figcaption>原书 例13.2 · 印P352</figcaption></figure>
+<p><strong>题</strong> \(f(x,y)=\dfrac{\sqrt[3]{1-(x^2+y^2)}-1}{\mathrm{e}^{x^2+y^2}-1}\)（\(x^2+y^2\neq0\)），原点处 \(f(0,0)=a\)。若 \(f\) 连续，求 \(a\)。</p>
+<p><strong>思路</strong> 连续就意味着 \(a=\lim\limits_{(x,y)\to(0,0)}f\)；令 \(u=x^2+y^2\) 化成一元，等价无穷小直接上。</p>
+<p><strong>要点</strong> 当 \(u\to0\)：\(\sqrt[3]{1-u}-1\sim-\dfrac{u}{3}\)，\(\mathrm{e}^u-1\sim u\)，故极限为 \(-\dfrac13\)，即 \(a=-\dfrac13\)。类比的单元版本：\(\lim\limits_{u\to0}\dfrac{\sqrt[3]{1-u}-1}{\mathrm{e}^u-1}=-\dfrac13\)。</p>
+<h3>例13.3（用定义讨论偏导存在性）</h3>
+<figure class="shot"><img src="../assets/img/L13-014.webp" alt="原书 例13.3 · 印P354" loading="lazy" width="1100" height="1314"><figcaption>原书 例13.3 · 印P354</figcaption></figure>
+<p><strong>题</strong> \(f(x,y)=\ln\bigl(y+|x\sin y|\bigr)\)，讨论 \(\left.\dfrac{\partial f}{\partial x}\right|_{(0,1)}\) 与 \(\left.\dfrac{\partial f}{\partial y}\right|_{(0,1)}\) 的存在性。</p>
+<p><strong>思路</strong> 带绝对值，公式法在 \((0,1)\) 不合用，回定义；先把两条"一元截线" \(f(x,1)\)、\(f(0,y)\) 写出来。</p>
+<p><strong>要点</strong> \(f(0,1)=\ln 1=0\)，于是</p>
+<p>\[ \left.\frac{\partial f}{\partial x}\right|_{(0,1)}=\lim_{x\to0}\frac{\ln(1+|x\sin 1|)}{x}=\lim_{x\to0}\frac{|x|\sin 1}{x}, \]</p>
+<p>左右极限为 \(\pm\sin 1\)，不存在；而 \(f(0,y)=\ln y\)，</p>
+<p>\[ \left.\frac{\partial f}{\partial y}\right|_{(0,1)}=\lim_{y\to1}\frac{\ln y}{y-1}=1, \]</p>
+<p>存在。应选 (A)。</p>
+<p><strong>注</strong> \(\ln(1+t)\sim t\) 遇上 \(|t|\) 就得拆左右——这就是"绝对值点的偏导要回定义"的标准场景。</p>
+<h3>例13.8（可微性判定）</h3>
+<figure class="shot"><img src="../assets/img/L13-015.webp" alt="原书 例13.8 题干 · 印P359" loading="lazy" width="1100" height="206"><figcaption>原书 例13.8 题干 · 印P359</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L13-016.webp" alt="原书 例13.8 解答 · 印P360" loading="lazy" width="856" height="1675"><figcaption>原书 例13.8 解答 · 印P360</figcaption></figure>
+<p><strong>题</strong> \(z_1=|xy|\)，\(z_2=\dfrac{x|y|}{\sqrt{x^2+y^2}}\)（原点处规定为 \(0\)），判断它们在 \((0,0)\) 处的可微性。</p>
+<p><strong>思路</strong> 都是分段点，按判别三步走：先用定义求偏导（这题两个函数的偏导全为 \(0\)），再看 \(\dfrac{\Delta z-0}{\rho}\) 趋不趋于 \(0\)。</p>
+<p><strong>要点</strong> \(z_1\)：\(\dfrac{z_1(x,y)-z_1(0,0)}{\sqrt{x^2+y^2}}=\dfrac{|xy|}{\sqrt{x^2+y^2}}\to0\)（正是例13.1 的 \(I_1\)），可微；\(z_2\)：对应比值为 \(\dfrac{x|y|}{x^2+y^2}\)（正是例13.1 的 \(I_2\)），极限不存在，不可微。应选 (C)。</p>
+<p><strong>注</strong> 张宇这里明显是连环编排：极限例题给可微例题当子弹。做题遇到 \(|xy|\)、\(\dfrac{x|y|}{x^2+y^2}\) 直接调用结论。</p>
+<h3>例13.9（抽象函数二阶混合偏导）</h3>
+<figure class="shot"><img src="../assets/img/L13-017.webp" alt="原书 例13.9 题干 · 印P361" loading="lazy" width="1100" height="613"><figcaption>原书 例13.9 题干 · 印P361</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L13-018.webp" alt="原书 例13.9 解答 · 印P362" loading="lazy" width="930" height="460"><figcaption>原书 例13.9 解答 · 印P362</figcaption></figure>
+<p><strong>题</strong> \(z=f\bigl(\mathrm{e}^x\sin y,\ x^2+y^2\bigr)\)，\(f\) 有二阶连续偏导数，\(f'_1(0,0)=1\)，\(f'_2(0,0)=-1\)，求 \(\left.\dfrac{\partial^2 z}{\partial x\,\partial y}\right|_{(0,0)}\)。</p>
+<p><strong>思路</strong> 画复合结构图（1 号位置 \(\mathrm{e}^x\sin y\)，2 号位置 \(x^2+y^2\)）；\(f'_1\)、\(f'_2\) 对 \(y\) 求导时仍是复合函数，链式法则逐项乘开。</p>
+<p><strong>要点</strong> 先得 \(\dfrac{\partial z}{\partial x}=\mathrm{e}^x\sin y\,f'_1+2xf'_2\)；再对 \(y\) 求导：</p>
+<p>\[ \frac{\partial^2 z}{\partial x\,\partial y}=\mathrm{e}^{2x}\sin y\cos y\,f''_{11}+2\mathrm{e}^x\bigl(y\sin y+x\cos y\bigr)f''_{12}+4xy\,f''_{22}+\mathrm{e}^x\cos y\,f'_1. \]</p>
+<p>代入 \((0,0)\)，前三项全部归零，只剩 \(\left.\dfrac{\partial^2 z}{\partial x\,\partial y}\right|_{(0,0)}=f'_1(0,0)=1\)。应选 (B)。</p>
+<p><strong>注</strong> \(f''_{12}=f''_{21}\)（连续性保证）可以合并同类项；但别把 \(f'_1\) 这种"低阶尾巴"弄丢——最后答案恰恰全靠它。</p>
+<h3>例13.12（全微分形式不变性求隐函数微分）</h3>
+<figure class="shot"><img src="../assets/img/L13-019.webp" alt="原书 例13.12 · 印P363" loading="lazy" width="1100" height="479"><figcaption>原书 例13.12 · 印P363</figcaption></figure>
+<p><strong>题</strong> \(z=z(x,y)\) 由 \(\mathrm{e}^{x+2y+3z}+xyz=1\) 确定，求 \(\left.\mathrm{d}z\right|_{(0,0)}\)。</p>
+<p><strong>思路</strong> 先代 \(x=0,y=0\) 定出 \(z(0,0)=0\)；然后方程两边直接取全微分，一步到位。</p>
+<p><strong>要点</strong> 两边微分：</p>
+<p>\[ \mathrm{e}^{x+2y+3z}\bigl(\mathrm{d}x+2\mathrm{d}y+3\mathrm{d}z\bigr)+yz\,\mathrm{d}x+xz\,\mathrm{d}y+xy\,\mathrm{d}z=0. \]</p>
+<p>代入 \((0,0,0)\) 得 \(\mathrm{d}x+2\mathrm{d}y+3\mathrm{d}z=0\)，即</p>
+<p>\[ \left.\mathrm{d}z\right|_{(0,0)}=-\frac13\mathrm{d}x-\frac23\mathrm{d}y. \]</p>
+<p><strong>注</strong> 隐函数求 \(\mathrm{d}z\)："先微分、再代点"通常比套偏导公式省一半计算；这题在例13.15 还会用公式法再做一遍，两种方法都要会。</p>
+<h3>例13.16（抽象隐函数的公式法）</h3>
+<figure class="shot"><img src="../assets/img/L13-020.webp" alt="原书 例13.16 · 印P366" loading="lazy" width="1100" height="1125"><figcaption>原书 例13.16 · 印P366</figcaption></figure>
+<p><strong>题</strong> \(z=z(x,y)\) 由 \(F\left(x+\dfrac{z}{y},\ y+\dfrac{z}{x}\right)=0\) 确定，\(F\) 有连续偏导数且 \(xF'_1+yF'_2\neq0\)，求 \(x\dfrac{\partial z}{\partial x}+y\dfrac{\partial z}{\partial y}\)。</p>
+<p><strong>思路</strong> 公式法：令 \(G(x,y,z)=F\left(x+\dfrac{z}{y},\ y+\dfrac{z}{x}\right)\)，此时 \(x,y,z\) 独立，分别算 \(G'_x\)、\(G'_y\)、\(G'_z\)。</p>
+<p><strong>要点</strong> </p>
+<p>\[ \frac{\partial z}{\partial x}=-\frac{G'_x}{G'_z}=-\frac{F'_1-\dfrac{z}{x^2}F'_2}{\dfrac{1}{y}F'_1+\dfrac{1}{x}F'_2},\qquad \frac{\partial z}{\partial y}=-\frac{G'_y}{G'_z}=-\frac{-\dfrac{z}{y^2}F'_1+F'_2}{\dfrac{1}{y}F'_1+\dfrac{1}{x}F'_2}. \]</p>
+<p>于是</p>
+<p>\[ x\frac{\partial z}{\partial x}+y\frac{\partial z}{\partial y}=\frac{(-xy+z)\bigl(xF'_1+yF'_2\bigr)}{xF'_1+yF'_2}=z-xy. \]</p>
+<p><strong>注</strong> 书上注还给了复合函数求导法与全微分形式不变性两种解法；公式法最快，但"x、y、z 当独立变量"这个口吻必须站稳，一含糊就会把 \(z\) 也求进去。</p>
+<h3>例13.19（隐函数确定的函数求极值）</h3>
+<figure class="shot"><img src="../assets/img/L13-021.webp" alt="原书 例13.19 · 印P371" loading="lazy" width="1100" height="984"><figcaption>原书 例13.19 · 印P371</figcaption></figure>
+<p><strong>题</strong> \(z=z(x,y)\) 由 \((x^2+y^2)z+\ln z+2(x+y+1)=0\) 确定，求 \(z(x,y)\) 的极值。</p>
+<p><strong>思路</strong> 隐函数极值的标准流程：方程两端求偏导得方程组 \((*)\)，令 \(z_x=z_y=0\) 与原方程联立定驻点，再对 \((*)\) 求导算 \(A,B,C\)，用 \(AC-B^2\) 判别。</p>
+<p><strong>要点</strong> 对 \(x\)、\(y\) 分别求偏导得 \((*)\)；令 \(\dfrac{\partial z}{\partial x}=\dfrac{\partial z}{\partial y}=0\) 得 \(x=y=-\dfrac{1}{z}\)，代回原方程得 \(\ln z-\dfrac{2}{z}+2=0\)，观察法解得 \(z=1\)，从而驻点 \((-1,-1)\)；对 \((*)\) 两端再求导并代入驻点，得</p>
+<p>\[ A=\left.\frac{\partial^2 z}{\partial x^2}\right|_{(-1,-1)}=-\frac23,\qquad B=\left.\frac{\partial^2 z}{\partial x\,\partial y}\right|_{(-1,-1)}=0,\qquad C=\left.\frac{\partial^2 z}{\partial y^2}\right|_{(-1,-1)}=-\frac23. \]</p>
+<p>由 \(AC-B^2=\dfrac49&gt;0\)，\(A&lt;0\)，故 \(z(-1,-1)=1\) 是极大值。</p>
+<p><strong>注</strong> 二阶偏导不必求一般表达式，"先代驻点值再解方程"能省大量计算——代入后每个方程里真正未知的只有 \(A,B,C\) 三个数。</p>
+<h3>例13.21（最近点：拉格朗日乘数法与垂线原理）</h3>
+<figure class="shot"><img src="../assets/img/L13-022.webp" alt="原书 例13.21 · 印P373" loading="lazy" width="1100" height="1433"><figcaption>原书 例13.21 · 印P373</figcaption></figure>
+<p><strong>题</strong> 求曲线 \(x^2+4y^2=4\) 上到直线 \(2x+3y-6=0\) 距离最近的点。</p>
+<p><strong>思路</strong> 方法一：目标函数取 \(d^2=\dfrac{(2x+3y-6)^2}{13}\)（求 \(d\) 最小即求 \(d^2\) 最小），约束是椭圆，用拉格朗日乘数法；方法二：垂线原理，直线法向量 \(\boldsymbol{n}=(2,3)\) 与曲线切向量垂直。</p>
+<p><strong>要点</strong> 方法一作 \(F(x,y,\lambda)=\dfrac{1}{13}(2x+3y-6)^2+\lambda(x^2+4y^2-4)\)。若 \(\lambda=0\)，方程组退化为求曲线与直线的交点，但二者并不相交，无解，故 \(\lambda\neq0\)；由 \(①②\) 两式得 \(x=\dfrac{8}{3}y\)，代入 \(③\) 式解得 \(\left(\dfrac{8}{5},\dfrac{3}{5}\right)\) 与 \(\left(-\dfrac{8}{5},-\dfrac{3}{5}\right)\)，对应的 \(d\) 分别为 \(\dfrac{1}{\sqrt{13}}\)、\(\dfrac{11}{\sqrt{13}}\)。由实际意义最近距离存在，故所求点为 \(\left(\dfrac{8}{5},\dfrac{3}{5}\right)\)。方法二：曲线在点 \(P(x,y)\) 处切向量 \(\boldsymbol{\tau}=\left(1,-\dfrac{x}{4y}\right)\)，由 \(\boldsymbol{n}\perp\boldsymbol{\tau}\) 即 \(2\cdot1+3\cdot\left(-\dfrac{x}{4y}\right)=0\) 得同一方程 \(x=\dfrac{8}{3}y\)，余下相同。</p>
+<p><strong>注</strong> 垂线原理考纲没写但可以直接用，几何直观能绕开一大坨联立；"曲线到直线距离"这类题两条路都要会。</p>
+<h2>易错点与技巧</h2>
+<ol>
+<li>二重极限否定存在只要两条路径：取 \(y=kx\)、\(y=x\)、\(y=kx^2\) 试出不同结果即可（印 P350 注(2)）。但肯定存在必须用夹逼或定义，路径法只能"否"不能"立"。</li>
+<li>关系图（印 P359）默写方向别反：多元是"偏导连续 \(\Rightarrow\) 可微 \(\Rightarrow\) 连续、偏导存在"，一元才是"可微 \(\Leftrightarrow\) 可导"。偏导存在既推不出连续也推不出可微，反例就是 \(z_1=|xy|\)。</li>
+<li>可微判别里 \(A,B\) 必须是该点用定义求出的偏导；分段函数拿公式法求出的偏导直接代分段点，是常见错法（例13.8 的规范流程值得背）。</li>
+<li>抽象复合函数二阶偏导：\(f'_1\)、\(f'_2\) 求导后复合结构不变，每项都是"外层导数乘中间变量导数"，漏掉 \(f''_{12}\)、\(f''_{21}\) 的交叉项、丢掉 \(f'_1\) 尾巴是重灾区（印 P361 注(2)）。</li>
+<li>隐函数两种口吻别混：公式法里 \(x,y,z\) 独立、对 \(x\) 求导时 \(z\) 不动；复合求导法里 \(z=z(x,y)\)、\(z\) 要跟着求（印 P366 蓝字批注）。</li>
+<li>\(\dfrac{\partial f}{\partial x}\equiv0\) 推不出 \(f(x,y)=g(y)\)——除非区域内任意两点间的竖线段都整个落在 \(D\) 内（印 P368 反例）；同理 \(\dfrac{\partial u}{\partial\theta}\equiv0\) 推不出 \(u(r,\theta)=g(r)\)。</li>
+<li>极值可疑点要包括偏导不存在的点（\(z=\sqrt{x^2+y^2}\) 在原点取极小值）；\(\Delta=AC-B^2=0\) 时充分条件失效，只能回定义或另找路径（印 P370）。</li>
+<li>拉格朗日乘数法遇到不封闭的约束曲线（如例13.20 里第二象限的四分之一圆）要补端点函数值再比较；\(\lambda=0\) 常有几何含义（约束与目标相交），可以拿来快速排除（印 P372–373）。</li>
+</ol>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">能写出 \(U(P_0,\delta)\) 与去心邻域的集合表达式，并说出二元与一元邻域的几何差别</label></li>
+<li><label><input type="checkbox">能用 \(\varepsilon\)-\(\delta\) 语言复述二重极限定义，并说明二重极限的趋近方式有无穷多种</label></li>
+<li><label><input type="checkbox">会用路径法（\(y=kx\)、\(y=x\)、\(y=kx^2\)）否定二重极限存在</label></li>
+<li><label><input type="checkbox">知道除洛必达和单调有界外，一元求极限工具（夹逼、等价无穷小、脱帽法）都可搬到二重极限</label></li>
+<li><label><input type="checkbox">记住多元函数不连续点不要求分类讨论</label></li>
+<li><label><input type="checkbox">会写 \(f'_x(x_0,y_0)\) 的定义式，并知道它与"函数差值式" \(\lim\limits_{x\to x_0}\dfrac{f(x,y_0)-f(x_0,y_0)}{x-x_0}\) 等价</label></li>
+<li><label><input type="checkbox">能说出偏导数的几何意义（截线切线斜率）</label></li>
+<li><label><input type="checkbox">知道两个二阶混合偏导在连续条件下与次序无关</label></li>
+<li><label><input type="checkbox">会默写可微定义 \(\Delta z=A\Delta x+B\Delta y+o(\rho)\) 及 \(\rho\) 的表达式，知道 \(A=f'_x\)，\(B=f'_y\)</label></li>
+<li><label><input type="checkbox">会按"全增量、线性主部、残差比 \(\rho\) 的极限"三步判可微</label></li>
+<li><label><input type="checkbox">知道"偏导连续 \(\Rightarrow\) 可微 \(\Rightarrow\) 连续且偏导存在 \(\Rightarrow\) 极限存在"且均不可逆，并能举出反例函数</label></li>
+<li><label><input type="checkbox">会画复合结构图并按链式法则写一阶偏导；知道求导后的新函数复合结构不变</label></li>
+<li><label><input type="checkbox">会写全导数 \(\dfrac{\mathrm{d}z}{\mathrm{d}t}\) 公式</label></li>
+<li><label><input type="checkbox">会用全微分形式不变性对方程两端取微分求隐函数的 \(\mathrm{d}z\)</label></li>
+<li><label><input type="checkbox">会用公式法 \(\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_z}\)（前提 \(F'_z\neq0\)），并知道此时 \(x,y,z\) 独立求导</label></li>
+<li><label><input type="checkbox">知道连通区域上 \(f'_x\equiv f'_y\equiv0\) 推出 \(f=C\)，且单独 \(\dfrac{\partial f}{\partial x}\equiv0\) 推不出 \(f=g(y)\)</label></li>
+<li><label><input type="checkbox">会用必要条件列驻点方程并结合偏导不存在的点找可疑点</label></li>
+<li><label><input type="checkbox">会用 \(A,B,C\) 与 \(\Delta=AC-B^2\) 判别极值，并知道 \(\Delta=0\) 时失效</label></li>
+<li><label><input type="checkbox">会列两个约束下的拉格朗日函数 \(F=f+\lambda\varphi+\mu\psi\) 并写出全部方程</label></li>
+<li><label><input type="checkbox">会做有界闭区域最值三步：内部可疑点、边界候选点、比较函数值</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong> 下列命题中正确的是（　）。</p>
+<p>(A) 偏导数存在 \(\Rightarrow\) 连续　　(B) 连续 \(\Rightarrow\) 偏导数存在　　(C) 可微 \(\Rightarrow\) 连续　　(D) 偏导数连续 \(\Leftrightarrow\) 可微</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 选 (C)。由关系图（印 P359）：可微 \(\Rightarrow\) 连续成立且不可逆。(A) 的反例：\(z=|xy|\) 在 \((0,0)\) 处偏导存在、函数连续，但不可微；(B) 的反例：\(z=\sqrt{x^2+y^2}\) 在原点连续但偏导不存在；(D) 错在"偏导连续"只是可微的充分条件，不是必要条件。</p>
+</details>
+<p><strong>2.</strong> 求 \(\lim\limits_{(x,y)\to(0,0)}\dfrac{x^2y}{x^2+y^2}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 用夹逼：\(0\le\left|\dfrac{x^2y}{x^2+y^2}\right|=\dfrac{x^2}{x^2+y^2}\cdot|y|\le|y|\to0\)，故极限为 \(0\)。分子（三次）阶数高于分母（二次），属于"低阶夹逼"型；若把分子换成 \(xy\)（同阶），沿 \(y=kx\) 得 \(\dfrac{k}{1+k^2}\) 随 \(k\) 而异，极限就不存在了——对照例13.1。</p>
+</details>
+<p><strong>3.</strong> 设 \(f(x)\) 可微且 \(f'(0)=\dfrac{1}{2}\)，\(z=f(4x^2-y^2)\)，求 \(\left.\mathrm{d}z\right|_{(1,2)}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 令 \(u=4x^2-y^2\)，则 \(\dfrac{\partial z}{\partial x}=f'(u)\cdot 8x\)，\(\dfrac{\partial z}{\partial y}=f'(u)\cdot(-2y)\)。在 \((1,2)\) 处 \(u=0\)，故 \(\left.\dfrac{\partial z}{\partial x}\right|_{(1,2)}=8\cdot\dfrac{1}{2}=4\)，\(\left.\dfrac{\partial z}{\partial y}\right|_{(1,2)}=-4\cdot\dfrac{1}{2}=-2\)，所以 \(\left.\mathrm{d}z\right|_{(1,2)}=4\,\mathrm{d}x-2\,\mathrm{d}y\)。</p>
+</details>
+<p><strong>4.</strong> 设 \(z=z(x,y)\) 由 \((z+y)^x=x^2\) 确定，求 \(\left.\dfrac{\partial z}{\partial x}\right|_{(1,1)}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 令 \(F(x,y,z)=(z+y)^x-x^2\)，则 \(F'_x=(z+y)^x\ln(z+y)-2x\)，\(F'_z=x(z+y)^{x-1}\)。将 \(x=1\)，\(y=1\) 代入原方程得 \((z+1)^1=1\)，即 \(z=0\)。于是</p>
+<p>\[ \left.\frac{\partial z}{\partial x}\right|_{(1,1)}=-\frac{F'_x}{F'_z}\bigg|_{(1,1,0)}=-\frac{1\cdot\ln 1-2}{1\cdot 1}=2. \]</p>
+</details>
+<p><strong>5.</strong> 求二元函数 \(f(x,y)=x^2y^2+x\ln x\) 的极值。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(f'_x=2xy^2+1+\ln x\)，\(f'_y=2x^2y\)。令二者为零：由 \(f'_y=0\) 得 \(x=0\)（此时 \(\ln x\) 无意义，舍去）或 \(y=0\)；再由 \(1+\ln x=0\) 得 \(x=\dfrac{1}{\mathrm{e}}\)，唯一驻点 \(\left(\dfrac{1}{\mathrm{e}},0\right)\)。二阶偏导 \(f''_{xx}=2y^2+\dfrac{1}{x}\)，\(f''_{xy}=4xy\)，\(f''_{yy}=2x^2\)，代入驻点得 \(A=\mathrm{e}\)，\(B=0\)，\(C=\dfrac{2}{\mathrm{e}^2}\)。由 \(AC-B^2=\dfrac{2}{\mathrm{e}}&gt;0\) 且 \(A&gt;0\)，故 \(\left(\dfrac{1}{\mathrm{e}},0\right)\) 为极小值点，极小值 \(f\left(\dfrac{1}{\mathrm{e}},0\right)=-\dfrac{1}{\mathrm{e}}\)。</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P348–P381</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无穷级数（仅数学一、数学三） · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L15.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L17.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第16讲 · 无穷级数（仅数学一、数学三）</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P451–P505</p>
+<h2>本讲导读</h2>
+<p>本讲考三件事：数项级数的敛散性判别、幂级数的收敛域/和函数/函数展开，以及傅里叶级数（仅数学一）。选择题最爱考抽象级数的敛散性判断（本讲例16.20那一类），解答题基本就是求收敛域、求和函数、展开函数三种模板题，数一再加一道傅里叶。这是全书最长的一讲，别想一口气吃完：先啃常数项级数（判别法是工具），再啃幂级数（考研大头），傅里叶单独一天拿下。判别法光背没用，每个判别法认准它适用的通项形状：含 \(n!\)、\(n^n\) 想比值，\((\cdots)^n\) 想根值，想跟 \(p\) 级数比用极限形式比较。</p>
+<h2>知识框架</h2>
+<ul>
+<li>常数项级数的概念与性质</li>
+<li>部分和 \(S_n\)、收敛与发散的定义</li>
+<li>几何级数（等比级数）、调和级数、\(p\) 级数</li>
+<li>四条性质：线性运算、改变有限项、任意加括号、收敛必要条件</li>
+<li>级数敛散性的判别方法</li>
+<li>正项级数：收敛原则（部分和有界）、比较判别法、比较判别法的极限形式、比值判别法（达朗贝尔）、根值判别法（柯西）、积分判别法</li>
+<li>交错级数：莱布尼茨判别法</li>
+<li>任意项级数：绝对收敛、条件收敛及其运算法则</li>
+<li>幂级数及其收敛域</li>
+<li>函数项级数、收敛点、收敛域</li>
+<li>阿贝尔定理、收敛半径、收敛区间、收敛域的求法（不缺项/缺项）</li>
+<li>抽象幂级数：平移、提因式、逐项求导、逐项积分对收敛域的影响</li>
+<li>幂级数求和函数</li>
+<li>恒等变形（通项与下标）、和函数性质（连续、逐项积分、逐项求导）</li>
+<li>先导后积、先积后导、和函数的微分方程解法、柯西乘积</li>
+<li>函数展开成幂级数</li>
+<li>泰勒级数与麦克劳林级数、展开的唯一性</li>
+<li>直接法与间接法；\(\mathrm{e}^x\)、\(\dfrac{1}{1\pm x}\)、\(\ln(1+x)\)、\(\sin x\)、\(\cos x\)、\((1+x)^\alpha\) 的展开式</li>
+<li>傅里叶级数（仅数学一）</li>
+<li>周期为 \(2l\) 的傅里叶系数公式、狄利克雷收敛定理</li>
+<li>正弦级数与余弦级数；\([0,l]\) 上函数的奇延拓、偶延拓</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>一、常数项级数的概念与性质</h3>
+<p>给定数列 \(u_1,u_2,\cdots\)，把 \(\sum\limits_{n=1}^{\infty}u_n\) 叫级数。真正定义"无限相加"的工具是<strong>部分和</strong>：\(S_n=u_1+u_2+\cdots+u_n\)。若 \(\lim\limits_{n\to\infty}S_n=S\)（有限数）则收敛，\(S\) 就是和；极限不存在则发散。判断套路固定两步：写出 \(S_n\)，算 \(\lim\limits_{n\to\infty}S_n\)。</p>
+<p>最基础的参照物是几何级数 \(\sum\limits_{n=1}^{\infty}aq^{n-1}\ (a\neq 0)\)：\(|q|&lt;1\) 时收敛且和为 \(\dfrac{a}{1-q}\)，\(|q|\ge 1\) 时发散。</p>
+<figure class="shot"><img src="../assets/img/L16-001.webp" alt="原书 几何级数的敛散性与求和 · 印P455" loading="lazy" width="1100" height="295"><figcaption>原书 几何级数的敛散性与求和 · 印P455</figcaption></figure>
+<p>四条性质要咬准条件：收敛 \(+\) 收敛 \(=\) 收敛（线性组合同理）；收敛 \(\pm\) 发散 \(=\) 发散；发散 \(\pm\) 发散<strong>不一定</strong>。改变有限项不改变敛散性。收敛级数任意加括号仍收敛且和不变——反过来不成立，\((a-a)+(a-a)+\cdots=0\) 收敛但 \(\sum(-1)^{n-1}a\) 发散。性质4是全讲的命根子：<strong>收敛 \(\Rightarrow \lim\limits_{n\to\infty}u_n=0\)</strong>，逆否命题"通项不趋零必发散"是排除发散的第一反应，但通项趋零不能保证收敛。</p>
+<figure class="shot"><img src="../assets/img/L16-002.webp" alt="原书 性质4：收敛的必要条件及其证明 · 印P456" loading="lazy" width="1100" height="281"><figcaption>原书 性质4：收敛的必要条件及其证明 · 印P456</figcaption></figure>
+<p>顺带记住两个"发散惯犯"：调和级数 \(\sum\dfrac{1}{n}\) 发散，\(\sum\dfrac{1}{n\ln n}\) 也发散（积分判别法一算便知，印P456、P464）。</p>
+<h3>二、正项级数的判别法</h3>
+<p>若通项 \(u_n\ge 0\)，部分和数列 \(\{S_n\}\) 单调不减，于是有收敛原则：正项级数收敛 \(\Leftrightarrow\) \(\{S_n\}\) 有界。要么收敛到有限正数，要么 \(+\infty\)，没有第三种结局。</p>
+<figure class="shot"><img src="../assets/img/L16-003.webp" alt="原书 正项级数收敛原则 · 印P457" loading="lazy" width="1100" height="491"><figcaption>原书 正项级数收敛原则 · 印P457</figcaption></figure>
+<p>第二个参照物是 \(p\) 级数 \(\sum\dfrac{1}{n^p}\)：\(p\le 1\) 发散，\(p&gt;1\) 收敛，与反常积分 \(\int_1^{+\infty}\dfrac{\mathrm{d}x}{x^p}\) 同敛散。比较判别法就靠它和几何级数当尺子。</p>
+<figure class="shot"><img src="../assets/img/L16-004.webp" alt="原书 p 级数的敛散性结论 · 印P459" loading="lazy" width="1100" height="432"><figcaption>原书 p 级数的敛散性结论 · 印P459</figcaption></figure>
+<p>比较判别法：从某项起 \(u_n\le v_n\)，则"大收敛 \(\Rightarrow\) 小收敛，小发散 \(\Rightarrow\) 大发散"。用起来更顺的是<strong>极限形式</strong>：\(\lim\limits_{n\to\infty}\dfrac{u_n}{v_n}=A\)，\(A=0\) 时由 \(\sum v_n\) 收敛推 \(\sum u_n\) 收敛；\(A=+\infty\) 时由 \(\sum v_n\) 发散推 \(\sum u_n\) 发散；\(0&lt;A&lt;+\infty\)（同阶无穷小）时两者同敛散。</p>
+<figure class="shot"><img src="../assets/img/L16-005.webp" alt="原书 比较判别法的极限形式 · 印P460" loading="lazy" width="1100" height="507"><figcaption>原书 比较判别法的极限形式 · 印P460</figcaption></figure>
+<p>比值判别法（达朗贝尔）：\(\lim\limits_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\rho\)，\(\rho&lt;1\) 收敛，\(\rho&gt;1\) 发散。含 \(n!\)、\(n^n\) 的通项基本都靠它。</p>
+<figure class="shot"><img src="../assets/img/L16-006.webp" alt="原书 比值判别法及其注记 · 印P462" loading="lazy" width="1100" height="882"><figcaption>原书 比值判别法及其注记 · 印P462</figcaption></figure>
+<p>根值判别法（柯西）：\(\lim\limits_{n\to\infty}\sqrt[n]{u_n}=\rho\)，结论同上。通项长成 \(\bigl(\cdots\bigr)^n\) 时用它。</p>
+<figure class="shot"><img src="../assets/img/L16-007.webp" alt="原书 根值判别法及其注记 · 印P463" loading="lazy" width="1100" height="602"><figcaption>原书 根值判别法及其注记 · 印P463</figcaption></figure>
+<p>注意：\(\rho=1\) 时两个判别法都失效（\(\sum\frac1n\) 与 \(\sum\frac1{n^2}\) 的 \(\rho\) 都是 1）。但若是由比值/根值判得 \(\rho&gt;1\)，则通项不趋零，原级数必发散——这条后面判任意项级数还要用。另外，若 \(n&gt;N\) 后 \(\dfrac{u_{n+1}}{u_n}\ge 1\)，直接得 \(\lim u_n\neq 0\) 发散，不必去取极限。</p>
+<p>积分判别法：\(f(x)\) 在 \([1,+\infty)\) 单调减少、非负连续且 \(u_n=f(n)\)，则 \(\sum u_n\) 与 \(\int_1^{+\infty}f(x)\,\mathrm{d}x\) 同敛散。常见对照要记：\(\sum\dfrac{1}{n\ln n}\) 发散；\(\sum\dfrac{1}{n^p\ln^q n}\) 在 \(p&gt;1\) 或（\(p=1\) 且 \(q&gt;1\)）时收敛，其余发散。</p>
+<figure class="shot"><img src="../assets/img/L16-008.webp" alt="原书 积分判别法及常见积分对照 · 印P464" loading="lazy" width="1100" height="452"><figcaption>原书 积分判别法及常见积分对照 · 印P464</figcaption></figure>
+<h3>三、交错级数与任意项级数</h3>
+<p>交错级数 \(\sum\limits_{n=1}^{\infty}(-1)^{n-1}u_n\ (u_n&gt;0)\) 用莱布尼茨判别法：\(\{u_n\}\) 单调不增且 \(\lim\limits_{n\to\infty}u_n=0\)，则收敛。注意这只是<strong>充分</strong>条件：单调性不满足时级数照样可能收敛（如 \(\sum(-1)^n\frac{2+(-1)^n}{2^n}\)），拆项处理是正路。</p>
+<figure class="shot"><img src="../assets/img/L16-009.webp" alt="原书 莱布尼茨判别法 · 印P465" loading="lazy" width="1100" height="246"><figcaption>原书 莱布尼茨判别法 · 印P465</figcaption></figure>
+<p>任意项级数先加绝对值：\(\sum|u_n|\) 收敛称<strong>绝对收敛</strong>；\(\sum u_n\) 收敛而 \(\sum|u_n|\) 发散称<strong>条件收敛</strong>。绝对收敛必收敛。判别顺序固定：先看 \(\sum|u_n|\)（此时可用全部正项级数判别法），发散了再回头看原级数。</p>
+<figure class="shot"><img src="../assets/img/L16-010.webp" alt="原书 绝对收敛与条件收敛的定义 · 印P467" loading="lazy" width="1100" height="459"><figcaption>原书 绝对收敛与条件收敛的定义 · 印P467</figcaption></figure>
+<p>几条运算法则做题极常用：绝对 \(+\) 绝对 \(=\) 绝对；绝对 \(+\) 条件 \(=\) 条件；条件 \(+\) 条件 \(=\) 收敛（但绝对还是条件不定）。条件收敛的交错级数，其全体正项 \(\sum u_{2n-1}\) 与全体负项 \(\sum(-u_{2n})\) 都发散。若比值/根值判得 \(\sum|u_n|\) 发散（\(\rho&gt;1\)），则 \(\sum u_n\) 本身发散。交错 \(p\) 级数 \(\sum\dfrac{(-1)^{n-1}}{n^p}\)：\(p&gt;1\) 绝对收敛，\(0&lt;p\le 1\) 条件收敛（印P469）。</p>
+<h3>四、幂级数及其收敛域</h3>
+<p>形如 \(\sum a_n(x-x_0)^n\) 的幂级数，收敛域一定是以 \(x_0\) 为中心的对称区间（可能缩成一点）。阿贝尔定理是源头：在 \(x_1\neq 0\) 处收敛，则 \(|x|&lt;|x_1|\) 内绝对收敛；在 \(x_2\neq 0\) 处发散，则 \(|x|&gt;|x_2|\) 全发散。</p>
+<figure class="shot"><img src="../assets/img/L16-011.webp" alt="原书 阿贝尔定理 · 印P476" loading="lazy" width="1100" height="331"><figcaption>原书 阿贝尔定理 · 印P476</figcaption></figure>
+<p>由此定义收敛半径 \(R\)：\(|x|&lt;R\) 绝对收敛、\(|x|&gt;R\) 发散，\((-R,R)\) 叫收敛区间。端点 \(x=\pm R\) 阿贝尔定理管不着，必须代回去按数项级数单独判——这是收敛域题的固定动作。</p>
+<p>具体求法：不缺项时 \(\rho=\lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|\)（或 \(\lim\sqrt[n]{|a_n|}\)），\(R=1/\rho\)；\(\rho=0\) 时 \(R=+\infty\)，\(\rho=+\infty\) 时 \(R=0\)。缺项幂级数或一般函数项级数 \(\sum u_n(x)\) 就"釜底抽薪"：直接对通项加绝对值用比值（根值）判别法，令 \(\lim\left|\dfrac{u_{n+1}(x)}{u_n(x)}\right|&lt;1\) 解出区间，再单独讨论端点。</p>
+<figure class="shot"><img src="../assets/img/L16-012.webp" alt="原书 收敛域的求法与收敛半径公式 · 印P477" loading="lazy" width="1100" height="259"><figcaption>原书 收敛域的求法与收敛半径公式 · 印P477</figcaption></figure>
+<p>抽象型问题的三条规则（印P477）：在 \(x_1\) 处收敛 \(\Rightarrow R\ge|x_1-x_0|\)；发散 \(\Rightarrow R\le|x_1-x_0|\)；<strong>条件收敛 \(\Rightarrow R=|x_1-x_0|\)</strong>（重要考点，端点恰好在收敛半径上）。另外：提出因式或平移不改 \(R\)；逐项求导 \(R\) 不变、收敛域可能缩小；逐项积分 \(R\) 不变、收敛域可能扩大。</p>
+<h3>五、幂级数求和函数</h3>
+<p>和函数 \(S(x)=\sum a_nx^n\) 在收敛域上连续；在收敛域内可逐项积分、逐项求导，\(R\) 都不变。这套操作加上几个恒等变形（通项下标一起变、只变下标把前几项拎出来、提出 \(x^l\)），就是求和函数的全部家当。突破口看 \(n\) 的位置：\((an+b)^n\) 在分母，先导后积；在分子，先积后导。做完必须写收敛域。</p>
+<h3>六、函数展开成幂级数</h3>
+<p>\(f(x)\) 在 \(x_0\) 处的泰勒级数为 \(\sum\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n\)，\(x_0=0\) 时叫麦克劳林级数。展开式有唯一性（\(a_n=\frac{f^{(n)}(x_0)}{n!}\)），所以实际都用<strong>间接法</strong>：变量代换、四则运算、逐项求导、逐项积分。下面这张表是本讲必须一字不差背下来的内容，连收敛域一起背。</p>
+<figure class="shot"><img src="../assets/img/L16-013.webp" alt="原书 常用函数的麦克劳林展开式表 · 印P485" loading="lazy" width="1100" height="1129"><figcaption>原书 常用函数的麦克劳林展开式表 · 印P485</figcaption></figure>
+<p>展开到端点能否成立有检验法：级数在端点收敛，且 \(f\) 在该端点单侧连续，则展开式在端点也成立（印P494）。由常用展开式还能派生 \(\arctan x=\sum\limits_{n=0}^{\infty}(-1)^n\dfrac{x^{2n+1}}{2n+1}\ (|x|\le 1)\)、\(\dfrac{\mathrm{e}^x+\mathrm{e}^{-x}}{2}=\sum\dfrac{x^{2n}}{(2n)!}\) 等（印P494 小结8式）。</p>
+<h3>七、傅里叶级数（仅数学一）</h3>
+<p>设 \(f(x)\) 是周期 \(2l\) 的可积函数，系数公式是记背水平的考查，\(a_0\) 与 \(a_n\) 的关系别弄丢。</p>
+<figure class="shot"><img src="../assets/img/L16-014.webp" alt="原书 傅里叶系数公式（定义4） · 印P495" loading="lazy" width="1100" height="533"><figcaption>原书 傅里叶系数公式（定义4） · 印P495</figcaption></figure>
+<p>狄利克雷收敛定理告诉你这个级数收敛到谁：连续点收敛于 \(f(x)\)；间断点收敛于 \(\dfrac{f(x-0)+f(x+0)}{2}\)；端点 \(x=\pm l\) 收敛于 \(\dfrac{f(-l+0)+f(l-0)}{2}\)。一句话：\(S(x)\) 永远收敛于"左极限加右极限除以2"。</p>
+<figure class="shot"><img src="../assets/img/L16-015.webp" alt="原书 狄利克雷收敛定理与和函数取值 · 印P495" loading="lazy" width="1100" height="652"><figcaption>原书 狄利克雷收敛定理与和函数取值 · 印P495</figcaption></figure>
+<p>\(f\) 为奇函数得正弦级数（只有 \(b_n\)），偶函数得余弦级数（只有 \(a_n\)）。只在 \([0,l]\) 上有定义的函数，先延拓后展开：奇延拓配正弦级数，偶延拓配余弦级数，积分区间都是 \([0,l]\)、系数前面是 \(\dfrac{2}{l}\)。</p>
+<figure class="shot"><img src="../assets/img/L16-016.webp" alt="原书 正弦级数与余弦级数的系数公式 · 印P496" loading="lazy" width="810" height="469"><figcaption>原书 正弦级数与余弦级数的系数公式 · 印P496</figcaption></figure>
+<h2>典型例题精讲</h2>
+<figure class="shot"><img src="../assets/img/L16-017.webp" alt="原书 例16.3 · 印P457" loading="lazy" width="928" height="645"><figcaption>原书 例16.3 · 印P457</figcaption></figure>
+<p><strong>思路</strong> 收敛原则的直接应用：算 \(S_n\) 不好算，就证 \(\{S_n\}\) 有上界。
+<strong>要点</strong> 放缩 \(\dfrac{1}{k!}\le\dfrac{1}{(k-1)k}=\dfrac{1}{k-1}-\dfrac{1}{k}\)，于是 \(0&lt;S_{n+1}\le 1+1+\left(1-\dfrac12\right)+\cdots+\left(\dfrac{1}{n-1}-\dfrac1n\right)=3-\dfrac1n&lt;3\)。部分和有界，由收敛原则，\(\sum\limits_{n=0}^{\infty}\dfrac{1}{n!}\) 收敛。书上加注：这个和就是 \(\mathrm{e}\)（在 \(\mathrm{e}^x\) 展开式中令 \(x=1\)）。</p>
+<figure class="shot"><img src="../assets/img/L16-018.webp" alt="原书 例16.4 · 印P458" loading="lazy" width="1100" height="1007"><figcaption>原书 例16.4 · 印P458</figcaption></figure>
+<p><strong>思路</strong> 判 \(\sum\ln\left(1+\frac1n\right)\) 与 \(\sum\frac1n\) 的敛散。关键不等式：\(x&gt;\ln(1+x)&gt;0\ (x&gt;0)\)。
+<strong>要点</strong> 一方面 \(\dfrac1n&gt;\ln\left(1+\dfrac1n\right)\)；另一方面 \(\sum\limits_{n=1}^{\infty}\ln\dfrac{n+1}{n}\) 的部分和 \(S_n=\ln(n+1)\to+\infty\)，发散，由比较判别法 \(\sum\dfrac1n\) 发散，选 (D)。也可用例16.1的结论：\(\sum(u_{n+1}-u_n)\) 收敛 \(\Leftrightarrow \lim u_n\) 存在，取 \(u_n=\ln n\) 立得 \(\sum\ln\frac{n+1}{n}\) 发散。</p>
+<figure class="shot"><img src="../assets/img/L16-019.webp" alt="原书 例16.16 · 印P466" loading="lazy" width="1100" height="1017"><figcaption>原书 例16.16 · 印P466</figcaption></figure>
+<p><strong>思路</strong> 判 \(\sum\limits_{n=2}^{\infty}\dfrac{(-1)^n}{\sqrt n+(-1)^n}\)。验证发现 \(\{u_n\}\) 不单调（\(u_{2k}&gt;u_{2k+1}\) 不成立），莱布尼茨失效——拆项。
+<strong>要点</strong> 有理化：\(\dfrac{(-1)^n}{\sqrt n+(-1)^n}=(-1)^n\dfrac{\sqrt n-(-1)^n}{n-1}=(-1)^n\dfrac{\sqrt n}{n-1}-\dfrac{1}{n-1}\)。前一个按莱布尼茨收敛（\(f(x)=\frac{\sqrt x}{x-1}\) 在 \(x\ge2\) 单调减且趋于0），后一个 \(\sum\dfrac{1}{n-1}\) 发散，收敛 \(+\) 发散 \(=\) 发散，故原级数发散。
+<strong>注</strong> "单调性不满足"不等于发散，本题拆开后一半收敛一半发散才是发散；这种"瓦解敌人，各个击破"是交错级数的通用破法。</p>
+<figure class="shot"><img src="../assets/img/L16-020.webp" alt="原书 例16.21 · 印P473" loading="lazy" width="1100" height="1157"><figcaption>原书 例16.21 · 印P473</figcaption></figure>
+<p><strong>思路</strong> 含参交错级数 \(\sum(-1)^{n+1}\dfrac{\sqrt{n+1}-\sqrt n}{n^p}\)，问条件收敛的 \(p\) 范围。先往 \(p\) 级数上靠。
+<strong>要点</strong> \(a_n=\dfrac{1}{(\sqrt{n+1}+\sqrt n)n^p}\sim\dfrac{1}{2n^{p+\frac12}}\)。\(p&gt;\dfrac12\) 时绝对收敛；\(p\le-\dfrac12\) 时 \(a_n\not\to0\) 发散；当 \(-\dfrac12&lt;p\le\dfrac12\) 时 \(a_n\to0\)，且 \(f(x)=x^p(\sqrt{x+1}+\sqrt x)\) 当 \(x\) 充分大时单调增加，故 \(a_n=\frac{1}{f(n)}\) 单调减少，莱布尼茨判收敛。综上应填 \(-\dfrac12&lt;p\le\dfrac12\)。</p>
+<figure class="shot"><img src="../assets/img/L16-021.webp" alt="原书 例16.23 · 印P480" loading="lazy" width="815" height="669"><figcaption>原书 例16.23 · 印P480</figcaption></figure>
+<p><strong>思路</strong> 缺项幂级数（只有 \(x^{2n}\)），不能用系数公式，直接对通项加绝对值用比值法。
+<strong>要点</strong> \(\lim\limits_{n\to\infty}\left|\dfrac{u_{n+1}(x)}{u_n(x)}\right|=\lim\dfrac{2n-1}{2n+1}x^2=x^2\)，故 \(|x|&lt;1\) 收敛、\(|x|&gt;1\) 发散；\(x=\pm1\) 时级数成 \(\sum\dfrac{(-1)^{n-1}}{2n-1}\)，由莱布尼茨判别法收敛。收敛域为 \([-1,1]\)。这个级数的和函数就是 \(x\arctan x\)（见例16.32）。</p>
+<figure class="shot"><img src="../assets/img/L16-022.webp" alt="原书 例16.24 · 印P480" loading="lazy" width="1100" height="643"><figcaption>原书 例16.24 · 印P480</figcaption></figure>
+<p><strong>思路</strong> 考"逐项积分后收敛域可能扩大"：\(f(x)=\sum\limits_{n=0}^{\infty}x^n\)，\(g(x)=\int_0^xf(t)\,\mathrm{d}t\)，问两者收敛域。
+<strong>要点</strong> \(f\) 的收敛域为 \((-1,1)\)（端点 \(\sum(\pm1)^n\) 发散）。\(g(x)=\sum\dfrac{x^{n+1}}{n+1}\)，收敛半径仍为1，但 \(x=-1\) 时 \(\sum\dfrac{(-1)^{n+1}}{n+1}\) 由莱布尼茨收敛，\(x=1\) 时发散，故 \(g\) 的收敛域为 \([-1,1)\)，选 (B)。
+<strong>注</strong> \(x=-1\) 处"收敛域扩大"正是 \(\sum\dfrac{x^n}{n}=-\ln(1-x)\) 在 \(x=-1\) 成立的原因。</p>
+<figure class="shot"><img src="../assets/img/L16-023.webp" alt="原书 例16.26 · 印P481" loading="lazy" width="1100" height="525"><figcaption>原书 例16.26 · 印P481</figcaption></figure>
+<p><strong>思路</strong> 抽象幂级数：已知 \(\sum a_n(x+1)^n\) 在 \(x=1\) 条件收敛，问 \(\sum na_n(x-1)^n\) 在 \(x=2\) 处的敛散。路线：条件收敛定半径 \(\to\) 平移 \(\to\) 逐项求导 \(\to\) 乘因式。
+<strong>要点</strong> 条件收敛 \(\Rightarrow R=|1-(-1)|=2\)，收敛区间 \((-3,1)\)。平移把中心移到1，\(\sum a_n(x-1)^n\) 收敛区间 \((-1,3)\)；逐项求导再乘 \((x-1)\) 得 \(\sum na_n(x-1)^n\)，\(R\) 不变。\(x=2\) 在 \((-1,3)\) 内部，幂级数在收敛区间内部必绝对收敛，选 (A)。
+<strong>注</strong> 平移、求导、乘因式都保 \(R\)，端点行为才可能变；区间内部点点绝对收敛，这就是"问内部点"类题的全部依据。</p>
+<figure class="shot"><img src="../assets/img/L16-024.webp" alt="原书 例16.30 · 印P487" loading="lazy" width="1100" height="743"><figcaption>原书 例16.30 · 印P487</figcaption></figure>
+<p><strong>思路</strong> \(\sum\dfrac{x^n}{n}\)：\(n\) 在分母，先导后积（先求导消掉 \(n\)，再积回去），这就是本讲的标准模板。
+<strong>要点</strong> 设 \(S(x)=\sum\limits_{n=1}^{\infty}\dfrac{x^n}{n}\)，逐项求导 \(S'(x)=\sum x^{n-1}=\dfrac{1}{1-x}\ (|x|&lt;1)\)；再 \(S(x)=S(0)+\int_0^x\dfrac{\mathrm{d}t}{1-t}=-\ln(1-x)\)。\(x=-1\) 处级数收敛，和函数在端点单侧连续，故 \(S(x)=-\ln(1-x)\)，\(x\in[-1,1)\)。
+<strong>注</strong> 别把 \(S(x)\) 直接写成 \(\int S'(x)\mathrm{d}x\)，要写 \(S(x)=S(x_0)+\int_{x_0}^xS'(t)\,\mathrm{d}t\)，下限取展开中心（本题 \(x_0=0\)，\(S(0)=0\)）。</p>
+<figure class="shot"><img src="../assets/img/L16-025.webp" alt="原书 例16.32 · 印P489" loading="lazy" width="1100" height="1009"><figcaption>原书 例16.32 · 印P489</figcaption></figure>
+<p><strong>思路</strong> \(\sum\dfrac{(-1)^{n-1}}{2n-1}x^{2n}\)：分母是 \(2n-1\)，先提出一个 \(x\)，对 \(x^{2n-1}\) 部分"先导后积"。
+<strong>要点</strong> 收敛域 \([-1,1]\)（即例16.23）。设 \(S(x)=\sum\dfrac{(-1)^{n-1}}{2n-1}x^{2n-1}\)，则 \(S'(x)=\sum(-1)^{n-1}x^{2n-2}=\dfrac{1}{1+x^2}\)，\(S(x)=\int_0^x\dfrac{\mathrm{d}t}{1+t^2}=\arctan x\)。原级数 \(=xS(x)=x\arctan x\ (-1\le x\le1)\)。
+<strong>注</strong> 顺手记住派生公式：\(\left[\sum\dfrac{(-1)^{n-1}}{2n-1}x^{2n-1}\right]'=\dfrac{1}{1+x^2}\)，以及 \(x=1\) 时 \(\sum\dfrac{(-1)^{n-1}}{2n-1}=\dfrac{\pi}{4}\)。</p>
+<figure class="shot"><img src="../assets/img/L16-026.webp" alt="原书 例16.38 · 印P497" loading="lazy" width="1100" height="768"><figcaption>原书 例16.38 · 印P497</figcaption></figure>
+<p><strong>思路</strong>（数一）给了 \([0,1]\) 上的分段函数和余弦级数 \(S(x)\)，求 \(S\!\left(-\dfrac52\right)\)。流程固定：利用周期性与奇偶性把点折回 \([0,1]\)，再按狄利克雷定理取值。
+<strong>要点</strong> \(S(x)\) 是偶延拓的傅里叶级数，周期为2，故 \(S\!\left(-\dfrac52\right)=S\!\left(-2-\dfrac12\right)=S\!\left(-\dfrac12\right)=S\!\left(\dfrac12\right)\)。\(x=\dfrac12\) 是 \(f\) 的第一类间断点，由狄利克雷收敛定理 \(S\!\left(\dfrac12\right)=\dfrac{f(\frac12-0)+f(\frac12+0)}{2}=\dfrac{\frac12+(2-1)}{2}=\dfrac34\)。
+<strong>注</strong> 端点 \(x=0,1\)、间断点、连续点三类位置的取值规则要分清；先画偶延拓再周期延拓的草图，点折回来一目了然。</p>
+<p>除上面精讲的十道，这几道也值得翻原书过一遍：例16.11（\(\sum\frac{a^n n!}{n^n}\)，比值判别法边界 \(a=\mathrm{e}\) 时通项单调增不趋零，印P462–463）；例16.27（\(\sum\left(\frac{1}{n\ln n}+\frac{1}{2^n}\right)x^n\)，拆开各求收敛域取交集，印P482）；例16.33（递推数列 \(a_n\) 的幂级数，求和函数建微分方程 \(S'(x)-\frac{S(x)}{2(1-x)}=\frac{1}{1-x}\)，印P489–490）；例16.36（\(\ln(1-x+x^2)=\sum(-1)^{n-1}\frac{x^{3n}-x^n}{n}\)，借 \(1+x^3=(1+x)(1-x+x^2)\)，印P492–493）；例16.39（\(f(x)=1-x^2\) 展开成余弦级数，取 \(x=0\) 得 \(\sum\frac{(-1)^{n+1}}{n^2}=\frac{\pi^2}{12}\)，印P497–498）。</p>
+<h2>易错点与技巧</h2>
+<ul>
+<li>加括号单向有效：收敛级数加括号仍收敛且和不变；加括号后收敛推不出原级数收敛，如 \((a-a)+(a-a)+\cdots\)（印P455）。</li>
+<li>\(\lim u_n=0\) 只是必要条件：\(\sum\frac1n\)、\(\sum\frac{1}{n\ln n}\) 通项都趋零照样发散（印P456、P464）。</li>
+<li>比值、根值判别法 \(\rho=1\) 时失效，\(\sum\frac1n\) 与 \(\sum\frac1{n^2}\) 是标准反例；但 \(\rho&gt;1\) 判 \(\sum|u_n|\) 发散时能断定原级数发散（印P469、P476）。</li>
+<li>莱布尼茨判别法是充分条件：\(\{u_n\}\) 不单调时级数未必发散，先拆项再下结论（例16.16，印P466）。</li>
+<li>条件收敛的交错级数：全体正项级数、全体负项级数都发散，\(\sum(u_{2n}-2u_{2n-1})\) 这类"重组"题据此判断（例16.17，印P469）。</li>
+<li>逐项求导收敛域可能缩小、逐项积分可能扩大，端点必须重新单独验证（印P479、例16.24）。</li>
+<li>求和函数三件事一个不能少：先写收敛域；先导后积时 \(S(x)=S(x_0)+\int_{x_0}^xS'(t)\mathrm{d}t\) 别丢 \(S(x_0)\)；答案后面带着定义域（印P487–488）。</li>
+<li>展开式在端点成立要查两条：端点处级数收敛 + 被展开函数在该端点单侧连续（例16.37，\(x=1\) 处 \(f\) 无定义就不能扩，印P494）。</li>
+</ul>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">会写部分和 \(S_n\)，能用 \(\lim S_n\) 判敛散；几何级数 \(|q|&lt;1\) 时收敛于 \(\frac{a}{1-q}\)</label></li>
+<li><label><input type="checkbox">背得出 \(p\) 级数结论：\(p\le1\) 发散、\(p&gt;1\) 收敛，并与 \(\int_1^{+\infty}\frac{\mathrm{d}x}{x^p}\) 对照</label></li>
+<li><label><input type="checkbox">会用必要条件秒杀发散：\(\lim u_n\neq0\Rightarrow\) 发散，并知道它不可反推</label></li>
+<li><label><input type="checkbox">能叙述正项级数收敛原则（部分和有界 \(\Leftrightarrow\) 收敛）</label></li>
+<li><label><input type="checkbox">会用比较判别法及其极限形式，参照物选 \(\sum\frac{1}{n^p}\) 或 \(\sum aq^n\)</label></li>
+<li><label><input type="checkbox">会用比值判别法处理含 \(n!\)、\(n^n\) 的通项，并知道 \(\rho=1\) 失效怎么办（看 \(\frac{u_{n+1}}{u_n}\ge1\)）</label></li>
+<li><label><input type="checkbox">会用根值判别法处理 \((\cdots)^n\) 型通项</label></li>
+<li><label><input type="checkbox">记住积分判别法结论：\(\sum\frac{1}{n\ln n}\) 发散，\(\sum\frac{1}{n^p\ln^q n}\) 的收敛区域</label></li>
+<li><label><input type="checkbox">会验证莱布尼茨两个条件，单调性不满足时会拆项处理</label></li>
+<li><label><input type="checkbox">会判绝对收敛/条件收敛，知道条件收敛级数的正项、负项级数均发散</label></li>
+<li><label><input type="checkbox">会用运算法则：绝对±绝对=绝对，绝对±条件=条件，条件±条件=收敛（性质不定）</label></li>
+<li><label><input type="checkbox">会由某点条件收敛定收敛半径：\(R=|x_1-x_0|\)</label></li>
+<li><label><input type="checkbox">会求收敛半径、收敛区间、收敛域，缺项级数直接对通项用比值法，端点单独判</label></li>
+<li><label><input type="checkbox">知道逐项求导/逐项积分：\(R\) 不变，收敛域分别可能缩小/扩大</label></li>
+<li><label><input type="checkbox">背熟七个常用展开式（\(\mathrm{e}^x,\frac{1}{1+x},\frac{1}{1-x},\ln(1+x),\sin x,\cos x,(1+x)^\alpha\)）及各自收敛域</label></li>
+<li><label><input type="checkbox">会用先导后积、先积后导求和函数，并规范写出 \(S(x)=S(x_0)+\int_{x_0}^xS'(t)\mathrm{d}t\)</label></li>
+<li><label><input type="checkbox">会把数项级数包装成幂级数求和，如 \(\sum\frac{1}{n\cdot2^n}=\ln2\)、\(\sum\frac{n}{2^n}=2\)</label></li>
+<li><label><input type="checkbox">（数一）会按公式算傅里叶系数 \(a_0,a_n,b_n\) 并写出以 \(2l\) 为周期的傅里叶级数</label></li>
+<li><label><input type="checkbox">（数一）会用狄利克雷定理写 \(S(x)\)：连续点、间断点、\(x=\pm l\) 三处取值规则</label></li>
+<li><label><input type="checkbox">（数一）会做奇延拓（正弦级数）与偶延拓（余弦级数），积分限 \([0,l]\)、系数 \(\frac2l\)</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong> 判定级数 \(\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{\sqrt n}\) 是绝对收敛还是条件收敛。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 加绝对值后 \(\sum\dfrac{1}{\sqrt n}\) 是 \(p=\dfrac12\le1\) 的 \(p\) 级数，发散；原级数的 \(u_n=\dfrac{1}{\sqrt n}\) 单调减少且趋于0，由莱布尼茨判别法收敛。故原级数<strong>条件收敛</strong>。</p>
+</details>
+<p><strong>2.</strong> 求幂级数 \(\sum\limits_{n=1}^{\infty}\dfrac{(x-1)^n}{n}\) 的收敛域。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(\rho=\lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=\lim\dfrac{n}{n+1}=1\)，\(R=1\)，收敛区间 \((0,2)\)。\(x=2\) 时为 \(\sum\dfrac1n\)，发散；\(x=0\) 时为 \(\sum\dfrac{(-1)^n}{n}\)，由莱布尼茨判别法收敛。故收敛域为 \([0,2)\)。</p>
+</details>
+<p><strong>3.</strong> 求 \(\sum\limits_{n=1}^{\infty}nx^n\) 的和函数，并计算 \(\sum\limits_{n=1}^{\infty}\dfrac{n}{2^n}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 收敛域 \(|x|&lt;1\)。\(n\) 在分子，先积后导：\(\sum nx^n=x\sum nx^{n-1}\)，设 \(S(x)=\sum nx^{n-1}\)，则 \(\int_0^xS(t)\,\mathrm{d}t=\sum x^n=\dfrac{x}{1-x}\)，求导得 \(S(x)=\dfrac{1}{(1-x)^2}\)。故 \(\sum\limits_{n=1}^{\infty}nx^n=\dfrac{x}{(1-x)^2}\ (|x|&lt;1)\)。令 \(x=\dfrac12\)，得 \(\sum\dfrac{n}{2^n}=\dfrac{1/2}{(1/2)^2}=2\)。</p>
+</details>
+<p><strong>4.</strong> 将 \(\mathrm{e}^x\) 展开为 \((x-1)\) 的幂级数。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(\mathrm{e}^x=\mathrm{e}\cdot\mathrm{e}^{x-1}=\mathrm{e}\sum\limits_{n=0}^{\infty}\dfrac{(x-1)^n}{n!}\)，由 \(\mathrm{e}^{x-1}\) 的展开式对一切实数成立，故收敛域为 \((-\infty,+\infty)\)。</p>
+</details>
+<p><strong>5.（仅数学一）</strong> 将 \(f(x)=x^2\ (-\pi\le x&lt;\pi)\) 展开为以 \(2\pi\) 为周期的傅里叶级数，并求 \(\sum\limits_{n=1}^{\infty}\dfrac{1}{n^2}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(f\) 为偶函数，\(b_n=0\)；\(a_0=\dfrac{2}{\pi}\int_0^{\pi}x^2\,\mathrm{d}x=\dfrac{2\pi^2}{3}\)，\(a_n=\dfrac{2}{\pi}\int_0^{\pi}x^2\cos nx\,\mathrm{d}x=\dfrac{4(-1)^n}{n^2}\ (n=1,2,\cdots)\)（分部积分两次）。故</p>
+<p>\[x^2\sim\frac{\pi^2}{3}+\sum_{n=1}^{\infty}\frac{4(-1)^n}{n^2}\cos nx .\]</p>
+<p>\(f\) 在 \((-\pi,\pi)\) 内连续、在 \(x=\pm\pi\) 处左右极限相等（周期延拓后连续），故展开式处处成立。取 \(x=\pi\)：\(\pi^2=\dfrac{\pi^2}{3}+\sum\dfrac{4}{n^2}\)，解得 \(\sum\limits_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\)。</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P451–P505</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一元函数微分学的概念 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L02.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L04.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第3讲 · 一元函数微分学的概念</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P146–P165</p>
+<h2>本讲导读</h2>
+<p>高等数学分册共 18 讲，本讲是一元微分学三连（概念—计算—应用）的第一环。章首点名题型：选择、填空；目标就三条——理解导数与微分的概念、理解导数与微分的关系、理解导数的几何意义。考法高度固定：用定义式凑极限、判断分段函数或含绝对值函数在一点的可导性、切线法线方程、微分概念题。张宇给的重难点提示是高阶导数计算、几何意义应用、可导充要条件应用，其中可导充要条件（单侧导数、\(|x-x_0|\varphi(x)\) 型）本讲反复敲打。本讲与第 4 讲是一体两面：这里管"导数是什么"，第 4 讲管"怎么算"，全部求导法则都建立在本讲的定义上。学法就一条：导数的三种定义式要能默写——本讲例题几乎全是"定义派"，和第 4 讲的"公式派"对照着学。</p>
+<h2>知识框架</h2>
+<ul>
+<li>导数</li>
+<li>定义：增量式 \(f'(x_0)=\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\)，及两种等价写法（广义"狗"式、函数式）</li>
+<li>单侧导数：\(f'(x_0)\) 存在 \(\Leftrightarrow\) 左、右导数均存在且相等（考研必考充要条件）</li>
+<li>可导与连续：可导 \(\Rightarrow\) 连续，反之未必</li>
+<li>求导保持/破坏什么：奇偶性互换、周期性不变、有界性不保持</li>
+<li>导数的几何意义</li>
+<li>切线方程、法线方程</li>
+<li>切线存在 \(\neq\) 导数存在：角点（无切线）、无穷导数（有垂直切线但不可导）</li>
+<li>高阶导数</li>
+<li>\(f''(x_0)\)、\(f^{(n)}(x_0)\) 的极限定义（增量式与函数式）</li>
+<li>连锁含义：\(f^{(n)}(x_0)\) 存在 \(\Rightarrow\) 邻域内 1~\(n-1\) 阶导数存在，\(f^{(n-1)}\) 在 \(x_0\) 连续</li>
+<li>微分的概念</li>
+<li>定义 \(\Delta y=A\Delta x+o(\Delta x)\)，线性主部，\(\mathrm{d}y=f'(x_0)\mathrm{d}x\)</li>
+<li>可微 \(\Leftrightarrow\) 可导（充要条件）、判别三步、可微的几何意义（以直代曲）</li>
+<li>\(f(x)\) 与 \(|f(x)|\) 的连续、可导关系</li>
+<li>不可导点的鉴别</li>
+<li>\(f(x)|x-a|\) 型：\(f\) 连续时 \(f(a)=0\Leftrightarrow\) 可导</li>
+<li>数不可导点：分解因式，数绝对值里的单根</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>1. 导数的定义</h3>
+<figure class="shot"><img src="../assets/img/L03-001.webp" alt="原书 导数的定义 · 印P147" loading="lazy" width="1100" height="407"><figcaption>原书 导数的定义 · 印P147</figcaption></figure>
+<p>设 \(y=f(x)\) 定义在区间 \(I\) 上，在 \(x_0\) 处给自变量增量 \(\Delta x\)（可正可负），若函数增量 \(\Delta y=f(x_0+\Delta x)-f(x_0)\) 与 \(\Delta x\) 之比在 \(\Delta x\to 0\) 时极限存在，就称 \(f\) 在 \(x_0\) 处可导，该极限为导数 \(f'(x_0)\)，即变化率。注意 \(a\) 是瞬时变化率，不是平均变化率；线性函数的变化率不变。一句话定位：极限研究变化趋势，导数研究变化快慢。</p>
+<h3>2. 定义式的两种等价写法（"狗"来了）</h3>
+<figure class="shot"><img src="../assets/img/L03-002.webp" alt="原书 定义式广义化「狗」与函数式 · 印P148" loading="lazy" width="1100" height="499"><figcaption>原书 定义式广义化「狗」与函数式 · 印P148</figcaption></figure>
+<p>考题里的增量不一定叫 \(\Delta x\)，可能是 \(-\Delta x\)、\((\Delta x)^2\) 等，张宇统一叫"狗"：只要分子是 \(f(x_0+\text{狗})-f(x_0)\)、分母就是"狗"本身、狗 \(\to 0\)，极限就是 \(f'(x_0)\)。令 \(x_0+\Delta x=x\) 又得函数式 \(\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\)，两式等价，后面到处会见到，看到哪种写法都要能认出来。</p>
+<h3>3. 单侧导数与可导的充要条件</h3>
+<figure class="shot"><img src="../assets/img/L03-003.webp" alt="原书 单侧导数与可导的充要条件 · 印P148" loading="lazy" width="1100" height="415"><figcaption>原书 单侧导数与可导的充要条件 · 印P148</figcaption></figure>
+<p>\(\lim_{\Delta x\to 0^-}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\) 与 \(\lim_{\Delta x\to 0^+}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\) 分别记作左导数 \(f'_-(x_0)\)、右导数 \(f'_+(x_0)\)，统称单侧导数。\(f'(x_0)\) 存在 \(\Leftrightarrow\) 左右导数均存在且相等——本质就是极限存在的充要条件，因为导数定义就是极限问题。分段函数、绝对值函数在分界点处一律拆单侧。</p>
+<h3>4. 可导必连续</h3>
+<p>若 \(f(x)\) 在一点可导，则在该点连续，反之未必（印P148）。两个经典反例：\(f(x)=|x|\) 在 \(x=0\) 连续但不可导；更狠的 \(f(x)=x^2D(x)\)（\(x\) 取有理数时为 \(x^2\)，无理数时为 0）在 \(x=0\) 处可导：\(f'(0)=\lim_{x\to 0}\frac{x^2D(x)-0}{x}=\lim_{x\to 0}xD(x)=0\)，无穷小乘有界函数还是无穷小。存在、连续、可导的直观关系，书里配了一组图：</p>
+<figure class="shot"><img src="../assets/img/L03-004.webp" alt="原书 存在·连续·可导的直观图（图3-2~3-4） · 印P149" loading="lazy" width="1100" height="499"><figcaption>原书 存在·连续·可导的直观图（图3-2~3-4） · 印P149</figcaption></figure>
+<p>存在是 \(y\) 与 \(Y\) 们无牵无挂地待在那里；连续是充分靠近；可导是不仅靠近，靠近的速度还不比 \(X\to x\) 慢。还有个反直觉提醒：连续曲线不是"曲线不断开"，恰恰相反，它每一个位置都是断开的。</p>
+<h3>5. \(f(x)\) 与 \(|f(x)|\) 的连续、可导关系</h3>
+<figure class="shot"><img src="../assets/img/L03-005.webp" alt="原书 f(x) 与 |f(x)| 的连续、可导关系 · 印P154" loading="lazy" width="767" height="400"><figcaption>原书 f(x) 与 |f(x)| 的连续、可导关系 · 印P154</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L03-006.webp" alt="原书 |f(x)| 在一点可导性的细说 · 印P155" loading="lazy" width="1100" height="574"><figcaption>原书 |f(x)| 在一点可导性的细说 · 印P155</figcaption></figure>
+<p>四条打包记：
+① \(f\) 在 \(x_0\) 连续 \(\Rightarrow |f|\) 连续，反之不真；
+② \(f\) 在 \(x_0\) 可导且 \(f(x_0)\neq 0\Rightarrow |f|\) 可导，导数按 \(f(x_0)\) 正负取 \(\pm f'(x_0)\)；
+③ \(f(x_0)=0\) 时分两路：\(f'(x_0)=0\Rightarrow |f|\) 可导且导数为 0；\(f'(x_0)\neq 0\Rightarrow |f|\) 必不可导（左右两侧增量商一负一正，极限不存在）；
+④ 考研常用：连续或可导函数只要 \(f(x_0)\gtrless 0\)，无论离 0 多近，旁边小邻域内 \(f(x)\) 同号。</p>
+<h3>6. 导数的几何意义</h3>
+<figure class="shot"><img src="../assets/img/L03-007.webp" alt="原书 导数的几何意义：切线方程与法线方程 · 印P156" loading="lazy" width="1100" height="373"><figcaption>原书 导数的几何意义：切线方程与法线方程 · 印P156</figcaption></figure>
+<p>\(f'(x_0)\) 就是曲线在 \((x_0,y_0)\) 处切线斜率 \(k\)，切线 \(y-y_0=f'(x_0)(x-x_0)\)，法线 \(y-y_0=-\frac{1}{f'(x_0)}(x-x_0)\)（\(f'(x_0)\neq 0\)）。注意书上的注：切线存在不代表导数存在，但导数存在切线一定存在。两个注例把边界情况讲透：\(y=|x|\) 在原点有两条单侧切线 \(k_\pm=\pm 1\)（角点），\(f'_+(0)\neq f'_-(0)\) 故不可导、无切线；\(y=x^{1/3}\) 更特殊：</p>
+<figure class="shot"><img src="../assets/img/L03-008.webp" alt="原书 无穷导数与垂直切线 · 印P157" loading="lazy" width="1100" height="431"><figcaption>原书 无穷导数与垂直切线 · 印P157</figcaption></figure>
+<p>\(\Delta x\to 0\) 时 \(\frac{\Delta y}{\Delta x}=\frac{1}{(\Delta x)^{2/3}}\to+\infty\)（左、右都 \(+\infty\)），叫无穷导数——曲线在 \(x=0\) 有垂直切线 \(x=0\)，但学高等数学的把无穷导数视为导数不存在。总结成两条：角点（\(f'_+\neq f'_-\)）不可导也无切线；无穷导数点有切线但无导数。</p>
+<h3>7. 高阶导数</h3>
+<figure class="shot"><img src="../assets/img/L03-009.webp" alt="原书 高阶导数的定义 · 印P158" loading="lazy" width="968" height="382"><figcaption>原书 高阶导数的定义 · 印P158</figcaption></figure>
+<p>二阶导数 \(f''(x_0)\) 是一阶导函数的导数，\(n\) 阶照此类推；\(n&gt;4\) 时写成 \(f^{(n)}(x)\)。函数式定义（书上的"记住"框）常用：\(f^{(n)}(x_0)=\lim_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}\)。连锁含义：\(f^{(n)}(x_0)\) 存在 \(\Rightarrow f(x)\) 在 \(x_0\) 某邻域内有 1~\(n-1\) 阶各阶导数，且 \(f^{(n-1)}(x)\) 在 \(x_0\) 处连续。书上的例 3.9 是个伏笔：用它证明了极值第二充分条件（\(f'(x_0)=0\)、\(f''(x_0)\neq 0\) 时由局部保号性推 \(f'\) 在两侧变号），第 5 讲正面开花。</p>
+<h3>8. 微分的概念</h3>
+<figure class="shot"><img src="../assets/img/L03-010.webp" alt="原书 微分的定义与可微⇔可导的证明 · 印P160" loading="lazy" width="1100" height="267"><figcaption>原书 微分的定义与可微⇔可导的证明 · 印P160</figcaption></figure>
+<p>引例（印P159）：边长 1 的正方形边长增 \(\Delta x\)，\(\Delta S=(1+\Delta x)^2-1^2=2\Delta x+(\Delta x)^2\)，其中 \(2\Delta x\) 是线性主部，\((\Delta x)^2=o(\Delta x)\) 是误差，\(\Delta x\) 小时 \(\Delta S\approx 2\Delta x\)。一般地，若存在与 \(\Delta x\) 无关的常数 \(A\) 使 \(\Delta y=A\Delta x+o(\Delta x)\)，称 \(f\) 在 \(x_0\) 处可微，微分 \(\mathrm{d}y|_{x=x_0}=A\Delta x=f'(x_0)\mathrm{d}x\)——可微与可导互为充要条件，蓝色小框里就是它的证明。判别可微三步（印P160注）：①写增量 \(\Delta y\)；②写线性增量 \(f'(x_0)\Delta x\)；③验证 \(\lim_{\Delta x\to 0}\frac{\Delta y-f'(x_0)\Delta x}{\Delta x}=0\)。自变量处 \(\Delta x=1\cdot\Delta x+o(\Delta x)\)，故 \(\mathrm{d}x=\Delta x\)，于是 \(\mathrm{d}y=A\Delta x=A\,\mathrm{d}x\)。可微的几何意义：点 \((x_0,y_0)\) 附近用切线段近似代替曲线段，以直代曲。</p>
+<h2>典型例题精讲</h2>
+<h3>例3.1 求导保持什么、破坏什么</h3>
+<figure class="shot"><img src="../assets/img/L03-011.webp" alt="原书 例3.1 · 印P149" loading="lazy" width="1032" height="308"><figcaption>原书 例3.1 · 印P149</figcaption></figure>
+<p><strong>思路</strong> A、B、C 是"求导对奇偶性、周期性的保持规律"，全部回定义硬算；D 直接找反例。
+<strong>要点</strong> 算 \(f'(-x)\) 时把 \(-\Delta x\) 整体当新"狗"：可导偶函数 \(\Rightarrow f'\) 是奇函数；可导奇函数 \(\Rightarrow f'\) 是偶函数；周期 \(T\) 函数求导后仍以 \(T\) 为周期。D 的反例：\(f(x)=\sqrt{x}\)（\(x\in(0,1]\)）有界，\(f'(x)=\frac{1}{2\sqrt{x}}\) 在 \((0,1]\) 无界，选 (D)。
+<strong>注</strong> 这三条规律马上变现（印P150 注例）：\(f(x)=\ln(1-x)-\ln(1+x)\) 是偶函数，每求导一次奇偶互换一次，\(f''(x)\) 为奇函数，\(f''(0)=0\)；\(f(x)=\frac{1}{2^x+1}\) 拆成奇函数 \(g(x)+\frac{1}{2}\)，\(f^{(4)}(0)=g^{(4)}(0)=0\)。必背推论：奇函数二阶可导则 \(f''(0)=0\)，偶函数可导则 \(f'(0)=0\)。</p>
+<h3>例3.2 奇偶 + 周期综合比大小</h3>
+<figure class="shot"><img src="../assets/img/L03-012.webp" alt="原书 例3.2 · 印P150" loading="lazy" width="1100" height="360"><figcaption>原书 例3.2 · 印P150</figcaption></figure>
+<p><strong>思路</strong> 把 \(M,N,K\) 全搬到同一个点（\(\tfrac12\)）附近再比，工具就是例3.1 的结论。
+<strong>要点</strong> \(f\) 奇 \(\Rightarrow M=f(-\tfrac12)=-f(\tfrac12)&lt;0\)；\(f'\) 偶且以 2 为周期 \(\Rightarrow N=f'(\tfrac32)=f'(\tfrac32-2)=f'(-\tfrac12)=f'(\tfrac12)&gt;0\)；\(f''\) 奇且存在 \(\Rightarrow K=f''(0)=0\)。故 \(M&lt;K&lt;N\)，选 (C)。</p>
+<h3>例3.3 抽象函数三层次：极限 → 连续 → 可导</h3>
+<figure class="shot"><img src="../assets/img/L03-013.webp" alt="原书 例3.3 · 印P151" loading="lazy" width="1100" height="227"><figcaption>原书 例3.3 · 印P151</figcaption></figure>
+<p><strong>思路</strong> 只有一个不等式 \(|f(x)|\le 1-\cos x\)，就从它一层层榨信息：夹逼求极限、代特殊点求函数值、再夹逼导数定义。
+<strong>要点</strong> 第一层：\(0\le|f(x)|\le 1-\cos x\)，\(\lim_{x\to 0}(1-\cos x)=0\)，夹逼得 \(\lim_{x\to 0}f(x)=0\)。第二层：代 \(x=0\) 得 \(|f(0)|\le 0\)，故 \(f(0)=0\)，从而连续。第三层：\(0\le\left|\frac{f(x)-f(0)}{x-0}\right|\le\frac{1-\cos x}{|x|}\)，而 \(\lim_{x\to 0}\frac{1-\cos x}{|x|}=\lim\frac{x^2/2}{|x|}=0\)，再夹逼得 \(f'(0)=0\)，选 (C)。抽象函数 + 具体控制式，终点几乎总是导数定义。</p>
+<h3>例3.4 乘积函数求一点的导数</h3>
+<figure class="shot"><img src="../assets/img/L03-014.webp" alt="原书 例3.4 · 印P151" loading="lazy" width="977" height="103"><figcaption>原书 例3.4 · 印P151</figcaption></figure>
+<p><strong>思路</strong> \(n\) 个因子相乘，\(x=0\) 处只有 \(e^x-1\) 这一个因子为零（\(e^0-1=0\)，其余 \(e^0-k\neq 0\)），围绕这一点做文章，别急着展开。
+<strong>要点</strong> 方法一（定义）：\(f'(0)=\lim_{x\to 0}\frac{f(x)-f(0)}{x-0}=\lim\frac{e^x-1}{x}\cdot\lim\left[(e^{2x}-2)\cdots(e^{nx}-n)\right]=1\cdot(-1)^{n-1}(n-1)!\)，选 (A)。方法三（拆零因子）：令 \(g(x)=(e^{2x}-2)\cdots(e^{nx}-n)\)，\(f=(e^x-1)g\)，则 \(f'(x)=e^xg(x)+(e^x-1)g'(x)\)，代 \(x=0\)：\(f'(0)=g(0)=(-1)^{n-1}(n-1)!\)。
+<strong>注</strong> 书上明说多项相乘不建议用公式法硬来。顺带必背：\((uv)'=u'v+uv'\)，\((u_1u_2u_3)'=u_1'u_2u_3+u_1u_2'u_3+u_1u_2u_3'\)。</p>
+<h3>例3.5 \(f(x)|x-a|\) 可导的充要条件</h3>
+<figure class="shot"><img src="../assets/img/L03-015.webp" alt="原书 例3.5 · 印P152" loading="lazy" width="1100" height="294"><figcaption>原书 例3.5 · 印P152</figcaption></figure>
+<p><strong>思路</strong> 写分段式，拆左右导数；\(f\) 在 \(a\) 连续保证两个单侧极限都收敛到 \(f(a)\)。
+<strong>要点</strong> \(F(x)=\begin{cases}-(x-a)f(x),&amp; x&lt;a,\\ 0,&amp; x=a,\\ (x-a)f(x),&amp; x&gt;a,\end{cases}\) 则 \(F'_-(a)=\lim_{x\to a^-}\frac{-(x-a)f(x)}{x-a}=-f(a)\)，\(F'_+(a)=\lim_{x\to a^+}\frac{(x-a)f(x)}{x-a}=f(a)\)。左右导数存在且相等 \(\Leftrightarrow f(a)=0\)，选 (A)。书上说此题可当结论直接记。</p>
+<h3>例3.6 数不可导点的个数</h3>
+<figure class="shot"><img src="../assets/img/L03-016.webp" alt="原书 例3.6 · 印P152" loading="lazy" width="720" height="324"><figcaption>原书 例3.6 · 印P152</figcaption></figure>
+<p><strong>思路</strong> 例3.5 的落地版：\(\varphi\) 连续时，\(f(x)=|x-x_0|\varphi(x)\) 在 \(x_0\) 可导 \(\Leftrightarrow \varphi(x_0)=0\)。把三个函数因式分解，数绝对值因子里的零点，再看该点处剩下的因子是否非零。
+<strong>要点</strong> \(f_1=(x+1)(x-1)\left|x+\sqrt2\right|\left|x-\sqrt2\right|\left|x+1\right|\)，不可导点 \(x=\pm\sqrt2\)，\(n_1=2\)；\(f_2=(x+1)(x-1)|x-2|\,|x-1|\,|x+1|\)，只有 \(x=2\) 一处（\(x=\pm1\) 处系数函数取值 0，照样可导），\(n_2=1\)；\(f_3=(x+1)(x-1)\left|x-\sqrt2\right|\left|x+\sqrt2\right||x+3|\)，不可导点 \(x=-\sqrt2,\ \sqrt2,\ -3\)，\(n_3=3\)。故 \(n_2&lt;n_1&lt;n_3\)，选 (A)。</p>
+<h3>例3.8 切线 + 数列极限</h3>
+<figure class="shot"><img src="../assets/img/L03-017.webp" alt="原书 例3.8 · 印P157" loading="lazy" width="1100" height="368"><figcaption>原书 例3.8 · 印P157</figcaption></figure>
+<p><strong>思路</strong> 几何意义开路：先写切线，求它与 \(x\) 轴交点 \(\xi_n\)，再回代 \(f\) 算极限。
+<strong>要点</strong> \(f'_n(1)=\left.nx^{n-1}\right|_{x=1}=n\)，过 \((1,1)\) 的切线 \(y-1=n(x-1)\)，令 \(y=0\) 得 \(\xi_n=1-\frac1n\)，于是 \(\lim_{n\to\infty}f(\xi_n)=\lim_{n\to\infty}\left(1-\frac1n\right)^n=\frac1e\)。几何意义与重要极限的组合拳。</p>
+<h3>例3.11 微分的线性主部</h3>
+<figure class="shot"><img src="../assets/img/L03-018.webp" alt="原书 例3.11 · 印P161" loading="lazy" width="1100" height="250"><figcaption>原书 例3.11 · 印P161</figcaption></figure>
+<p><strong>思路</strong> "线性主部"就是 \(\mathrm{d}y\)；复合函数 \(y=f(x^2)\) 的微分要连内层一起微分：\(\mathrm{d}(x^2)=2x\,\mathrm{d}x\)。
+<strong>要点</strong> \(\mathrm{d}y=f'(x^2)\,\mathrm{d}(x^2)=2xf'(x^2)\Delta x\)。在 \(x=-1\) 处 \(\Delta x=-0.1\)，线性主部 \(0.1=-2f'(1)\cdot(-0.1)\)，解得 \(f'(1)=0.5\)，选 (C)。这里用了 \(\mathrm{d}x=\Delta x\)（自变量的微分等于增量）。</p>
+<p>同页的"一题一练"顺手带走：\(\lim_{\Delta x\to 0}\frac{\Delta f(1)-\mathrm{d}f|_{x=1}}{\Delta x}=f'(1)-f'(1)=0\)，原理就是 \(\Delta y=\mathrm{d}y+o(\Delta x)\)。</p>
+<p>（例3.7、例3.9、例3.10 分别练 \(|f(x-1)|\) 的可导性判断、极值第二充分条件的证明、由 \(\Delta y\) 表达式读出 \(\mathrm{d}y\)，套路上面概念部分都铺过了，见印P156、P158–161。）</p>
+<h2>易错点与技巧</h2>
+<ol>
+<li>"狗"广义化（印P148）：\(\lim_{\text{狗}\to 0}\frac{f(x_0+\text{狗})-f(x_0)}{\text{狗}}=f'(x_0)\)，分子分母必须严格配套。遇到 \(\frac{f(x_0+2h)-f(x_0-h)}{3h}\) 这类，拆成两段定义式再各自配系数。</li>
+<li>可导 \(\Rightarrow\) 连续，反之不真（印P148）。判分段函数分界点：先用连续定参数，再用左右导数定义。别想当然用"导函数的极限"代替导数——习题 3.7 证明 \(\lim F'(x)=A\)（存在）\(\Rightarrow\) 单侧导数 \(=A\)，但反过来单侧导数存在时 \(\lim F'(x)\) 可以不存在（\(x^2\sin\frac1x\) 的例子，印P164 注）。</li>
+<li>\(|f|\) 三条可导性结论（印P154–155）：\(f(x_0)\neq 0\) 可导；\(f(x_0)=0\) 且 \(f'(x_0)=0\) 可导、导数为 0；\(f(x_0)=0\) 且 \(f'(x_0)\neq 0\) 必不可导。</li>
+<li>切线与导数两码事（印P156–157）：角点（如 \(|x|\) 在 0）两条单侧切线但不可导；\(x^{1/3}\) 型无穷导数，有垂直切线却按"高等数学的规矩"算不可导。</li>
+<li>有界函数的导数可以无界（\(\sqrt{x}\) 反例，印P150）；周期函数的导数仍是同周期函数；每求导一次奇偶性互换一次——抽象函数问 \(f''(0)\)、\(f^{(4)}(0)\)，先查奇偶性，往往直接得 0。</li>
+<li>\(f\) 连续时 \(f(a)=0\Leftrightarrow f(x)|x-a|\) 在 \(a\) 可导（印P152）；数不可导点就数绝对值因子内部的单零点，重根处（如 \((x-1)|x-1|\)）照样可导。</li>
+<li>求一点导数别条件反射上公式（印P164 3.5 题）：\(f(x)=(x-a)\varphi(x)\) 且 \(\varphi\) 仅连续时 \(\varphi'(x)\) 未必存在，公式法直接错，必须回定义 \(f'(a)=\varphi(a)\)。函数不具备"导数存在"的条件时，往往只能用导数定义。</li>
+<li>微分 = 线性主部 + 高阶无穷小：\(\Delta y-\mathrm{d}y=o(\Delta x)\)；可微 \(\Leftrightarrow\) 可导，判别可微先想着转化为判别可导（印P160 注）。</li>
+</ol>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">能默写导数三种定义式：增量式、广义"狗"式、函数式，并知道它们两两等价</label></li>
+<li><label><input type="checkbox">会用单侧导数判分段函数在分界点的可导性：\(f'(x_0)\) 存在 \(\Leftrightarrow f'_+(x_0)=f'_-(x_0)\)</label></li>
+<li><label><input type="checkbox">会证可导 \(\Rightarrow\) 连续，并随手举出连续不可导的反例（\(|x|\)、\(x^2D(x)\)）</label></li>
+<li><label><input type="checkbox">记住可导奇函数的导数是偶函数、可导偶函数的导数是奇函数、周期函数的导数同周期</label></li>
+<li><label><input type="checkbox">会用"每求导一次奇偶互换一次"处理 \(f''(0)\)、\(f^{(4)}(0)\) 这类填空</label></li>
+<li><label><input type="checkbox">记住必背结论：偶函数可导则 \(f'(0)=0\)，奇函数二阶可导则 \(f''(0)=0\)</label></li>
+<li><label><input type="checkbox">能举反例说明有界函数的导数可以无界（\(y=\sqrt{x}\)）</label></li>
+<li><label><input type="checkbox">掌握 \(\varphi\) 连续时 \(|x-x_0|\varphi(x)\) 在 \(x_0\) 可导 \(\Leftrightarrow \varphi(x_0)=0\)，并会数不可导点个数</label></li>
+<li><label><input type="checkbox">背出 \(f(x)\) 与 \(|f(x)|\) 的连续、可导关系三条</label></li>
+<li><label><input type="checkbox">会写切线方程与法线方程，知道法线公式要求 \(f'(x_0)\neq 0\)</label></li>
+<li><label><input type="checkbox">分得清角点（无切线）与无穷导数点（有垂直切线但不可导）</label></li>
+<li><label><input type="checkbox">会写 \(f''(x_0)\)、\(f^{(n)}(x_0)\) 的极限定义，包括 \(\lim_{x\to x_0}\) 的函数式版本</label></li>
+<li><label><input type="checkbox">说得出 \(f^{(n)}(x_0)\) 存在的连锁含义：邻域内 1~\(n-1\) 阶导数存在，\(f^{(n-1)}\) 在 \(x_0\) 连续</label></li>
+<li><label><input type="checkbox">会默写微分定义 \(\Delta y=A\Delta x+o(\Delta x)\)，知道 \(A=f'(x_0)\)、\(\mathrm{d}y=f'(x_0)\mathrm{d}x\)</label></li>
+<li><label><input type="checkbox">会走可微判别三步：写增量、写线性增量、验证 \(\lim_{\Delta x\to 0}\frac{\Delta y-f'(x_0)\Delta x}{\Delta x}=0\)</label></li>
+<li><label><input type="checkbox">知道可微 \(\Leftrightarrow\) 可导、\(\mathrm{d}x=\Delta x\)，以及可微的几何意义（切线段代替曲线段）</label></li>
+<li><label><input type="checkbox">背出 \((uv)'\) 与三因子推广式，会用"拆零因子"法求乘积函数一点的导数</label></li>
+<li><label><input type="checkbox">会把含 \(f\) 的极限凑成导数定义（如 \(\frac{f(1-\sqrt{\cos x})}{\ln(1-x\sin x)}\) 拆成 \(f'(0)\) 乘等价无穷小）</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong> 设 \(f(x)=|x|^{3/2}\)（即 \(\sqrt{|x|^3}\)），\(f\) 在 \(x=0\) 处是否可导？若可导，求 \(f'(0)\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 按定义，\(f'(0)=\lim_{x\to 0}\frac{|x|^{3/2}-0}{x}\)。\(x&gt;0\) 时该式为 \(\frac{x^{3/2}}{x}=x^{1/2}\to 0\)；\(x&lt;0\) 时为 \(\frac{|x|^{3/2}}{x}=\frac{|x|^{3/2}}{-|x|}=-|x|^{1/2}\to 0\)。左右极限相等，故可导且 \(f'(0)=0\)。</p>
+<p>也可用例3.5 的结论看：\(f(x)=|x|\cdot|x|^{1/2}\)，"系数函数" \(|x|^{1/2}\) 在 0 处取值 0，故可导。</p>
+</details>
+<p><strong>2.</strong> 设 \(f(x)\) 在 \([-2,2]\) 上连续，\(F(x)=f(x)\left|x^2-1\right|\)。\(F\) 在 \(x=1\) 与 \(x=-1\) 处可导的充要条件各是什么？</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(x^2-1=(x-1)(x+1)\)，故 \(F(x)=f(x)|x-1|\cdot|x+1|\)。在 \(x=1\)：把 \(|x-1|\) 提出来，系数函数 \(\varphi(x)=f(x)|x+1|\) 在 1 处连续，可导 \(\Leftrightarrow \varphi(1)=2f(1)=0\)，即 \(f(1)=0\)。同理在 \(x=-1\)：可导 \(\Leftrightarrow \varphi(-1)=f(-1)\cdot|-2|=2f(-1)=0\)，即 \(f(-1)=0\)。</p>
+</details>
+<p><strong>3.</strong> 设 \(f'(x_0)=2\)，求 \(\lim_{h\to 0}\dfrac{f(x_0+2h)-f(x_0-h)}{3h}\)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 插一项拆成两个定义式：
+\[
+\frac{f(x_0+2h)-f(x_0-h)}{3h}
+=\frac{2}{3}\cdot\frac{f(x_0+2h)-f(x_0)}{2h}
++\frac{1}{3}\cdot\frac{f(x_0-h)-f(x_0)}{-h},
+\]
+\(h\to 0\) 时 \(2h\to 0\)、\(-h\to 0\)，两处"狗"都合法，故原式 \(=\frac{2}{3}f'(x_0)+\frac{1}{3}f'(x_0)=f'(x_0)=2\)。</p>
+</details>
+<p><strong>4.</strong> 设 \(y=f(x)\) 在 \(x_0\) 处可导且 \(f'(x_0)\neq 0\)。当 \(\Delta x\to 0\) 时，\(\Delta y-\mathrm{d}y\) 是 \(\mathrm{d}y\) 的什么无穷小？</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 由微分定义 \(\Delta y-\mathrm{d}y=o(\Delta x)\)，而 \(\mathrm{d}y=f'(x_0)\Delta x\) 与 \(\Delta x\) 同阶（\(f'(x_0)\neq 0\)），于是
+\[
+\lim_{\Delta x\to 0}\frac{\Delta y-\mathrm{d}y}{\mathrm{d}y}
+=\lim_{\Delta x\to 0}\frac{o(\Delta x)}{f'(x_0)\Delta x}=0,
+\]
+即 \(\Delta y-\mathrm{d}y\) 是 \(\mathrm{d}y\) 的高阶无穷小（本讲习题 3.4，选 (A)）。</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P146–P165</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

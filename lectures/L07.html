@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一元函数微分学的应用（三）——物理应用与经济应用 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L06.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L08.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第7讲 · 一元函数微分学的应用（三）——物理应用与经济应用</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P233–P241</p>
+<h2>本讲导读</h2>
+<p>全书最短的一讲，内容按考种切开：数一、数二只考物理应用与相关变化率，数三只考复利与经济应用，互不越界，先对号入座再学。重难点只有一个——相关变化率，套路极稳：建立联系各变量的等式，两边对时间求导，把已知变化率代入解出未知变化率。经济应用（边际、弹性）对数三是送分题型，记牢定义和"谁对谁求导"就能拿分。更综合的物理应用要和微分方程结合，原书明确说放到第15讲。</p>
+<h2>知识框架</h2>
+<ul>
+<li>物理应用与相关变化率（仅数一、数二）<ul>
+<li>物理应用：速度 \(v=s'(t)\)、加速度 \(a=s''(t)\)、牛顿第二定律 \(F=ma\)</li>
+<li>★相关变化率（本讲重难点）：链式求导，由已知变化率求未知变化率</li>
+</ul>
+</li>
+<li>复利与连续复利（仅数三）<ul>
+<li>复利公式 \(A_m=A(1+r)^m\)，分年付 1 次 / 年付 \(n\) 次 / 连续复利 \(Ae^{rt}\) 三种情形</li>
+<li>现值：\(t\) 年末收入 \(R\) 的现值 \(A(t)=Re^{-rt}\)</li>
+</ul>
+</li>
+<li>导数的经济应用（仅数三）<ul>
+<li>经济学中常见的函数：需求、供给、成本、收益、利润</li>
+<li>边际函数与边际分析：\(MC,\ MR,\ ML\)</li>
+<li>弹性函数与弹性分析：需求 / 供给 / 收益的价格弹性，结论 \(\dfrac{dR}{dp}=Q(1-\eta)\)</li>
+</ul>
+</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>一、物理应用（仅数一、数二）</h3>
+<p>三个物理概念都是导数：位移对时间的变化率是速度，速度对时间的变化率是加速度，再加牛顿第二定律 \(F=ma\)。设运动方程为 \(s=s(t)\)，则</p>
+<p>\[ v(t)=\lim_{\Delta t\to 0}\frac{\Delta s}{\Delta t}=s'(t),\qquad a(t)=\lim_{\Delta t\to 0}\frac{\Delta v}{\Delta t}=v'(t)=s''(t). \]</p>
+<figure class="shot"><img src="../assets/img/L07-001.webp" alt="原书 速度与加速度 · 印P234" loading="lazy" width="856" height="357"><figcaption>原书 速度与加速度 · 印P234</figcaption></figure>
+<p>注意书上手写批注的那条：\(a=\dfrac{dv}{dt}=\dfrac{dv}{ds}\cdot\dfrac{ds}{dt}=\dfrac{dv}{ds}\cdot v\)，这个形态"更利于解决含 \(s\)、\(v\) 不显含 \(t\) 的相关微分方程问题"，第15讲会用到，现在混个脸熟。</p>
+<h3>二、相关变化率（重难点）</h3>
+<p>研究的是链式关系 \(\dfrac{dA}{dB}=\dfrac{dA}{dC}\cdot\dfrac{dC}{dB}\)：已知两个变化率就能解出第三个，\(A,B,C\) 可以换成任何实际的量（比如冰块质量 \(m\)、温度 \(c\)、时间 \(t\)）。</p>
+<figure class="shot"><img src="../assets/img/L07-002.webp" alt="原书 相关变化率 · 印P234" loading="lazy" width="1100" height="479"><figcaption>原书 相关变化率 · 印P234</figcaption></figure>
+<p>正式定义：若 \(y=f(x)\) 由参数方程 \(\begin{cases} x=x(t), \\ y=y(t) \end{cases}\) 确定且可导，则 \(\dfrac{dy}{dt}=\dfrac{dy}{dx}\cdot\dfrac{dx}{dt}=f'(x)\dfrac{dx}{dt}\)——\(\dfrac{dy}{dt}\) 与 \(\dfrac{dx}{dt}\) 被 \(f'(x)\) 联系在一起，这种相互关联的变化率就叫相关变化率。原书两条注：微分学中经济应用较多，积分学中物理应用较多；单独出题不难，难在和微分方程结合的综合题。</p>
+<h3>三、复利与连续复利（仅数三）</h3>
+<p>复利公式 \(A_m=A(1+r)^m\)（\(A\) 本金，\(r\) 每期利率，\(m\) 期数），按支付频率分三种：</p>
+<p>\[ A_t=A(1+r)^t\ (一年1次),\qquad A_t=A\Bigl(1+\frac{r}{n}\Bigr)^{nt}\ (一年n次),\qquad A_t=Ae^{rt}\ (n\to\infty，连续复利). \]</p>
+<figure class="shot"><img src="../assets/img/L07-003.webp" alt="原书 复利与连续复利公式 · 印P235" loading="lazy" width="1100" height="521"><figcaption>原书 复利与连续复利公式 · 印P235</figcaption></figure>
+<p>考试会明确告知是哪种情形，别自己瞎选。由连续复利反推：\(t\) 年末收入 \(R\) 的现值为 \(A(t)=Re^{-rt}\)，例7.2 考的就是它。</p>
+<h3>四、导数的经济应用：常见函数（仅数三）</h3>
+<p>五套函数一张图看完：需求 \(Q=Q(p)\) 一般单调减少（价格涨购买力降），供给 \(q=q(p)\) 一般单调增加；成本 \(C=C_1+C_2(Q)\)（固定 + 可变），平均成本 \(AC=\dfrac{C}{Q}\)；收益 \(R=pQ\)；利润 \(L=R(Q)-C(Q)\)。</p>
+<figure class="shot"><img src="../assets/img/L07-004.webp" alt="原书 经济学中常见的函数 · 印P236" loading="lazy" width="1100" height="874"><figcaption>原书 经济学中常见的函数 · 印P236</figcaption></figure>
+<p>原书注很关键：无特殊说明时，需求与供给函数以价格 \(p\) 为自变量，成本、收益与利润函数以产量 \(Q\) 为自变量。</p>
+<h3>五、边际函数与边际分析（仅数三）</h3>
+<p>\(f'(x)\) 叫边际函数，\(f'(x_0)\) 叫边际值。由 \(\Delta y\approx dy\) 取 \(\Delta x=1\) 得 \(f(x_0+1)-f(x_0)\approx f'(x_0)\)：在 \(x_0\) 处 \(x\) 增加 1 个单位，\(f(x)\) 近似改变 \(|f'(x_0)|\) 个单位，符号定同向还是反向。边际成本 \(MC=C'(Q)\)，边际收益 \(MR=R'(Q)\)，边际利润 \(ML=L'(Q)\)。</p>
+<figure class="shot"><img src="../assets/img/L07-005.webp" alt="原书 边际函数与边际分析 · 印P237" loading="lazy" width="1100" height="800"><figcaption>原书 边际函数与边际分析 · 印P237</figcaption></figure>
+<h3>六、弹性函数与弹性分析（仅数三）</h3>
+<p>弹性衡量因变量对自变量变化的灵敏度：</p>
+<p>\[ \eta=\lim_{\Delta x\to 0}\frac{\Delta y/y}{\Delta x/x}=\frac{x}{y}y'=\frac{x}{f(x)}f'(x)=\frac{Ey}{Ex},\qquad \eta\Big|_{x=x_0}=\frac{x_0}{f(x_0)}f'(x_0). \]</p>
+<figure class="shot"><img src="../assets/img/L07-006.webp" alt="原书 弹性函数与点弹性 · 印P237" loading="lazy" width="1100" height="491"><figcaption>原书 弹性函数与点弹性 · 印P237</figcaption></figure>
+<p>解读：\(x\) 改变 1%，\(y\) 改变 \(|\eta|\%\)。具体到价格弹性三种：需求 \(\eta_d=\dfrac{p}{Q(p)}Q'(p)&lt;0\)（题设要求 \(\eta_d&gt;0\) 时取负号），供给 \(\eta_s=\dfrac{p}{q(p)}q'(p)&gt;0\)，收益 \(\eta_r=\dfrac{p}{R(p)}R'(p)&gt;0\)，经济意义都是"提价（降价）1%，该量变化多少个百分点"。</p>
+<figure class="shot"><img src="../assets/img/L07-007.webp" alt="原书 需求/供给/收益的价格弹性 · 印P238" loading="lazy" width="1100" height="898"><figcaption>原书 需求/供给/收益的价格弹性 · 印P238</figcaption></figure>
+<h2>典型例题精讲</h2>
+<h3>例7.1 曲线上动点的相关变化率（数一数二）</h3>
+<figure class="shot"><img src="../assets/img/L07-008.webp" alt="原书 例7.1 · 印P235" loading="lazy" width="1100" height="445"><figcaption>原书 例7.1 · 印P235</figcaption></figure>
+<p><strong>思路</strong> \(l\) 由 \(P\) 的横坐标完全确定，先把 \(y=x^3\) 代入消元，变成 \(l(x)\)，再链式求导。<strong>要点</strong> \(l=\sqrt{x^2+y^2}=\sqrt{x^2+x^6}\)，则 \(\dfrac{dl}{dt}=\dfrac{dl}{dx}\cdot\dfrac{dx}{dt}=\dfrac{2x+6x^5}{2\sqrt{x^2+x^6}}\cdot v_0\)；代 \(x=1\) 得 \(\dfrac{8}{2\sqrt2}v_0=2\sqrt2\,v_0\)，故填 \(2\sqrt2\,v_0\)。<strong>注</strong> 原书方法总结就是两步：①建立相关变量方程；②求导找出相关变化率，由已知求未知。</p>
+<h3>例7.2 连续复利 + 现值最大（数三）</h3>
+<figure class="shot"><img src="../assets/img/L07-009.webp" alt="原书 例7.2 · 印P236" loading="lazy" width="1100" height="640"><figcaption>原书 例7.2 · 印P236</figcaption></figure>
+<p><strong>思路</strong> 先写定义式（现值 \(A(t)=Re^{-rt}\)），再代入关系式 \(R=R_0e^{\frac{2}{5}\sqrt t}\)，最后按一元函数求最值。<strong>要点</strong> \(A(t)=R_0e^{\frac{2}{5}\sqrt t-rt}\)，令 \(\dfrac{dA}{dt}=R_0e^{\frac{2}{5}\sqrt t-rt}\Bigl(\dfrac{1}{5\sqrt t}-r\Bigr)=0\)，得驻点 \(t_0=\dfrac{1}{25r^2}\)；\(0&lt;t_0&lt;\dfrac{1}{25r^2}\) 时 \(\dfrac{dA}{dt}&gt;0\)，\(t_0&gt;\dfrac{1}{25r^2}\) 时 \(\dfrac{dA}{dt}&lt;0\)，故 \(t_0=\dfrac{1}{25r^2}\) 是极大值点也是最大值点。代约束 \(r=6\%\)：\(t_0=\dfrac{100}{9}\approx 11\)（年）。<strong>注</strong> 这里用了"一元连续函数中唯一极值点就是最值点"，写解答时要把正负区间交代出来，不能只令导数为零。</p>
+<h3>例7.3 边际利润与最值定价（数三）</h3>
+<figure class="shot"><img src="../assets/img/L07-010.webp" alt="原书 例7.3 解答 · 印P239" loading="lazy" width="1100" height="364"><figcaption>原书 例7.3 解答 · 印P239</figcaption></figure>
+<p><strong>思路</strong> 依次写 \(C(Q)\)、\(R(Q)\)、\(L(Q)\)，求 \(L'(Q)\) 回答三问。<strong>要点</strong> \(C=60000+20Q\)，\(R=pQ=60Q-\dfrac{Q^2}{1000}\)，\(L(Q)=-\dfrac{Q^2}{1000}+40Q-60000\)，边际利润 \(L'(Q)=-\dfrac{Q}{500}+40\)。当 \(p=50\) 时销量 \(Q=10000\) 件，\(L'(10000)=20\)（元），经济意义：销售第 10001 件商品所得利润为 20 元。令 \(L'(Q)=0\) 得 \(Q=20000\) 件，\(L''(20000)&lt;0\)，利润最大，此时 \(p=40\) 元。<strong>注</strong> "解释经济意义"是数三热门考点，答题句式照原书背下来。</p>
+<h3>例7.4 收益弹性与结论 \(\dfrac{dR}{dp}=Q(1-\eta)\)（数三）</h3>
+<figure class="shot"><img src="../assets/img/L07-011.webp" alt="原书 例7.4 · 印P239" loading="lazy" width="1100" height="874"><figcaption>原书 例7.4 · 印P239</figcaption></figure>
+<p><strong>思路</strong> \(R(p)=pQ(p)\) 两边对 \(p\) 求导，把 \(\eta=-\dfrac{p}{Q}\dfrac{dQ}{dp}\) 凑出来。<strong>要点</strong> \(\dfrac{dR}{dp}=Q+p\dfrac{dQ}{dp}=Q\Bigl(1+\dfrac{p}{Q}\dfrac{dQ}{dp}\Bigr)=Q(1-\eta)\)。总收益对价格的弹性 \(\dfrac{ER}{Ep}=\dfrac{p}{R}\dfrac{dR}{dp}=1-\eta=1-\dfrac{2p^2}{192-p^2}=\dfrac{192-3p^2}{192-p^2}\)；代 \(p=6\) 得 \(\dfrac{7}{13}\approx 0.54\)，经济意义：\(p=6\) 时若价格上涨 1%，总收益将增加 0.54%。<strong>注</strong> 书上批注说 \(\dfrac{dR}{dp}=Q(1-\eta)\) 可"作为结论用"，例7.5 直接吃这个红利。</p>
+<h3>例7.5 弹性判断收益变化方向（数三）</h3>
+<figure class="shot"><img src="../assets/img/L07-012.webp" alt="原书 例7.5 解答 · 印P240" loading="lazy" width="785" height="391"><figcaption>原书 例7.5 解答 · 印P240</figcaption></figure>
+<p><strong>思路</strong> 全靠上题结论 \(\dfrac{dR}{dP}=Q(1-\eta)\) 定号。<strong>要点</strong> \(\eta&lt;1\) 时 \(\dfrac{dR}{dP}&gt;0\)，即 \(\Delta P&gt;0\) 时 \(\Delta R&gt;0\)；\(\eta&gt;1\) 时 \(\dfrac{dR}{dP}&lt;0\)，即 \(\Delta P&gt;0\) 时 \(\Delta R&lt;0\)。故选 (A)。<strong>注</strong> 直观记法：\(\eta&lt;1\)（缺乏弹性）提价划算，\(\eta&gt;1\)（富有弹性）降价划算——薄利多销的数学版。</p>
+<h2>易错点与技巧</h2>
+<ul>
+<li>相关变化率不要一上来就代数字。先写一般关系式（如 \(l=\sqrt{x^2+x^6}\)、\(s^2=x^2+(y+10)^2\)），两边对 \(t\) 求导，最后才代具体时刻的值（印P235、印P240 的题都这个路数）。</li>
+<li>复利三公式看清"一年支付几次"，题目会明确告知（印P235 注）；现值就用 \(A(t)=Re^{-rt}\)，别和余额公式搞混。</li>
+<li>自变量口径别弄反：需求、供给对价格 \(p\)；成本、收益、利润对产量 \(Q\)（印P237 注）。求"收益对价格的弹性"时 \(R\) 得写成 \(R(p)=pQ(p)\)。</li>
+<li>弹性符号是重灾区：需求弹性按定义 \(\eta_d&lt;0\)，但考题常设 \(\eta_d&gt;0\)，此时要取 \(\eta_d=-\dfrac{p}{Q(p)}Q'(p)\)（印P238 注）。例7.4 的 \(\eta=\dfrac{2p^2}{192-p^2}&gt;0\) 就是后一种口径。</li>
+<li>边际的经济意义是"近似"改变，答题套原书句式："销售第 \(Q_0+1\) 件商品所得利润为 \(L'(Q_0)\) 元"（印P239）。</li>
+<li>求最值收尾要有论证：唯一驻点 + 两侧导号（或 \(L''&lt;0\)）才能下"最大"结论，一元连续函数中唯一极值点就是最值点（印P236）。</li>
+</ul>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">能写出 \(v(t)=s'(t)\)、\(a(t)=s''(t)\)，以及 \(a=\dfrac{dv}{ds}\cdot v\) 这个变形</label></li>
+<li><label><input type="checkbox">会做相关变化率题：建立变量等式 → 两边对 \(t\) 求导 → 已知变化率解未知变化率</label></li>
+<li><label><input type="checkbox">记住三种复利公式：\(A(1+r)^t\)、\(A(1+\frac{r}{n})^{nt}\)、\(Ae^{rt}\)，知道连续复利是 \(n\to\infty\) 的极限</label></li>
+<li><label><input type="checkbox">会算 \(t\) 年末收入 \(R\) 按连续复利的现值 \(Re^{-rt}\)</label></li>
+<li><label><input type="checkbox">知道需求函数一般单调减少、供给函数一般单调增加，自变量都是价格 \(p\)</label></li>
+<li><label><input type="checkbox">会写成本 \(C=C_1+C_2(Q)\)、平均成本 \(AC=\frac{C}{Q}\)、收益 \(R=pQ\)、利润 \(L=R-C\)</label></li>
+<li><label><input type="checkbox">能解释边际值 \(f'(x_0)\)：\(x\) 增加 1 个单位，\(f(x)\) 近似改变 \(|f'(x_0)|\) 个单位</label></li>
+<li><label><input type="checkbox">记住 \(MC=C'(Q)\)、\(MR=R'(Q)\)、\(ML=L'(Q)\)，并会答"经济意义"</label></li>
+<li><label><input type="checkbox">会推弹性定义 \(\eta=\frac{x}{y}y'=\frac{Ey}{Ex}\)，并解读为 "\(x\) 改变 1%，\(y\) 改变 \(|\eta|\%\)"</label></li>
+<li><label><input type="checkbox">会写需求价格弹性 \(\eta_d=\frac{p}{Q(p)}Q'(p)\)，知道一般 \(\eta_d&lt;0\)、题设要求 \(&gt;0\) 时加负号</label></li>
+<li><label><input type="checkbox">记住并会推导结论 \(\frac{dR}{dp}=Q(1-\eta)\)</label></li>
+<li><label><input type="checkbox">会用 \(\frac{dR}{dp}=Q(1-\eta)\) 判断：\(\eta&lt;1\) 提价收益增，\(\eta&gt;1\) 提价收益减</label></li>
+<li><label><input type="checkbox">会用"唯一极值点即最值点"完成最值论证（含正负区间或二阶导）</label></li>
+<li><label><input type="checkbox">知道原书提示：微分学中经济应用较多，积分学中物理应用较多</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong>（相关变化率，原书习题7.1）质点 \(P\) 沿抛物线 \(x=y^2\ (y&gt;0)\) 移动，\(P\) 的横坐标 \(x\) 对时间的变化率为 \(5\ \mathrm{cm/s}\)。当 \(x=9\) 时，点 \(P\) 到原点 \(O\) 的距离对时间的变化率为多少？</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 由 \(y^2=x\ (y&gt;0)\) 知 \(s=\sqrt{x^2+y^2}=\sqrt{x^2+x}\)，则</p>
+<p>\[ \frac{ds}{dt}=\frac{d\sqrt{x^2+x}}{dx}\cdot\frac{dx}{dt}=\frac{2x+1}{2\sqrt{x^2+x}}\cdot 5. \]</p>
+<p>代 \(x=9\)：\(\dfrac{5\times 19}{2\sqrt{90}}=\dfrac{95}{6\sqrt{10}}\ \mathrm{cm/s}\)。</p>
+</details>
+<p><strong>2.</strong>（连续复利）银行年利率 \(r=5\%\)，按连续复利计息。(1) 现存入 \(10000\) 元，10 年后余额多少？(2) 若想 10 年后恰好有 \(20000\) 元，现在应一次存入多少？</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> (1) \(A=10000e^{0.05\times 10}=10000e^{0.5}\approx 16487\)（元）。</p>
+<p>(2) 现值 \(A=20000e^{-0.5}\approx 12131\)（元）。</p>
+<p>连续复利余额 \(Ae^{rt}\) 与现值 \(Re^{-rt}\) 互为逆运算。</p>
+</details>
+<p><strong>3.</strong>（边际与最值，仿例7.3）某商品固定成本 \(100\) 元，可变成本 \(2\) 元/件，价格函数 \(p=10-\dfrac{Q}{100}\)（\(Q\) 为销量，产销平衡）。求利润最大的销量、单价与最大利润。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \(C=100+2Q\)，\(R=10Q-\dfrac{Q^2}{100}\)，\(L=8Q-\dfrac{Q^2}{100}-100\)。</p>
+<p>令 \(L'(Q)=8-\dfrac{Q}{50}=0\)，得 \(Q=400\)，且 \(L''=-\dfrac{1}{50}&lt;0\)，故利润最大。此时 \(p=10-\dfrac{400}{100}=6\)（元），最大利润 \(L(400)=1500\)（元）。</p>
+</details>
+<p><strong>4.</strong>（弹性分析，仿例7.5）某商品需求对价格的弹性 \(\eta=1.5\)（按 \(\eta&gt;0\) 口径）。若提价 1%，总收益大约变化百分之几？若降价 1% 呢？</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 由结论 \(\dfrac{dR}{dp}=Q(1-\eta)=Q(1-1.5)=-0.5Q&lt;0\)。</p>
+<p>提价 1%，总收益约减少 \(0.5\%\)；降价 1%，总收益约增加 \(0.5\%\)。\(\eta&gt;1\) 富有弹性，降价反而增收。</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P233–P241</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

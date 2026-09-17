@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>微分方程 · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L14.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L16.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第15讲 · 微分方程</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P419–P450</p>
+<h2>本讲导读</h2>
+<p>这一讲是「识别类型」的功夫活：一阶方程五大家族（可分离变量、齐次型、一阶线性、伯努利、全微分）全靠对号入座，二阶常系数靠特征方程加待定系数，数三还要加一小块差分方程（数一另有可降阶与欧拉方程）。考研里这部分位置固定、套路稳定，把每类方程的「第一眼特征」认熟，多数分数是送分的。两件事必须亲手做一遍：一阶线性通解公式的推导（原书反复强调），待定系数法设特解时「一看二算三比较」的流程。概念题（不解方程，只用方程本身的信息）近年常考，别轻视第 419–422 页那几段定义。</p>
+<h2>知识框架</h2>
+<ul>
+<li>微分方程的概念：阶、常微分方程、线性（常系数/变系数、齐次/非齐次）、解、通解、初始条件与特解 —— 用概念解题</li>
+<li>一阶方程的求解（按类型，对号入座）</li>
+<li>可分离变量型：直接可分离；换元后可分离（令 \(u=ax+by+c\)）</li>
+<li>齐次型：令 \(u=\dfrac{y}{x}\)</li>
+<li>一阶线性：公式法（通解公式）</li>
+<li>伯努利方程（仅数学一）：令 \(z=y^{1-n}\)</li>
+<li>全微分方程（仅数学一）：\(\dfrac{\partial Q}{\partial x}=\dfrac{\partial P}{\partial y}\)</li>
+<li>高阶线性方程的求解</li>
+<li>二阶常系数齐次：特征方程 \(r^2+pr+q=0\)，三种根三种通解</li>
+<li>二阶常系数非齐次：解的结构 + 待定系数法（书中另附微分算子法）</li>
+<li>\(n\ (n&gt;2)\) 阶常系数齐次</li>
+<li>欧拉方程（仅数学一）：令 \(x=e^t\)</li>
+<li>微分方程的应用：几何应用（切线、截距、追踪问题）；物理应用（仅数一、数二）；经济应用（数三）</li>
+<li>一阶常系数线性差分方程（仅数学三）：差分的定义、齐次通解、特解设定</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h4>1. 微分方程的概念</h4>
+<p>方程 \(F\left[x,y,y',\cdots,y^{(n)}\right]=0\) 或 \(y^{(n)}=f\left[x,y,y',\cdots,y^{(n-1)}\right]\)，未知函数最高阶导数的阶数就是方程的阶。线性方程指 \(a_n(x)y^{(n)}+\cdots+a_0(x)y=f(x)\)（\(a_n(x)\not\equiv 0\)）：\(a_k(x)\) 全为常数叫常系数；右端 \(f(x)\) 恒为零叫齐次，否则非齐次。通解中独立任意常数的个数等于方程的阶，初始条件 \(y(x_0)=a_0,\,y'(x_0)=a_1,\cdots\) 定出常数后就是特解。注意「独立」二字：\(y=C_1\sin x+C_2\cdot 2\sin x\) 其实只有一个独立常数。</p>
+<h4>2. 可分离变量型</h4>
+<p>\(y'=f(x)g(y)\) 直接分离积分；\(\dfrac{dy}{dx}=f(ax+by+c)\)（\(a,b\) 全不为零）看不出分离，就令 \(u=ax+by+c\) 化成 \(\dfrac{du}{dx}=a+bf(u)\)。</p>
+<figure class="shot"><img src="../assets/img/L15-001.webp" alt="原书 可分离变量解法 · 印P422" loading="lazy" width="911" height="170"><figcaption>原书 可分离变量解法 · 印P422</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L15-002.webp" alt="原书 换元后可分离 · 印P423" loading="lazy" width="1100" height="167"><figcaption>原书 换元后可分离 · 印P423</figcaption></figure>
+<h4>3. 齐次型</h4>
+<p>\(\dfrac{dy}{dx}=\varphi\!\left(\dfrac{y}{x}\right)\)，令 \(u=\dfrac{y}{x}\)，即 \(y=ux\)，方程化为 \(\dfrac{du}{\varphi(u)-u}=\dfrac{dx}{x}\)。</p>
+<figure class="shot"><img src="../assets/img/L15-003.webp" alt="原书 齐次型方程解法 · 印P424" loading="lazy" width="1100" height="255"><figcaption>原书 齐次型方程解法 · 印P424</figcaption></figure>
+<h4>4. 一阶线性（公式法）</h4>
+<p>\(y'+p(x)y=q(x)\)（\(p(x),q(x)\) 连续）的通解公式是本讲第一个必须默写的公式。推导方法：两边同乘 \(e^{\int p(x)dx}\)，左端凑成 \(\left[e^{\int p(x)dx}\cdot y\right]'\)。两个细节：若 \(\int p(x)dx=\ln|\varphi(x)|\)，公式里的 \(\pm\) 号可并入常数，\(e^{\int p(x)dx}=|\varphi(x)|\) 可不加绝对值；但其他计算中 \(\ln u\) 且 \(u\) 不知正负，一律加绝对值。研究解的周期性、有界性、极限时，用定积分（变限）写法更方便：</p>
+<p>\[y=e^{-\int_{x_0}^{x}p(t)dt}\left[\int_{x_0}^{x}q(t)\,e^{\int_{x_0}^{t}p(s)ds}\,dt+C\right].\]</p>
+<figure class="shot"><img src="../assets/img/L15-004.webp" alt="原书 一阶线性通解公式 · 印P424" loading="lazy" width="1100" height="239"><figcaption>原书 一阶线性通解公式 · 印P424</figcaption></figure>
+<h4>5. 伯努利方程（仅数学一）</h4>
+<p>\(\dfrac{dy}{dx}+p(x)y=q(x)y^{\,n}\ (n\neq 0,1)\)。三步：两边乘 \(y^{-n}\)；令 \(z=y^{1-n}\)；化成一阶线性解之。数二、数三大纲不作要求，但这种「换元降次」的思想要会。</p>
+<figure class="shot"><img src="../assets/img/L15-005.webp" alt="原书 伯努利方程及解法 · 印P427" loading="lazy" width="881" height="489"><figcaption>原书 伯努利方程及解法 · 印P427</figcaption></figure>
+<h4>6. 二阶可降阶（仅数学一、数学二）</h4>
+<p>缺 \(y\) 的 \(y''=f(x,y')\) 型：令 \(y'=p(x)\)，\(y''=p'\)。缺 \(x\) 的 \(y''=f(y,y')\) 型：令 \(y'=p(y)\)，此时 \(y''=\dfrac{dp}{dy}\cdot p\)（不能写成 \(p'\)，否则变成含 \(x,y,p\) 三个变量的方程）。既缺 \(x\) 又缺 \(y\) 的按缺 \(y\) 处理。</p>
+<figure class="shot"><img src="../assets/img/L15-006.webp" alt="原书 二阶可降阶两类换元 · 印P428" loading="lazy" width="1037" height="639"><figcaption>原书 二阶可降阶两类换元 · 印P428</figcaption></figure>
+<h4>7. 全微分方程（仅数学一）</h4>
+<p>单连通区域内 \(\dfrac{\partial Q}{\partial x}=\dfrac{\partial P}{\partial y}\) 时，\(P(x,y)dx+Q(x,y)dy=0\) 的左端是某个 \(u(x,y)\) 的全微分，通解就是 \(u(x,y)=C\)。例 15.14 反过来用它：先由全微分条件定出 \(f(x)=x^2\)，再凑出 \(x^2y+xy^2=C\)。</p>
+<h4>8. 二阶常系数齐次（特征方程）</h4>
+<p>\(y''+py'+qy=0\)，写特征方程 \(r^2+pr+q=0\)（令 \(y=e^{rx}\) 即得）。两个线性无关的解（之比不是常数）线性组合就是通解。三种根对应三种通解，见截图；情形①\(p^2-4q&gt;0\) 时 \(y=C_1e^{r_1x}+C_2e^{r_2x}\)。</p>
+<figure class="shot"><img src="../assets/img/L15-007.webp" alt="原书 特征根三种情形的通解 · 印P431" loading="lazy" width="1092" height="318"><figcaption>原书 特征根三种情形的通解 · 印P431</figcaption></figure>
+<p>书里顺带给了两条性质：解中含 \(e^{rx}\)，则 \(r&gt;0\) 时在 \(x\to+\infty\) 无界、\(r&lt;0\) 时在 \(x\to-\infty\) 无界；解有周期性 \(\Rightarrow \alpha=0\)，且 \(\cos\beta x,\sin\beta x\) 有界。</p>
+<h4>9. 二阶常系数非齐次（待定系数法）</h4>
+<p>\(y''+py'+qy=f(x)\ (f(x)\not\equiv 0)\)，\(f(x)\) 叫自由项。解的结构两条：叠加原理（\(f=f_1+f_2\) 的特解可分开求再相加）；非齐次通解 = 齐次通解 + 非齐次一个特解。特解设定（大纲只考两种自由项）：</p>
+<ul>
+<li>\(f(x)=P_n(x)e^{\alpha x}\)：设 \(y^*=e^{\alpha x}Q_n(x)x^k\)；</li>
+<li>\(f(x)=e^{\alpha x}\left[P_m(x)\cos\beta x+P_n(x)\sin\beta x\right]\)：设 \(y^*=e^{\alpha x}\left[Q_l^{(1)}(x)\cos\beta x+Q_l^{(2)}(x)\sin\beta x\right]x^k\)，其中 \(l=\max\{m,n\}\)。</li>
+</ul>
+<p>\(k\) 的取法靠比较：自由项的 \(\alpha\)（或 \(\alpha\pm\beta i\)）不是特征根取 \(0\)，是单特征根取 \(1\)，是二重特征根取 \(2\)。张宇的口诀：一看（自由项中的 \(\alpha,\beta\)），二算（\(r_{1,2}\)），三比较。</p>
+<figure class="shot"><img src="../assets/img/L15-008.webp" alt="原书 待定系数法·指数型自由项 · 印P432" loading="lazy" width="1100" height="399"><figcaption>原书 待定系数法·指数型自由项 · 印P432</figcaption></figure>
+<p>书中注 2 还介绍了微分算子法：记 \(\mathbf D=\dfrac{d}{dx}\)，方程写成 \(F(\mathbf D)y=f(x)\)，特解 \(y^*=\dfrac{1}{F(\mathbf D)}f(x)\)，按 \(e^{\alpha x}\)、\(\cos\beta x\)、多项式、\(e^{\alpha x}v(x)\) 四类展开（注例 1–9 覆盖各种套路）。计算量小，但要背的形式多，与待定系数法二选一用顺手即可。</p>
+<h4>10. \(n\ (n&gt;2)\) 阶常系数齐次</h4>
+<p>按特征根的「重数」写解，这是反求方程（例 15.19）的理论基础。</p>
+<figure class="shot"><img src="../assets/img/L15-009.webp" alt="原书 n阶常系数齐次通解写法 · 印P438" loading="lazy" width="1100" height="548"><figcaption>原书 n阶常系数齐次通解写法 · 印P438</figcaption></figure>
+<h4>11. 欧拉方程（仅数学一）</h4>
+<p>\(x^2\dfrac{d^2y}{dx^2}+px\dfrac{dy}{dx}+qy=f(x)\) 有固定解法：\(x&gt;0\) 时令 \(x=e^t\)，化为常系数方程 \(\dfrac{d^2y}{dt^2}+(p-1)\dfrac{dy}{dt}+qy=f(e^t)\)；\(x&lt;0\) 时令 \(x=-e^t\) 同理。最后结果别忘了 \(t=\ln x\) 回代。</p>
+<figure class="shot"><img src="../assets/img/L15-010.webp" alt="原书 欧拉方程及其解法 · 印P439" loading="lazy" width="1100" height="491"><figcaption>原书 欧拉方程及其解法 · 印P439</figcaption></figure>
+<h4>12. 一阶常系数线性差分方程（仅数学三）</h4>
+<p>一阶差分 \(\Delta y_t=y_{t+1}-y_t=f(t+1)-f(t)\)，二阶差分 \(\Delta^2y_t=y_{t+2}-2y_{t+1}+y_t\)。方程 \(y_{t+1}+ay_t=f(t)\)（\(a\) 为非零常数）：齐次通解 \(y_C(t)=C\cdot(-a)^t\)；通解 = 齐次通解 + 特解（定理 1），自由项叠加时特解也叠加（定理 2）。特解设定见下表，逻辑与微分方程的待定系数法一致。</p>
+<figure class="shot"><img src="../assets/img/L15-011.webp" alt="原书 差分方程特解设定表 · 印P444" loading="lazy" width="1100" height="438"><figcaption>原书 差分方程特解设定表 · 印P444</figcaption></figure>
+<h2>典型例题精讲</h2>
+<figure class="shot"><img src="../assets/img/L15-012.webp" alt="原书 例15.4 · 印P423" loading="lazy" width="924" height="446"><figcaption>原书 例15.4 · 印P423</figcaption></figure>
+<p><strong>思路</strong> 方程已是变量分离形式，两边积分即可；难点在积分后常数怎么写才好合并。
+<strong>要点</strong> \(\displaystyle\int\frac{y\,dy}{1+y^2}=\int\left(\frac1x-\frac{x}{1+x^2}\right)dx\)，得 \(\frac12\ln(1+y^2)=\ln|x|-\frac12\ln(1+x^2)+\ln C_1\)，合并为 \((1+x^2)(1+y^2)=Cx^2\)，其中 \(C\) 为大于零的任意常数。
+<strong>注</strong> 原书特意提醒：积分后常数写 \(\ln C\) 便于合并；通解中的常数指一定范围内任意取值（这里 \(C&gt;0\)），不必取遍全体实数（印P423 注）。</p>
+<figure class="shot"><img src="../assets/img/L15-013.webp" alt="原书 例15.7 解 · 印P426" loading="lazy" width="808" height="564"><figcaption>原书 例15.7 解 · 印P426</figcaption></figure>
+<p><strong>思路</strong> 题干（印P425 末）：\(y'+y=e^{-x}\cos x\)，\(y(0)=0\)，求 \(y(x)\) 及曲线与 \(x\) 轴在 \([0,+\infty)\) 所围面积。标准公式法，\(p(x)=1\)，\(q(x)=e^{-x}\cos x\)。
+<strong>要点</strong> \(y=e^{-x}\left(\int\cos x\,dx+C\right)=e^{-x}(\sin x+C)\)，由 \(y(0)=0\) 得 \(C=0\)，故 \(y=e^{-x}\sin x\)。面积借助原书例 10.4 的结果为 \(\dfrac{e^{-\pi}+1}{2(1-e^{-\pi})}\)。
+<strong>注</strong> \(\int p\,dx=x\)，连绝对值都不用纠结——公式用熟了就是送分题。</p>
+<figure class="shot"><img src="../assets/img/L15-014.webp" alt="原书 例15.8 · 印P426" loading="lazy" width="1100" height="564"><figcaption>原书 例15.8 · 印P426</figcaption></figure>
+<p><strong>思路</strong> \(y\,dx+(x-3y^2)dy=0\) 直接算 \(\frac{dy}{dx}\) 很难看，原书的招是「换位思考」：把 \(x\) 看成 \(y\) 的函数，方程变成 \(\frac{dx}{dy}+\frac{x}{y}=3y\)，一阶线性。
+<strong>要点</strong> \[x=e^{-\int\frac1y dy}\left(\int 3y\,e^{\int\frac1y dy}dy+C\right)=\frac1y\left(\int 3y^2\,dy+C\right)=y^2+\frac{C}{y}.\] 由 \(\left.y\right|_{x=1}=1\) 得 \(C=0\)，即 \(x=y^2\)；再由初值 \(y=1&gt;0\) 舍去 \(y=-\sqrt x\)，答 \(y=\sqrt x\)。
+<strong>注</strong> 初始条件不仅定 \(C\)，还能确定解的符号（印P426 注）。例 15.11 的伯努利方程用的也是这招。</p>
+<figure class="shot"><img src="../assets/img/L15-015.webp" alt="原书 例15.9 · 印P426" loading="lazy" width="1095" height="555"><figcaption>原书 例15.9 · 印P426</figcaption></figure>
+<p><strong>思路</strong> ★★★原书标注的重点题型。\(\varphi(x)\) 是 \(y'+ey=\left(1-\dfrac1x\right)^x\) 的解，问 \(\lim\limits_{x\to+\infty}\varphi(x)\)。直接积不出分，套路是通解写成变限积分形式（印P425 注(3)），分母提出 \(e^{ex}\) 后洛必达。
+<strong>要点</strong> 通解为 \(\displaystyle y=\frac{\int_{x_0}^{x}\left(1-\frac1t\right)^{t}e^{et}dt+C}{e^{ex}}\)（\(x_0\) 为任意正实数），于是 \[\lim_{x\to+\infty}y=\lim_{x\to+\infty}\frac{\left(1-\frac1x\right)^{x}e^{ex}}{e\cdot e^{ex}}=\frac{e^{-1}}{e}=\frac1{e^2},\] 选 (D)。
+<strong>注</strong> 分子用了重要极限 \(\left(1-\frac1x\right)^x\to e^{-1}\)。凡研究解的周期性、有界性、极限的题，优先想定积分写法。</p>
+<figure class="shot"><img src="../assets/img/L15-016.webp" alt="原书 例15.12 解 · 印P429" loading="lazy" width="1100" height="1086"><figcaption>原书 例15.12 解 · 印P429</figcaption></figure>
+<p><strong>思路</strong> 题干（印P428 末）：\(y''=y'[1+(y')^2]\)，\(y(0)=0\)，\(y'(0)=1\)，求特解。既缺 \(x\) 又缺 \(y\)，按缺 \(y\) 处理：令 \(y'=p(x)\)，\(y''=p'\)。
+<strong>要点</strong> \(p'=p(1+p^2)\)，分离积分得 \(\ln\dfrac{p^2}{1+p^2}=2x+\ln C_1\)；提前用 \(x=0,p=1\) 定出 \(C_1=\dfrac12\)，解出 \(p=\dfrac{e^x/\sqrt2}{\sqrt{1-\frac12e^{2x}}}\)，再积分 \(y=\arcsin\dfrac{e^x}{\sqrt2}+C_2\)，由 \(y(0)=0\) 得 \(C_2=-\dfrac\pi4\)。特解 \(y=\arcsin\dfrac{e^x}{\sqrt2}-\dfrac\pi4\)。
+<strong>注</strong> 中途就把 \(y'(0)=1\) 代进去定 \(C_1\)，比解完通解再联立两个方程省力。习题 15.12 的曲线方程最后也归到这题。</p>
+<figure class="shot"><img src="../assets/img/L15-017.webp" alt="原书 例15.15 · 印P431" loading="lazy" width="1100" height="712"><figcaption>原书 例15.15 · 印P431</figcaption></figure>
+<p><strong>思路</strong> 特征方程 \(r^2+r-2=0\)，\(r_1=-2\)，\(r_2=1\)，通解 \(C_1e^{-2x}+C_2e^x\)。条件「在 \(x=0\) 处取得极值 3」要翻译成两句话：\(y(0)=3\) 且 \(y'(0)=0\)。
+<strong>要点</strong> 解得 \(C_1=1\)，\(C_2=2\)，故 \(y=e^{-2x}+2e^x\)。
+<strong>注</strong> 极值点条件永远是「函数值 + 一阶导为零」两条；微分方程任意阶可导，所以 \(y''\) 可以随便用（例 15.1 同理）。</p>
+<figure class="shot"><img src="../assets/img/L15-018.webp" alt="原书 例15.17 两种解法 · 印P437" loading="lazy" width="1100" height="1397"><figcaption>原书 例15.17 两种解法 · 印P437</figcaption></figure>
+<p><strong>思路</strong> \(y''-3y'+2y=2e^{-x}\cos x\)。特征根 \(r=1,2\)；自由项的 \(\alpha\pm\beta i=-1\pm i\) 不是特征根，\(k=0\)，设 \(y^*=e^{-x}(A\cos x+B\sin x)\)。书中用待定系数法与微分算子法各做一遍。
+<strong>要点</strong> 待定系数法：求导代入比较系数得 \(A=\dfrac15\)，\(B=-\dfrac15\)。算子法：把 \(2e^{-x}\) 移到最前面（\(\mathbf D\) 换成 \(\mathbf D-1\)），逐层化简到同一结果。通解 \[y=C_1e^{x}+C_2e^{2x}+\frac15e^{-x}(\cos x-\sin x).\]
+<strong>注</strong> 原书点评：待定系数法易设出形式、计算量大；算子法计算量小、要记的形式多（印P437 注）。</p>
+<figure class="shot"><img src="../assets/img/L15-019.webp" alt="原书 例15.18 解 · 印P438" loading="lazy" width="1100" height="867"><figcaption>原书 例15.18 解 · 印P438</figcaption></figure>
+<p><strong>思路</strong> 题干（印P437 末）：\(y''+\alpha y'+\beta y=\gamma e^x\) 有一个特解 \(y^*=e^{2x}+(1+x)e^x\)，求 \(\alpha,\beta,\gamma\) 及通解。命门在「哪些项只能是齐次解」：自由项只有 \(e^x\)，所以特解里不可能出现 \(e^{2x}\)，它必是齐次解，得 \(r=2\)。
+<strong>要点</strong> 又若 \(e^x\) 是非齐次特解，则 \(xe^x\) 是齐次解，推出 \(r_1=r_2=1\)，与 \(r=2\) 矛盾——故 \(e^x\) 也是齐次解。特征方程 \((r-1)(r-2)=0\)，即 \(r^2-3r+2=0\)，\(\alpha=-3\)，\(\beta=2\)；再把 \(y^*=xe^x\) 代入方程得 \(\gamma=-1\)。通解 \(y=C_1e^{x}+C_2e^{2x}+xe^x\)。
+<strong>注</strong> 非齐次特解的形状受自由项限制，反求参数的题全靠这一点切进去。</p>
+<figure class="shot"><img src="../assets/img/L15-020.webp" alt="原书 例15.20 · 印P439" loading="lazy" width="749" height="352"><figcaption>原书 例15.20 · 印P439</figcaption></figure>
+<p><strong>思路</strong> 欧拉方程 \(x^2y''+4xy'+2y=0\ (x&gt;0)\)，令 \(x=e^t\) 化常系数。
+<strong>要点</strong> 化为 \(\dfrac{d^2y}{dt^2}+3\dfrac{dy}{dt}+2y=0\)，特征根 \(r=-1,-2\)，\(y=C_1e^{-t}+C_2e^{-2t}\)，回代 \(t=\ln x\) 得 \(y=\dfrac{C_1}{x}+\dfrac{C_2}{x^2}\)。
+<strong>注</strong> 通解必须是 \(x\) 的函数，回代这步最容易丢（印P440 顶的手写批注就在喊这件事）。</p>
+<figure class="shot"><img src="../assets/img/L15-021.webp" alt="原书 例15.24 · 印P444" loading="lazy" width="1051" height="450"><figcaption>原书 例15.24 · 印P444</figcaption></figure>
+<p><strong>思路</strong> \(\Delta y_t=t\) 即 \(y_{t+1}-y_t=t\)，这里 \(a=-1\)。齐次方程特征根 \(r=1\)，通解 \(y=C\)；右端 \(t\) 相当于表中 \(f(t)=d^tP_m(t)\) 取 \(d=1\)，\(a+d=0\)，特解要乘 \(t\)：设 \(y^*=t(a+bt)\)。
+<strong>要点</strong> 代入整理得 \(a+b+2bt=t\)，所以 \(b=\dfrac12\)，\(a=-\dfrac12\)，通解 \(y_t=\dfrac12t(t-1)+C\)（\(C\) 为任意常数）。
+<strong>注</strong> 「\(a+d=0\) 就乘 \(t\)」和微分方程里「重根就乘 \(x^k\)」是同一个思想，数三同学把这张表记熟即可。</p>
+<h2>易错点与技巧</h2>
+<ol>
+<li>通解的常数要「独立」且个数等于阶数：\(C_1\sin x+C_2\cdot2\sin x\) 只算一个常数（印P421 手写注）。判独立最快的方法是看比值是不是常数。</li>
+<li>分离变量积分后常数写 \(\ln C\) 便于合并（印P423）；通解常数未必取遍实数，如 \((1+x^2)(1+y^2)=Cx^2\) 中 \(C&gt;0\)，这在概念题里考过。</li>
+<li>除以含 \(y\)（或 \(p\)）的因式可能丢解：例 15.5 分离变量时默认 \(\sin u\neq-1\)，丢掉奇解 \(x+y+100=2k\pi-\frac\pi2\)；非线性方程全部解 = 通解 + 奇解，线性方程全部解 = 通解（印P424 注）。例 15.13 里丢掉的 \(p=0\) 最终靠 \(y=Cx^3\) 取 \(C=0\) 补回。</li>
+<li>设非齐次特解前先「一看二算三比较」：拿自由项的 \(\alpha\)（或 \(\alpha\pm\beta i\)）与特征根比对定 \(k\)，忘乘 \(x^k\) 是高频错误（印P432–433）。</li>
+<li>\(y''=f(y,y')\) 型降阶，\(y''\) 必须写成 \(p\dfrac{dp}{dy}\)；写成 \(p'\) 就成了含 \(x,y,p\) 的方程，做不下去（印P428 注）。</li>
+<li>一阶线性公式里 \(e^{\int p(x)dx}\)：若 \(\int p\,dx=\ln|\varphi(x)|\)，结果可不加绝对值；其他场合 \(\ln u\) 不知正负一律加绝对值（印P425 注(2)）。</li>
+<li>物理应用翻译方程时盯紧符号：「温度变化率与温差成正比（\(T&gt;T_0\)）」要写成 \(\dfrac{dT}{dt}=-k(T-T_0)\)，负号表示温度下降；比例系数 \(k\) 不是已知量，最后用初值表出（印P443 注）。</li>
+<li>欧拉方程解完别忘 \(t=\ln x\) 回代；追踪问题（例 15.21）的切线方向翻译：追击点到被追击点的连线始终为该点切线方向（印P441 注）。</li>
+</ol>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">能说出方程的「阶」指什么，通解中独立常数的个数等于什么</label></li>
+<li><label><input type="checkbox">会判断线性方程是齐次还是非齐次（看右端 \(f(x)\) 是否恒为零）</label></li>
+<li><label><input type="checkbox">记得 \(y'=f(x)g(y)\) 的解法 \(\displaystyle\int\frac{dy}{g(y)}=\int f(x)dx\)</label></li>
+<li><label><input type="checkbox">见到 \(\dfrac{dy}{dx}=f(ax+by+c)\) 会令 \(u=ax+by+c\) 化成可分离</label></li>
+<li><label><input type="checkbox">见到 \(\dfrac{dy}{dx}=\varphi\!\left(\dfrac{y}{x}\right)\) 会令 \(u=\dfrac{y}{x}\)</label></li>
+<li><label><input type="checkbox">背下一阶线性通解公式，并能用「乘 \(e^{\int p dx}\) 凑导数」独立推导一遍</label></li>
+<li><label><input type="checkbox">会把伯努利方程令 \(z=y^{1-n}\) 化成一阶线性（仅数一）</label></li>
+<li><label><input type="checkbox">分得清可降阶两种类型：缺 \(y\) 令 \(y'=p(x)\)；缺 \(x\) 令 \(y'=p(y)\)，\(y''=p\dfrac{dp}{dy}\)</label></li>
+<li><label><input type="checkbox">会用 \(\dfrac{\partial Q}{\partial x}=\dfrac{\partial P}{\partial y}\) 判全微分方程，并凑 \(u(x,y)=C\)（仅数一）</label></li>
+<li><label><input type="checkbox">会写二阶常系数齐次三种通解：单实根、二重根、共轭复根 \(\alpha\pm\beta i\)</label></li>
+<li><label><input type="checkbox">会按「一看二算三比较」设非齐次特解，正确决定乘不乘 \(x^k\)</label></li>
+<li><label><input type="checkbox">记得非齐次通解 = 齐次通解 + 特解，且自由项叠加时特解也叠加</label></li>
+<li><label><input type="checkbox">会由解反推特征根并还原方程（\(x^{k-1}e^{rx}\Rightarrow r\) 至少 \(k\) 重；\(e^{\alpha x}x\cos\beta x\Rightarrow\alpha\pm\beta i\) 至少二重）</label></li>
+<li><label><input type="checkbox">会解欧拉方程：\(x&gt;0\) 令 \(x=e^t\)，解完回代 \(t=\ln x\)（仅数一）</label></li>
+<li><label><input type="checkbox">记得差分定义 \(\Delta y_t=y_{t+1}-y_t\) 与齐次差分方程通解 \(C(-a)^t\)（仅数三）</label></li>
+<li><label><input type="checkbox">会查差分特解表：\(f(t)=d^tP_m(t)\) 时看 \(a+d\) 是否为零决定乘不乘 \(t\)（仅数三）</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>1.</strong>（概念题，仿例 15.1）设 \(y=f(x)\) 是方程 \(y''-2y'+4y=0\) 的解，且 \(f(x_0)&gt;0\)，\(f'(x_0)=0\)，判断 \(f(x)\) 在 \(x_0\) 处的极值情况。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 在方程中令 \(x=x_0\)：\(f''(x_0)=2f'(x_0)-4f(x_0)=-4f(x_0)&lt;0\)。又 \(f'(x_0)=0\)，由判别极值的第二充分条件，\(x=x_0\) 是 \(f(x)\) 的极大值点。</p>
+</details>
+<p><strong>2.</strong> 求微分方程 \(y''-4y=e^{2x}\) 的通解（习题 15.7）。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 特征方程 \(r^2-4=0\)，\(r_1=-2\)，\(r_2=2\)，齐次通解 \(Y=C_1e^{-2x}+C_2e^{2x}\)。自由项 \(\lambda=2\) 是单特征根，设 \(y^*=Axe^{2x}\)，代入方程得 \(4A=1\)，\(A=\dfrac14\)。故通解</p>
+<p>\[y=C_1e^{-2x}+C_2e^{2x}+\frac14xe^{2x}.\]</p>
+</details>
+<p><strong>3.</strong>（仅数学一、数学二）求微分方程 \(xy''+3y'=0\) 的通解（习题 15.6）。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 这是 \(y''=f(x,y')\) 型，令 \(p=y'\)，则 \(p'+\dfrac3x p=0\)，解得 \(p=Cx^{-3}\)。再积分</p>
+<p>\[y=\int Cx^{-3}dx=C_1-\frac{C}{2}x^{-2}=C_1+\frac{C_2}{x^2}\quad(C_1,C_2\ \text{为任意常数}).\]</p>
+</details>
+<p><strong>4.</strong> 求微分方程 \(y'\tan x=y\ln y\) 的通解（习题 15.3）。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 分离变量：\(\dfrac{dy}{y\ln y}=\dfrac{\cos x}{\sin x}dx\)，两边积分得 \(\ln\left|\ln y\right|=\ln\left|\sin x\right|+C_1\)，故通解为</p>
+<p>\[\ln y=C\sin x\quad\text{即}\quad y=e^{C\sin x}\ (C\ \text{为任意常数}).\]</p>
+</details>
+<p><strong>5.</strong>（仅数学三）求差分方程 \(y_{t+1}-3y_t=2^t-1\) 满足 \(y_0=1\) 的特解（习题 15.15）。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 齐次方程 \(y_{t+1}-3y_t=0\) 的特征根 \(r=3\)，通解 \(Y_t=A\cdot 3^t\)。对 \(2^t\)（\(d=2\)，\(a+d=-1\neq0\)）设特解代入得 \(-2^t\)；对常数 \(-1\) 设特解代入得 \(\dfrac12\)。由叠加原理，通解 \(y_t=A\cdot3^t-2^t+\dfrac12\)。代入 \(y_0=1\)：\(A-\!1+\dfrac12=1\)，\(A=\dfrac32\)。故特解</p>
+<p>\[y_t=\frac12\cdot 3^{t+1}-2^t+\frac12.\]</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P419–P450</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>

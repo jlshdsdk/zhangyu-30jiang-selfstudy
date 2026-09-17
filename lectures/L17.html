@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多元函数积分学的预备知识（仅数学一） · 张宇基础30讲自学站</title>
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:,">
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="bar-inner">
+  <a class="brand" href="../index.html"><b>张宇30讲 · 高数</b><span class="opt"> 自学站</span></a>
+  <nav class="pager">
+    <a href="L16.html">上一讲</a>
+    <a href="../index.html">目录</a>
+    <a href="L18.html">下一讲</a>
+  </nav>
+</div></header>
+<main>
+<h1 class="doc-title">第17讲 · 多元函数积分学的预备知识（仅数学一）</h1>
+<p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P506–P529</p>
+<h2>本讲导读</h2>
+<p>这一讲是第18讲重积分的工具箱：先备齐向量代数、空间平面与直线、空间曲线与曲面，再用多元微分学处理曲线的切线与法平面、曲面的切平面与法线，最后带一点场论初步（方向导数、梯度、散度、旋度）。仅数学一考，数二数三可以整讲跳过。题型基本是选择、填空：曲线曲面方程、切线法平面、切平面法线、方向导数与梯度的计算轮着出，书里点名的重难点是空间曲线与曲面方程的求解（投影、旋转曲面）。公式多而杂，别硬背——主线是向量：平面的法向量、直线的方向向量、曲面的法向量、曲线的切向量，全靠向量搭桥。学的时候多动手画图，投影和旋转曲面光看不练等于没学。</p>
+<h2>知识框架</h2>
+<ul>
+<li>向量代数</li>
+<li>向量及其表达形式（自由向量、坐标表示）</li>
+<li>数量积：夹角公式、垂直条件、投影</li>
+<li>向量积：行列式算法、平行条件、几何意义是面积</li>
+<li>混合积：体积、三向量共面的判定</li>
+<li>方向角与方向余弦</li>
+<li>空间平面与直线</li>
+<li>平面方程：一般式、点法式、三点式、截距式、平面束</li>
+<li>直线方程：一般式（交面式）、点向式、参数式、两点式</li>
+<li>位置关系与距离：点线、点面、线线、面面、线面</li>
+<li>空间曲线与曲面</li>
+<li>空间曲线：一般式、参数方程、在坐标面上的投影</li>
+<li>空间曲面：曲面方程、二次曲面、柱面、旋转曲面</li>
+<li>多元函数微分学的几何应用</li>
+<li>空间曲线的切线与法平面（参数式给出 / 方程组给出）</li>
+<li>空间曲面的切平面与法线（隐式给出 / 显式给出）</li>
+<li>场论初步</li>
+<li>方向导数、梯度及其关系</li>
+<li>散度、旋度</li>
+</ul>
+<h2>核心概念与定理</h2>
+<h3>一、向量代数</h3>
+<p>向量有大小有方向，且与所在位置无关（自由性），坐标形式 \( \boldsymbol{a}=(a_x,a_y,a_z)=a_x\boldsymbol{i}+a_y\boldsymbol{j}+a_z\boldsymbol{k} \)。</p>
+<p>数量积算出来是数：\( \boldsymbol{a}\cdot\boldsymbol{b}=a_xb_x+a_yb_y+a_zb_z=|\boldsymbol{a}||\boldsymbol{b}|\cos\theta \)。两个用途：反求夹角、判垂直（\( \boldsymbol{a}\perp\boldsymbol{b}\Leftrightarrow\boldsymbol{a}\cdot\boldsymbol{b}=0 \)，写垂直方程最常用）。\( \operatorname{Prj}_{\boldsymbol{b}}\boldsymbol{a}=\dfrac{\boldsymbol{a}\cdot\boldsymbol{b}}{|\boldsymbol{b}|}=|\boldsymbol{a}|\cos\theta \) 是 \( \boldsymbol{a} \) 在 \( \boldsymbol{b} \) 上的投影。</p>
+<figure class="shot"><img src="../assets/img/L17-001.webp" alt="原书 数量积及其应用 · 印P508" loading="lazy" width="1055" height="674"><figcaption>原书 数量积及其应用 · 印P508</figcaption></figure>
+<p>向量积算出来是向量：\( \boldsymbol{a}\times\boldsymbol{b} \) 按三阶行列式展开，模 \( |\boldsymbol{a}\times\boldsymbol{b}|=|\boldsymbol{a}||\boldsymbol{b}|\sin\theta \)，等于以 \( \boldsymbol{a},\boldsymbol{b} \) 为邻边的平行四边形面积，方向用右手规则；\( \boldsymbol{a}\,//\,\boldsymbol{b}\Leftrightarrow\dfrac{a_x}{b_x}=\dfrac{a_y}{b_y}=\dfrac{a_z}{b_z} \)。</p>
+<p>混合积 \( [\boldsymbol{abc}]=(\boldsymbol{a}\times\boldsymbol{b})\cdot\boldsymbol{c} \) 写成三阶行列式，绝对值等于平行六面体体积，且行列式为零 \( \Leftrightarrow \) 三向量共面——判点共面、线共面就靠它。</p>
+<p>方向角与方向余弦：\( \boldsymbol{a} \) 与三条坐标轴正向的夹角 \( \alpha,\beta,\gamma \) 叫方向角，\( \cos\alpha=\dfrac{a_x}{|\boldsymbol{a}|},\ \cos\beta=\dfrac{a_y}{|\boldsymbol{a}|},\ \cos\gamma=\dfrac{a_z}{|\boldsymbol{a}|} \)，恒有 \( \cos^2\alpha+\cos^2\beta+\cos^2\gamma=1 \)。单位向量 \( \boldsymbol{a}^{\circ}=\dfrac{\boldsymbol{a}}{|\boldsymbol{a}|}=(\cos\alpha,\cos\beta,\cos\gamma) \)——后面方向导数里"先把方向单位化"用的就是它。</p>
+<h3>二、空间平面与直线</h3>
+<p><strong>1. 平面方程</strong></p>
+<p>定一个平面只要两样：法向量 \( \boldsymbol{n}=(A,B,C) \) 加一点 \( P_0(x_0,y_0,z_0) \)。五种形式里点法式最常用，一般式适合代数运算，截距式画图方便。</p>
+<figure class="shot"><img src="../assets/img/L17-002.webp" alt="原书 平面方程的四种形式 · 印P510" loading="lazy" width="1097" height="316"><figcaption>原书 平面方程的四种形式 · 印P510</figcaption></figure>
+<p>平面束是处理"过一条定直线的平面"的工具：过 \( L:\begin{cases}A_1x+B_1y+C_1z+D_1=0\\A_2x+B_2y+C_2z+D_2=0\end{cases} \)） 的平面可设成 \( A_1x+B_1y+C_1z+D_1+\lambda(A_2x+B_2y+C_2z+D_2)=0 \)（不含 \( \pi_2 \)；写成 \( A_2+\lambda A_1 \) 的形式则不含 \( \pi_1 \)）。求投影直线时先找"过 \( L \) 且与已知平面垂直"的平面，就用这一手。</p>
+<figure class="shot"><img src="../assets/img/L17-003.webp" alt="原书 平面束方程 · 印P510" loading="lazy" width="882" height="247"><figcaption>原书 平面束方程 · 印P510</figcaption></figure>
+<p><strong>2. 直线方程</strong></p>
+<p>定一条直线只要方向向量 \( \boldsymbol{\tau}=(l,m,n) \) 加一点。一般式（交面式）里直线是两个平面的交线，方向向量 \( \boldsymbol{\tau}=\boldsymbol{n}_1\times\boldsymbol{n}_2 \)，即 \( \boldsymbol{\tau} \) 既垂直 \( \boldsymbol{n}_1 \) 又垂直 \( \boldsymbol{n}_2 \)——交面式最要紧的一条注。</p>
+<figure class="shot"><img src="../assets/img/L17-004.webp" alt="原书 直线方程的四种形式 · 印P511" loading="lazy" width="1100" height="708"><figcaption>原书 直线方程的四种形式 · 印P511</figcaption></figure>
+<p><strong>3. 距离与位置关系</strong></p>
+<p>点到直线：\( d=\dfrac{|\boldsymbol{\tau}\times\overrightarrow{M_1M_0}|}{|\boldsymbol{\tau}|} \)，内层竖线是行列式、外层是取模。</p>
+<figure class="shot"><img src="../assets/img/L17-005.webp" alt="原书 点到直线的距离 · 印P511" loading="lazy" width="1001" height="327"><figcaption>原书 点到直线的距离 · 印P511</figcaption></figure>
+<p>点到平面：\( d=\dfrac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}} \)；二维的点线距离是它的特例 \( d=\dfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}} \)（印P512）。</p>
+<p>线线、面面、线面的关系全部化成向量关系来判：</p>
+<ul>
+<li>\( L_1\perp L_2\Leftrightarrow l_1l_2+m_1m_2+n_1n_2=0 \)；\( L_1\,//\,L_2\Leftrightarrow\dfrac{l_1}{l_2}=\dfrac{m_1}{m_2}=\dfrac{n_1}{n_2} \)；夹角 \( \theta=\arccos\dfrac{|\boldsymbol{\tau}_1\cdot\boldsymbol{\tau}_2|}{|\boldsymbol{\tau}_1||\boldsymbol{\tau}_2|} \)</li>
+<li>\( \pi_1\perp\pi_2\Leftrightarrow A_1A_2+B_1B_2+C_1C_2=0 \)；\( \pi_1\,//\,\pi_2\Leftrightarrow\dfrac{A_1}{A_2}=\dfrac{B_1}{B_2}=\dfrac{C_1}{C_2} \)；夹角 \( \theta=\arccos\dfrac{|\boldsymbol{n}_1\cdot\boldsymbol{n}_2|}{|\boldsymbol{n}_1||\boldsymbol{n}_2|} \)</li>
+<li>\( L\perp\pi\Leftrightarrow\boldsymbol{\tau}\,//\,\boldsymbol{n}\Leftrightarrow\dfrac{l}{A}=\dfrac{m}{B}=\dfrac{n}{C} \)；\( L\,//\,\pi\Leftrightarrow\boldsymbol{\tau}\perp\boldsymbol{n}\Leftrightarrow Al+Bm+Cn=0 \)；线面夹角 \( \theta=\arcsin\dfrac{|\boldsymbol{\tau}\cdot\boldsymbol{n}|}{|\boldsymbol{\tau}||\boldsymbol{n}|} \)（印P512–513）</li>
+</ul>
+<h3>三、空间曲线与曲面</h3>
+<p><strong>1. 空间曲线及其投影</strong></p>
+<p>一般式 \( \Gamma:\begin{cases}F(x,y,z)=0\\G(x,y,z)=0\end{cases} \) 的几何背景是两个曲面的交线；参数式为 \( x=\varphi(t),\,y=\psi(t),\,z=\omega(t),\ t\in[\alpha,\beta] \)。往 \( xOy \) 面投影：从方程组消去 \( z \) 得 \( \varphi(x,y)=0 \)，投影曲线就是 \( \begin{cases}\varphi(x,y)=0\\z=0\end{cases} \)。口诀：往哪个坐标面投影就消哪个变量（\( xOy \) 消 \( z \)、\( xOz \) 消 \( y \)、\( yOz \) 消 \( x \)），再与坐标面方程联立（印P515）。</p>
+<p><strong>2. 二次曲面</strong></p>
+<p>五种标准二次曲面加马鞍面，考研认得出方程、画得出图就够了。"用平行于坐标面的平面去截"是识图的基本手段。</p>
+<figure class="shot"><img src="../assets/img/L17-006.webp" alt="原书 二次曲面一览 · 印P516" loading="lazy" width="1100" height="1610"><figcaption>原书 二次曲面一览 · 印P516</figcaption></figure>
+<p>马鞍面 \( -\dfrac{x^2}{2p}+\dfrac{y^2}{2q}=z\ (p,q&gt;0) \) 的特例是 \( z=xy \)（令 \( u=y+x,\ v=y-x \)，则 \( z=uv \)）。\( z=xy \) 被 \( x+y=1 \) 截出的图形，后面三重积分、曲线积分、曲面积分还会见面（印P517）。</p>
+<p><strong>3. 柱面</strong></p>
+<p>动直线沿定曲线平行移动生成的曲面。方程缺哪个字母，母线就平行于哪条坐标轴：\( \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1 \) 缺 \( z \)，是母线平行于 \( z \) 轴的椭圆柱面；\( y=ax^2\ (a&gt;0) \) 是抛物柱面（印P517）。</p>
+<p><strong>4. 旋转曲面</strong></p>
+<p>曲线 \( \Gamma \) 绕定直线旋转一周所得。绕 \( z \) 轴旋转时，纬圆上点满足 \( |OP|=|OM_1| \) 且 \( z=z_1 \)，即 \( x^2+y^2=x_1^2+y_1^2 \)：从 \( \begin{cases}F(x_1,y_1,z)=0\\G(x_1,y_1,z)=0\\x^2+y^2=x_1^2+y_1^2\end{cases} \) 消去 \( x_1,y_1 \) 即得旋转曲面方程。若能解出 \( x=f_1(z),\ y=f_2(z) \)，直接写 \( x^2+y^2=[f_1(z)]^2+[f_2(z)]^2 \)。书上例子：\( \begin{cases}y^2-(z-1)^2=1\\x=0\end{cases} \) 绕 \( z \) 轴一周得 \( x^2+y^2-(z-1)^2=1 \)。</p>
+<figure class="shot"><img src="../assets/img/L17-007.webp" alt="原书 绕坐标轴旋转曲面的求法 · 印P518" loading="lazy" width="1100" height="894"><figcaption>原书 绕坐标轴旋转曲面的求法 · 印P518</figcaption></figure>
+<h3>四、多元函数微分学的几何应用</h3>
+<p><strong>1. 空间曲线的切线与法平面</strong></p>
+<p>参数式给出曲线：\( P_0(x_0,y_0,z_0) \) 处切向量 \( \boldsymbol{\tau}=(x'(t_0),y'(t_0),z'(t_0)) \)，切线 \( \dfrac{x-x_0}{x'(t_0)}=\dfrac{y-y_0}{y'(t_0)}=\dfrac{z-z_0}{z'(t_0)} \)，法平面 \( x'(t_0)(x-x_0)+y'(t_0)(y-y_0)+z'(t_0)(z-z_0)=0 \)。方程组给出曲线：切向量取两个梯度向量的叉积 \( \boldsymbol{\tau}=\boldsymbol{n}_1\times\boldsymbol{n}_2=(A,B,C) \)，形式见下面截图。</p>
+<figure class="shot"><img src="../assets/img/L17-008.webp" alt="原书 空间曲线的切线与法平面 · 印P519" loading="lazy" width="1100" height="805"><figcaption>原书 空间曲线的切线与法平面 · 印P519</figcaption></figure>
+<p><strong>2. 空间曲面的切平面与法线</strong></p>
+<p>隐式 \( F(x,y,z)=0 \)（\( F \) 一阶偏导连续）：法向量 \( \boldsymbol{n}=(F_x',F_y',F_z')\big|_{P_0} \)。显式 \( z=f(x,y) \)：改写成 \( f(x,y)-z=0 \)，法向量 \( \boldsymbol{n}=(f_x',f_y',-1) \)，注意这个写法方向朝下，要与 \( z \) 轴正向夹锐角（朝上）就取 \( (-f_x',-f_y',1) \)。</p>
+<figure class="shot"><img src="../assets/img/L17-009.webp" alt="原书 空间曲面的切平面与法线 · 印P520" loading="lazy" width="1073" height="675"><figcaption>原书 空间曲面的切平面与法线 · 印P520</figcaption></figure>
+<h3>五、场论初步</h3>
+<p>"场"就是空间区域 \( \Omega \) 上的一种对应法则：每点对应一个数是数量场（如温度场），每点对应一个向量是向量场 \( \boldsymbol{F}=P\boldsymbol{i}+Q\boldsymbol{j}+R\boldsymbol{k} \)（如引力场）（印P521）。</p>
+<p><strong>1. 方向导数</strong></p>
+<p>\( u=u(x,y,z) \) 沿从 \( P_0 \) 出发的射线 \( \boldsymbol{l} \)，若 \( \lim\limits_{t\to 0^+}\dfrac{u(P)-u(P_0)}{t} \) 存在（\( t \) 是两点距离），就叫沿 \( \boldsymbol{l} \) 方向的方向导数。可微时计算公式成立，注意方向余弦一定是单位向量：</p>
+<figure class="shot"><img src="../assets/img/L17-010.webp" alt="原书 方向导数定义与计算公式 · 印P522" loading="lazy" width="1100" height="904"><figcaption>原书 方向导数定义与计算公式 · 印P522</figcaption></figure>
+<p><strong>2. 梯度</strong></p>
+<p>\( \operatorname{grad}u\big|_{P_0}=(u_x',u_y',u_z')\big|_{P_0} \)，它恰好等于该点处（等值面）切平面的法向量；四则运算法则与求导同款。</p>
+<figure class="shot"><img src="../assets/img/L17-011.webp" alt="原书 梯度定义与运算法则 · 印P522" loading="lazy" width="1100" height="484"><figcaption>原书 梯度定义与运算法则 · 印P522</figcaption></figure>
+<p><strong>3. 方向导数与梯度的关系</strong></p>
+<figure class="shot"><img src="../assets/img/L17-012.webp" alt="原书 方向导数与梯度的关系 · 印P523" loading="lazy" width="1100" height="889"><figcaption>原书 方向导数与梯度的关系 · 印P523</figcaption></figure>
+<p>浓缩成一行：\( \dfrac{\partial u}{\partial\boldsymbol{l}}\bigg|_{P_0}=\operatorname{grad}u\big|_{P_0}\cdot\boldsymbol{l}^{\circ}=|\operatorname{grad}u|\cos\theta \)。梯度方向就是方向导数取最大值的方向，最大值等于模 \( |\operatorname{grad}u|=\sqrt{u_x'^2+u_y'^2+u_z'^2} \)；与梯度垂直的方向上方向导数为零（印P523）。</p>
+<p><strong>4. 散度与旋度</strong></p>
+<p>对 \( \boldsymbol{A}=P\boldsymbol{i}+Q\boldsymbol{j}+R\boldsymbol{k} \)：</p>
+<p>\[ \operatorname{div}\boldsymbol{A}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z},\qquad \operatorname{rot}\boldsymbol{A}=\begin{vmatrix}\boldsymbol{i}&amp;\boldsymbol{j}&amp;\boldsymbol{k}\\[2pt] \dfrac{\partial}{\partial x}&amp;\dfrac{\partial}{\partial y}&amp;\dfrac{\partial}{\partial z}\\[6pt] P&amp;Q&amp;R\end{vmatrix} \]</p>
+<p>散度描述向量场向外（内）流的强度，是个数；旋度描述向量旋转的强度，是个向量（印P523）。</p>
+<h2>典型例题精讲</h2>
+<figure class="shot"><img src="../assets/img/L17-013.webp" alt="原书 例17.2 · 印P513" loading="lazy" width="1100" height="708"><figcaption>原书 例17.2 · 印P513</figcaption></figure>
+<p><strong>思路</strong> 平面与两条直线都平行，法向量就同时垂直两个方向向量，取 \( \boldsymbol{n}=\boldsymbol{\tau}_1\times\boldsymbol{\tau}_2 \)；再由"过原点"定点，点法式收工。</p>
+<p><strong>要点</strong> 参数式直线 \( \begin{cases}x=1\\y=-1+t\\z=2+t\end{cases} \) 的方向向量就是 \( t \) 的系数，\( \boldsymbol{\tau}_1=(0,1,1) \)；对称式直线直接读分母，\( \boldsymbol{\tau}_2=(1,2,1) \)。于是 \( \boldsymbol{n}=\begin{vmatrix}\boldsymbol{i}&amp;\boldsymbol{j}&amp;\boldsymbol{k}\\0&amp;1&amp;1\\1&amp;2&amp;1\end{vmatrix}=-\boldsymbol{i}+\boldsymbol{j}-\boldsymbol{k} \)，过原点得 \( -1\cdot(x-0)+1\cdot(y-0)-1\cdot(z-0)=0 \)，即 \( x-y+z=0 \)。</p>
+<p><strong>注</strong> 参数式读方向看系数、对称式看分母，来源不同别搞混。</p>
+<figure class="shot"><img src="../assets/img/L17-014.webp" alt="原书 例17.3 · 印P513" loading="lazy" width="1100" height="720"><figcaption>原书 例17.3 · 印P513</figcaption></figure>
+<p><strong>思路</strong> 求 \( L_0 \) 在平面上的投影 = 过 \( L_0 \) 作与该平面垂直的平面 \( \pi_1 \)，再与原平面联立。过 \( L_0 \) 的平面用平面束设出来。</p>
+<p><strong>要点</strong> 设过 \( L_0 \) 的平面束 \( (2x-z-3)+\lambda(y-2z+4)=0 \)，即 \( 2x+\lambda y-(2\lambda+1)z+4\lambda-3=0 \)。与 \( x+y-z=5 \) 垂直，法向量点积为零：\( 2\cdot1+\lambda\cdot1-(2\lambda+1)\cdot(-1)=0 \)，解得 \( \lambda=-1 \)，故 \( L:\begin{cases}2x-y+z-7=0\\x+y-z=5\end{cases} \)。</p>
+<p><strong>注</strong> 答案保留交面式即可，题目原话就是"用交面式方程表示"。</p>
+<figure class="shot"><img src="../assets/img/L17-015.webp" alt="原书 例17.5 · 印P518" loading="lazy" width="970" height="179"><figcaption>原书 例17.5 · 印P518</figcaption></figure>
+<p><strong>思路</strong> 先写出过 \( (0,-1,1) \) 与 \( (0,0,0) \) 的直线 \( L \)，绕 \( z \) 轴旋转套 \( x^2+y^2=x_1^2+y_1^2 \) 得 \( \Sigma_1 \)，再与 \( \Sigma_2 \) 联立消 \( z \) 得投影。</p>
+<p><strong>要点</strong> 两点式 \( \dfrac{x}{0}=\dfrac{y+1}{1}=\dfrac{z-1}{-1} \)，参数式 \( \begin{cases}x=0\\y=-1+t\\z=1-t\end{cases} \)，即 \( x=0,\ y=-z \)。绕 \( z \) 轴：\( x^2+y^2=0^2+(-z)^2=z^2 \)，得 \( \Sigma_1:\ z=\sqrt{x^2+y^2} \)。与 \( z^2=2x \) 联立消 \( z \) 得 \( x^2+y^2=2x \)，故投影曲线 \( \begin{cases}x^2+y^2=2x\\z=0\end{cases} \)。</p>
+<p><strong>注</strong> \( \Sigma_1 \) 只取 \( z\ge 0 \) 部分，所以锥面写 \( z=\sqrt{x^2+y^2} \)；消 \( z \) 之后必须补上 \( z=0 \) 才是完整投影。</p>
+<figure class="shot"><img src="../assets/img/L17-016.webp" alt="原书 例17.8 · 印P521" loading="lazy" width="917" height="386"><figcaption>原书 例17.8 · 印P521</figcaption></figure>
+<p><strong>思路</strong> 隐式曲面求切平面：先移项成 \( F=0 \)，法向量 \( \boldsymbol{n}=(F_x',F_y',F_z')\big|_{P_0} \)，套点法式。</p>
+<p><strong>要点</strong> 令 \( F=z-\mathrm{e}^z+2xy-3 \)，在 \( (1,2,0) \) 处 \( F_x'=2y=4 \)，\( F_y'=2x=2 \)，\( F_z'=1-\mathrm{e}^z=0 \)。切平面 \( 4(x-1)+2(y-2)+0\cdot(z-0)=0 \)，即 \( 2x+y-4=0 \)。</p>
+<p><strong>注</strong> \( F_z' \) 在 \( z=0 \) 处恰好为零，法向量变成 \( (4,2,0) \)，流程照走，别觉得奇怪。</p>
+<figure class="shot"><img src="../assets/img/L17-017.webp" alt="原书 例17.9 · 印P521" loading="lazy" width="1100" height="582"><figcaption>原书 例17.9 · 印P521</figcaption></figure>
+<p><strong>思路</strong> 要说明曲面是柱面，等价于找一个固定方向，使曲面上任一点的法向量都与它垂直（这就是母线方向）。</p>
+<p><strong>要点</strong> 设 \( F=f(\pi y-\sqrt{2}z)-\mathrm{e}^{2x-z} \)，则任一点法向量 \( \boldsymbol{n}=(-2\mathrm{e}^{2x-z},\ \pi f',\ -\sqrt{2}f'+\mathrm{e}^{2x-z}) \)。设定向量 \( \boldsymbol{\tau}=(a,b,c) \) 使 \( \boldsymbol{n}\cdot(a,b,c)\equiv 0 \)：\( -2a\mathrm{e}^{2x-z}+\pi bf'+(-\sqrt{2}f'+\mathrm{e}^{2x-z})c=0 \)。比较 \( \mathrm{e}^{2x-z} \) 与 \( f' \) 的系数得 \( a=\dfrac{c}{2},\ b=\dfrac{\sqrt{2}}{\pi}c \)，取 \( c=1 \)，得定向量 \( \left(\dfrac{1}{2},\dfrac{\sqrt{2}}{\pi},1\right) \) 与所有法向量垂直，故曲面是柱面，选 (D)。</p>
+<p><strong>注</strong> "待定一个与所有法向量垂直的定向量"是判柱面的通用套路，比死背方程形状可靠。</p>
+<figure class="shot"><img src="../assets/img/L17-018.webp" alt="原书 例17.12 · 印P524" loading="lazy" width="1100" height="823"><figcaption>原书 例17.12 · 印P524</figcaption></figure>
+<p><strong>思路</strong> 两个方向导数条件，就是关于 \( f_x'(P_0),\,f_y'(P_0) \) 的两个线性方程；解出来后，最大方向导数就是梯度模。</p>
+<p><strong>要点</strong> \( \boldsymbol{l}_1=\overrightarrow{P_0P_1}=(1,1) \)，单位化 \( \boldsymbol{l}_1^{\circ}=\left(\dfrac{1}{\sqrt2},\dfrac{1}{\sqrt2}\right) \)；\( \boldsymbol{l}_2=\overrightarrow{P_0P_2}=(0,-2) \)，单位化 \( \boldsymbol{l}_2^{\circ}=(0,-1) \)。由方向导数计算公式</p>
+<p>\[ \begin{cases} f_x'(P_0)\cdot\dfrac{1}{\sqrt2}+f_y'(P_0)\cdot\dfrac{1}{\sqrt2}=2\sqrt2,\\ f_x'(P_0)\cdot 0+f_y'(P_0)\cdot(-1)=-3, \end{cases} \]</p>
+<p>解得 \( f_x'(P_0)=1,\ f_y'(P_0)=3 \)，故最大方向导数 \( |\operatorname{grad}z|_{P_0}=\sqrt{1^2+3^2}=\sqrt{10} \)。</p>
+<p><strong>注</strong> "沿从 \( P_0 \) 到 \( P_1 \) 的方向"指两点连线方向，先化向量再单位化，不能拿坐标直接当方向余弦。</p>
+<h2>易错点与技巧</h2>
+<ol>
+<li>平面束 \( A_1+\lambda A_2=0 \) 不含 \( \pi_2 \) 本身。若要找的平面恰好是 \( \pi_2 \)，这个设法会丢解，改写 \( A_2+\lambda A_1=0 \) 就含 \( \pi_2 \)（印P510）。</li>
+<li>交面式直线的方向向量是 \( \boldsymbol{\tau}=\boldsymbol{n}_1\times\boldsymbol{n}_2 \)，不是点乘；算完检查 \( \boldsymbol{\tau}\cdot\boldsymbol{n}_1=\boldsymbol{\tau}\cdot\boldsymbol{n}_2=0 \) 能防手滑（印P511）。</li>
+<li>投影口诀：往哪个面投影消哪个变量，且结果必须与 \( z=0 \)（或对应坐标面方程）联立；只写 \( \varphi(x,y)=0 \) 不算完（印P515）。</li>
+<li>柱面看缺字、旋转面看转轴：绕 \( z \) 轴转时 \( z \) 不动，另两个变量凑成 \( x^2+y^2 \)；书上 \( y^2-(z-1)^2=1 \) 绕 \( z \) 轴的例子值得亲手抄一遍（印P517–518）。</li>
+<li>显式曲面 \( z=f(x,y) \) 的法向量 \( (f_x',f_y',-1) \) 朝下；题目要"与 \( z \) 轴正向夹锐角"（朝上）时取 \( (-f_x',-f_y',1) \)（印P520）。</li>
+<li>方向导数公式里的方向余弦必须来自单位向量。题目给 \( \boldsymbol{l}=-3\boldsymbol{i}-4\boldsymbol{j} \) 这种，先除以模再代入；例17.11 就是设 \( 6a=-3k,\ 8b=-4k \)（\( k&gt;0 \)）解的（印P522–524）。</li>
+<li>线线、面面夹角用 arccos，线面夹角用 arcsin——线面角是 \( \dfrac{\pi}{2} \) 减去 \( \boldsymbol{\tau} \) 与 \( \boldsymbol{n} \) 的夹角（印P512–513）。</li>
+<li>可微是方向导数计算公式的前提：例17.1 靠 \( \Delta z=\mathrm{d}z+o(\rho) \) 凑出极限为零，说明"可微 \( \Rightarrow \) 沿任一方向的方向导数都存在"；只有偏导存在推不出这条（印P509、522）。</li>
+</ol>
+<h2>知识清单自测</h2>
+<ul class="checklist">
+<li><label><input type="checkbox">会写数量积的坐标式与夹角公式，会用 \( \boldsymbol{a}\cdot\boldsymbol{b}=0 \) 判垂直</label></li>
+<li><label><input type="checkbox">会按行列式算向量积，知道 \( |\boldsymbol{a}\times\boldsymbol{b}| \) 是平行四边形面积</label></li>
+<li><label><input type="checkbox">知道混合积的行列式为零 \( \Leftrightarrow \) 三向量共面</label></li>
+<li><label><input type="checkbox">会算方向余弦并验证 \( \cos^2\alpha+\cos^2\beta+\cos^2\gamma=1 \)，会写单位向量</label></li>
+<li><label><input type="checkbox">平面五种方程形式能互化，会取点法式</label></li>
+<li><label><input type="checkbox">会用平面束方程设"过已知直线的平面"</label></li>
+<li><label><input type="checkbox">交面式直线会求 \( \boldsymbol{\tau}=\boldsymbol{n}_1\times\boldsymbol{n}_2 \)</label></li>
+<li><label><input type="checkbox">会用点到平面、点到直线的距离公式</label></li>
+<li><label><input type="checkbox">线线、面面、线面的垂直平行判定与夹角公式（arccos / arcsin 别用反）</label></li>
+<li><label><input type="checkbox">会求空间曲线在坐标面上的投影（消变量 + 与坐标面联立）</label></li>
+<li><label><input type="checkbox">认得椭球面、单叶/双叶双曲面、抛物面、锥面、马鞍面的方程与图形</label></li>
+<li><label><input type="checkbox">柱面：缺哪个字母母线平行于哪条轴</label></li>
+<li><label><input type="checkbox">会推绕坐标轴旋转的曲面方程（\( x^2+y^2=x_1^2+y_1^2 \) 消元法）</label></li>
+<li><label><input type="checkbox">参数式曲线会求切向量与切线、法平面方程</label></li>
+<li><label><input type="checkbox">方程组曲线的切向量 = 两个梯度向量的叉积</label></li>
+<li><label><input type="checkbox">隐式、显式曲面的切平面与法线方程都会写，显式法向量方向朝上朝下分得清</label></li>
+<li><label><input type="checkbox">方向导数计算公式会用，方向先单位化</label></li>
+<li><label><input type="checkbox">梯度定义与运算法则，最大方向导数 \( =|\operatorname{grad}u| \)；会算散度与旋度</label></li>
+</ul>
+<h2>自测题</h2>
+<p><strong>自测 1（线面位置关系）</strong> 判断直线 \( L:\begin{cases}x+y-z+1=0\\x-y+3z+3=0\end{cases} \) 与平面 \( \pi:x-2y-z+3=0 \) 的位置关系（平行、在平面内、垂直、斜交）。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \( \boldsymbol{n}_1=(1,1,-1) \)，\( \boldsymbol{n}_2=(1,-1,3) \)，交面式直线的方向向量</p>
+<p>\[ \boldsymbol{\tau}=\boldsymbol{n}_1\times\boldsymbol{n}_2=\begin{vmatrix}\boldsymbol{i}&amp;\boldsymbol{j}&amp;\boldsymbol{k}\\1&amp;1&amp;-1\\1&amp;-1&amp;3\end{vmatrix}=(2,-4,-2)=2(1,-2,-1). \]</p>
+<p>平面法向量 \( \boldsymbol{n}=(1,-2,-1) \)，\( \boldsymbol{\tau}\,//\,\boldsymbol{n} \)，故 \( L\perp\pi \)，选 (C)。</p>
+</details>
+<p><strong>自测 2（投影直线）</strong> 求直线 \( L:\dfrac{x-1}{1}=\dfrac{y}{1}=\dfrac{z-1}{-1} \) 在平面 \( \pi:3x-y+3z=5 \) 上的投影直线 \( L_0 \) 的方程。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 先把 \( L \) 化成交面式 \( \begin{cases}x+z-2=0\\y+z-1=0\end{cases} \)。过 \( L \) 的平面束：\( (x+z-2)+\lambda(y+z-1)=0 \)，其法向量 \( (1,\lambda,1+\lambda) \)。与 \( \pi \) 垂直的条件：\( 3\cdot1+(-1)\lambda+3(1+\lambda)=0 \)，解得 \( \lambda=-3 \)，得 \( \pi_1:x-3y-2z+1=0 \)。故</p>
+<p>\[ L_0:\begin{cases}3x-y+3z=5\\x-3y-2z+1=0.\end{cases} \]</p>
+</details>
+<p><strong>自测 3（旋转曲面）</strong> 求过点 \( A(1,0,0) \) 与 \( B(0,1,1) \) 的直线绕 \( z \) 轴旋转一周所成曲面的方程。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 两点式 \( \dfrac{x-1}{1}=\dfrac{y}{-1}=\dfrac{z}{-1} \)，写成参数式 \( x=1+t,\ y=-t,\ z=-t \)，即 \( x=1-z,\ y=z \)。绕 \( z \) 轴旋转，套 \( x^2+y^2=x_1^2+y_1^2 \)：</p>
+<p>\[ x^2+y^2=(1-z)^2+z^2,\quad 即\ x^2+y^2-2z^2+2z-1=0. \]</p>
+</details>
+<p><strong>自测 4（方向导数）</strong> 求 \( u=\ln\left(x+\sqrt{y^2+z^2}\right) \) 在点 \( A(1,0,1) \) 处沿 \( \overrightarrow{AB} \)（\( B(3,-2,2) \)）方向的方向导数。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> \( u_x'\big|_A=\dfrac{1}{x+\sqrt{y^2+z^2}}\bigg|_{(1,0,1)}=\dfrac{1}{2} \)，\( u_y'\big|_A=0 \)，\( u_z'\big|_A=\dfrac{1}{2} \)。\( \overrightarrow{AB}=(2,-2,1) \)，单位向量 \( \left(\dfrac{2}{3},-\dfrac{2}{3},\dfrac{1}{3}\right) \)。方向导数</p>
+<p>\[ \frac{\partial u}{\partial\overrightarrow{AB}}\bigg|_A=\frac{1}{2}\cdot\frac{2}{3}+0\cdot\left(-\frac{2}{3}\right)+\frac{1}{2}\cdot\frac{1}{3}=\frac{1}{2}. \]</p>
+</details>
+<p><strong>自测 5（散度与旋度）</strong> (1) 设 \( \boldsymbol{F}=x^3\boldsymbol{i}+y^3\boldsymbol{j}+z^3\boldsymbol{k} \)，求 \( \operatorname{div}\boldsymbol{F}\big|_{(1,0,-1)} \)；(2) 设 \( \boldsymbol{A}=(z,\,3x,\,2y) \)，求 \( \operatorname{rot}\boldsymbol{A} \)。</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> (1) \( \operatorname{div}\boldsymbol{F}=3x^2+3y^2+3z^2 \)，代入 \( (1,0,-1) \) 得 \( 3+0+3=6 \)。</p>
+<p>(2) \( P=z,\ Q=3x,\ R=2y \)，按展开式</p>
+<p>\[ \operatorname{rot}\boldsymbol{A}=\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\boldsymbol{i}+\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\boldsymbol{j}+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\boldsymbol{k}=2\boldsymbol{i}+\boldsymbol{j}+3\boldsymbol{k}. \]</p>
+</details>
+<footer class="doc-footer">
+  <span>本讲覆盖原书 P506–P529</span>
+  <span><a href="../index.html">← 返回总目录</a></span>
+</footer>
+</main>
+</body>
+</html>
