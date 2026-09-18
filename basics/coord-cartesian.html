@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>直角坐标系与坐标变换 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">六、坐标系及其变换</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html" class="active">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">六、坐标系及其变换</div>
+  <h1>直角坐标系与坐标变换</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">直角坐标系（原书）</div><p>在平面上作两条相互垂直且有公共原点的数轴，称直角坐标系，如图 21 所示.</p>
+<p>（图 21：平面直角坐标系，横轴 $x$，纵轴 $y$，公共原点 $O$）</p></div>
+<div class="box box-kp"><div class="box-title">坐标轴的平移（原书）</div><p>设平面上有一直角坐标系（称为旧坐标系），其原点为 $O$，坐标轴为 $Ox$，$Oy$．设平面上又有另一坐标系（称为新坐标系），其原点为 $O'$，坐标轴为 $O'X$，$O'Y$．设 $O'X$，$O'Y$ 分别与 $Ox$，$Oy$ 平行并且正方向相同，新坐标轴可以看作将旧坐标轴经过平移而得到．设点 $O'$ 在旧坐标系中的坐标为 $(a,b)$.</p>
+<p>设平面上一点 $M$，它在旧坐标系中的坐标是 $(x,y)$，在新坐标系中的坐标是 $(X,Y)$，现在找出 $(x,y)$ 和 $(X,Y)$ 间的关系（见图 22）.</p>
+<p>从点 $M$ 作 $Ox$ 轴的垂线，它在 $Ox$ 上的垂足是 $P$，在 $O'X$ 轴上的垂足是 $P'$，则</p>
+<div class="disp">$$OP=x,\quad O'P'=X,\quad ON=a,\quad OP=ON+NP=ON+O'P',$$</div>
+<p>故</p>
+<div class="disp">$$x=a+X.$$</div>
+<p>从点 $M$ 作 $Oy$ 轴的垂线，同样可得</p>
+<div class="disp">$$y=b+Y.$$</div>
+<p>于是建立了新旧坐标间的互换公式</p>
+<div class="disp">$$\begin{cases} x=X+a, \\ y=Y+b, \end{cases}\quad\text{即}\quad\begin{cases} X=x-a, \\ Y=y-b, \end{cases}$$</div>
+<p>其中 $(a,b)$ 是新坐标系的原点 $O'$ 在旧坐标系中的坐标.</p>
+<p>（图 22：同一平面上两个坐标系：旧坐标系 $xOy$ 与新坐标系 $XO'Y$，$O'$ 在旧坐标系中的坐标为 $(a,b)$；由 $M$ 向下作虚线垂线，交 $O'X$ 轴于 $P'$，交 $Ox$ 轴于 $P$；$N$ 为 $O'$ 在 $Ox$ 轴上的垂足）</p></div>
+<h3 id="例71">例71</h3>
+<div class="box box-ex"><p>一曲线在旧坐标系中的方程为</p>
+<div class="disp">$$y=5x^2-4x-1,$$</div>
+<p>问坐标系经过怎样的平移能使曲线的方程化为最简形式，并由此画出方程所表示的图形.</p>
+<p class="solve-label"><span class="chip">解</span> </p>
+<div class="disp">$$y=5\left(x^2-\frac{4}{5}x\right)-1=5\left(x-\frac{2}{5}\right)^2-\frac{9}{5},$$</div>
+<p>即</p>
+<div class="disp">$$y+\frac{9}{5}=5\left(x-\frac{2}{5}\right)^2.$$</div>
+<p>令</p>
+<div class="disp">$$\begin{cases} X=x-\dfrac{2}{5}, \\ Y=y+\dfrac{9}{5}, \end{cases}\quad\text{即}\quad\begin{cases} x=X+\dfrac{2}{5}, \\ y=Y-\dfrac{9}{5}, \end{cases}$$</div>
+<p>也就是将坐标轴平移到新原点 $O'$，$O'$ 在旧坐标系中的坐标是 $\left(\dfrac{2}{5},-\dfrac{9}{5}\right)$（见图 23），在新坐标系中已将方程化为最简形式</p>
+<div class="disp">$$Y=5X^2,$$</div>
+<p>或写成</p>
+<div class="disp">$$X^2=\frac{1}{5}Y.$$</div>
+<p>（图 23：同一平面上旧坐标系 $xOy$ 与新坐标系 $XO'Y$：抛物线 $y=5x^2-4x-1$，开口向上，与 $x$ 轴交于 $-\dfrac{1}{5}$ 与 $1$ 两点，与 $y$ 轴交于 $-1$，顶点为 $O'\left(\dfrac{2}{5},-\dfrac{9}{5}\right)$，新坐标轴过 $O'$，用虚线画出）</p></div>
+<blockquote><p>【注】以上处理问题的方法具有一般意义．对于一般的二次三项式</p>
+<div class="disp">$$y=ax^2+bx+c\ (a\neq 0),$$</div>
+<p>对 $x$ 进行配方后，可化为</p>
+<div class="disp">$$y+\frac{b^2-4ac}{4a}=a\left(x+\frac{b}{2a}\right)^2.$$</div>
+<p>将坐标轴平移到新原点 $O'\left(-\dfrac{b}{2a},-\dfrac{b^2-4ac}{4a}\right)$，即令</p>
+<div class="disp">$$\begin{cases} x=X-\dfrac{b}{2a}, \\ y=Y-\dfrac{b^2-4ac}{4a}, \end{cases}$$</div>
+<p>化简为</p>
+<div class="disp">$$X^2=\frac{1}{a}Y.$$</div>
+<p>这是以 $O'$ 为顶点，以 $Y$ 轴为对称轴的抛物线．由此可见，二次三项式所表示的曲线是一条以 $\left(-\dfrac{b}{2a},-\dfrac{b^2-4ac}{4a}\right)$ 为顶点、以直线 $x=-\dfrac{b}{2a}$ 为对称轴的抛物线．当 $a&gt;0$ 时，抛物线的开口向上，当 $a&lt;0$ 时，抛物线的开口向下.</p></blockquote>
+<div class="box box-kp"><div class="box-title">坐标轴的旋转（原书）</div><p>设平面上有两个直角坐标系，坐标系的原点都是 $O$，旧坐标系的坐标轴为 $Ox$，$Oy$，新坐标系的坐标轴为 $OX$，$OY$．设由 $Ox$ 轴绕原点按逆时针方向旋转角 $\theta$ 得到 $OX$ 轴，现在要找出点 $M$ 的新、旧坐标 $(X,Y)$，$(x,y)$ 间的关系（见图 24）.</p>
+<p>记 $|OM|=r$．设由 $Ox$ 轴按逆时针方向旋转到 $\overline{OM}$ 所成的角为 $\varphi$，由 $OX$ 轴按逆时针方向旋转到 $\overline{OM}$ 所成的角为 $\varphi'$，则</p>
+<div class="disp">$$\cos\varphi=\frac{x}{r},\ \sin\varphi=\frac{y}{r},\qquad \cos\varphi'=\frac{X}{r},\ \sin\varphi'=\frac{Y}{r}.$$</div>
+<p>而 $\varphi$，$\varphi'$ 与 $\theta$ 的关系是</p>
+<div class="disp">$$\varphi=\theta+\varphi',$$</div>
+<p>由此可知（用和角公式展开）：</p>
+<div class="disp">$$x=r\cos\varphi=r\cos\left(\theta+\varphi'\right)=r\cos\varphi'\cos\theta-r\sin\varphi'\sin\theta=X\cos\theta-Y\sin\theta,$$</div>
+<div class="disp">$$y=r\sin\varphi=r\sin\left(\theta+\varphi'\right)=r\cos\varphi'\sin\theta+r\sin\varphi'\cos\theta=X\sin\theta+Y\cos\theta,$$</div>
+<p>故点 $M$ 的新、旧坐标间的关系式为</p>
+<div class="disp">$$\begin{cases} x=X\cos\theta-Y\sin\theta, \\ y=X\sin\theta+Y\cos\theta. \end{cases}$$</div>
+<p>解出 $X$，$Y$，则上式亦可表示为</p>
+<div class="disp">$$\begin{cases} X=x\cos\theta+y\sin\theta, \\ Y=-x\sin\theta+y\cos\theta. \end{cases}$$</div>
+<p>（图 24：共原点 $O$ 的两个直角坐标系：旧系 $xOy$；新系 $XOY$，由 $Ox$ 轴逆时针旋转角 $\theta$ 得到；点 $M$，$|OM|=r$，$OM$ 与 $Ox$ 夹角 $\varphi$，与 $OX$ 夹角 $\varphi'$；由 $M$ 向两轴作垂线，垂足 $P'$、$P$）</p></div>
+<div class="box box-memo"><div class="box-title">旋转公式记忆</div><p>旋转公式就是<strong>和角公式换装</strong>：$\varphi=\theta+\varphi'$ 一拆两半（$\theta$ 转轴 + $\varphi'$ 到点）. 逆变换（旧变新）只需把 $\theta$ 换成 $-\theta$，即 $\sin$ 反号——两条公式对偶记忆，不必死背.</p></div>
+<h3 id="例72">例72</h3>
+<div class="box box-ex"><p>已知新坐标轴是由旧坐标轴绕原点依逆时针方向旋转 $\dfrac{\pi}{4}$ 得到的，一曲线在旧坐标系中的方程为 $xy=1$，则其在新坐标系中的方程为 ________.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $\dfrac{X^2}{2}-\dfrac{Y^2}{2}=1$.</p>
+<p>设旧坐标上任一点为 $(x,y)$，则新坐标上为 $(X,Y)$，由 $\theta=\dfrac{\pi}{4}$，$\cos\theta=\sin\theta=\dfrac{\sqrt{2}}{2}$，于是有</p>
+<div class="disp">$$ \begin{cases} x=\dfrac{\sqrt{2}}{2}X-\dfrac{\sqrt{2}}{2}Y,\\[2mm] y=\dfrac{\sqrt{2}}{2}X+\dfrac{\sqrt{2}}{2}Y, \end{cases} $$</div>
+<p>故</p>
+<div class="disp">$$ xy=\left(\frac{\sqrt{2}}{2}X-\frac{\sqrt{2}}{2}Y\right)\left(\frac{\sqrt{2}}{2}X+\frac{\sqrt{2}}{2}Y\right)=1, $$</div>
+<p>即</p>
+<div class="disp">$$ \frac{X^{2}}{2}-\frac{Y^{2}}{2}=1. $$</div>
+<blockquote><p>【注】这是以新坐标轴为对称轴的双曲线，实轴在 $X$ 轴上，实轴的长度与虚轴的长度都是 $2\sqrt{2}$．渐近线的方程是 $X-Y=0,\ X+Y=0$，既是新坐标轴的两条角平分线，亦是旧坐标轴．因此，$xy=1$ 所表示的曲线（或者说，反比例函数 $y=\dfrac{1}{x}$ 的图形）是以 $x$ 轴，$y$ 轴为渐近线的双曲线，并且实轴在直线 $y=x$ 上．这种双曲线的实轴与虚轴的长度相等，称为等轴双曲线，亦称为等边双曲线（见图 25）.</p>
+<p>（图 25：等轴双曲线——原坐标系 $x$ 轴、$y$ 轴与旋转 $\dfrac{\pi}{4}$ 后的新坐标系 $X$ 轴、$Y$ 轴；双曲线两支分别位于第一、三象限，以 $X$ 轴为实轴，渐近线为 $x$ 轴与 $y$ 轴）</p></blockquote></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="seq-monotonic.html"><span>← 上一节</span><b>单调数列</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="coord-polar.html"><span>下一节 →</span><b>极坐标系</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

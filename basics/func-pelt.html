@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>幂函数、指数函数与对数函数 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">四、函数</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html" class="active">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">四、函数</div>
+  <h1>幂函数、指数函数与对数函数</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">幂函数</div><p>①称 $y=x^{u}$（$u$ 是实数）为幂函数.</p>
+<p>②常用的幂函数有 $y=x$，$y=x^{2}$，$y=\sqrt{x}$，$y=x^{3}$，$y=\sqrt[3]{x}$，$y=\dfrac{1}{x}$，图像如图 1 所示.</p>
+<p>（图 1：三幅小图并排。(a) 同一坐标系中画出抛物线 $y=x^{2}$、直线 $y=x$ 与平方根曲线 $y=\sqrt{x}$（均过原点，$x&gt;0$ 时 $y=x^{2}$ 最陡、$y=\sqrt{x}$ 最平缓）；(b) 同一坐标系中画出立方曲线 $y=x^{3}$ 与立方根曲线 $y=\sqrt[3]{x}$（均过原点，关于原点对称）；(c) 双曲线 $y=\dfrac{1}{x}$，两支分别位于第一、第三象限，以两坐标轴为渐近线）</p></div>
+<div class="box box-kp"><div class="box-title">指数函数</div><p>①称 $y=a^{x}\,(a&gt;0,a\neq 1)$［见图 2(a)］为指数函数.</p>
+<p>②常用的指数函数：$y=\mathrm{e}^{x}$［见图 2(b)］.</p>
+<p>（图 2：两幅小图。(a) 同一坐标系中两条指数曲线：减函数 $y=a^{x}\,(0&lt;a&lt;1)$ 与增函数 $y=a^{x}\,(a&gt;1)$，均过点 $(0,1)$，以 $x$ 轴为渐近线；(b) 增函数曲线 $y=\mathrm{e}^{x}$，过点 $(0,1)$）</p>
+<p>③指数运算法则：</p>
+<div class="disp">$$a^{\alpha}\cdot a^{\beta}=a^{\alpha+\beta},\quad \frac{a^{\alpha}}{a^{\beta}}=a^{\alpha-\beta},\quad \left(a^{\alpha}\right)^{\beta}=a^{\alpha\beta},\quad \left(ab\right)^{\alpha}=a^{\alpha}b^{\alpha},\quad \left(\frac{a}{b}\right)^{\alpha}=\frac{a^{\alpha}}{b^{\alpha}},$$</div>
+<p>其中 $a$，$b$ 是正实数，$\alpha$，$\beta$ 是任意实数.</p></div>
+<div class="box box-kp"><div class="box-title">对数函数</div><p>①称 $y=\log_{a}x\,(a&gt;0,a\neq 1)$［见图 3(a)］为对数函数，它是 $y=a^{x}$ 的反函数.</p>
+<p>②常用的对数函数：$y=\ln x$（自然对数 $\ln x=\log_{\mathrm{e}}x$，其中 $\mathrm{e}\approx 2.7$）［见图 3(b)］.</p>
+<p>（图 3：两幅小图。(a) 同一坐标系中两条对数曲线：增函数 $y=\log_{a}x\,(a&gt;1)$ 与减函数 $y=\log_{a}x\,(0&lt;a&lt;1)$，均过点 $(1,0)$，以 $y$ 轴为渐近线；(b) 增函数曲线 $y=\ln x$，过点 $(1,0)$，以 $y$ 轴为渐近线）</p>
+<p>③对数运算法则：</p>
+<p>$\log_{a}\left(MN\right)=\log_{a}M+\log_{a}N$（积的对数 = 对数的和）.</p>
+<p>$\log_{a}\dfrac{M}{N}=\log_{a}M-\log_{a}N$（商的对数 = 对数的差）.</p>
+<p>$\log_{a}M^{n}=n\log_{a}M$，$\log_{a}\sqrt[n]{M}=\dfrac{1}{n}\log_{a}M$（幂的对数 = 对数的倍数）.</p></div>
+<div class="box box-card"><div class="box-title">速记：三兄弟图像要点</div><p><strong>幂函数</strong>看 $u$ 的符号定增减；<strong>指数</strong>恒过 $(0,1)$，底大于 1 增、底在 $(0,1)$ 减；<strong>对数</strong>恒过 $(1,0)$，单调性与指数呼应（互为反函数）．</p>
+<p>一个换底小提示：$a^{\alpha}=b \Leftrightarrow \alpha=\log_{a}b$；$\log_{a}b=\dfrac{\ln b}{\ln a}$.</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="eqn-inequality.html"><span>← 上一节</span><b>重要不等式及其应用</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="func-symmetry.html"><span>下一节 →</span><b>对称问题</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

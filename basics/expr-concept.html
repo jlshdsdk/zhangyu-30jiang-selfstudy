@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>解析式的概念 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">二、解析式的概念与运算</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html" class="active">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">二、解析式的概念与运算</div>
+  <h1>解析式的概念</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">解析式的概念</div><p><strong>解析式</strong>的概念结构如下：</p>
+<pre class="code-tree">解析式
+├── 代数式
+│   ├── 有理式
+│   │   ├── 整式
+│   │   │   ├── 单项式
+│   │   │   └── 多项式
+│   │   └── 分式
+│   └── 无理式
+└── 超越式</pre>
+<p><strong>单项式</strong>：数与字母的积组成的代数式，其中数叫系数，所有字母的指数和叫次数.</p>
+<p>如 $2a$，$3b^2$，$-ab$，$0$，则 $2a$ 中，$2$ 是系数，$2a$ 叫一次单项式；$3b^2$ 中，$3$ 是系数，$3b^2$ 叫二次单项式；$-ab$ 中，$-1$ 是系数，$-ab$ 叫二次单项式；$0$ 中，$0$ 是系数，$0$ 叫零次单项式.</p>
+<p><strong>多项式</strong>：单项式的和叫多项式，所有单项式中的最高次数，叫多项式的次数.</p>
+<p>如 $2a + 3b^2 - ab$，其中 $2a$，$3b^2$，$-ab$ 叫多项式的项，$2a + 3b^2 - ab$ 是二次多项式，再如，$abc^2 + 1$ 是四次多项式.</p>
+<p><strong>整式</strong>：单项式与多项式统称整式.</p>
+<p><strong>分式</strong>：设 $A$，$B$ 为整式，$B$ 中有字母，则 $\dfrac{A}{B}$ 叫分式. 若求分式的定义域，要记得考虑 $B \neq 0$. 如 $\dfrac{2x^2 + 1}{3x^3 + 4x - 5}$，$\dfrac{x^4 + 1}{x + 1}$，$\dfrac{xy - z}{x^2 y^2 + z}$ 均为分式.</p>
+<p>当 $A$ 的次数小于 $B$ 的次数时，称为<strong>真分式</strong>；否则称为<strong>假分式</strong>，如 $\dfrac{2x^2 + 1}{3x^3 + 4x - 5}$，$\dfrac{xy - z}{x^2 y^2 + z}$ 是真分式，$\dfrac{x^4 + 1}{x + 1}$ 是假分式.</p>
+<p><strong>有理式</strong>：分式和整式统称有理式.</p>
+<p><strong>无理式</strong>：含有字母的根式运算的代数式. 如 $\sqrt{2x}$ 是无理式，$\sqrt{2}x$ 是有理式.</p>
+<p><strong>代数式</strong>：有理式和无理式统称代数式，即由数与字母作有限次加、减、乘、除、开方、乘方等代数运算得到的式子.</p>
+<p><strong>超越式</strong>：含有字母的指数为无理数的指数运算、对数运算、三角运算和反三角运算的解析式，以上运算也称为初等超越运算，以区别于加、减、乘、除、开方、乘方这些初等代数运算，如 $\ln\left(x^2 + y^2\right)$，$\arctan x$，$a^{\sqrt{2}}$ 等均为超越式.</p>
+<p><strong>解析式</strong>：代数式与超越式统称解析式.</p></div>
+<div class="box box-card"><div class="box-title">速记</div><p>判断"是什么式"只看两问：<strong>有没有字母开方？</strong> 有 → 无理式；<strong>有没有超越运算（指数含字母、对数、三角、反三角）？</strong> 有 → 超越式；剩下按"整式 / 分式"归类即可.</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="logic-induction.html"><span>← 上一节</span><b>数学归纳法</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="expr-rational.html"><span>下一节 →</span><b>有理式的运算</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

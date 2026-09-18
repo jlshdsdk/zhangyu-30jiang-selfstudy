@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>对立判断 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">一、基本逻辑</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html" class="active">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">一、基本逻辑</div>
+  <h1>对立判断</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">$\overline{A}$ 是 $A$ 的对立判断</div><p>(1) 若 $A \Rightarrow B$，则 $\overline{B} \Rightarrow \overline{A}$.</p>
+<p>(2) $\overline{A \cup B} = \overline{A} \cap \overline{B}$.</p>
+<p>(3) $\overline{A \cap B} = \overline{A} \cup \overline{B}$.</p></div>
+<div class="box box-card"><div class="box-title">速记</div><p>(1) 就是"逆否命题与原命题同真假"：正着推不了反着来，<strong>否后推否前</strong>.</p>
+<p>(2)(3) 合称<strong>德摩根（De Morgan）法则</strong>，口诀：<strong>长横线一拆，且变或、或变且</strong>（$\cup \leftrightarrow \cap$）.</p></div>
+<h3 id="例3">例3</h3>
+<div class="box box-ex"><p>命题 $p$：若存在 $a \in \mathbf{R}$ 且 $a \neq 0$，对任意的 $x \in \mathbf{R}$，均有 $f(x+a) &lt; f(x) + f(a)$ 恒成立.</p>
+<p>已知命题 $q_1$：$f(x)$ 严格单调减少，且 $f(x) &gt; 0$ 恒成立；命题 $q_2$：$f(x)$ 严格单调增加，且存在 $x_0 &lt; 0$，使得 $f(x_0) = 0$. 则下列说法正确的是（　　）.</p>
+<p>(A) $q_1$，$q_2$ 都是 $p$ 的充分条件　　(B) 只有 $q_1$ 是 $p$ 的充分条件</p>
+<p>(C) 只有 $q_2$ 是 $p$ 的充分条件　　(D) $q_1$，$q_2$ 都不是 $p$ 的充分条件</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<p>由命题 $q_1$，$f(x)$ 严格单调减少，且 $f(x) &gt; 0$，故存在 $a &gt; 0$，使得 $f(x+a) &lt; f(x) &lt; f(x) + f(a)$，$q_1$ 是 $p$ 的充分条件；由命题 $q_2$，取 $a = x_0 &lt; 0$，则 $x + a &lt; x$，$f(a) = 0$，由 $f(x)$ 严格单调增加，有 $f(x+a) &lt; f(x) = f(x) + f(a)$，$q_2$ 也是 $p$ 的充分条件.</p></div>
+<h3 id="例4">例4</h3>
+<div class="box box-ex"><p>设数列 $\{a_n\}$ 是等比数列，则 "$a_1 &lt; a_2 &lt; a_3$" 是 $\{a_n\}$ 是严格单调增加数列的（　　）.</p>
+<p>(A) 充分非必要条件　　(B) 必要非充分条件</p>
+<p>(C) 充分必要条件　　(D) 既非充分也非必要条件</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<p>$\{a_n\}$ 严格单调增加，故 $a_1 &lt; a_2 &lt; a_3$，必要性成立.</p>
+<p>又当 $a_1 &lt; a_2 &lt; a_3$ 时，因 $a_n = a_1 q^{n-1}$，$n = 1, 2, \cdots$，有 $a_1 &lt; a_1 q &lt; a_1 q^2$.</p>
+<p>①当 $a_1 &gt; 0$ 时，$q &gt; 1$，$a_n = a_1 q^{n-1}$ 是严格单调增加数列；</p>
+<p>②当 $a_1 &lt; 0$ 时，$0 &lt; q &lt; 1$，$a_n = a_1 q^{n-1}$ 是严格单调增加数列. 充分性成立.</p></div>
+<div class="box box-tip"><div class="box-title">提醒</div><p>等比数列讨论单调性时，$a_1$ 的<strong>正负</strong>决定公比 $q$ 的范围，两种情形都要讨论——这是本题充分性的关键一步.</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="logic-judgment.html"><span>← 上一节</span><b>A、B 是两个判断</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="logic-induction.html"><span>下一节 →</span><b>数学归纳法</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

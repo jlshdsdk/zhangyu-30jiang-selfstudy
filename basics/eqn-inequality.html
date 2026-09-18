@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>重要不等式及其应用 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">三、方程与不等式</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html" class="active">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">三、方程与不等式</div>
+  <h1>重要不等式及其应用</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">重要不等式及其应用：不等式的三条基本性质</div><p>① 若 $a&gt;b$，则 $a+c&gt;b+c$；</p>
+<p>② 若 $a&gt;b$，$c&gt;0$，则 $ac&gt;bc$；</p>
+<p>③ 若 $a&gt;b$，$c&lt;0$，则 $ac&lt;bc$.</p></div>
+<div class="box box-kp"><div class="box-title">几种基本不等式</div><p>① 若 $a&gt;0$，则 $|x|&gt;a\Leftrightarrow x&gt;a$ 或 $x&lt;-a$.</p>
+<p>② 若 $a&gt;0$，则 $|x|&lt;a\Leftrightarrow -a&lt;x&lt;a$.</p>
+<p>③ 若 $b&gt;a&gt;0$，则 $a\leqslant|x|&lt;b\Leftrightarrow a\leqslant x&lt;b$ 或 $-b&lt;x\leqslant -a$.</p>
+<p>④ $|ax+b|&gt;c\ (c&gt;0)$ 可转化为①；$|ax+b|&lt;c\ (c&gt;0)$ 可转化为②.</p>
+<p>⑤ <strong>均值不等式</strong>：$\dfrac{2}{\dfrac{1}{a}+\dfrac{1}{b}}\leqslant\sqrt{ab}\leqslant\dfrac{a+b}{2}\leqslant\sqrt{\dfrac{a^{2}+b^{2}}{2}}\ (a,b&gt;0)$.</p>
+<p>⑥ <strong>三角不等式</strong>：$\big||a|-|b|\big|\leqslant|a+b|\leqslant|a|+|b|$.</p>
+<blockquote><p>【注】$\big||a|-|b|\big|=|a+b|\Leftrightarrow a\cdot b\leqslant 0$；$|a+b|=|a|+|b|\Leftrightarrow a\cdot b\geqslant 0$.</p></blockquote>
+<p>⑦ <strong>柯西不等式</strong>：$\left(a_{1}^{2}+a_{2}^{2}+\cdots+a_{n}^{2}\right)\left(b_{1}^{2}+b_{2}^{2}+\cdots+b_{n}^{2}\right)\geqslant\left(a_{1}b_{1}+a_{2}b_{2}+\cdots+a_{n}b_{n}\right)^{2}$.</p>
+<blockquote><p>【注】常考 $\left(a_{1}^{2}+a_{2}^{2}\right)\left(b_{1}^{2}+b_{2}^{2}\right)\geqslant\left(a_{1}b_{1}+a_{2}b_{2}\right)^{2}$. 其他重要不等式，等后文再展开学习.</p></blockquote></div>
+<div class="box box-memo"><div class="box-title">均值不等式口诀</div><p><strong>调几算平</strong>：调和平均 $\leqslant$ 几何平均 $\leqslant$ 算术平均 $\leqslant$ 平方平均. 用得最多的是中间一跳：$\sqrt{ab}\leqslant\dfrac{a+b}{2}$，即"和定积最大、积定和最小".</p></div>
+<div class="box box-kp"><div class="box-title">二次函数的不等问题：解集与判别式</div><p>$ax^{2}+bx+c&gt;0\ (a&gt;0)$，$ax^{2}+bx+c&lt;0\ (a&gt;0)$ 与一元二次方程、二次函数的关系及其解：</p>
+<div class="tbl-wrap"><table><thead><tr><th>判别式 $\Delta=b^{2}-4ac$</th><th>$\Delta&gt;0$</th><th>$\Delta=0$</th><th>$\Delta&lt;0$</th></tr></thead><tbody><tr><td>二次函数 $y=ax^{2}+bx+c\ (a&gt;0)$ 的图像</td><td>开口向上的抛物线，与 $x$ 轴交于 $x_{1}$，$x_{2}$ 两点</td><td>开口向上的抛物线，与 $x$ 轴相切于一点</td><td>开口向上的抛物线，与 $x$ 轴无交点</td></tr><tr><td>方程 $ax^{2}+bx+c=0\ (a\neq 0)$ 的根</td><td>有两个相异实根 $x_{1,2}=\dfrac{-b\pm\sqrt{b^{2}-4ac}}{2a}$</td><td>有两个相等实根 $x_{1}=x_{2}=-\dfrac{b}{2a}$</td><td>无实根</td></tr><tr><td>解集：$ax^{2}+bx+c&gt;0\ (a&gt;0)$</td><td>$\{\,x\,|\,x&lt;x_{1}$ 或 $x&gt;x_{2}\,\}$</td><td>$\left\{\,x\,\middle|\,x\in\mathbf{R}\ \text{且}\ x\neq-\dfrac{b}{2a}\right\}$</td><td>$\mathbf{R}$</td></tr><tr><td>解集：$ax^{2}+bx+c&lt;0\ (a&gt;0)$</td><td>$\{\,x\,|\,x_{1}&lt;x&lt;x_{2}\,\}$</td><td>$\varnothing$</td><td>$\varnothing$</td></tr></tbody></table></div></div>
+<div class="box box-kp"><div class="box-title">区间根问题：一元二次方程在一个区间上有解的条件</div><p>设一元二次方程 $ax^{2}+bx+c=0\ (a&gt;0)$ 的两实根为 $x_{1}$，$x_{2}$，对应的二次函数为 $f(x)=ax^{2}+bx+c\ (a&gt;0)$（对于 $a&lt;0$ 的情况考生可自行讨论）.</p>
+<div class="tbl-wrap"><table><thead><tr><th>根的分布</th><th>$x_{1}&lt;x_{2}&lt;k$</th><th>$k&lt;x_{1}&lt;x_{2}$</th><th>$x_{1}&lt;k&lt;x_{2}$</th><th>$x_{1},\ x_{2}\in(k_{1},k_{2})$</th><th>$x_{1},\ x_{2}$ 有且仅有一个在 $(k_{1},k_{2})$ 内</th></tr></thead><tbody><tr><td>充要条件</td><td>$\begin{cases}\Delta&gt;0,\\ f(k)&gt;0,\\ -\dfrac{b}{2a}&lt;k\end{cases}$</td><td>$\begin{cases}\Delta&gt;0,\\ f(k)&gt;0,\\ -\dfrac{b}{2a}&gt;k\end{cases}$</td><td>$f(k)&lt;0$</td><td>$\begin{cases}\Delta\geqslant 0,\\ f(k_{1})&gt;0,\\ f(k_{2})&gt;0,\\ k_{1}&lt;-\dfrac{b}{2a}&lt;k_{2}\end{cases}$</td><td>$f(k_{1})\cdot f(k_{2})&lt;0$ 或 $\begin{cases}f(k_{1})=0,\\ k_{1}&lt;-\dfrac{b}{2a}&lt;\dfrac{k_{1}+k_{2}}{2}\end{cases}$ 或 $\begin{cases}f(k_{2})=0,\\ \dfrac{k_{1}+k_{2}}{2}&lt;-\dfrac{b}{2a}&lt;k_{2}\end{cases}$</td></tr></tbody></table></div>
+<p>其中，$k$，$k_{1}$，$k_{2}$ 均为常数，$\Delta=b^{2}-4ac$，此类问题又称为"区间根问题"（原书此表配五幅抛物线示意图）.</p></div>
+<div class="box box-kp"><div class="box-title">恒成立问题：二次不等式在一个区间上恒成立的条件</div><p>设二次不等式 $ax^{2}+bx+c&gt;0\ (a\neq 0)$ 在区间 $(k_{1},k_{2})$ 上恒成立（$k_{1}$，$k_{2}$ 为常数），二次不等式对应的二次函数为 $f(x)=ax^{2}+bx+c\ (a\neq 0)$.</p>
+<div class="tbl-wrap"><table><thead><tr><th>$a&lt;0$</th><th>$f(k_{1})&gt;0$ 且 $f(k_{2})&gt;0$</th></tr></thead><tbody><tr><td>$a&gt;0$</td><td>$\Delta&lt;0$ 或 $\begin{cases}-\dfrac{b}{2a}\leqslant k_{1},\\ f(k_{1})&gt;0\end{cases}$ 或 $\begin{cases}-\dfrac{b}{2a}\geqslant k_{2},\\ f(k_{2})&gt;0\end{cases}$</td></tr></tbody></table></div></div>
+<div class="box box-kp"><div class="box-title">闭区间上的最值</div><p>设二次函数 $f(x)=ax^{2}+bx+c\ (a&gt;0)$，$x\in[m,n]$（对于 $a&lt;0$ 的情况可以进行类似讨论）.</p>
+<div class="tbl-wrap"><table><thead><tr><th>$m\leqslant-\dfrac{b}{2a}\leqslant n$</th><th>$y_{\min}=f\left(-\dfrac{b}{2a}\right)=\dfrac{4ac-b^{2}}{4a}$；$y_{\max}=\max\{f(m),f(n)\}$</th></tr></thead><tbody><tr><td>$-\dfrac{b}{2a}&lt;m$</td><td>$y_{\min}=f(m)$；$y_{\max}=f(n)$</td></tr><tr><td>$-\dfrac{b}{2a}&gt;n$</td><td>$y_{\min}=f(n)$；$y_{\max}=f(m)$</td></tr></tbody></table></div></div>
+<h3 id="例16">例16</h3>
+<div class="box box-ex"><p>设 $a,b,c$ 均为正数，且 $a+b+c=1$，证明：</p>
+<p>(1) $ab+bc+ac\leqslant\dfrac{1}{3}$；</p>
+<p>(2) $\dfrac{a^{2}}{b}+\dfrac{b^{2}}{c}+\dfrac{c^{2}}{a}\geqslant 1$.</p>
+<p class="solve-label"><span class="chip">证</span> (1) 因为 $a^{2}+b^{2}\geqslant 2ab$，$b^{2}+c^{2}\geqslant 2bc$，$c^{2}+a^{2}\geqslant 2ac$，所以 $2\left(a^{2}+b^{2}+c^{2}\right)\geqslant 2(ab+bc+ca)$，即 $a^{2}+b^{2}+c^{2}\geqslant ab+bc+ca$.</p>
+<p>又 $(a+b+c)^{2}=1$，即</p>
+<div class="disp">$$1=a^{2}+b^{2}+c^{2}+2ab+2bc+2ca\geqslant 3(ab+bc+ca),$$</div>
+<p>即 $ab+bc+ca\leqslant\dfrac{1}{3}$.</p>
+<p>(2) $\dfrac{a^{2}}{b}+b\geqslant 2a$，$\dfrac{b^{2}}{c}+c\geqslant 2b$，$\dfrac{c^{2}}{a}+a\geqslant 2c$，故</p>
+<div class="disp">$$\frac{a^{2}}{b}+\frac{b^{2}}{c}+\frac{c^{2}}{a}+(a+b+c)\geqslant 2(a+b+c),$$</div>
+<p>即 $\dfrac{a^{2}}{b}+\dfrac{b^{2}}{c}+\dfrac{c^{2}}{a}\geqslant a+b+c=1$，得证.</p></div>
+<h3 id="例17">例17</h3>
+<div class="box box-ex"><p>已知 $x,y$ 为正数，且 $x+y=1$。证明：</p>
+<p>(1) $0&lt;xy\leqslant\dfrac{1}{4}$；</p>
+<p>(2) $\left(1+\dfrac{1}{x}\right)\left(1+\dfrac{1}{y}\right)\geqslant 9$.</p>
+<p class="solve-label"><span class="chip">证</span> (1) 由 $xy\leqslant\left(\dfrac{x+y}{2}\right)^{2}=\left(\dfrac{1}{2}\right)^{2}$，故 $0&lt;xy\leqslant\dfrac{1}{4}$.</p>
+<p>(2) $\left(1+\dfrac{1}{x}\right)\left(1+\dfrac{1}{y}\right)=\dfrac{1+x}{x}\cdot\dfrac{1+y}{y}=\dfrac{x+x+y}{x}\cdot\dfrac{y+y+x}{y}\geqslant\dfrac{3\sqrt[3]{x^{2}y}\cdot 3\sqrt[3]{xy^{2}}}{xy}=9$.</p></div>
+<h3 id="例18">例18</h3>
+<div class="box box-ex"><p>若 $a&gt;0$，$b&gt;0$，且 $\dfrac{1}{a}+\dfrac{1}{b}=\sqrt{ab}$.</p>
+<p>(1) 求 $a^{3}+b^{3}$ 的最小值；</p>
+<p>(2) 是否存在 $a,b$，使得 $2a+3b=6$？说明理由.</p>
+<p class="solve-label"><span class="chip">解</span> (1) 由题意，$\sqrt{ab}=\dfrac{1}{a}+\dfrac{1}{b}\geqslant\dfrac{2}{\sqrt{ab}}$，于是有 $ab\geqslant 2$，当且仅当 $a=b=\sqrt{2}$ 时，等号成立，故 $a^{3}+b^{3}\geqslant 2\sqrt{a^{3}\cdot b^{3}}\geqslant 4\sqrt{2}$，当且仅当 $a=b=\sqrt{2}$ 时，等号成立，于是 $a^{3}+b^{3}$ 的最小值为 $4\sqrt{2}$.</p>
+<p>(2) 因 $6=2a+3b\geqslant 2\sqrt{6ab}$，故 $ab\leqslant\dfrac{3}{2}$，由 (1) 知 $ab\geqslant 2$，矛盾，故不存在 $a,b$，使得 $2a+3b=6$ 成立.</p></div>
+<h3 id="例19">例19</h3>
+<div class="box box-ex"><p>设 $f(x)=\ln x$，若 $p=f\left(\sqrt{ab}\right)$，$q=f\left(\dfrac{a+b}{2}\right)$，$r=\dfrac{1}{2}\left[f(a)+f(b)\right]$，$0&lt;a&lt;b$，则下列关系式中正确的是（　　）.</p>
+<p>(A) $q=r&lt;p$　　(B) $q=r&gt;p$　　(C) $p=r&lt;q$　　(D) $p=r&gt;q$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<div class="disp">$$p=f\left(\sqrt{ab}\right)=\ln\sqrt{ab}=\frac{1}{2}\ln ab;\quad q=f\left(\frac{a+b}{2}\right)=\ln\frac{a+b}{2};\quad r=\frac{1}{2}\left[f(a)+f(b)\right]=\frac{1}{2}\ln ab.$$</div>
+<p>又 $\dfrac{a+b}{2}&gt;\sqrt{ab}$，$f(x)$ 为严格单增函数，故 $f\left(\dfrac{a+b}{2}\right)&gt;f\left(\sqrt{ab}\right)$，$q&gt;p=r$，选 (C).</p></div>
+<h3 id="例20">例20</h3>
+<div class="box box-ex"><p>若 $x,y$ 是正数，则 $\left(x+\dfrac{1}{2y}\right)^{2}+\left(y+\dfrac{1}{2x}\right)^{2}$ 的最小值是（　　）.</p>
+<p>(A) $3$　　(B) $\dfrac{7}{2}$　　(C) $4$　　(D) $\dfrac{9}{2}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<div class="disp">$$\left(x+\frac{1}{2y}\right)^{2}+\left(y+\frac{1}{2x}\right)^{2}\geqslant 2\left(x+\frac{1}{2y}\right)\left(y+\frac{1}{2x}\right)=2\left(1+xy+\frac{1}{4xy}\right)\geqslant 2(1+1)=4.$$</div>
+<blockquote><p>【注】这里要验证等号是否成立，即 $\begin{cases}x+\dfrac{1}{2y}=y+\dfrac{1}{2x},\\[1ex] xy=\dfrac{1}{4xy}\end{cases}$ 解此方程组，有 $x=y=\dfrac{\sqrt{2}}{2}$，即当且仅当 $x=y=\dfrac{\sqrt{2}}{2}$ 时，等号成立，$\left(x+\dfrac{1}{2y}\right)^{2}+\left(y+\dfrac{1}{2x}\right)^{2}$ 取最小值 4.</p></blockquote></div>
+<h3 id="例21">例21</h3>
+<div class="box box-ex"><p>已知 $5x^{2}y^{2}+y^{4}=1\ (x,y\in\mathbf{R})$，则 $x^{2}+y^{2}$ 的最小值是（　　）.</p>
+<p>(A) $\dfrac{2}{5}$　　(B) $\dfrac{5}{2}$　　(C) $\dfrac{4}{5}$　　(D) $\dfrac{5}{4}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<p>由 $5x^{2}y^{2}+y^{4}=1$，则 $x^{2}=\dfrac{1-y^{4}}{5y^{2}}$，$y\neq 0$，因为若 $y=0$，则 $0=1$，矛盾. 于是</p>
+<div class="disp">$$x^{2}+y^{2}=\frac{1-y^{4}}{5y^{2}}+y^{2}=\frac{1}{5y^{2}}+\frac{4y^{2}}{5}\geqslant 2\sqrt{\frac{1}{5y^{2}}\cdot\frac{4y^{2}}{5}}=\frac{4}{5}.$$</div>
+<blockquote><p>【注】验证一下等号是否成立，令 $\dfrac{1}{5y^{2}}=\dfrac{4y^{2}}{5}$，得 $x^{2}=\dfrac{3}{10}$，$y^{2}=\dfrac{1}{2}$.</p></blockquote></div>
+<h3 id="例22">例22</h3>
+<div class="box box-ex"><p>若 $a,b\in\mathbf{R}$，$ab&gt;0$，则 $\dfrac{a^{4}+4b^{4}+1}{ab}$ 的最小值为（　　）.</p>
+<p>(A) $1$　　(B) $2$　　(C) $4$　　(D) $8$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<p>因为 $a$，$b\in\mathbf{R}$，$ab&gt;0$，所以</p>
+<div class="disp">$$\frac{a^{4}+4b^{4}+1}{ab}\geqslant\frac{2\sqrt{a^{4}\cdot 4b^{4}}+1}{ab}=\frac{4a^{2}b^{2}+1}{ab}=4ab+\frac{1}{ab}\geqslant 2\sqrt{4ab\cdot\frac{1}{ab}}=4.$$</div>
+<blockquote><p>【注】当且仅当 $\begin{cases}a^{4}=4b^{4},\\[1ex] 4ab=\dfrac{1}{ab}\end{cases}$ 时，等号成立，解得 $\begin{cases}a=\dfrac{1}{\sqrt[4]{2}},\\[1ex] b=\dfrac{1}{\sqrt[4]{8}}\end{cases}$ 或 $\begin{cases}a=-\dfrac{1}{\sqrt[4]{2}},\\[1ex] b=-\dfrac{1}{\sqrt[4]{8}}\end{cases}$.</p></blockquote></div>
+<h3 id="例23">例23</h3>
+<div class="box box-ex"><p>已知函数 $f(x)=|x-a^{2}|+|x-2a+1|$.</p>
+<p>(1) 当 $a=2$ 时，求不等式 $f(x)\geqslant 4$ 的解集；</p>
+<p>(2) 若 $f(x)\geqslant 4$，求 $a$ 的取值范围.</p>
+<p class="solve-label"><span class="chip">解</span> (1) 当 $a=2$ 时，$f(x)=|x-4|+|x-3|=\begin{cases}7-2x, &amp; x\leqslant 3,\\ 1, &amp; 3&lt;x&lt; 4,\\ 2x-7, &amp; x\geqslant 4,\end{cases}$ 即 $\begin{cases}7-2x\geqslant 4, &amp; x\leqslant 3,\\ 1\geqslant 4, &amp; 3&lt;x&lt;4,\\ 2x-7\geqslant 4, &amp; x\geqslant 4.\end{cases}$ 解得 $\left\{\,x\,\middle|\,x\leqslant\dfrac{3}{2}\ \text{或}\ x\geqslant\dfrac{11}{2}\right\}$.</p>
+<p>(2) 由 $f(x)=|x-a^{2}|+|x-2a+1|\geqslant\Big|\left(x-a^{2}\right)-(x-2a+1)\Big|=\left|-a^{2}+2a-1\right|=(a-1)^{2}\geqslant 4$，得 $a\leqslant -1$ 或 $a\geqslant 3$，即 $a$ 的取值范围为 $(-\infty,-1]\cup[3,+\infty)$.</p></div>
+<h3 id="例24">例24</h3>
+<div class="box box-ex"><p>若关于 $x$ 的不等式 $|a|\geqslant|x+1|+|x-2|$ 存在实数解，则实数 $a$ 的取值范围是______.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $(-\infty,-3]\cup[3,+\infty)$.</p>
+<p>因为 $|x+1|+|x-2|\geqslant\Big|(x+1)-(x-2)\Big|=3$，当且仅当 $(x+1)(x-2)\leqslant 0$，即 $-1\leqslant x\leqslant 2$ 时等号成立.</p>
+<p>故 $|a|\geqslant 3$ 即可，$a$ 的取值范围是 $(-\infty,-3]\cup[3,+\infty)$.</p></div>
+<h3 id="例25">例25</h3>
+<div class="box box-ex"><p>不等式 $\dfrac{x^{2}-x-6}{x-1}&gt;0$ 的解集为（　　）.</p>
+<p>(A) $\{\,x\,|\,x&lt;-2$ 或 $x&gt;3\,\}$　　(B) $\{\,x\,|\,x&lt;-2$ 或 $1&lt;x&lt;3\,\}$</p>
+<p>(C) $\{x\,|\,-2&lt;x&lt;1$ 或 $x&gt;3\}$　　　　(D) $\{x\,|\,-2&lt;x&lt;1$ 或 $1&lt;x&lt;3\}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<div class="disp">$$\frac{x^{2}-x-6}{x-1}=\frac{(x-3)(x+2)}{x-1}&gt;0,$$</div>
+<p>即 $(x-3)(x+2)(x-1)&gt;0$，故 $-2&lt;x&lt;1$ 或 $x&gt;3$.</p></div>
+<h3 id="例26">例26</h3>
+<div class="box box-ex"><p>证明：$x_{1}^{2}+(x_{2}-x_{1})^{2}+(x_{3}-x_{2})^{2}+\cdots+(a-x_{n-1})^{2}\geqslant\dfrac{a^{2}}{n}\ (n\geqslant 2)$.</p>
+<p class="solve-label"><span class="chip">解</span> （证）</p>
+<div class="disp">$$x_{1}^{2}+(x_{2}-x_{1})^{2}+(x_{3}-x_{2})^{2}+\cdots+(a-x_{n-1})^{2}$$</div>
+<div class="disp">$$=\frac{1}{n}\left[x_{1}^{2}+(x_{2}-x_{1})^{2}+(x_{3}-x_{2})^{2}+\cdots+(a-x_{n-1})^{2}\right]\left(1^{2}+1^{2}+\cdots+1^{2}\right)$$</div>
+<div class="disp">$$\geqslant\frac{1}{n}\left(x_{1}+x_{2}-x_{1}+x_{3}-x_{2}+\cdots+a-x_{n-1}\right)^{2}=\frac{a^{2}}{n}.$$</div></div>
+<h3 id="例27">例27</h3>
+<div class="box box-ex"><p>证明 $(a+b+c+d)^{2}\leqslant 3\left(a^{2}+b^{2}+c^{2}+d^{2}\right)+6ab$.</p>
+<p class="solve-label"><span class="chip">解</span> （证）不等式左边有 4 项，右边有系数 3，应考虑将左边 4 项看作 3 项，故</p>
+<div class="disp">$$(a+b+c+d)^{2}=\left[(a+b)+c+d\right]^{2}=\left[(a+b)\cdot 1+c\cdot 1+d\cdot 1\right]^{2}$$</div>
+<div class="disp">$$\leqslant\left[(a+b)^{2}+c^{2}+d^{2}\right]\left(1^{2}+1^{2}+1^{2}\right)$$</div>
+<div class="disp">$$=3\left(a^{2}+b^{2}+c^{2}+d^{2}\right)+6ab.$$</div></div>
+<h3 id="例28">例28</h3>
+<div class="box box-ex"><p>关于 $x$ 的方程 $2kx^{2}-2x-3k-2=0$ 的两个实根一个小于 1，另一个大于 1，求实数 $k$ 的取值范围.</p>
+<p class="solve-label"><span class="chip">解</span> 设 $f(x)=2kx^{2}-2x-3k-2$，由题设知：$k\neq 0$.</p>
+<p>①当 $k&gt;0$ 时，二次函数 $f(x)$ 图像开口向上，与 $x$ 轴的交点位于 $x=1$ 的两侧，则 $f(1)&lt;0$.</p>
+<p>②当 $k&lt;0$ 时，同上讨论知 $f(1)&gt;0$.</p>
+<p>由①，②知 $k\cdot f(1)&lt;0$，即 $k\cdot(2k-2-3k-2)&lt;0$，整理得 $k^{2}+4k&gt;0$，解得 $k&lt;-4$ 或 $k&gt;0$，故 $k$ 的取值范围是 $k&lt;-4$ 或 $k&gt;0$.</p>
+<blockquote><p>【注】一般地，设一元二次方程 $ax^{2}+bx+c=0$ 有两个实根，且一个大于 $m$，另一个小于 $m$，则有 $a\cdot f(m)&lt;0$（其中 $f(x)=ax^{2}+bx+c$）.</p></blockquote></div>
+<h3 id="例29">例29</h3>
+<div class="box box-ex"><p>设二次函数 $f(x)=ax^{2}+bx+c\,(a&gt;0)$，方程 $f(x)-x=0$ 的两个实根 $x_{1}$，$x_{2}$ 满足 $0&lt;x_{1}&lt;x_{2}&lt;\dfrac{1}{a}$.</p>
+<p>(1) 当 $x\in(0,\,x_{1})$ 时，证明：$x&lt;f(x)&lt;x_{1}$；</p>
+<p>(2) 设函数 $f(x)$ 的图像关于直线 $x=x_{0}$ 对称，证明：$x_{0}&lt;\dfrac{x_{1}}{2}$.</p>
+<p class="solve-label"><span class="chip">解</span> （证） (1) 设</p>
+<div class="disp">$$g(x)=f(x)-x=ax^{2}+(b-1)x+c=a\left(x-\frac{1-b}{2a}\right)^{2}+c-\frac{(b-1)^{2}}{4a},$$</div>
+<p>由题设 $x_{1}$，$x_{2}$ 是方程 $ax^{2}+(b-1)x+c=0$ 的两实根，故</p>
+<div class="disp">$$\begin{cases} x_{1}+x_{2}=\dfrac{1-b}{a}, \\[2mm] x_{1}\cdot x_{2}=\dfrac{c}{a}, \end{cases}\tag{$*$}$$</div>
+<p>又 $\dfrac{1-b}{2a}=\dfrac{x_{1}+x_{2}}{2}&gt;x_{1}$，$g(x)$ 在区间 $(0,\,x_{1})$ 上单调递减，故 $g(x)&gt;g(x_{1})\ (0&lt;x&lt;x_{1})$，即</p>
+<div class="disp">$$f(x)-x&gt;f(x_{1})-x_{1}=0,$$</div>
+<p>所以 $f(x)&gt;x$.</p>
+<p>由题设 $0&lt;x_{1}&lt;x_{2}&lt;\dfrac{1}{a}$ 及 $(*)$ 得 $x_{1}+x_{2}&gt;x_{2}-\dfrac{b}{a}$，故 $x_{1}&gt;-\dfrac{b}{a}$，所以</p>
+<div class="disp">$$x_{1}-\left(-\frac{b}{2a}\right)&gt;-\frac{b}{a}+\frac{b}{2a}=0-\frac{b}{2a}.$$</div>
+<p>因此当 $0&lt;x&lt;x_{1}$ 时，$f(x)&lt;f(x_{1})=x_{1}$.</p>
+<p>综上，当 $x\in(0,\,x_{1})$ 时，$x&lt;f(x)&lt;x_{1}$.</p>
+<p>(2) 由题设知 $x_{0}=-\dfrac{b}{2a}$，又因为 $x_{1}&gt;-\dfrac{b}{a}$，所以 $x_{0}&lt;\dfrac{x_{1}}{2}$.</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="eqn-polynomial.html"><span>← 上一节</span><b>一元 n 次方程</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="func-pelt.html"><span>下一节 →</span><b>幂函数、指数函数与对数函数</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

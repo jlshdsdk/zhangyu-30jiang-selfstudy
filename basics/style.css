@@ -1,0 +1,217 @@
+/* 张宇30讲·零基础 自学站 —— 单一样式表 */
+:root{
+  --ink:#1c2733; --ink-2:#4a5a6a; --line:#dde5ec; --bg:#f5f7fa; --card:#ffffff;
+  --brand:#1663c7; --brand-deep:#0d4da3; --brand-soft:#e8f1fc;
+  --gold:#c2620a; --gold-soft:#fff3e2; --gold-line:#f3d9b3;
+  --green:#0c7a4d; --green-soft:#e6f5ee;
+  --red:#b3372c; --red-soft:#fdecea;
+  --purple:#6941c6; --purple-soft:#f1ecfb;
+  --radius:10px; --shadow:0 1px 2px rgba(16,38,61,.06),0 4px 14px rgba(16,38,61,.05);
+  --sidebar-w:248px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font-family:"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.75;
+}
+.skip{position:absolute;left:-9999px}
+a{color:var(--brand); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky; top:0; z-index:50; height:52px;
+  display:flex; align-items:center; gap:12px; padding:0 16px;
+  background:rgba(255,255,255,.94); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.brand{font-weight:600; color:var(--ink); white-space:nowrap}
+.brand b{color:var(--brand)}
+.crumb{color:var(--ink-2); font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.menu-btn{
+  display:none; border:1px solid var(--line); background:#fff; border-radius:8px;
+  width:36px; height:34px; font-size:18px; cursor:pointer; color:var(--ink);
+}
+
+/* ---------- 布局 ---------- */
+.layout{display:flex; min-height:calc(100vh - 52px)}
+.sidebar{
+  width:var(--sidebar-w); flex:0 0 var(--sidebar-w);
+  background:#fff; border-right:1px solid var(--line);
+  padding:14px 10px 40px; overflow-y:auto;
+  position:sticky; top:52px; height:calc(100vh - 52px);
+}
+.nav-sec{margin-bottom:14px}
+.nav-sec-h{
+  font-weight:700; font-size:14px; color:var(--ink-2);
+  padding:6px 8px 2px; letter-spacing:.5px;
+}
+.nav-num{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:22px; height:22px; margin-right:8px; border-radius:6px;
+  background:var(--brand-soft); color:var(--brand-deep); font-size:13px;
+}
+.sidebar ul{list-style:none; margin:0; padding:0}
+.sidebar li a{
+  display:block; padding:6px 10px 6px 38px; border-radius:8px;
+  color:var(--ink); font-size:14.5px; line-height:1.45;
+}
+.sidebar li a:hover{background:var(--brand-soft); text-decoration:none}
+.sidebar li a.active{background:var(--brand); color:#fff; font-weight:600}
+.sidebar li a.active .star{color:#ffd76a}
+.star{color:#e58a1f; margin-left:2px}
+
+.main{flex:1; min-width:0; padding:26px clamp(14px,4vw,48px) 60px; max-width:calc(100% - var(--sidebar-w))}
+.content{max-width:860px}
+
+/* ---------- 页头 ---------- */
+.page-head{max-width:860px; margin-bottom:18px}
+.page-sec{color:var(--brand); font-weight:600; font-size:14px; margin-bottom:4px}
+.page-head h1{margin:0; font-size:clamp(22px,3.4vw,30px); line-height:1.3}
+
+/* ---------- 正文元素 ---------- */
+.content h3{font-size:20px; margin:30px 0 10px; padding-left:10px; border-left:4px solid var(--brand); line-height:1.4}
+.content h4{font-size:17px; margin:22px 0 8px}
+.content p{margin:10px 0}
+.content .fig-desc{color:var(--ink-2); font-size:14px; background:#eef2f6; border-radius:8px; padding:8px 12px}
+.code-tree{
+  font-family:Consolas,"Courier New",monospace; font-size:14px; line-height:1.5;
+  background:#f2f5f8; border:1px solid var(--line); border-radius:8px;
+  padding:12px 16px; overflow-x:auto; margin:10px 0;
+}
+blockquote{
+  margin:10px 0; padding:8px 14px; border-left:3px solid #90a4b7;
+  background:#f6f8fa; border-radius:0 8px 8px 0; color:var(--ink-2); font-size:15px;
+}
+blockquote p{margin:4px 0}
+.disp{overflow-x:auto; margin:12px 0; padding:4px 2px}
+.solve-label{margin:14px 0 4px}
+.solve-label .chip{
+  display:inline-block; background:var(--green); color:#fff; font-weight:600;
+  border-radius:6px; padding:1px 12px; font-size:14px; margin-right:8px;
+}
+.tbl-wrap{overflow-x:auto; margin:12px 0}
+table{border-collapse:collapse; width:100%; font-size:14.5px; background:#fff}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; line-height:1.6}
+th{background:var(--brand-soft); color:var(--brand-deep)}
+tbody tr:nth-child(even){background:#f8fafc}
+ul{padding-left:22px; margin:8px 0}
+
+/* ---------- 盒子卡片 ---------- */
+.box{
+  border-radius:var(--radius); padding:12px 16px; margin:14px 0;
+  border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow);
+}
+.box-title{font-weight:700; margin-bottom:6px}
+.box :first-child{margin-top:0}
+.box :last-child{margin-bottom:0}
+.box-kp{border-left:4px solid var(--brand); background:var(--brand-soft)}
+.box-kp .box-title{color:var(--brand-deep)}
+.box-note{background:#f6f8fa; border-left:4px solid #90a4b7; box-shadow:none; font-size:15px}
+.box-note .box-title{color:var(--ink-2)}
+.box-ex{border:1px solid var(--line); border-top:3px solid var(--green)}
+.box-ex>.box-title{color:var(--green); font-size:16.5px}
+.box-card{border:1px solid var(--gold-line); background:var(--gold-soft); border-left:4px solid var(--gold)}
+.box-card .box-title{color:var(--gold)}
+.box-derive{border:1px solid #d8ccf5; background:var(--purple-soft); border-left:4px solid var(--purple)}
+.box-derive .box-title{color:var(--purple)}
+.box-warn{border:1px solid #f2cfc9; background:var(--red-soft); border-left:4px solid var(--red)}
+.box-warn .box-title{color:var(--red)}
+.box-tip{border:1px dashed var(--line); background:#fbfcfe; box-shadow:none}
+.box-tip .box-title{color:var(--ink-2)}
+.box-memo{border:1px solid var(--gold-line); background:linear-gradient(135deg,#fffaf0,#fff3e2); border-left:4px solid var(--gold)}
+.box-memo .box-title{color:var(--gold)}
+.box-jump{background:#fff; border:1px solid var(--line); box-shadow:none}
+.box-jump .box-title{color:var(--ink-2); font-size:13.5px}
+.box-jump a{
+  display:inline-block; margin:2px 4px 2px 0; padding:2px 10px; border-radius:999px;
+  background:var(--brand-soft); color:var(--brand-deep); font-size:13.5px;
+}
+.box-jump a:hover{background:var(--brand); color:#fff; text-decoration:none}
+.box-anchor-note{background:transparent; border:1px dashed var(--line); box-shadow:none; font-size:13px; color:var(--ink-2); padding:8px 12px}
+.anchor-note{font-size:13px; color:var(--ink-2)}
+.jump{
+  display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px;
+}
+.jump a{
+  font-size:13.5px; padding:3px 10px; border-radius:999px;
+  background:#fff; border:1px solid var(--line); color:var(--ink-2);
+}
+.jump a:hover{border-color:var(--brand); color:var(--brand); text-decoration:none}
+
+/* ---------- 上一节/下一节 ---------- */
+.pager{
+  max-width:860px; display:grid; grid-template-columns:1fr auto 1fr; gap:10px;
+  margin-top:36px; padding-top:18px; border-top:1px solid var(--line);
+}
+.pn{
+  display:flex; flex-direction:column; gap:2px; padding:10px 14px;
+  border:1px solid var(--line); border-radius:var(--radius); background:#fff;
+  color:var(--ink); min-width:0;
+}
+.pn span{font-size:12.5px; color:var(--ink-2)}
+.pn b{font-size:14px; line-height:1.4; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical}
+.pn:hover{border-color:var(--brand); text-decoration:none}
+.pn.next{text-align:right; justify-self:end}
+.pn.home{justify-content:center; text-align:center; color:var(--brand); font-weight:700; min-width:110px}
+.pn.none{opacity:.45; pointer-events:none}
+
+/* ---------- 首页 ---------- */
+.index-page .home{max-width:980px; margin:0 auto; padding:0 clamp(14px,4vw,40px) 50px}
+.hero{padding:44px 0 26px; text-align:center}
+.hero h1{margin:0 0 10px; font-size:clamp(26px,5vw,40px)}
+.hero .sub{color:var(--ink-2); margin:0 0 8px; font-size:15.5px}
+.hero .hint{max-width:640px; margin:0 auto 20px; font-size:14.5px; color:var(--ink-2)}
+.hero-links{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.btn{
+  padding:9px 20px; border-radius:999px; border:1px solid var(--line); background:#fff;
+  color:var(--ink); font-weight:600; font-size:15px;
+}
+.btn:hover{border-color:var(--brand); color:var(--brand); text-decoration:none}
+.btn.primary{background:var(--brand); border-color:var(--brand); color:#fff}
+.btn.primary:hover{background:var(--brand-deep); color:#fff}
+.toc{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px}
+.toc-sec{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow)}
+.toc-sec h2{font-size:17px; margin:0 0 10px; display:flex; align-items:center}
+.toc-sec ul{list-style:none; margin:0; padding:0}
+.toc-sec li a{
+  display:flex; flex-direction:column; padding:8px 10px; border-radius:8px; color:var(--ink);
+}
+.toc-sec li a:hover{background:var(--brand-soft); text-decoration:none}
+.toc-sec li a b{font-size:15px}
+.toc-sec li a span{font-size:13px; color:var(--ink-2)}
+.ex-index{margin-top:18px}
+.ex-group{display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:6px 0; border-bottom:1px dashed var(--line)}
+.ex-group:last-child{border-bottom:none}
+.ex-label{font-size:13.5px; color:var(--ink-2); min-width:180px}
+.ex-group a{
+  font-size:13px; padding:2px 9px; border-radius:999px; background:var(--brand-soft); color:var(--brand-deep);
+}
+.ex-group a:hover{text-decoration:none; background:var(--brand); color:#fff}
+.foot{margin-top:26px; color:var(--ink-2); font-size:13px; text-align:center}
+
+/* ---------- KaTeX 微调 ---------- */
+.katex{font-size:1.06em}
+.katex-display{margin:.4em 0}
+.disp .katex-display{margin:.5em 0}
+.katex-display{overflow-x:auto; overflow-y:hidden; padding:2px 0}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:900px){
+  .menu-btn{display:inline-block}
+  .layout{display:block}
+  .sidebar{
+    position:fixed; z-index:60; top:52px; left:0; bottom:0; width:min(78vw,300px);
+    transform:translateX(-102%); transition:transform .22s ease;
+    box-shadow:4px 0 24px rgba(16,38,61,.12);
+  }
+  .sidebar.open{transform:translateX(0)}
+  .main{max-width:100%; width:100%; padding-top:18px}
+  .pager{grid-template-columns:1fr; }
+  .pn.next{justify-self:start; text-align:left}
+  .crumb{display:none}
+  .katex{font-size:1em}
+  .ex-label{min-width:100%}
+}

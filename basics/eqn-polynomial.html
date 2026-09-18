@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一元 n 次方程 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">三、方程与不等式</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html" class="active">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">三、方程与不等式</div>
+  <h1>一元 n 次方程</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">一元 n 次方程：一元二次方程及其解</div><p>$ax^{2}+bx+c=0\ (a\neq 0)$ 为一元二次方程，记 $\Delta=b^{2}-4ac$.</p>
+<p>①当 $\Delta&gt;0$ 时，$x_{1}=\dfrac{-b+\sqrt{\Delta}}{2a}$，$x_{2}=\dfrac{-b-\sqrt{\Delta}}{2a}$，为两个互异实根；</p>
+<p>②当 $\Delta=0$ 时，$x_{1}=x_{2}=-\dfrac{b}{2a}$，为两个相等实根；</p>
+<p>③当 $\Delta&lt;0$ 时，$\sqrt{\Delta}=\sqrt{\mathrm{i}^{2}\cdot(-\Delta)}=\sqrt{-\Delta}\,\mathrm{i}$，$x_{1,2}=\dfrac{-b\pm\sqrt{-\Delta}\,\mathrm{i}}{2a}$，为一对共轭复根.</p></div>
+<blockquote><p>【注】一元 $n\ (n&gt;2)$ 次方程一般用换元法降次再解，见例 6.15.</p></blockquote>
+<h3 id="例14">例14</h3>
+<div class="box box-ex"><p>求下列方程的解.</p>
+<p>(1) $x^{2}-4x-1=0$；(2) $x^{2}+4x+4=0$；(3) $x^{2}+2=0$.</p>
+<p class="solve-label"><span class="chip">解</span> (1) $\Delta=16+4=20$，故 $x_{1}=\dfrac{4+\sqrt{20}}{2}=2+\sqrt{5}$，$x_{2}=\dfrac{4-\sqrt{20}}{2}=2-\sqrt{5}$.</p>
+<p>(2) $\Delta=16-16=0$，故 $x_{1}=x_{2}=-\dfrac{4}{2}=-2$.</p>
+<p>(3) $\Delta=0-8=-8$，故 $x_{1,2}=\dfrac{\pm 2\sqrt{2}\,\mathrm{i}}{2}=\pm\sqrt{2}\,\mathrm{i}$.</p></div>
+<div class="box box-kp"><div class="box-title">一元 n 次方程根与系数的关系</div><p>设 $f(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots+a_{1}x+a_{0}=0\ (a_{n}\neq 0)$ 的根为 $x_{1}$，$x_{2}$，$\cdots$，$x_{n}$，则</p>
+<div class="disp">$$\begin{cases} x_{1}+x_{2}+\cdots+x_{n}=-\dfrac{a_{n-1}}{a_{n}},\\[2mm] x_{1}x_{2}+x_{1}x_{3}+\cdots+x_{n-1}x_{n}=\dfrac{a_{n-2}}{a_{n}},\\[2mm] \quad\cdots\cdots\\[2mm] x_{1}x_{2}\cdots x_{n}=(-1)^{n}\cdot\dfrac{a_{0}}{a_{n}}. \end{cases}$$</div>
+<p>反之亦成立.</p></div>
+<div class="box box-card"><div class="box-title">常考</div><p>设 $ax^{2}+bx+c=0\ (a\neq 0)$ 的两个根为 $x_{1}$，$x_{2}$，则</p>
+<div class="disp">$$\begin{cases} x_{1}+x_{2}=-\dfrac{b}{a}, \\ x_{1}x_{2}=\dfrac{c}{a}. \end{cases}$$</div>
+<p>配套常用恒等式：$x_{1}^{2}+x_{2}^{2}=(x_{1}+x_{2})^{2}-2x_{1}x_{2}$，$(x_{1}-x_{2})^{2}=(x_{1}+x_{2})^{2}-4x_{1}x_{2}$.</p></div>
+<h3 id="例15">例15</h3>
+<div class="box box-ex"><p>设函数 $f(x)=3ax^{2}+2bx+c$，$a+b+c=0$，$f(0)f(1)&gt;0$. 证明：</p>
+<p>(1) 方程 $f(x)=0$ 有实根；</p>
+<p>(2) $-2&lt;\dfrac{b}{a}&lt;-1$；</p>
+<p>(3) 若 $x_{1}$，$x_{2}$ 是方程 $f(x)=0$ 的两个实根，则 $|x_{1}-x_{2}|&lt;\dfrac{2}{3}$.</p>
+<p class="solve-label"><span class="chip">证</span> (1) 方程 $f(x)=3ax^{2}+2bx+c=0$ 的判别式 $\Delta=4\left(b^{2}-3ac\right)=4\left[(a+c)^{2}-3ac\right]=4\left(a^{2}+c^{2}-ac\right)=4\left[\left(a-\dfrac{1}{2}c\right)^{2}+\dfrac{3}{4}c^{2}\right]$，其中 $a\neq 0$。因为若 $a=0$，则有 $b+c=0$，$f(0)f(1)=c(3a+2b+c)=-c^{2}\leqslant 0$，矛盾，故 $a\neq 0$。于是 $\Delta&gt;0$，方程 $f(x)=0$ 有实根.</p>
+<p>(2) $f(0)f(1)=c(3a+2b+c)=-(a+b)(2a+b)&gt;0$，即 $(a+b)(2a+b)&lt;0$，两边同时乘以 $\dfrac{1}{a^{2}}$，有 $\left(1+\dfrac{b}{a}\right)\left(2+\dfrac{b}{a}\right)&lt;0$，于是 $-2&lt;\dfrac{b}{a}&lt;-1$.</p>
+<p>(3) 由根与系数的关系，有 $x_{1}+x_{2}=-\dfrac{2b}{3a}$，$x_{1}\cdot x_{2}=\dfrac{c}{3a}$，故</p>
+<div class="disp">$$|x_{1}-x_{2}|=\sqrt{(x_{1}-x_{2})^{2}}=\sqrt{(x_{1}+x_{2})^{2}-4x_{1}x_{2}}$$</div>
+<div class="disp">$$=\sqrt{\frac{4b^{2}}{9a^{2}}-\frac{4c}{3a}}=\sqrt{\frac{4b^{2}}{9a^{2}}+\frac{4}{3}\cdot\frac{a+b}{a}}=\sqrt{\frac{4}{9}\cdot\frac{b^{2}}{a^{2}}+\frac{4}{3}\left(1+\frac{b}{a}\right)}$$</div>
+<div class="disp">$$=\sqrt{\frac{4}{9}\left(\frac{b^{2}}{a^{2}}+3+3\frac{b}{a}\right)}=\sqrt{\frac{4}{9}\left(\frac{b}{a}+\frac{3}{2}\right)^{2}+\frac{1}{3}}.$$</div>
+<p>由 (2) 可得 $-2&lt;\dfrac{b}{a}&lt;-1$，令 $\dfrac{b}{a}=t$，则 $g(t)=\sqrt{\dfrac{4}{9}\left(\dfrac{b}{a}+\dfrac{3}{2}\right)^{2}+\dfrac{1}{3}}=\sqrt{\dfrac{4}{9}\left(t+\dfrac{3}{2}\right)^{2}+\dfrac{1}{3}}$，当 $t=-2$ 时，$g(-2)=\sqrt{\dfrac{1}{9}+\dfrac{1}{3}}=\dfrac{2}{3}$，当 $t=-1$ 时，$g(-1)=\sqrt{\dfrac{1}{9}+\dfrac{1}{3}}=\dfrac{2}{3}$，故 $|x_{1}-x_{2}|&lt;\dfrac{2}{3}$.</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="expr-radical.html"><span>← 上一节</span><b>无理式的运算</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="eqn-inequality.html"><span>下一节 →</span><b>重要不等式及其应用</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

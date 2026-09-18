@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>极坐标系 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">六、坐标系及其变换</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html" class="active">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">六、坐标系及其变换</div>
+  <h1>极坐标系</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">极坐标系的定义（原书）</div><p>在平面上任取一点 $O$，从 $O$ 作一条射线 $\overline{Ox}$，再取好一定的长度单位．这样，就建立了平面上的极坐标系，点 $O$ 称为<strong>极点</strong>，射线 $\overline{Ox}$ 称为<strong>极轴</strong>，如图 26 所示.</p>
+<p>（图 26：极点 $O$ 与极轴 $\overline{Ox}$，点 $M$ 位于射线上方，线段 $OM$ 的长度标记为 $r$）</p>
+<p>对于平面上的任意一点 $M$，以 $r$ 表示点 $M$ 与极点 $O$ 的距离，即 $r=|OM|$．</p>
+<p>若点 $M$ 不是点 $O$，使 $\overline{Ox}$ 绕点 $O$ 按逆时针方向旋转，把第一次转到 $\overline{OM}$ 的位置时所转出的角度记为 $\theta$．有次序的数对 $(r,\theta)$ 称为点 $M$ 的<strong>极坐标</strong>．$r$ 称为第一坐标或<strong>极半径</strong>，$\theta$ 称为第二坐标或<strong>辐角</strong>或极角．极点的极半径为 0，其辐角不定（可取作任何数）．</p></div>
+<div class="box box-kp"><div class="box-title">狭义与广义极坐标系（原书）</div><p>从上面的定义可以知道，除了极点 $O$ 外，对于平面上的任意一点 $M$，能够确定适合条件</p>
+<div class="disp">$$r&gt;0,\ 0\leqslant\theta&lt;2\pi \qquad (*)$$</div>
+<p>的唯一的一对有次序的数对 $(r,\theta)$ 作为点 $M$ 的坐标．反过来，任何一对满足条件 $(*)$ 的有次序的数对 $(r,\theta)$ 也能确定平面上唯一的一个点 $M$，确定的方法：将极轴 $\overline{Ox}$ 绕点 $O$ 依逆时针方向转动一角度 $\theta$，然后在转动后的射线上取一点 $M$，使 $|OM|=r$．于是，在平面上的点 $M$（除去极点）与适合条件 $(*)$ 的有序数对 $(r,\theta)$ 之间建立了一一对应的关系，也称<strong>狭义极坐标系</strong>．</p>
+<p>在图 27(a) 中我们描出了若干个点．应当注意，辐角都是以弧度计的，如点 $(3,6)$ 表示此点的极半径为 3，辐角为 6 弧度，也就是 $6\times 57.3^{\circ}=343.8^{\circ}$（也有一些书上，以度数来计辐角）．</p>
+<p>为了更便利地用极坐标方法研究曲线，去掉对 $r$，$\theta$ 的限制 $(*)$．如果 $\theta$ 是某一点 $M$ 的辐角，规定 $\theta+2n\pi$（$n$ 为任何整数）也都可以作为点 $M$ 的辐角，这就是说，从极轴 $\overline{Ox}$ 绕 $O$ 按逆时针方向旋转，不论第几次转到 $\overline{OM}$ 所转出的角度都可算作点 $M$ 的辐角，并且如果 $\overline{Ox}$ 按顺时针方向旋转，不论第几次转到 $\overline{OM}$ 的角度，取其负值，也可作为点 $M$ 的辐角，极半径 $r$ 也可以是负数，当点 $M$ 在与极轴 $\overline{Ox}$ 成 $\theta$ 角的射线的延长线上时，取 $r=-|OM|$［见图 27(b)］．</p>
+<p>在这样的规定之下，点 $M$ 的坐标就不是唯一的了，如 $(r,\theta)$ 是点 $M$ 的坐标，则 $(r,\theta+2n\pi)$，$(-r,\theta+\pi+2n\pi)$ 也都是点 $M$ 的坐标，这种坐标系称为<strong>广义极坐标系</strong>，在不作特殊说明时，默认使用狭义极坐标系．</p>
+<p>（图 27：(a) 极坐标系中标出的若干点——$M(r,\theta)$、$\left(4,\dfrac{\pi}{3}\right)$、$\left(2,\dfrac{5\pi}{4}\right)$、$\left(5,\dfrac{3\pi}{2}\right)$；(b) 负极半径情形——点 $\left(2,\dfrac{5\pi}{4}\right)$ 与 $\left(-2,\dfrac{\pi}{4}\right)$ 重合，射线延长线上的点取 $r=-|OM|$）</p></div>
+<div class="box box-kp"><div class="box-title">极坐标系中的曲线与方程、坐标曲线网（原书）</div><p>像直角坐标系的情形一样，可用 $r$，$\theta$ 的方程来表示极坐标系中的曲线．在极坐标中，曲线与方程的概念跟直角坐标系的情况是相同的：在一定的极坐标系中，如果点 $M(r,\theta)$ 位于一条曲线上的充要条件是点 $M$ 的坐标 $r$，$\theta$ 满足一个方程 $F(r,\theta)=0$，则称在极坐标系中，该方程是该曲线的方程，该曲线是该方程的图像．</p>
+<p>在直角坐标系中，直线族"$x=$常量"与直线族"$y=$常量"是两族平行于坐标轴的直线，称之为直角坐标系中的坐标曲线网（见图 28）．在极坐标中，方程 $r=C\ (C\geqslant 0)$ 的图形是以极点为圆心、常量 $C$ 为半径的<strong>圆</strong>；方程 $\theta=C\ (0\leqslant C&lt;2\pi)$ 的图形是以极点为出发点、沿辐角为常量 $C$ 的方向射出的<strong>射线</strong>．圆族"$r=$常量"与射线族"$\theta=$常量"称为极坐标系中的坐标曲线网（见图 29）．</p>
+<p>很多重要的曲线方程在直角坐标系中很复杂，而在极坐标系中却很简单，因此极坐标系中的曲线方程有着非常广泛的应用．</p>
+<p>（图 28：直角坐标系中的坐标曲线网——竖直线族与水平线族构成的方格网）</p>
+<p>（图 29：极坐标系中的坐标曲线网——以极点 $O$ 为圆心的同心圆族 $r=1,2,3$，以及从极点射出的射线族 $\theta=\dfrac{\pi}{6},\dfrac{\pi}{3},\dfrac{\pi}{2},\cdots,\dfrac{11\pi}{6}$）</p></div>
+<div class="box box-kp"><div class="box-title">常见曲线的极坐标方程（原书）</div><p>**① 过点 $A(a,\alpha)$，倾斜角为 $\beta$ 的直线**（见图 30）：</p>
+<div class="disp">$$\text{由}\ \frac{a}{\sin[\pi-(\theta-\beta)]}=\frac{\rho}{\sin(\alpha-\beta)}\ \text{，故}\ \rho=\frac{a\sin(\alpha-\beta)}{\sin(\theta-\beta)}.$$</div>
+<p>（图 30：过点 $A(a,\alpha)$、倾斜角为 $\beta$ 的直线——极点 $O$、极轴 $x$，直线上一点 $M(\rho,\theta)$，标出线段 $\rho$、$a$ 及角 $\alpha$、$\beta$）</p>
+<p>特例：</p>
+<p>a. 当 $\alpha=0$ 时，$\rho=\dfrac{a\sin\beta}{\sin(\beta-\theta)}$，表示过极轴上一点 $A(a,0)$，倾斜角为 $\beta$ 的直线．</p>
+<p>b. 当 $\alpha=0$，$\beta=\dfrac{\pi}{2}$ 时，$\rho\cos\theta=a$，表示过极轴上一点 $A(a,0)$，垂直于极轴的直线（此时极点到直线的距离为 $|a|$）．</p>
+<p>c. 当 $\alpha=\dfrac{\pi}{2}$，$\beta=0$ 时，$\rho\sin\theta=a$，表示过 $A\left(a,\dfrac{\pi}{2}\right)$ 平行于极轴的直线（此时极点到直线的距离为 $|a|$）．</p>
+<p>**② 以 $A(a,\alpha)$ 为圆心，$r$ 为半径的圆**（见图 31）：</p>
+<div class="disp">$$r^{2}=\rho^{2}+a^{2}-2a\rho\cos(\alpha-\theta).$$</div>
+<p>（图 31：以 $A(a,\alpha)$ 为圆心、$r$ 为半径的圆——圆上一点 $M(\rho,\theta)$，标出线段 $a$、$\rho$ 与 $r$）</p>
+<p>特例：</p>
+<p>a. 当 $\alpha=0$，$r=|a|$ 时，$\rho=2a\cos\theta$，表示圆心在极轴一点 $A(a,0)$，半径为 $|a|$ 的圆．</p>
+<p>b. 当 $\alpha=\dfrac{\pi}{2}$，$r=|a|$ 时，$\rho=2a\sin\theta$，表示圆心在极垂线（过极点垂直于极轴的直线）上一点 $A\left(a,\dfrac{\pi}{2}\right)$，半径为 $|a|$ 的圆．</p></div>
+<div class="box box-tip"><div class="box-title">认出处</div><p>直线的极坐标方程由<strong>正弦定理</strong>（对 $\triangle OAM$）写出；圆的极坐标方程由<strong>余弦定理</strong>（对 $\triangle OAM$，$OM\perp$ 连线或夹角 $\alpha-\theta$）写出——"正弦定理出直线、余弦定理出圆".</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="coord-cartesian.html"><span>← 上一节</span><b>直角坐标系与坐标变换</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="coord-relation.html"><span>下一节 →</span><b>直角坐标与极坐标的关系</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

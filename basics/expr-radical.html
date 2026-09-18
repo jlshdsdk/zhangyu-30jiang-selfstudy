@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无理式的运算 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">二、解析式的概念与运算</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html" class="active">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">二、解析式的概念与运算</div>
+  <h1>无理式的运算</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">无理式的运算</div><p>无理式的运算一般就是<strong>根式运算</strong>.</p>
+<p>(1) 根式定义. 设字母 $a\geqslant 0$，$n$ 为正整数，称 $\sqrt[n]{a}$ 为 $a$ 的 $n$ 次算术根，结果是唯一的非负实数，如 $\sqrt[4]{16}=2$. 但要注意，由于 $x^{4}=16$ 有两个实数解，即 $x=2$ 和 $x=-2$，勿丢 $x=-2$ 这个解，它不是 16 的 4 次算术根，但它是 $x^{4}=16$ 的解.</p>
+<p>(2) 性质. 设 $a\geqslant 0$，$b\geqslant 0$，$m$，$n$，$k$ 为正整数.</p>
+<p>① $\sqrt[n]{a^{m}}=\sqrt[kn]{a^{km}}$；</p>
+<p>② $\sqrt[n]{ab}=\sqrt[n]{a}\cdot\sqrt[n]{b}$；</p>
+<p>③ $\sqrt[n]{\dfrac{a}{b}}=\dfrac{\sqrt[n]{a}}{\sqrt[n]{b}}\ (b\neq 0)$；</p>
+<p>④ $\left(\sqrt[n]{a}\right)^{k}=\sqrt[n]{a^{k}}$；</p>
+<p>⑤ $\sqrt[k]{\sqrt[n]{a}}=\sqrt[kn]{a}$.</p>
+<p>如，若 $x\geqslant 0$，$y\geqslant 0$，$\left(\sqrt[3]{3x^{2}y}\right)^{2}\xlongequal{\ ④\ }\sqrt[3]{\left(3x^{2}y\right)^{2}}=\sqrt[3]{9x^{4}y^{2}}\xlongequal{\ ②\ }\sqrt[3]{x^{3}}\cdot\sqrt[3]{9xy^{2}}=x\sqrt[3]{9xy^{2}}$.</p></div>
+<div class="box box-kp"><div class="box-title">重要结论与方法</div><p>① $\sqrt{a^{2}}=|a|$.</p>
+<p>如</p>
+<div class="disp">$$\sqrt{(x-1)^{2}}-x=|x-1|-x=\begin{cases}-1, &amp; x&gt;1,\\ 1-2x, &amp; x\leqslant 1;\end{cases}$$</div>
+<p>再如</p>
+<div class="disp">$$\sqrt[8]{x^{12}}=\sqrt[8]{|x|^{12}}=\sqrt{|x|^{3}}=\begin{cases}x\sqrt{x}, &amp; x&gt;0,\\ -x\cdot\sqrt{-x}, &amp; x\leqslant 0.\end{cases}$$</div>
+<p>②有理化. 由于 $(\sqrt{a}+\sqrt{b})(\sqrt{a}-\sqrt{b})=a-b$，故若 $a\neq b$，则有</p>
+<div class="disp">$$\frac{f(x)}{\sqrt{a}+\sqrt{b}}=\frac{f(x)(\sqrt{a}-\sqrt{b})}{a-b}，称为分母有理化；$$</div>
+<div class="disp">$$\frac{\sqrt{a}+\sqrt{b}}{f(x)}=\frac{a-b}{f(x)(\sqrt{a}-\sqrt{b})}，称为分子有理化.$$</div>
+<p>同理，由于 $\left(\sqrt[3]{a}\pm\sqrt[3]{b}\right)\left(\sqrt[3]{a^{2}}\mp\sqrt[3]{ab}+\sqrt[3]{b^{2}}\right)=a\pm b$，亦可作有理化.</p></div>
+<div class="box box-warn"><div class="box-title">最易丢分点</div><p>$\sqrt{a^2}=|a|$ 而不是 $a$！开偶次方出来必须带<strong>绝对值</strong>再按符号讨论；开奇次方才可直接写出（如 $\sqrt[3]{x^3}=x$）.</p></div>
+<h3 id="例11">例11</h3>
+<div class="box box-ex"><p>设 $\sqrt{\dfrac{x}{y}}+\sqrt{\dfrac{y}{x}}=a$，且 $x&gt;y&gt;0$，则 $\dfrac{y\sqrt{a^{2}-4}}{a-\sqrt{a^{2}-4}}=$（　　）.</p>
+<p>(A) $\dfrac{1}{2}(x+y)$　　(B) $\dfrac{1}{2}(x-y)$　　(C) $a$　　(D) $2a$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (B).</p>
+<div class="disp">$$\frac{y\sqrt{a^{2}-4}}{a-\sqrt{a^{2}-4}}=\frac{y\sqrt{a^{2}-4}\left(a+\sqrt{a^{2}-4}\right)}{a^{2}-\left(a^{2}-4\right)}=\frac{1}{4}y\sqrt{a^{2}-4}\left(a+\sqrt{a^{2}-4}\right).$$</div>
+<p>又</p>
+<div class="disp">$$a^{2}-4=\left(\sqrt{\frac{x}{y}}+\sqrt{\frac{y}{x}}\right)^{2}-4=\frac{x}{y}+\frac{y}{x}-2=\left(\sqrt{\frac{x}{y}}-\sqrt{\frac{y}{x}}\right)^{2},$$</div>
+<p>于是</p>
+<div class="disp">$$\text{原式}=\frac{1}{4}y\cdot\left(\sqrt{\frac{x}{y}}-\sqrt{\frac{y}{x}}\right)\left(\sqrt{\frac{x}{y}}+\sqrt{\frac{y}{x}}+\sqrt{\frac{x}{y}}-\sqrt{\frac{y}{x}}\right)=\frac{1}{2}y\left(\frac{x}{y}-1\right)=\frac{1}{2}(x-y).$$</div></div>
+<h3 id="例12">例12</h3>
+<div class="box box-ex"><p>设 $f(x)=\sqrt{x}+\sqrt{x+1}$，则 $\dfrac{1}{f(1)}+\dfrac{1}{f(2)}+\cdots+\dfrac{1}{f(n)}=$（　　）.</p>
+<p>(A) $\sqrt{n}+\sqrt{n+1}$　　(B) $\sqrt{n+1}$　　(C) $\sqrt{n+1}-1$　　(D) $\sqrt{n+1}+1$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<div class="disp">$$\frac{1}{\sqrt{n}+\sqrt{n+1}}=\frac{\sqrt{n+1}-\sqrt{n}}{\left(\sqrt{n+1}\right)^{2}-\left(\sqrt{n}\right)^{2}}=\sqrt{n+1}-\sqrt{n}，则$$</div>
+<div class="disp">$$\text{原式}=(\sqrt{2}-1)+(\sqrt{3}-\sqrt{2})+\cdots+(\sqrt{n+1}-\sqrt{n})=\sqrt{n+1}-1.$$</div></div>
+<h3 id="例13">例13</h3>
+<div class="box box-ex"><p>$\dfrac{\sqrt[3]{a^{2}b}-\sqrt[3]{ab^{2}}}{\sqrt[3]{ax}-\sqrt[3]{bx}}=$（　　）.</p>
+<p>(A) $\dfrac{\sqrt[3]{abx}}{x}$　　(B) $\dfrac{\sqrt[3]{a^{2}bx}}{x}$　　(C) $\dfrac{\sqrt[3]{ab^{2}x}}{x}$　　(D) $\dfrac{\sqrt[3]{abx^{2}}}{x}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (D).</p>
+<div class="disp">$$\frac{\sqrt[3]{a^{2}b}-\sqrt[3]{ab^{2}}}{\sqrt[3]{ax}-\sqrt[3]{bx}}=\frac{\left(\sqrt[3]{a^{2}b}-\sqrt[3]{ab^{2}}\right)\left[\sqrt[3]{(ax)^{2}}+\sqrt[3]{abx^{2}}+\sqrt[3]{(bx)^{2}}\right]}{(a-b)x}$$</div>
+<div class="disp">$$=\frac{\sqrt[3]{a^{4}bx^{2}}-\sqrt[3]{ab^{4}x^{2}}}{(a-b)x}$$</div>
+<div class="disp">$$=\frac{(a-b)\cdot\sqrt[3]{abx^{2}}}{(a-b)x}=\frac{\sqrt[3]{abx^{2}}}{x}.$$</div></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="expr-rational.html"><span>← 上一节</span><b>有理式的运算</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="eqn-polynomial.html"><span>下一节 →</span><b>一元 n 次方程</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

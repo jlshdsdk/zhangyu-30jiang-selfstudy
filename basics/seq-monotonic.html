@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>单调数列 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">五、数列及其单调性</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html" class="active">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">五、数列及其单调性</div>
+  <h1>单调数列</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">单调数列（原书）</div><p>若对所有正整数 $n$，有 $a_{n+1}\geqslant a_n\ (a_{n+1}\leqslant a_n)$，则称数列 $\{a_n\}$ 为单调不减（不增）数列，将 $\geqslant(\leqslant)$ 换成 $&gt;(&lt;)$，则称为单调递增（递减）数列．单调递增数列与单调递减数列统称为单调数列．</p></div>
+<h3 id="例62">例62</h3>
+<div class="box box-ex"><p>已知数列 $\{a_n\}$ 的前 $n$ 项和为 $S_n$，$a_1=1$，$S_n=2a_{n+1}$，则 $S_n=$（　　）.</p>
+<p>(A) $2^{n-1}$　　(B) $\left(\dfrac{3}{2}\right)^{n-1}$　　(C) $\left(\dfrac{2}{3}\right)^{n-1}$　　(D) $\dfrac{1}{2^{n-1}}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (B).</p>
+<p>由 $a_{n+1}=S_{n+1}-S_n$，故 $S_n=2a_{n+1}=2\left(S_{n+1}-S_n\right)$，即 $3S_n=2S_{n+1}$，$\dfrac{S_{n+1}}{S_n}=\dfrac{3}{2}$，所以 $\{S_n\}$ 是以 $S_1=a_1=1$ 为首项，$q=\dfrac{3}{2}$ 为公比的等比数列，即 $S_n=\left(\dfrac{3}{2}\right)^{n-1}$，选 (B).</p></div>
+<h3 id="例63">例63</h3>
+<div class="box box-ex"><p>在数列 $\{a_n\}$ 中，$a_1=2$，$a_{n+1}=a_n+\ln\left(1+\dfrac{1}{n}\right)$，则 $a_n=$（　　）.</p>
+<p>(A) $2+\ln n$　　(B) $2+(n-1)\ln n$　　(C) $2+n\ln n$　　(D) $1+n+\ln n$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<p>由题设，$a_n-a_{n-1}=\ln\left(1+\dfrac{1}{n-1}\right)=\ln\dfrac{n}{n-1}$，同理 $a_{n-1}-a_{n-2}=\ln\dfrac{n-1}{n-2},\cdots$，$a_2-a_1=\ln 2$，上述式子相加，得 $a_n-a_1=\ln\dfrac{n}{n-1}+\ln\dfrac{n-1}{n-2}+\cdots+\ln 2=\ln\dfrac{n}{n-1}\cdot\dfrac{n-1}{n-2}\cdot\cdots\cdot 2=\ln n$，故 $a_n=2+\ln n$．故选 (A).</p></div>
+<div class="box box-tip"><p>这就是<strong>累加法</strong>：$a_n=a_1+\sum\limits_{k=1}^{n-1}(a_{k+1}-a_k)$，配合对数运算法则"和 = 积的对数"连锁相消.</p></div>
+<h3 id="例64">例64</h3>
+<div class="box box-ex"><p>设 $S_n$ 是数列 $\{a_n\}$ 的前 $n$ 项和，且 $a_1=-1$，$a_{n+1}=S_n S_{n+1}$，则 $S_n=$ ________.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $-\dfrac{1}{n}$.</p>
+<p>由 $a_{n+1}=S_{n+1}-S_n=S_{n+1}\cdot S_n$，有 $\dfrac{S_{n+1}-S_n}{S_{n+1}\cdot S_n}=1$，即 $\dfrac{1}{S_{n+1}}-\dfrac{1}{S_n}=-1$，故数列 $\left\{\dfrac{1}{S_n}\right\}$ 是以 $-1$ 为首项、公差为 $-1$ 的等差数列，即 $\dfrac{1}{S_n}=-1-(n-1)=-n$，所以 $S_n=-\dfrac{1}{n}$.</p></div>
+<div class="box box-tip"><p><strong>取倒数化等差</strong>：递推式含"积"时，两边除以 $S_nS_{n+1}$ 变成倒数差的等差结构. 与之配对的还有例 65 的<strong>累乘法</strong>.</p></div>
+<h3 id="例65">例65</h3>
+<div class="box box-ex"><p>已知数列 $\{a_n\}$ 中，$a_1=1$，前 $n$ 项和 $S_n=\dfrac{n+2}{3}a_n$，则 $a_n=$（　　）.</p>
+<p>(A) $\dfrac{n(n-1)}{2}$　　(B) $\dfrac{n^2}{2}$　　(C) $\dfrac{n(n+1)}{2}$　　(D) $\dfrac{(n+1)(n+2)}{2}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<p>$a_{n+1}=S_{n+1}-S_n=\dfrac{n+3}{3}a_{n+1}-\dfrac{n+2}{3}a_n$，整理得 $\dfrac{a_{n+1}}{a_n}=\dfrac{n+2}{n}$，于是</p>
+<div class="disp">$$a_n=\frac{a_n}{a_{n-1}}\cdot\frac{a_{n-1}}{a_{n-2}}\cdot\cdots\cdot\frac{a_2}{a_1}\cdot a_1=\frac{n+1}{n-1}\cdot\frac{n}{n-2}\cdot\cdots\cdot\frac{3}{1}\cdot 1=\frac{(n+1)n\cdot\cdots\cdot 3}{(n-1)(n-2)\cdot\cdots\cdot 1}=\frac{n(n+1)}{2},$$</div>
+<p>选 (C).</p></div>
+<h3 id="例66">例66</h3>
+<div class="box box-ex"><p>定义在 $(-\infty,0)\cup(0,+\infty)$ 上的函数 $f(x)$，如果对于任意给定的等比数列 $\{a_n\}$，$\{f(a_n)\}$ 仍是等比数列，那么称 $f(x)$ 为"保等比数列函数"．现有定义在 $(-\infty,0)\cup(0,+\infty)$ 上的如下函数：</p>
+<p>① $f(x)=x^2$；② $f(x)=2^x$；③ $f(x)=\sqrt{|x|}$；④ $f(x)=\ln|x|$.</p>
+<p>其中是"保等比数列函数"的 $f(x)$ 的所有序号为（　　）.</p>
+<p>(A) ①②　　(B) ③④　　(C) ①③　　(D) ②④</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<p>设数列 $\{a_n\}$ 满足 $\dfrac{a_{n+1}}{a_n}=q$（$q\neq 0$），对于①，②，③，④，分别有 $\dfrac{a_{n+1}^2}{a_n^2}=q^2$，$\dfrac{2^{a_{n+1}}}{2^{a_n}}=2^{a_{n+1}-a_n}$，$\dfrac{\sqrt{|a_{n+1}|}}{\sqrt{|a_n|}}=\sqrt{\left|\dfrac{a_{n+1}}{a_n}\right|}=\sqrt{|q|}$，$\dfrac{\ln|a_{n+1}|}{\ln|a_n|}$．由题设，要求比值为非零常数，故选 (C).</p></div>
+<h3 id="例67">例67</h3>
+<div class="box box-ex"><p>已知数列 $\{x_n\}$ 满足：$x_1=0$，$x_{n+1}=-x_n^2+x_n+c\ (n\in\mathbf{N}_+)$．证明：数列 $\{x_n\}$ 是单调递减数列的充分必要条件是 $c&lt;0$．</p>
+<p class="solve-label"><span class="chip">证</span> 充分性：当 $c&lt;0$ 时，$x_{n+1}=-x_n^2+x_n+c$，由于 $-x_n^2+c&lt;0$，故 $x_{n+1}&lt;x_n$；</p>
+<p>必要性：由 $\{x_n\}$ 单调递减，故 $x_1&gt;x_2=-x_1^2+x_1+c$，即 $-x_1^2+c&lt;0$，$c&lt;x_1^2=0$．证毕．</p></div>
+<h3 id="例68">例68</h3>
+<div class="box box-ex"><p>已知函数 $f(x)=x-\sin x$ 是 $(0,1)$ 上的增函数，数列 $\{a_n\}$ 满足：$0&lt;a_1&lt;1$，$a_{n+1}=f(a_n)$，$n=1,2,3,\cdots$．证明：$0&lt;a_{n+1}&lt;a_n&lt;1$．</p>
+<p class="solve-label"><span class="chip">证</span> 先证 $0&lt;a_n&lt;1$，$n=1,2,3,\cdots$．</p>
+<p>①当 $n=1$ 时，$0&lt;a_1&lt;1$．</p>
+<p>②设当 $n=k$ 时，$0&lt;a_k&lt;1$．由于 $f(x)$ 在 $(0,1)$ 上是增函数，故 $f(0)&lt;f(a_k)&lt;f(1)$，即</p>
+<div class="disp">$$0&lt;a_{k+1}&lt;1-\sin 1&lt;1.$$</div>
+<p>于是 $0&lt;a_n&lt;1$，$n=1,2,3,\cdots$．</p>
+<p>又 $0&lt;a_n&lt;1$ 时，有 $a_{n+1}-a_n=a_n-\sin a_n-a_n=-\sin a_n&lt;0$，即 $a_{n+1}&lt;a_n$．</p>
+<p>综上，$0&lt;a_{n+1}&lt;a_n&lt;1$．证毕．</p></div>
+<div class="box box-tip"><p>递推数列性质证明的标准套路：<strong>数学归纳法（基本逻辑页）+ 单调性作差</strong>，两件工具连用——本题是绝佳模板.</p></div>
+<h3 id="例69">例69</h3>
+<div class="box box-ex"><p>对任意 $a_1\in(0,1)$，由 $a_{n+1}=f(a_n)$ 得到的数列 $\{a_n\}$ 满足 $a_{n+1}&gt;a_n\ (n\in\mathbf{N}_+)$，则 $f(x)$ 的图像可能是（　　）.</p>
+<p class="fig-desc">（图：四个选项 (A)(B)(C)(D)，均为直角坐标系，原点 $O$，横轴 $x$、纵轴 $y$，虚线标出 $x=1$ 与 $y=1$，曲线均从原点附近出发到达点 $(1,1)$ 附近，且都在直线 $y=x$ 上方——(A) 曲线全程上凸（先陡后缓）；(B) 曲线全程下凸（先缓后陡）；(C) 曲线呈 S 形；(D) 曲线先陡后平缓再变陡）</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<p>由题设，$a_{n+1}=f(a_n)&gt;a_n$，故 $y=f(x)$ 的图像满足 $y&gt;x$，即在直线 $y=x$ 上方．选 (A).</p></div>
+<div class="box box-tip"><p>**递推数列 $a_{n+1}=f(a_n)$ 的图像观点**：迭代点列沿"竖走到曲线、横走到对角线"折线运动，数列单调递增 $\iff$ 曲线在对角线 $y=x$ 上方（凹凸性不影响结论，只影响收敛快慢）.</p></div>
+<h3 id="例70">例70</h3>
+<div class="box box-ex"><p>动点 $P$ 从原点出发沿 $x$ 轴正向移动距离 $a$ 到达点 $P_1$，再沿 $y$ 轴正向移动距离 $\dfrac{a}{2}$ 到达点 $P_2$，再沿 $x$ 轴正向移动距离 $\dfrac{a}{2^2}$ 到达点 $P_3$，……，依次类推，无限进行，每转一次，距离缩小一半．</p>
+<p>(1) 求动点 $P$ 行进路线长的极限；</p>
+<p>(2) 动点 $P$ 与坐标平面哪一点无限接近？</p>
+<p class="solve-label"><span class="chip">解</span> (1) 动点 $P$ 行进路线长为 $a+\dfrac{a}{2}+\dfrac{a}{2^2}+\cdots$，故 $S=\dfrac{a}{1-\dfrac{1}{2}}=2a$.</p>
+<p>(2) 设动点 $P$ 与平面上点 $Q(x', y')$ 无限接近，则</p>
+<div class="disp">$$x'=a+\frac{a}{2^2}+\frac{a}{2^4}+\cdots=\frac{a}{1-\frac{1}{4}}=\frac{4}{3}a,$$</div>
+<div class="disp">$$y'=\frac{a}{2}+\frac{a}{2^3}+\frac{a}{2^5}+\cdots=\frac{\frac{a}{2}}{1-\frac{1}{4}}=\frac{2}{3}a,$$</div>
+<p>故动点 $P$ 与平面上点 $Q\left(\dfrac{4}{3}a,\ \dfrac{2}{3}a\right)$ 无限接近.</p></div>
+<div class="box box-tip"><p>(2) 的诀窍：$x'$ 与 $y'$ 各自只收集"自己方向上的位移"（隔项成等比，公比 $\dfrac14$），再套无穷递缩等比求和 $\dfrac{a_1}{1-q}$.</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="seq-geometric.html"><span>← 上一节</span><b>等比数列</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="coord-cartesian.html"><span>下一节 →</span><b>直角坐标系与坐标变换</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

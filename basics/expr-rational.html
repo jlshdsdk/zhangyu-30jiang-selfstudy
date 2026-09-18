@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>有理式的运算 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">二、解析式的概念与运算</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html" class="active">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">二、解析式的概念与运算</div>
+  <h1>有理式的运算</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">有理式的运算</div><p>(1) 整式运算.</p>
+<p>①<strong>加、减法</strong>. 方法：同类项系数相加、减.</p>
+<h3 id="例8">例8</h3>
+<div class="box box-ex"><p>设 $f(x) = 3x^3 + 5x - 1$，$g(x) = 3 + 5x^2 - x^3$，则 $f(x) - g(x) =$ ______.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $4x^3 - 5x^2 + 5x - 4$.</p>
+<div class="disp">$$f(x) - g(x) = \left(3x^3 + x^3\right) + \left(-5x^2\right) + 5x + (-1 - 3)$$</div>
+<div class="disp">$$= 4x^3 - 5x^2 + 5x - 4.$$</div></div></div>
+<p>②<strong>乘法</strong>. 方法：系数竖式计算法.</p>
+<p>**a. 设 $A$，$B$ 为整式，且均只含同一字母.**</p>
+<p>(i) 将 $A$，$B$ 系数按降次排列，缺项补 0，写成两行，项数多的写在第一行.</p>
+<p>如 $f(x) = 2x^4 - 3x^3 + 2x - 1$，$g(x) = 3 - 4x - 5x^2$，则有</p>
+<div class="disp">$$ \begin{array}{rcccccc} &amp; 2 &amp; -3 &amp; 0 &amp; 2 &amp; -1 &amp; \\ \times) &amp; -5 &amp; -4 &amp; 3 &amp; &amp; &amp; \\ \end{array} $$</div>
+<p>(ii) 竖式相乘，即第二行每个系数乘以第一行每个系数，乘积结果对应排列，有</p>
+<div class="disp">$$ \begin{array}{rcccccc} &amp; 2 &amp; -3 &amp; 0 &amp; 2 &amp; -1 &amp; \\ \times) &amp; -5 &amp; -4 &amp; 3 &amp; &amp; &amp; \\ \hline &amp; -10 &amp; 15 &amp; 0 &amp; -10 &amp; 5 &amp; \\ &amp; &amp; -8 &amp; 12 &amp; 0 &amp; -8 &amp; 4 \\ &amp; &amp; &amp; 6 &amp; -9 &amp; 0 &amp; 6 &amp; -3 \\ \end{array} $$</div>
+<p>（三行依次是用 $-5$、$-4$、$3$ 去乘上行各系数所得）</p>
+<p>(iii) 竖式相加，即将 (ii) 所得结果竖向相加. 得</p>
+<div class="disp">$$ \begin{array}{rccccccc} &amp; 2 &amp; -3 &amp; 0 &amp; 2 &amp; -1 &amp; &amp; \\ \times) &amp; -5 &amp; -4 &amp; 3 &amp; &amp; &amp; &amp; \\ \hline &amp; -10 &amp; 15 &amp; 0 &amp; -10 &amp; 5 &amp; &amp; \\ &amp; &amp; -8 &amp; 12 &amp; 0 &amp; -8 &amp; 4 &amp; \\ +) &amp; &amp; &amp; 6 &amp; -9 &amp; 0 &amp; 6 &amp; -3 \\ \hline &amp; -10 &amp; 7 &amp; 18 &amp; -19 &amp; -3 &amp; 10 &amp; -3 \end{array} $$</div>
+<p>则 $f(x)g(x)=-10x^{6}+7x^{5}+18x^{4}-19x^{3}-3x^{2}+10x-3$.</p>
+<p>**b. 设 $A$，$B$ 为整式，且均只含两个相同字母.** 将 $A$，$B$ 系数按某一字母降次、另一字母升次排列，缺项补 0，写成两行，项数多的写在第一行，其余同 a.</p>
+<p>如 $f(a,b)=2a^{3}-3a^{2}b+ab^{2}+b^{3}$，$g(a,b)=a^{2}b-ab^{2}$，则有</p>
+<div class="disp">$$ \begin{array}{rccccc} &amp; 2 &amp; -3 &amp; 1 &amp; 1 &amp; \\ \times) &amp; 1 &amp; -1 &amp; &amp; &amp; \\ \hline &amp; 2 &amp; -3 &amp; 1 &amp; 1 &amp; \\ +) &amp; &amp; -2 &amp; 3 &amp; -1 &amp; -1 \\ \hline &amp; 2 &amp; -5 &amp; 4 &amp; 0 &amp; -1 \end{array} $$</div>
+<p>故 $f(a,b)g(a,b)=2a^{5}b-5a^{4}b^{2}+4a^{3}b^{3}+0\cdot a^{2}b^{4}-ab^{5}$.</p>
+<p>再如求 $\left(2a^{3}+ab^{2}+b^{3}\right)\left(a^{2}b-ab^{2}\right)$，有</p>
+<div class="disp">$$ \begin{array}{rccccc} &amp; 2 &amp; 0 &amp; 1 &amp; 1 &amp; \\ \times) &amp; 1 &amp; -1 &amp; &amp; &amp; \\ \hline &amp; 2 &amp; 0 &amp; 1 &amp; 1 &amp; \\ +) &amp; &amp; -2 &amp; 0 &amp; -1 &amp; -1 \\ \hline &amp; 2 &amp; -2 &amp; 1 &amp; 0 &amp; -1 \end{array} $$</div>
+<p>故原式 $=2a^{5}b-2a^{4}b^{2}+a^{3}b^{3}+0\cdot a^{2}b^{4}-ab^{5}$.</p>
+<p><strong>c. 其他情形.</strong> 按竖式乘法计算即可.</p>
+<h3 id="例9">例9</h3>
+<div class="box box-ex"><p>$\left(a^{4}+a^{3}b+a^{2}b^{2}+ab^{3}+b^{4}\right)(a-b)=$ ______.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $a^{5}-b^{5}$.</p>
+<div class="disp">$$ \begin{array}{rccccc} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ \times) &amp; 1 &amp; -1 &amp; &amp; &amp; \\ \hline &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ +) &amp; &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 \\ \hline &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 \end{array} $$</div>
+<p>故原式 $=a^{5}-b^{5}$.</p></div>
+<div class="box box-card"><div class="box-title">一题一练（原书配套）</div><p>(1) $\left(a^{2}+2ab+b^{2}\right)(a+b)=$ ______.</p>
+<p class="solve-label"><span class="chip">分析</span> </p>
+<div class="disp">$$ \begin{array}{rcccc} &amp; 1 &amp; 2 &amp; 1 &amp; \\ \times) &amp; 1 &amp; 1 &amp; &amp; \\ \hline &amp; 1 &amp; 2 &amp; 1 &amp; \\ +) &amp; &amp; 1 &amp; 2 &amp; 1 \\ \hline &amp; 1 &amp; 3 &amp; 3 &amp; 1 \end{array} $$</div>
+<p>即原式 $=a^{3}+3a^{2}b+3ab^{2}+b^{3}$.</p>
+<p>(2) $\left(a^{2}-2ab+b^{2}\right)(a-b)=$ ______.</p>
+<p class="solve-label"><span class="chip">分析</span> </p>
+<div class="disp">$$ \begin{array}{rcccc} &amp; 1 &amp; -2 &amp; 1 &amp; \\ \times) &amp; 1 &amp; -1 &amp; &amp; \\ \hline &amp; 1 &amp; -2 &amp; 1 &amp; \\ +) &amp; &amp; -1 &amp; 2 &amp; -1 \\ \hline &amp; 1 &amp; -3 &amp; 3 &amp; -1 \end{array} $$</div>
+<p>即原式 $=a^{3}-3a^{2}b+3ab^{2}-b^{3}$.</p>
+<p>(3) $\left(a^{2}-ab+b^{2}\right)(a+b)=$ ______.</p>
+<p class="solve-label"><span class="chip">分析</span> </p>
+<div class="disp">$$ \begin{array}{rcccc} &amp; 1 &amp; -1 &amp; 1 &amp; \\ \times) &amp; 1 &amp; 1 &amp; &amp; \\ \hline &amp; 1 &amp; -1 &amp; 1 &amp; \\ +) &amp; &amp; 1 &amp; -1 &amp; 1 \\ \hline &amp; 1 &amp; 0 &amp; 0 &amp; 1 \end{array} $$</div>
+<p>即原式 $=a^{3}+b^{3}$.</p>
+<p>(4) $\left(a^{2}+ab+b^{2}\right)(a-b)=$ ______.</p>
+<p class="solve-label"><span class="chip">分析</span> </p>
+<div class="disp">$$ \begin{array}{rcccc} &amp; 1 &amp; 1 &amp; 1 &amp; \\ \times) &amp; 1 &amp; -1 &amp; &amp; \\ \hline &amp; 1 &amp; 1 &amp; 1 &amp; \\ +) &amp; &amp; -1 &amp; -1 &amp; -1 \\ \hline &amp; 1 &amp; 0 &amp; 0 &amp; -1 \end{array} $$</div>
+<p>即原式 $=a^{3}-b^{3}$.</p></div>
+<div class="box box-note"><p>(3)(4) 正是<strong>立方和、立方差公式</strong> $a^{3}\pm b^{3}=(a\pm b)\left(a^{2}\mp ab+b^{2}\right)$ 的来源.</p></div>
+<div class="box box-kp"><div class="box-title">分式运算</div><p>若 $A$，$B$ 为整式，称 $\dfrac{A}{B}$ 为有理分式，化简有理分式，一般用"<strong>多项式长除法</strong>".</p>
+<p>①先将被除式与除式分别在实数域上作因式分解（如果可以的话），消去公因式.</p>
+<p>②用多项式长除法.</p></div>
+<h3 id="例10">例10</h3>
+<div class="box box-ex"><p>设 $\lambda\neq 0, 1$，则 $\dfrac{\lambda^{4}-3\lambda^{3}-6\lambda^{2}+8\lambda}{\lambda^{2}-\lambda}=$ ______.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $\lambda^{2}-2\lambda-8$.</p>
+<div class="disp">$$\frac{\lambda^{4}-3\lambda^{3}-6\lambda^{2}+8\lambda}{\lambda^{2}-\lambda}=\frac{\lambda\left(\lambda^{3}-3\lambda^{2}-6\lambda+8\right)}{\lambda(\lambda-1)}=\frac{\lambda^{3}-3\lambda^{2}-6\lambda+8}{\lambda-1}$$</div>
+<p>（多项式长除法竖式：）</p>
+<div class="disp">$$ \begin{array}{rrrr} &amp; &amp; \lambda^{2} &amp; -2\lambda-8 \\ \hline \lambda-1 &amp; \big) &amp; \lambda^{3}-3\lambda^{2}-6\lambda &amp; +8 \\ &amp; &amp; \lambda^{3}-\lambda^{2} &amp; \\ \hline &amp; &amp; \ \ -2\lambda^{2}-6\lambda &amp; \\ &amp; &amp; \ \ -2\lambda^{2}+2\lambda &amp; \\ \hline &amp; &amp; &amp; -8\lambda+8 \\ &amp; &amp; &amp; -8\lambda+8 \\ \hline &amp; &amp; &amp; \quad\ \ 0 \end{array} $$</div>
+<p>于是，原式 $=\lambda^{2}-2\lambda-8$.</p>
+<blockquote><p>【注】对于有理分式 $\dfrac{f(x)}{g(x)}$，称 $f(x)$，$g(x)$ 所有公因式中次数最高的因式为 $f(x)$，$g(x)$ 的最大公因式，如 $f(x)=x^{3}\left(x^{2}-1\right)$ 与 $g(x)=2x^{2}(x+1)$ 的公因式为 $x$，$x^{2}$，$x+1$ 等，于是最大公因式为 $x^{2}(x+1)$.</p>
+<p>一般记首项系数为 1 的最大公因式为 $\left(f(x),g(x)\right)$，若 $\left(f(x),g(x)\right)=1$，称 $f(x)$ 与 $g(x)$ 互质，如 $\left(x^{2},x+1\right)=1$.</p></blockquote></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="expr-concept.html"><span>← 上一节</span><b>解析式的概念</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="expr-radical.html"><span>下一节 →</span><b>无理式的运算</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

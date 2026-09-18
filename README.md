@@ -6,7 +6,7 @@
 - 重要定义、定理与例题附**原书扫描截图**；正文公式用 KaTeX 本地渲染，无外网依赖
 - 纯 HTML+CSS+原生 JS 的 MPA，无框架无构建，手机可读
 
-姊妹站（零基础预备知识）：https://jlshdsdk.github.io/zhangyu-math-zero-basics/
+预备篇（零基础知识，站内）：basics/index.html
 
 ## 说明
 

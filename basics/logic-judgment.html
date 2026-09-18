@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A、B 是两个判断 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">一、基本逻辑</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html" class="active">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">一、基本逻辑</div>
+  <h1>A、B 是两个判断</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">A、B 是两个判断</div><p>(1) 若 $A \Rightarrow B$，称 $A$ 是 $B$ 的<strong>充分条件</strong>，$B$ 是 $A$ 的<strong>必要条件</strong>.</p>
+<p>(2) 若 $A \Leftrightarrow B$，称 $A$ 是 $B$ 的<strong>充要条件</strong>.</p>
+<p>(3) 若 $A \not\Rightarrow B$，称 $A$ 是 $B$ 的<strong>既非充分也非必要条件</strong>，亦称<strong>无关条件</strong>.</p></div>
+<div class="box box-card"><div class="box-title">速记：一句话分清"谁推谁"</div><p>$A \Rightarrow B$：有 $A$ 就够推出 $B$ → $A$ <strong>充分</strong>，$B$ <strong>必要</strong>．</p>
+<p>判断选择题时，把每个命题化成<strong>集合</strong>最稳：记 $A$、$B$ 为使命题成立的 $x$ 的集合，"小集合推大集合"——$A \subsetneq B$ 时，"$x \in A$" 是 "$x \in B$" 的充分非必要条件（见例 2）.</p></div>
+<h3 id="例1">例1</h3>
+<div class="box box-ex"><p>设 $a \in \mathbf{R}$，则 "$a &gt; 1$" 是 "$a^2 &gt; a$" 的（　　）.</p>
+<p>(A) 充分非必要条件　　(B) 必要非充分条件</p>
+<p>(C) 充要条件　　(D) 既非充分也非必要条件</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<p>由 $a^2 &gt; a$，解得 $a &gt; 1$ 或 $a &lt; 0$，故由 $a &gt; 1$ 可以推出 $a^2 &gt; a$，但 $a^2 &gt; a$ 不能推出 $a &gt; 1$，因为还有 $a &lt; 0$ 的情形. 故 $a &gt; 1$ 是 $a^2 &gt; a$ 的充分非必要条件.</p></div>
+<h3 id="例2">例2</h3>
+<div class="box box-ex"><p>设 $x \in \mathbf{R}$，则 "$\left|x - \dfrac{1}{2}\right| &lt; \dfrac{1}{2}$" 是 "$x^3 &lt; 1$" 的（　　）.</p>
+<p>(A) 充分非必要条件　　(B) 必要非充分条件</p>
+<p>(C) 充要条件　　(D) 既非充分也非必要条件</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<p>记 $A = \left\{ x \,\middle|\, \left|x - \dfrac{1}{2}\right| &lt; \dfrac{1}{2} \right\}$，得 $0 &lt; x &lt; 1$；记 $B = \{x \mid x^3 &lt; 1\}$，得 $x &lt; 1$，故 $A \subset B$，$B \not\subset A$. 所以 "$\left|x - \dfrac{1}{2}\right| &lt; \dfrac{1}{2}$" 是 "$x^3 &lt; 1$" 的充分非必要条件.</p></div>
+</div>
+<nav class="pager">
+<span class="pn prev none">已是第一节</span>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="logic-opposite.html"><span>下一节 →</span><b>对立判断</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

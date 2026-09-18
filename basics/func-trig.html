@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三角函数与反三角函数 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">四、函数</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html" class="active">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">四、函数★</div>
+  <h1>三角函数与反三角函数★</h1>
+</div>
+<div class="content">
+<div class="box box-jump"><p><a href="#三角函数的定义与图像">定义与图像</a> · <a href="#特殊角与性质速查">特殊角速查</a> · <a href="#反三角函数">反三角函数</a> · <a href="#公式关联脉络">公式关联脉络</a> · <a href="#诱导公式">诱导公式</a> · <a href="#例题逐行拆解-例46-61">例题逐行拆解</a> · <a href="#易混淆点">易混淆点</a></p></div>
+<div class="box box-anchor-note"><p>本页为全站重点小节。带“原书”字样的内容忠实取自《张宇考研数学基础30讲》P27–P35；带“速记 / 推导 / 拆解”字样的卡片是为方便记忆与理解所作的整理，不含原书之外的例题.</p></div>
+<h3 id="三角函数的定义与图像">三角函数的定义与图像</h3>
+<div class="box box-kp"><div class="box-title">三角函数（原书）</div><p>① $y=\sin x$，如图 9(a) 所示.</p>
+<p>② $y=\cos x$，如图 9(b) 所示.</p>
+<p>③ $y=\tan x$，如图 9(c) 所示.</p>
+<p>（图 9：三个并列的坐标系小图：(a) 正弦曲线 $y=\sin x$，过原点的波浪形曲线；(b) 余弦曲线 $y=\cos x$，在 $y$ 轴上取最大值的波浪形曲线；(c) 正切曲线 $y=\tan x$，过原点、两侧以竖直虚线（渐近线）为界的单调上升分支）</p></div>
+<h3 id="特殊角与性质速查">特殊角与性质速查</h3>
+<div class="box box-card"><div class="box-title">速记：特殊角三角函数值</div><div class="tbl-wrap"><table><thead><tr><th>$x$</th><th>$0$</th><th>$\dfrac{\pi}{6}$</th><th>$\dfrac{\pi}{4}$</th><th>$\dfrac{\pi}{3}$</th><th>$\dfrac{\pi}{2}$</th></tr></thead><tbody><tr><td>$\sin x$</td><td>$0$</td><td>$\dfrac{1}{2}$</td><td>$\dfrac{\sqrt{2}}{2}$</td><td>$\dfrac{\sqrt{3}}{2}$</td><td>$1$</td></tr><tr><td>$\cos x$</td><td>$1$</td><td>$\dfrac{\sqrt{3}}{2}$</td><td>$\dfrac{\sqrt{2}}{2}$</td><td>$\dfrac{1}{2}$</td><td>$0$</td></tr><tr><td>$\tan x$</td><td>$0$</td><td>$\dfrac{\sqrt{3}}{3}$</td><td>$1$</td><td>$\sqrt{3}$</td><td>不存在</td></tr></tbody></table></div>
+<p>记忆法：$\sin$ 的分子是 $\sqrt{0},\sqrt{1},\sqrt{2},\sqrt{3},\sqrt{4}$（即 0,1,√2,√3,2）除以 2；$\cos$ 倒过来背；$\tan=\dfrac{\sin}{\cos}$.</p></div>
+<div class="box box-card"><div class="box-title">速记：三函数性质一览（依据原书图 9 整理）</div><div class="tbl-wrap"><table><thead><tr><th></th><th>$y=\sin x$</th><th>$y=\cos x$</th><th>$y=\tan x$</th></tr></thead><tbody><tr><td>定义域</td><td>$\mathbf{R}$</td><td>$\mathbf{R}$</td><td>$x\neq k\pi+\dfrac{\pi}{2}\ (k\in\mathbf{Z})$</td></tr><tr><td>值域</td><td>$[-1,1]$</td><td>$[-1,1]$</td><td>$\mathbf{R}$</td></tr><tr><td>周期</td><td>$2\pi$</td><td>$2\pi$</td><td>$\pi$</td></tr><tr><td>奇偶性</td><td>奇</td><td>偶</td><td>奇</td></tr><tr><td>递增区间</td><td>$\left[2k\pi-\dfrac{\pi}{2},2k\pi+\dfrac{\pi}{2}\right]$</td><td>$\left[(2k-1)\pi,2k\pi\right]$</td><td>$\left(k\pi-\dfrac{\pi}{2},k\pi+\dfrac{\pi}{2}\right)$</td></tr><tr><td>递减区间</td><td>$\left[2k\pi+\dfrac{\pi}{2},2k\pi+\dfrac{3\pi}{2}\right]$</td><td>$\left[2k\pi,(2k+1)\pi\right]$</td><td>无</td></tr></tbody></table></div></div>
+<h3 id="反三角函数">反三角函数</h3>
+<div class="box box-kp"><div class="box-title">$y=\sin x$ 的反函数（原书）</div><p>当 $2n\pi-\dfrac{\pi}{2}&lt;x&lt;2n\pi+\dfrac{\pi}{2}$ 时，$y=\sin x$ 单调增加；当 $2n\pi+\dfrac{\pi}{2}&lt;x&lt;2(n+1)\pi-\dfrac{\pi}{2}$ 时，$y=\sin x$ 单调减少. 所以当 $n=0, \pm 1, \pm 2, \cdots$ 时，$x$ 轴可以分割成一段段长度是 $\pi$ 的区间，$y=\sin x$ 是逐段单调的（见图 10）.</p>
+<p>取 $-\dfrac{\pi}{2} \leqslant x \leqslant \dfrac{\pi}{2}$ 这一段所决定的反函数，叫作 $y=\sin x$ 的反函数的<strong>主值</strong>，用符号 $x=\arcsin y$ 表示（arc 是英文中的弧长，arcsin 就是其正弦值等于 $y$ 的弧长，因为角度是用单位圆上的弧长来度量的），其曲线如图 11(a) 所示.</p>
+<p>（图 10：$y=\sin x$ 在整条 $x$ 轴上的图像：波浪形曲线，横轴标注 $-\dfrac{3\pi}{2}$、$-\pi$、$-\dfrac{\pi}{2}$、$O$、$\dfrac{\pi}{2}$、$\pi$、$\dfrac{3\pi}{2}$、$2\pi$、$\dfrac{7\pi}{2}$，纵轴标注 $1$、$-1$，各单调段之间有虚线分隔）</p></div>
+<div class="box box-kp"><div class="box-title">$y=\cos x$ 的反函数（原书）</div><p>当 $2n\pi&lt;x&lt;(2n+1)\pi$ 时，$y=\cos x$ 单调减少；当 $(2n+1)\pi&lt;x&lt;(2n+2)\pi$ 时，$y=\cos x$ 单调增加. 所以当 $n=0, \pm 1, \pm 2, \cdots$ 时，$x$ 轴被分割成 $\left[m\pi,(m+1)\pi\right]\left(m \in \mathbf{Z}\right)$ 这样一段段区间，$y=\cos x$ 逐段单调. 通常取 $[0, \pi]$ 这一段作为 $y=\cos x$ 的反函数的主值，用符号 $x=\arccos y$ 表示，其曲线如图 11(b) 所示.</p>
+<p>（图 11：两个并列坐标系，均以 $x$ 为纵轴、$y$ 为横轴：(a) 曲线 $x=\arcsin y$，纵轴范围 $-\dfrac{\pi}{2}$ 到 $\dfrac{\pi}{2}$，横轴标注 $-1$、$1$，过原点的单调上升曲线；(b) 曲线 $x=\arccos y$，纵轴标注 $\dfrac{\pi}{2}$、$\pi$，横轴标注 $-1$、$1$，单调下降曲线）</p></div>
+<div class="box box-kp"><div class="box-title">$y=\tan x$ 的反函数（原书）</div><p>曲线 $y=\tan x$ 如图 12(a) 所示，以 $\left(n\pi-\dfrac{\pi}{2}, n\pi+\dfrac{\pi}{2}\right)(n \in \mathbf{Z})$ 分成逐段递增的曲线分支. 取 $-\dfrac{\pi}{2}&lt;x&lt;\dfrac{\pi}{2}$ 这一支作为 $y=\tan x$ 的反函数的主值，用符号 $x=\arctan y$ 表示，其曲线如图 12(b) 所示.</p>
+<p>（图 12：两个并列坐标系：(a) 曲线 $y=\tan x$，逐支递增，以 $x=-\dfrac{\pi}{2}$、$x=\dfrac{\pi}{2}$ 等处的竖直虚线为渐近线；(b) 曲线 $x=\arctan y$（$x$ 为纵轴、$y$ 为横轴），过原点的单调上升曲线，上下以 $x=\dfrac{\pi}{2}$、$x=-\dfrac{\pi}{2}$ 的水平虚线为渐近线）</p></div>
+<div class="box box-card"><div class="box-title">速记：三大反三角函数主值区间对比</div><div class="tbl-wrap"><table><thead><tr><th></th><th>主值区间（值域）</th><th>奇偶性</th><th>关键恒等式（例 60 证得）</th></tr></thead><tbody><tr><td>$\arcsin x$</td><td>$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$</td><td>奇：$\arcsin(-x)=-\arcsin x$</td><td>$\sin(\arcsin x)=x\ (|x|\leqslant 1)$</td></tr><tr><td>$\arccos x$</td><td>$[0,\pi]$</td><td>非奇非偶：$\arccos(-x)=\pi-\arccos x$</td><td>$\sin(\arccos x)=\sqrt{1-x^{2}}$</td></tr><tr><td>$\arctan x$</td><td>$\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$</td><td>奇：$\arctan(-x)=-\arctan x$</td><td>$\tan(\arctan x)=x$</td></tr></tbody></table></div>
+<p>配套关系：$\arcsin x+\arccos x=\dfrac{\pi}{2}$，$\arctan x+\text{arccot}\,x=\dfrac{\pi}{2}$（同一 $x$，互余）.</p></div>
+<h3 id="公式关联脉络">公式关联脉络</h3>
+<div class="box box-anchor-note"><p>以下推导卡片给出书中例题反复使用的公式组及其来龙去脉：<strong>全部三角恒等式都从"同角关系 + 和差公式"生长出来</strong>——记住主干，推导自然流淌.</p></div>
+<div class="box box-derive"><div class="box-title">同角关系（一切的根）</div><p>单位圆上角 $\alpha$ 的终边与单位圆交于点 $(\cos\alpha,\sin\alpha)$：</p>
+<p><strong>平方关系</strong>（勾股定理）：</p>
+<div class="disp">$$\sin^{2}\alpha+\cos^{2}\alpha=1$$</div>
+<p><strong>商数关系</strong>（坐标定义）：</p>
+<div class="disp">$$\tan\alpha=\frac{\sin\alpha}{\cos\alpha}$$</div>
+<p>由平方关系移项即得常用变形：$1+\tan^{2}\alpha=\sec^{2}\alpha=\dfrac{1}{\cos^{2}\alpha}$（例 59 用 $\sec x$ 求 $\cos x$）.</p></div>
+<div class="box box-derive"><div class="box-title">和差公式（唯一的"种子"）</div><p>在单位圆上取两点 $P_{1}(\cos\alpha,\sin\alpha)$，$P_{2}(\cos\beta,\sin\beta)$，用两种方式计算弦长 $\left|P_{1}P_{2}\right|$（距离公式 vs 夹角 $\alpha-\beta$ 的等腰三角形），化简即得余弦差角公式：</p>
+<div class="disp">$$\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta$$</div>
+<p>其余五个和差公式全部由它配合诱导公式推出：</p>
+<div class="disp">$$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$$</div>
+<div class="disp">$$\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta$$</div>
+<div class="disp">$$\tan(\alpha\pm\beta)=\frac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}$$</div>
+<p>（$\tan$ 公式：分子分母同除 $\cos\alpha\cos\beta$ 即得，例 52、例 53 直接使用）</p></div>
+<div class="box box-derive"><div class="box-title">倍角公式（令 $\beta=\alpha$）</div><div class="disp">$$\sin 2\alpha=2\sin\alpha\cos\alpha$$</div>
+<div class="disp">$$\cos 2\alpha=\cos^{2}\alpha-\sin^{2}\alpha=1-2\sin^{2}\alpha=2\cos^{2}\alpha-1$$</div>
+<div class="disp">$$\tan 2\alpha=\frac{2\tan\alpha}{1-\tan^{2}\alpha}$$</div>
+<p>$\cos 2\alpha$ 的三种写法各有用场：见到 $\sin^2$ 就换 $1-2\sin^2$，见到 $\cos^2$ 就换 $2\cos^2-1$（例 56 用 $\sin x\cos x=\frac12\sin2x$，例 59 用 $\cos2x=1-2\sin^2x$）.</p></div>
+<div class="box box-derive"><div class="box-title">降幂公式与半角公式（倍角公式逆用）</div><p>把 $\cos 2\alpha=1-2\sin^{2}\alpha$ 与 $\cos 2\alpha=2\cos^{2}\alpha-1$ 移项，得<strong>降幂公式</strong>：</p>
+<div class="disp">$$\sin^{2}\alpha=\frac{1-\cos 2\alpha}{2},\qquad \cos^{2}\alpha=\frac{1+\cos 2\alpha}{2}$$</div>
+<p>（平方变一次——例 53 第一反应就是它）</p>
+<p>再开方并令 $\alpha \to \dfrac{\alpha}{2}$，得<strong>半角公式</strong>（符号由 $\dfrac{\alpha}{2}$ 所在象限定）：</p>
+<div class="disp">$$\sin\frac{\alpha}{2}=\pm\sqrt{\frac{1-\cos\alpha}{2}},\qquad \cos\frac{\alpha}{2}=\pm\sqrt{\frac{1+\cos\alpha}{2}}$$</div>
+<p>（例 59 用 $\sin\dfrac{x}{2}=-\sqrt{\dfrac{1-\cos x}{2}}$，因 $x\in\left(-\dfrac{\pi}{2},0\right)$ 使 $\dfrac{x}{2}\in\left(-\dfrac{\pi}{4},0\right)$，正弦为负）</p></div>
+<div class="box box-derive"><div class="box-title">辅助角公式（合二为一）</div><div class="disp">$$a\sin x+b\cos x=\sqrt{a^{2}+b^{2}}\,\sin(x+\varphi),\qquad \tan\varphi=\frac{b}{a}$$</div>
+<p>来历：提出 $\sqrt{a^{2}+b^{2}}$ 后，令 $\cos\varphi=\dfrac{a}{\sqrt{a^{2}+b^{2}}}$，$\sin\varphi=\dfrac{b}{\sqrt{a^{2}+b^{2}}}$，再用正弦和角公式.</p>
+<p>例 54 的用法（取负号更直接）：$\cos x-\sin x=\sqrt{2}\left(\dfrac{1}{\sqrt{2}}\cos x-\dfrac{1}{\sqrt{2}}\sin x\right)=\sqrt{2}\cos\left(x+\dfrac{\pi}{4}\right)=-\sqrt{2}\sin\left(x-\dfrac{\pi}{4}\right)$.</p></div>
+<h3 id="诱导公式">诱导公式</h3>
+<div class="box box-card"><div class="box-title">口诀：奇变偶不变，符号看象限</div><p>把 $\dfrac{k\pi}{2}\pm\alpha\ (k=0,1,2,3)$ 型角一律化到 $\alpha$：</p>
+<ul><li><strong>奇变偶不变</strong>：$k$ 为奇数（$\dfrac{\pi}{2}$、$\dfrac{3\pi}{2}$）时函数名改变（$\sin\leftrightarrow\cos$）；$k$ 为偶数（$\pi$、$2\pi$、$0$）时函数名不变.</li><li><strong>符号看象限</strong>：把 $\alpha$ 当锐角看，$\dfrac{k\pi}{2}\pm\alpha$ 落在哪个象限，原函数在那里取什么符号，结果就带什么符号.</li></ul>
+<div class="tbl-wrap"><table><thead><tr><th>角</th><th>正弦</th><th>余弦</th><th>正切</th></tr></thead><tbody><tr><td>$-\alpha$</td><td>$-\sin\alpha$</td><td>$\cos\alpha$</td><td>$-\tan\alpha$</td></tr><tr><td>$\dfrac{\pi}{2}-\alpha$</td><td>$\cos\alpha$</td><td>$\sin\alpha$</td><td>$\cot\alpha$</td></tr><tr><td>$\dfrac{\pi}{2}+\alpha$</td><td>$\cos\alpha$</td><td>$-\sin\alpha$</td><td>$-\cot\alpha$</td></tr><tr><td>$\pi\pm\alpha$</td><td>$\mp\sin\alpha$</td><td>$-\cos\alpha$</td><td>$\pm\tan\alpha$</td></tr><tr><td>$\dfrac{3\pi}{2}-\alpha$</td><td>$-\cos\alpha$</td><td>$-\sin\alpha$</td><td>$\cot\alpha$</td></tr><tr><td>$2\pi-\alpha$</td><td>$-\sin\alpha$</td><td>$\cos\alpha$</td><td>$-\tan\alpha$</td></tr></tbody></table></div>
+<p>例 51 用 $\sin\left(\dfrac{\pi}{2}-\alpha\right)=\cos\alpha$，例 53 用 $\cos\left(2\alpha+\dfrac{\pi}{2}\right)=-\sin 2\alpha$，例 49 判断 $\sin 2\alpha$ 的符号全靠"符号看象限".</p></div>
+<div class="box box-card"><div class="box-title">速记：象限符号规律（全部正 / 正弦正 / 正切正 / 余弦正）</div><div class="tbl-wrap"><table><thead><tr><th>象限</th><th>一</th><th>二</th><th>三</th><th>四</th></tr></thead><tbody><tr><td>为正的函数</td><td>全部</td><td>$\sin$（及 $\csc$）</td><td>$\tan$（及 $\cot$）</td><td>$\cos$（及 $\sec$）</td></tr></tbody></table></div>
+<p>口诀 <strong>"ASTC"（A 型 C）</strong>：一 All、二 Sin、三 Tan、四 Cos. 例 49、例 50 定符号均用此表.</p></div>
+<h3 id="例题逐行拆解-例46-61">例题逐行拆解（例46–61）</h3>
+<div class="box box-anchor-note"><p>以下例题的题干与解答文字均忠实取自原书；卡片中标注"拆解"的内容是逐步注解：每一步标出所用公式与变形动机，便于对照记忆.</p></div>
+<h4 id="例46">例46</h4>
+<div class="box box-ex"><p>画出函数 $y=1+2\sin \pi x$ 的图像.</p>
+<p class="solve-label"><span class="chip">解</span> 由于 $2\sin \pi(x+2)=2\sin \pi x$，可知函数 $2\sin \pi x$ 是以 2 为周期的周期函数，振幅为 2，因此可先画出函数 $2\sin \pi x$ 一个周期的图像［见图 13(a)］，然后将此图像向上平移 1 个单位，向其他周期扩展后即为所求函数的图像［见图 13(b)］.</p>
+<p>（图 13：两个并列坐标系：(a) 函数 $2\sin\pi x$ 一个周期的图像，从原点起先升后降，纵轴标注 $2$、$-2$，横轴标注 $2$；(b) 函数 $y=1+2\sin\pi x$ 的图像，为 (a) 的图像向上平移 1 个单位并向其他周期扩展后的结果，纵轴标注 $3$、$1$、$-1$，横轴标注 $2$）</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>第一步验证周期：$2\sin\pi(x+2)=2\sin(\pi x+2\pi)=2\sin\pi x$——用的正是"周期 = $\dfrac{2\pi}{\omega}$"，此处 $\omega=\pi$，故 $T=\dfrac{2\pi}{\pi}=2$.</li><li>$y=A\sin(\omega x)+k$ 作图三板斧：**振幅 $A$ 定高低、周期定宽窄、$k$ 上 下平移**. 本题 $A=2$，$k=1$.</li></ul></div>
+<h4 id="例47">例47</h4>
+<div class="box box-ex"><p>画出函数 $y=\sin\left(x+\dfrac{\pi}{4}\right)$ 的图像.</p>
+<p class="solve-label"><span class="chip">解</span> 函数 $y=\sin\left(x+\dfrac{\pi}{4}\right)$ 的图像，可由函数 $y=\sin x$ 的图像向左平移 $\dfrac{\pi}{4}$ 得到（见图 14）.</p>
+<p>（图 14：$y=\sin\left(x+\dfrac{\pi}{4}\right)$ 的图像：波浪形正弦曲线，横轴标注 $-\dfrac{\pi}{4}$（曲线的零点）与 $2\pi-\dfrac{\pi}{4}$）</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><p>"<strong>左加右减</strong>"：$x$ 的位置加上 $\dfrac{\pi}{4}$，图像就向<strong>左</strong>移 $\dfrac{\pi}{4}$（自变量提前到达同一值）. 零点随之从 $0$ 移到 $-\dfrac{\pi}{4}$.</p></div>
+<h4 id="例48">例48</h4>
+<div class="box box-ex"><p>为得到函数 $y=\cos\left(2x+\dfrac{\pi}{3}\right)$ 的图像，可以将函数 $y=\sin 2x$ 的图像（　　）.</p>
+<p>(A) 向左平移 $\dfrac{5\pi}{12}$ 个长度单位　　(B) 向右平移 $\dfrac{5\pi}{12}$ 个长度单位</p>
+<p>(C) 向左平移 $\dfrac{5\pi}{6}$ 个长度单位　　(D) 向右平移 $\dfrac{5\pi}{6}$ 个长度单位</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<div class="disp">$$ y=\sin 2(x+a)=\sin\left(2x+\frac{\pi}{2}+2a-\frac{\pi}{2}\right)=\cos\left(2x+\frac{\pi}{3}\right), $$</div>
+<p>故 $2a-\dfrac{\pi}{2}+2k\pi=\dfrac{\pi}{3}$，$a=\dfrac{5}{12}\pi-k\pi$，$k=0, \pm 1, \pm 2, \cdots$.</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>破题关键：目标是把 $\sin$ 变 $\cos$。用诱导公式 $\sin\left(\theta+\dfrac{\pi}{2}\right)=\cos\theta$，故在 $\sin$ 的角里"造"出一个 $\dfrac{\pi}{2}$：加减 $\dfrac{\pi}{2}$ 抵消，式子不变，但形式上已变成 $\cos\left(2x+2a-\dfrac{\pi}{2}\right)$.</li><li>令相位 $2a-\dfrac{\pi}{2}+2k\pi=\dfrac{\pi}{3}$（周期函数，差 $2k\pi$ 均可），解出 $a=\dfrac{5\pi}{12}-k\pi$，取 $k=0$ 得最小正平移 $\dfrac{5\pi}{12}$，且 $a&gt;0$ 为<strong>左移</strong>（对应选项 A）.</li><li><strong>易错</strong>：平移是对 $x$ 本身进行的，$\sin2(x+a)$ 中平移量 $a$ 被 $\omega=2$ 放大成相位 $2a$——所以平移量是 $\dfrac{5\pi}{12}$ 而不是 $\dfrac{5\pi}{6}$（选项 C 的陷阱）.</li></ul></div>
+<h4 id="例49">例49</h4>
+<div class="box box-ex"><p>若 $\alpha$ 为第四象限角，则（　　）.</p>
+<p>(A) $\cos 2\alpha&gt;0$　　(B) $\cos 2\alpha&lt;0$　　(C) $\sin 2\alpha&gt;0$　　(D) $\sin 2\alpha&lt;0$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (D).</p>
+<p>$2k\pi+\dfrac{3\pi}{2}&lt;\alpha&lt;2k\pi+2\pi\ (k \in \mathbf{Z})$，故 $4k\pi+3\pi&lt;2\alpha&lt;4k\pi+4\pi\ (k \in \mathbf{Z})$，即 $2\alpha$ 为第三、四象限角，$\sin 2\alpha&lt;0$.</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>第一步把"第四象限角"翻译成不等式：$2k\pi+\dfrac{3\pi}{2}&lt;\alpha&lt;2k\pi+2\pi$.</li><li>各边乘 2（注意周期随之翻倍成 $4\pi$）：$4k\pi+3\pi&lt;2\alpha&lt;4k\pi+4\pi$. 逐 $k$ 归位到 $[0,2\pi)$：等价于 $2\alpha$ 落在 $(\pi,2\pi)$ 的<strong>第三或第四象限</strong>.</li><li>由象限符号表（ASTC），三、四象限正弦为负 → $\sin2\alpha&lt;0$，选 (D)；而 $\cos2\alpha$ 三象限负、四象限正，无法确定正负，(A)(B) 都不成立——"不能确定"本身就是排除依据.</li></ul></div>
+<h4 id="例50">例50</h4>
+<div class="box box-ex"><p>已知 $-\dfrac{\pi}{2}&lt;x&lt;0$，$\sin x+\cos x=\dfrac{1}{5}$，则 $\sin x-\cos x=$（　　）.</p>
+<p>(A) $\dfrac{7}{5}$　　(B) $-\dfrac{7}{5}$　　(C) $\dfrac{\sqrt{7}}{5}$　　(D) $-\dfrac{\sqrt{7}}{5}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (B).</p>
+<p>由 $(\sin x+\cos x)^{2}=\sin^{2}x+2\sin x\cos x+\cos^{2}x=\dfrac{1}{25}$，于是 $2\sin x\cos x=-\dfrac{24}{25}$，则 $(\sin x-\cos x)^{2}=1-2\sin x\cos x=\dfrac{49}{25}$.</p>
+<p>当 $-\dfrac{\pi}{2}&lt;x&lt;0$ 时，$\sin x&lt;0$，$\cos x&gt;0$，$\sin x-\cos x&lt;0$，故 $\sin x-\cos x=-\dfrac{7}{5}$.</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>思路分析：已知"和"求"差"——<strong>平方</strong>是桥梁. 展开用完全平方 + 同角平方关系 $\sin^{2}x+\cos^{2}x=1$.</li><li>展开 $(\sin x+\cos x)^2$ 得 $\sin^2x+\cos^2x+2\sin x\cos x=1+2\sin x\cos x=\dfrac1{25}$ → 解出 $2\sin x\cos x=-\dfrac{24}{25}$（积为负，说明 $x$ 确实在二、四象限，与条件吻合）.</li><li>$(\sin x-\cos x)^2=1-2\sin x\cos x=\dfrac{49}{25}$ → 开方前<strong>必须定号</strong>：$-\dfrac{\pi}{2}&lt;x&lt;0$（第四象限）时 $\sin x&lt;0&lt;\cos x$，差必为负 → 取 $-\dfrac{7}{5}$. 开方不定号是本题最大失分点.</li></ul></div>
+<h4 id="例51">例51</h4>
+<div class="box box-ex"><p>若 $3\sin \alpha-\sin \beta=\sqrt{10}$，$\alpha+\beta=\dfrac{\pi}{2}$，则 $\sin \alpha=$______.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $\dfrac{3\sqrt{10}}{10}$.</p>
+<p>由 $\beta=\dfrac{\pi}{2}-\alpha$，则 $3\sin \alpha-\sin \beta=3\sin \alpha-\cos \alpha=\sqrt{10}$，即 $\cos \alpha=3\sin \alpha-\sqrt{10}$，于是有 $\sin^{2}\alpha+(3\sin \alpha-\sqrt{10})^{2}=1$，解得 $\sin \alpha=\dfrac{3\sqrt{10}}{10}$.</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>第一步<strong>消元</strong>：把 $\beta$ 用 $\alpha$ 表示（$\beta=\dfrac{\pi}{2}-\alpha$），代入诱导公式 $\sin\left(\dfrac{\pi}{2}-\alpha\right)=\cos\alpha$，两个未知角变一个.</li><li>第二步<strong>造平方关系</strong>：把 $\cos\alpha=3\sin\alpha-\sqrt{10}$ 代入 $\sin^{2}\alpha+\cos^{2}\alpha=1$，得到关于 $\sin\alpha$ 的一元二次方程 $10\sin^{2}\alpha-6\sqrt{10}\sin\alpha+9=0$，判别式 $\Delta=360-360=0$，解得 $\sin\alpha=\dfrac{6\sqrt{10}}{20}=\dfrac{3\sqrt{10}}{10}$（书直接写"解得"）.</li><li>套路总结：<strong>"一个关系式 + 平方关系"联立消元</strong>，是三角求值最常用的组合拳.</li></ul></div>
+<h4 id="例52">例52</h4>
+<div class="box box-ex"><p>已知 $\tan \alpha=-2$，$\tan (\alpha+\beta)=\dfrac{1}{7}$，则 $\tan \beta=$______.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 3.</p>
+<div class="disp">$$ \tan \beta=\tan [(\alpha+\beta)-\alpha]=\frac{\tan (\alpha+\beta)-\tan \alpha}{1+\tan (\alpha+\beta)\tan \alpha}=\frac{\dfrac{1}{7}+2}{1-\dfrac{2}{7}}=3. $$</div></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>思路分析：<strong>已知复合角求单角 → 拆角</strong>. 把 $\beta$ 写成 $(\alpha+\beta)-\alpha$（目标角 = 已知角 − 已知角）.</li><li>第二步套正切差角公式 $\tan(A-B)=\dfrac{\tan A-\tan B}{1+\tan A\tan B}$，其中 $A=\alpha+\beta$，$B=\alpha$：分子 $\dfrac{1}{7}-(-2)$，分母 $1+\dfrac{1}{7}\times(-2)$，约分即得 3.</li></ul></div>
+<h4 id="例53">例53</h4>
+<div class="box box-ex"><p>已知 $\sin 2\alpha=\dfrac{2}{3}$，则 $\cos^{2}\left(\alpha+\dfrac{\pi}{4}\right)=$（　　）.</p>
+<p>(A) $\dfrac{1}{6}$　　(B) $\dfrac{1}{3}$　　(C) $\dfrac{1}{2}$　　(D) $\dfrac{2}{3}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<div class="disp">$$ \cos^{2}\left(\alpha+\frac{\pi}{4}\right)=\frac{1+\cos 2\left(\alpha+\frac{\pi}{4}\right)}{2}=\frac{1+\cos\left(2\alpha+\frac{\pi}{2}\right)}{2}=\frac{1-\sin 2\alpha}{2}=\frac{1-\dfrac{2}{3}}{2}=\frac{1}{6}. $$</div></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>第一步<strong>降幂</strong>：见到 $\cos^{2}$（平方）就用降幂公式 $\cos^{2}\theta=\dfrac{1+\cos 2\theta}{2}$，把平方降成一次.</li><li>第二步<strong>诱导</strong>：$\cos\left(2\alpha+\dfrac{\pi}{2}\right)$ 中 $\dfrac{\pi}{2}$ 是"奇"倍 → 函数名变（$\cos\to\sin$）；把 $2\alpha$ 当锐角看，$\dfrac{\pi}{2}+2\alpha$ 在第二象限，余弦为负 → $\cos\left(2\alpha+\dfrac{\pi}{2}\right)=-\sin 2\alpha$.</li><li>第三步代入 $\sin 2\alpha=\dfrac{2}{3}$ 收工. 全题 = 降幂公式 + 诱导公式，两步到位.</li></ul></div>
+<h4 id="例54">例54</h4>
+<div class="box box-ex"><p>若 $f(x)=\cos x-\sin x$ 在 $[-a,a]$ 上是减函数，则 $a$ 的最大值是（　　）.</p>
+<p>(A) $\dfrac{\pi}{4}$　　(B) $\dfrac{\pi}{2}$　　(C) $\dfrac{3\pi}{4}$　　(D) $\pi$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (A).</p>
+<p>$f(x)=-\sqrt{2}\sin\left(x-\dfrac{\pi}{4}\right)$，其单调减区间为 $\left[2k\pi-\dfrac{\pi}{4}, 2k\pi+\dfrac{3\pi}{4}\right](k \in \mathbf{Z})$，故 $a$ 的最大值是 $\dfrac{\pi}{4}$.</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>第一步<strong>辅助角公式</strong>化同名：$\cos x-\sin x=\sqrt{2}\cos\left(x+\dfrac{\pi}{4}\right)=-\sqrt{2}\sin\left(x-\dfrac{\pi}{4}\right)$（详见上文推导卡片）.</li><li>第二步定单调区间：$\sin$ 的增区间是 $\left[2k\pi-\dfrac{\pi}{2},2k\pi+\dfrac{\pi}{2}\right]$，前面添负系数后增减互换 → $f$ 的<strong>减</strong>区间为 $\left[2k\pi-\dfrac{\pi}{4},2k\pi+\dfrac{3\pi}{4}\right]$.</li><li>第三步"套区间"：$[-a,a]$ 要整个落在某个减区间内，且关于原点对称，比较端点：$-a\geqslant-\dfrac{\pi}{4}$（取 $k=0$），故 $a\leqslant\dfrac{\pi}{4}$，最大值 $\dfrac{\pi}{4}$，选 (A).</li></ul></div>
+<h4 id="例55">例55</h4>
+<div class="box box-ex"><p>关于函数 $f(x)=\sin x+\dfrac{1}{\sin x}$ 有如下四个命题：</p>
+<p>① $f(x)$ 的图像关于 $y$ 轴对称；</p>
+<p>② $f(x)$ 的图像关于原点对称；</p>
+<p>③ $f(x)$ 的图像关于直线 $x=\dfrac{\pi}{2}$ 对称；</p>
+<p>④ $f(x)$ 的最小值为 2.</p>
+<p>其中所有真命题的序号是（　　）.</p>
+<p>(A) ①④　　(B) ②③　　(C) ②　　(D) ④</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (B).</p>
+<p>函数 $f(x)$ 的定义域为 $\left\{x \mid x \neq k\pi, k \in \mathbf{Z}\right\}$，由于 $f(-x)=\sin(-x)+\dfrac{1}{\sin(-x)}=-\sin x-\dfrac{1}{\sin x}=-f(x)$，故 $f(x)$ 的图像关于原点对称，②正确；又 $f\left(\dfrac{\pi}{2}-x\right)=\sin\left(\dfrac{\pi}{2}-x\right)+\dfrac{1}{\sin\left(\dfrac{\pi}{2}-x\right)}=\cos x+\dfrac{1}{\cos x}$，$f\left(\dfrac{\pi}{2}+x\right)=\sin\left(\dfrac{\pi}{2}+x\right)+\dfrac{1}{\sin\left(\dfrac{\pi}{2}+x\right)}=\cos x+\dfrac{1}{\cos x}$，即 $f\left(\dfrac{\pi}{2}-x\right)=f\left(\dfrac{\pi}{2}+x\right)$，所以函数 $f(x)$ 的图像关于直线 $x=\dfrac{\pi}{2}$ 对称，③正确；若 $-\pi&lt;x&lt;0$，则 $\sin x&lt;0$，$\dfrac{1}{\sin x}&lt;0$，故 $f(x)=\sin x+\dfrac{1}{\sin x}&lt;0$，④错误. 选 (B).</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>②（奇偶）：用诱导公式 $\sin(-x)=-\sin x$ 代入得 $f(-x)=-f(x)$ → 奇函数 → 关于<strong>原点</strong>对称；①随之被否定（奇函数不可能关于 $y$ 轴对称，除非恒为零）.</li><li>③（轴对称）：<strong>检验法</strong> $f(a-x)=f(a+x)$ 是否成立——分别算 $\dfrac{\pi}{2}\mp x$ 处的值，都用诱导公式 $\sin\left(\dfrac{\pi}{2}\pm x\right)=\cos x$ 化为 $\cos x+\dfrac{1}{\cos x}$，相等 → 关于 $x=\dfrac{\pi}{2}$ 对称.</li><li>④（最小值 2？）：均值不等式 $\sin x+\dfrac1{\sin x}\geqslant 2$ **要求 $\sin x&gt;0$**；取 $(-\pi,0)$ 内的点 $\sin x&lt;0$，两项皆负，$f(x)&lt;0&lt;2$ → ④错. <strong>前提条件不满足时均值不等式不能乱用</strong>.</li></ul></div>
+<h4 id="例56">例56</h4>
+<div class="box box-ex"><p>如图 15 所示，已知圆 $O$ 的半径为 1，$A$ 是圆上的定点，$P$ 是圆上一动点，角 $x$ 的始边为射线 $OA$，终边为射线 $OP$．过点 $P$ 作直线 $OA$ 的垂线，垂足为点 $M$，将点 $M$ 到直线 $OP$ 的距离表示为 $x$ 的函数 $f(x)$，则 $y=f(x)$ 在 $[0,\pi]$ 上的图像大致为（　　）.</p>
+<p>（图 15：圆 $O$，$A$ 为圆上定点（位于 $O$ 右侧水平方向），$P$ 为圆上动点，$\angle AOP=x$，过 $P$ 作 $OA$ 的垂线，垂足为 $M$，图中标出直角符号）</p>
+<p>选项图像（图：四个选项均为 $[0,\pi]$ 上的图像，横轴 $O$ 到 $\pi$，纵轴最高刻度 1）：</p>
+<p>(A) 先上升至最高点（峰值接近 1）再下降回 0 的单峰曲线，两端与横轴相切；(B) 两个较低的波峰，中间与横轴相切后再次升起，峰值明显低于 1；(C) 两个较高的波峰，峰值达到约 1，中间相交处为尖点；(D) 形如抛物线的单峰曲线，两端落于横轴，峰值接近 1.</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (B).</p>
+<p>当 $x\in\left[0,\dfrac{\pi}{2}\right)$ 时，过点 $M$ 作 $MD\perp OP$ 于点 $D$［见图 16(a)］，则 $|PM|=\sin x$，$|OM|=\cos x$．$|MD|=\dfrac{|OM||PM|}{|OP|}=\dfrac{\cos x\cdot\sin x}{1}=\cos x\sin x=\dfrac{1}{2}\sin 2x$．</p>
+<p>当 $x\in\left[\dfrac{\pi}{2},\pi\right]$ 时，同样的作图方法［见图 16(b)］，但此时 $|PM|=\sin(\pi-x)=\sin x$，$|OM|=\cos(\pi-x)=-\cos x$，于是 $|MD|=\dfrac{|OM||PM|}{|OP|}=\dfrac{-\cos x\cdot\sin x}{1}=-\dfrac{1}{2}\sin 2x$．</p>
+<p>综上，$f(x)=\dfrac{1}{2}|\sin 2x|$，$x\in[0,\pi]$．选 (B)．</p>
+<p>（图 16：(a) 标注 $x\in\left[0,\dfrac{\pi}{2}\right)$——单位圆，$P$ 在第一象限，$M$ 在 $OA$ 上，$D$ 在 $OP$ 上，$MD\perp OP$；(b) 标注 $x\in\left[\dfrac{\pi}{2},\pi\right]$——$P$ 在第二象限，$M$ 在 $O$ 左侧，$D$ 在 $OP$ 上，$MD\perp OP$，角 $x$ 为钝角）</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>第一段：直角三角形 $\triangle OMP$ 中用三角定义读出两边：斜边 $|OP|=1$（半径），对边 $|PM|=\sin x$，邻边 $|OM|=\cos x$.</li><li>求 $M$ 到 $OP$ 的距离用<strong>等积法</strong>：$|OM|\cdot|PM|=|OP|\cdot|MD|$（同一三角形面积的两种算 法），故 $|MD|=\cos x\sin x$.</li><li>第二步<strong>倍角公式</strong>：$\cos x\sin x=\dfrac{1}{2}\sin 2x$（$\sin 2x=2\sin x\cos x$ 逆用）.</li><li>第二段（$x$ 为钝角）：诱导公式给出 $\sin(\pi-x)=\sin x$、$\cos(\pi-x)=-\cos x$，长度取正值得 $|MD|=-\dfrac12\sin2x$（此时 $\sin2x&lt;0$）.</li><li>两段合并：$f(x)=\dfrac{1}{2}|\sin 2x|$——绝对值使两段拼成"两个波峰"（峰值 $\dfrac12&lt;1$，且在 $x=\dfrac{\pi}{2}$ 处<strong>相切</strong>于横轴而非尖点）→ 选 (B). 图像判断题的答案完全由解析式决定.</li></ul></div>
+<h4 id="例57">例57</h4>
+<div class="box box-ex"><p>设 $0&lt;x&lt;\dfrac{\pi}{2}$，证明 $\cos x&lt;\dfrac{\sin x}{x}&lt;1$．</p>
+<p class="solve-label"><span class="chip">证</span> 如图 17 所示，作一单位圆，并在该单位圆中作 $\angle COB=x\left(0&lt;x&lt;\dfrac{\pi}{2}\right)$，过点 $C$ 作切线 $CA$，交 $OB$ 延长线于点 $A$，过点 $B$ 作 $OC$ 的垂线 $BD$，交 $OC$ 于点 $D$．设圆心角 $x$ 所对的 $\widehat{BC}$ 的长为 $l$．</p>
+<p>（图 17：单位圆，圆心 $O$，$x$ 轴正向上依次有点 $D$、$C$（$C$ 为圆与 $x$ 轴交点）；$B$ 为第一象限圆上的点，$\angle COB=x$；$A$ 为过 $C$ 的切线与 $OB$ 延长线的交点，位于 $B$ 右上方；$BD\perp OC$）</p>
+<p>由 $S_{\triangle OBC}&lt;S_{\text{扇形}OBC}&lt;S_{\triangle OAC}$，即</p>
+<div class="disp">$$\frac{1}{2}|OC|\cdot|BD|&lt;\frac{1}{2}|OC|\cdot l&lt;\frac{1}{2}|OC|\cdot|AC|,$$</div>
+<p>消去 $\dfrac{1}{2}|OC|$，得</p>
+<p>$|BD|&lt;x\cdot|OB|&lt;|AC|$，又 $\sin x=\dfrac{|BD|}{|OB|}$，$\tan x=\dfrac{|AC|}{|OC|}$，</p>
+<p>故</p>
+<div class="disp">$$|OB|\sin x&lt;x\cdot|OB|&lt;|OC|\tan x,$$</div>
+<p>又 $|OB|=|OC|$，消去 $|OB|$，$|OC|$，得 $\sin x&lt;x&lt;\tan x$．</p>
+<p>故 $\dfrac{\sin x}{x}&lt;1$，又 $\tan x=\dfrac{\sin x}{\cos x}&gt;x&gt;0$，故 $\cos x&lt;\dfrac{\sin x}{x}&lt;1$．</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li><strong>思路分析</strong>：证含 $\dfrac{\sin x}{x}$ 的不等式，几何上找三个可比的量——小三角形、扇形、大三角形<strong>面积递增</strong>这一直观事实就是全部桥梁.</li><li>面积公式逐一落实：$S_{\triangle OBC}=\dfrac12|OC|\cdot|BD|$（以 $OC$ 为底、$BD$ 为高），$S_{\text{扇形}}=\dfrac12 r l=\dfrac12|OC|\cdot l$，其中**弧长 $l=x\cdot|OB|$——这正是弧度制的定义**（弧长 = 半径 × 圆心角），$S_{\triangle OAC}=\dfrac12|OC|\cdot|AC|$.</li><li>化简链条：面积不等式 → $|BD|&lt;x|OB|&lt;|AC|$ → 代入 $\sin x=\dfrac{|BD|}{|OB|}$、$\tan x=\dfrac{|AC|}{|OC|}$ → $\sin x&lt;x&lt;\tan x$.</li><li>收尾：由 $x&gt;0$，$\sin x&lt;x$ 即 $\dfrac{\sin x}{x}&lt;1$；由 $\tan x=\dfrac{\sin x}{\cos x}&gt;x&gt;0$ 变形即 $\cos x&lt;\dfrac{\sin x}{x}$. **此不等式即重要极限 $\lim\limits_{x\to0}\dfrac{\sin x}{x}=1$ 的证明核心**，务必熟悉.</li></ul></div>
+<h4 id="例58">例58</h4>
+<div class="box box-ex"><p>若 $\arcsin x&gt;\arccos x$，则 $x$ 的取值范围是______.</p>
+<p class="solve-label"><span class="chip">解</span> 应填 $\left(\dfrac{\sqrt{2}}{2},1\right]$．</p>
+<p>由题设，有</p>
+<div class="disp">$$\frac{\pi}{2}\geqslant\arcsin x&gt;\arccos x\geqslant 0.$$</div>
+<p>令 $\arccos x=t$，则 $x=\cos t$，$\sin t=\sqrt{1-x^{2}}$．由 $\sin x$ 在 $\left[0,\dfrac{\pi}{2}\right]$ 上单调增加，有</p>
+<div class="disp">$$1\geqslant\sin(\arcsin x)&gt;\sin t\geqslant 0,$$</div>
+<div class="disp">$$1\geqslant x&gt;\sqrt{1-x^{2}}\geqslant 0,$$</div>
+<p>于是</p>
+<div class="disp">$$\frac{\sqrt{2}}{2}&lt;x\leqslant 1.$$</div>
+<blockquote><p>【注】若考生能熟练且准确画出反三角函数的图形，则 $x$ 的取值范围一目了然，如图 18 所示．</p></blockquote>
+<p>（图 18：坐标系，横轴 $x$ 上标注 $-1$、$\dfrac{\sqrt{2}}{2}$、$1$，纵轴 $y$ 上标注 $\pi$、$\dfrac{\pi}{2}$、$-\dfrac{\pi}{2}$；曲线 $y=\arccos x$ 自 $(-1,\pi)$ 经 $\left(0,\dfrac{\pi}{2}\right)$ 单调递减至 $(1,0)$；曲线 $y=\arcsin x$ 自 $\left(-1,-\dfrac{\pi}{2}\right)$ 经原点 $O$ 单调递增至 $\left(1,\dfrac{\pi}{2}\right)$；两曲线交点的横坐标 $\dfrac{\sqrt{2}}{2}$ 处用虚线垂下标在 $x$ 轴上）</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>第一步框定范围：$\arcsin x\in\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$、$\arccos x\in[0,\pi]$（主值区间），要使前者更大，只能都在 $\left[0,\dfrac{\pi}{2}\right]$ 内.</li><li>第二步<strong>对不等式两边取正弦</strong>（$\sin$ 在 $\left[0,\dfrac{\pi}{2}\right]$ 单调增，保序）：$\sin(\arcsin x)=x$，$\sin(\arccos x)=\sqrt{1-x^{2}}$（同角平方关系，且此范围内正弦非负）.</li><li>解 $x&gt;\sqrt{1-x^{2}}$：两边非负可平方，$x^{2}&gt;1-x^{2}$ → $x^{2}&gt;\dfrac{1}{2}$，又 $x\geqslant0$ → $x&gt;\dfrac{\sqrt2}{2}$，加上定义域 $x\leqslant1$ 收尾.</li><li>图像法（原书注）：$y=\arcsin x$ 上升、$y=\arccos x$ 下降，交点横坐标 $\dfrac{\sqrt{2}}{2}$，右侧即为所求——<strong>反三角问题首选画图</strong>.</li></ul></div>
+<h4 id="例59">例59</h4>
+<div class="box box-ex"><p>记 $M=\cos\left(2\arcsin\dfrac{1}{2}\right)$，$N=\sin\left(\arccos\dfrac{\sqrt{2}}{2}\right)$，$K=\sin\left[\dfrac{1}{2}\arctan(-2\sqrt{2})\right]$，则（　　）.</p>
+<p>(A) $M&gt;N&gt;K$　　(B) $N&gt;M&gt;K$　　(C) $M&gt;K&gt;N$　　(D) $N&gt;K&gt;M$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (B).</p>
+<p>令 $\arcsin\dfrac{1}{2}=x$，$\sin x=\dfrac{1}{2}$，故</p>
+<div class="disp">$$\cos\left(2\arcsin\frac{1}{2}\right)=\cos 2x=1-2\sin^{2}x=1-2\times\left(\frac{1}{2}\right)^{2}=\frac{1}{2}=M;$$</div>
+<p>令 $\arccos\dfrac{\sqrt{2}}{2}=x$，$\cos x=\dfrac{\sqrt{2}}{2}$，于是</p>
+<div class="disp">$$\sin\left(\arccos\frac{\sqrt{2}}{2}\right)=\sin x=\sqrt{1-\cos^{2}x}=\sqrt{1-\frac{1}{2}}=\frac{\sqrt{2}}{2}=N;$$</div>
+<p>令 $\arctan(-2\sqrt{2})=x$，$\tan x=-2\sqrt{2}$，于是</p>
+<div class="disp">$$\sin\left[\frac{1}{2}\arctan(-2\sqrt{2})\right]=\sin\frac{x}{2}=-\sqrt{\frac{1}{2}(1-\cos x)}$$</div>
+<div class="disp">$$=-\sqrt{\frac{1}{2}\left(1-\frac{1}{\sec x}\right)}$$</div>
+<div class="disp">$$=-\sqrt{\frac{1}{2}\times\left(1-\frac{1}{3}\right)}=-\frac{\sqrt{3}}{3}=K.$$</div>
+<p>即 $N&gt;M&gt;K$，选 (B).</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li><strong>思路分析：设元法</strong>——反三角里塞着三角，就设反三角为角：$\arcsin A=x\iff\sin x=A$（并盯住主值区间），把陌生式翻译成普通三角求值.</li><li>算 $M$：$\arcsin\dfrac12=x$ → $\sin x=\dfrac12$；$\cos 2x$ 用<strong>倍角公式</strong>（余弦版本 $\cos2x=1-2\sin^{2}x$）→ $M=\dfrac12$.</li><li>算 $N$：$\arccos\dfrac{\sqrt2}{2}=x\in[0,\pi]$ → $\cos x=\dfrac{\sqrt2}{2}$；$\sin x=\sqrt{1-\cos^{2}x}$（<strong>同角平方关系</strong>开方取正，因 $x\in[0,\pi]$ 正弦非负）→ $N=\dfrac{\sqrt2}{2}\approx0.707$.</li><li>算 $K$：$\arctan(-2\sqrt2)=x\in\left(-\dfrac{\pi}{2},0\right)$ → $\tan x=-2\sqrt{2}$；由 $1+\tan^{2}x=\sec^{2}x$ 得 $\sec x=3$，$\cos x=\dfrac13$；再用<strong>半角公式</strong> $\sin\dfrac{x}{2}=\pm\sqrt{\dfrac{1-\cos x}{2}}$，因 $\dfrac{x}{2}\in\left(-\dfrac{\pi}{4},0\right)$ 正弦为负取"$-$" → $K=-\dfrac{\sqrt3}{3}\approx-0.577$.</li><li>比大小：$N\approx0.707&gt;M=0.5&gt;K\approx-0.577$ → (B). 一题串起<strong>倍角、同角、半角</strong>三个公式 + 主值区间定符号.</li></ul></div>
+<h4 id="例60">例60</h4>
+<div class="box box-ex"><p>设 $|x|\leqslant 1$，则（　　）.</p>
+<p>(A) $\arcsin(-x)=\arcsin x$　　　　(B) $\arccos(-x)=-\arccos x$</p>
+<p>(C) $\sin(\arccos x)=\sqrt{1-x^{2}}$　　　　(D) $\cos(\arcsin x)=\pi-\sqrt{1-x^{2}}$</p>
+<p class="solve-label"><span class="chip">解</span> 应选 (C).</p>
+<p>令 $\arcsin x=t$，由 $|x|\leqslant 1$，有 $\sin t=x$，$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$．故 $\sin(-t)=-x$，$-t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，于是 $\arcsin(-x)=-t=-\arcsin x$，(A) 错误．同理，令 $\arccos x=t$，$\cos t=x$，$t\in(0,\pi)$，故</p>
+<div class="disp">$$\cos(\pi-t)=-x,\ \pi-t\in(0,\pi).$$</div>
+<p>于是</p>
+<div class="disp">$$\arccos(-x)=\pi-t=\pi-\arccos x,$$</div>
+<p>(B) 错误．同理可证 (C) 正确，(D) 错误．选 (C).</p></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>全题就是<strong>设元 + 诱导公式</strong>：(A) 设 $\arcsin x=t$，用 $\sin(-t)=-x$ 与主值区间验证 $\arcsin(-x)=-t$——正确关系应带负号，(A) 错.</li><li>(B) 设 $\arccos x=t\in(0,\pi)$，用<strong>诱导公式</strong> $\cos(\pi-t)=-\cos t=-x$ 且 $\pi-t\in(0,\pi)$，得 $\arccos(-x)=\pi-\arccos x$——(B) 写成了 $-\arccos x$，错（负号跑不出 $[0,\pi]$）.</li><li>(C) 正是 $\sin(\arccos x)=\sqrt{1-x^{2}}$：设 $\arccos x=t\in[0,\pi]$，$\sin t\geqslant0$，开方取正——<strong>正确</strong>；(D) 与之对照，$\cos(\arcsin x)$ 应等于 $+\sqrt{1-x^{2}}$（$t\in\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ 余弦恒正），(D) 错.</li><li>记忆落点：$\arcsin(-x)=-\arcsin x$（奇），$\arccos(-x)=\pi-\arccos x$（非奇非偶），$\sin(\arccos x)=\cos(\arcsin x)=\sqrt{1-x^{2}}$（非负）.</li></ul></div>
+<h4 id="例61">例61</h4>
+<div class="box box-ex"><p>设 $f(x)=\arctan x$，$g(x)=\tan x$，求 $g[f(x)]$ 与 $f[g(x)]$，并作它们的图像．</p>
+<p class="solve-label"><span class="chip">解</span> </p>
+<p>当 $f(x)\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$ 时，$g=f^{-1}$，故</p>
+<div class="disp">$$g[f(x)]=f^{-1}[f(x)]=x\ (x\in\mathbf{R}).$$</div>
+<p>所以 $g[f(x)]$ 的图像如图 19 所示．</p>
+<p>（图 19：平面直角坐标系，一条过原点 $O$ 的直线，即 $y=x$，直线上标注 $y=g[f(x)]$）</p>
+<p>又 $g(x+\pi)=g(x)$，故</p>
+<div class="disp">$$f[g(x+\pi)]=f[g(x)],$$</div>
+<p>即 $f[g(x)]$ 也是周期为 $\pi$ 的周期函数，只要作出函数在一个周期上的图像即可．当 $x\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$ 时，$f=g^{-1}$，于是</p>
+<div class="disp">$$f[g(x)]=g^{-1}[g(x)]=x\left(-\dfrac{\pi}{2}&lt;x&lt;\dfrac{\pi}{2}\right),$$</div>
+<p>所以函数 $f[g(x)]$ 的图像（见图 20）为无穷多条平行的直线段．于是</p>
+<div class="disp">$$f[g(x)]=\begin{cases}x, &amp; x\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right),\\[2mm] x-\pi, &amp; x\in\left(\dfrac{\pi}{2},\dfrac{3}{2}\pi\right),\\[2mm] \ldots\end{cases}$$</div>
+<p>（图 20：图像为无穷多条斜率为 $1$ 的平行直线段，呈周期锯齿状；在 $x=-\dfrac{\pi}{2}$，$\dfrac{\pi}{2}$ 等处线段端点断开（端点处画空心圆点），横轴上标注 $-\dfrac{\pi}{2}$、$\dfrac{\pi}{2}$，曲线旁标注 $y=f[g(x)]$）</p>
+<p>事实上，当 $x\in\left(\dfrac{\pi}{2},\dfrac{3}{2}\pi\right)$ 时，$\dfrac{x+\dfrac{\pi}{2}}{\pi}\in(1,2)$，$\left[\dfrac{x+\dfrac{\pi}{2}}{\pi}\right]=1$；当 $x\in\left(k\pi+\dfrac{\pi}{2},k\pi+\dfrac{3}{2}\pi\right)$，$k\in\mathbf{Z}$ 时，有 $\dfrac{x+\dfrac{\pi}{2}}{\pi}\in(k+1,k+2)$，故 $\left[\dfrac{x+\dfrac{\pi}{2}}{\pi}\right]=k+1$，于是利用取整数部分的记号，有</p>
+<div class="disp">$$f[g(x)]=x-\left[\frac{x+\dfrac{\pi}{2}}{\pi}\right]\pi,\ x\neq\left(k+\frac{1}{2}\right)\pi\ (k=0,\pm 1,\pm 2,\cdots).$$</div></div>
+<div class="box box-tip"><div class="box-title">拆解</div><ul><li>**$g[f(x)]$**：$\arctan$ 的值域恰是 $\tan$ 的主值单调区间，主值范围内 $g=f^{-1}$，反函数复合回去恒等于自变量 → $g[f(x)]=x$，图像是直线 $y=x$.</li><li>**$f[g(x)]$**：方向反过来了——$\tan$ 的定义域是全体实数去掉渐近线，超出主值区间的部分 $\arctan$ "拉不回来"。先注意 $\tan$ 以 $\pi$ 为周期 → $f[g(x)]$ 同周期；在一个周期 $\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$ 内 $f[g(x)]=x$；其余周期整体下移 $k\pi$，得到锯齿状平行线段.</li><li>闭式表达用<strong>取整函数</strong> $[\,\cdot\,]$：每过一段，减去相应整数个 $\pi$，即 $f[g(x)]=x-\left[\dfrac{x+\pi/2}{\pi}\right]\pi$. 对比体会：**$f\circ g=\mathrm{id}$ 需要值域恰匹配，$g\circ f=\mathrm{id}$ 在主值内成立**——复合与反函数的顺序效应.</li></ul></div>
+<h3 id="易混淆点">易混淆点</h3>
+<div class="box box-warn"><div class="box-title">考前最后过一遍</div><p>1. $\sin(\alpha\pm\beta)\neq\sin\alpha\pm\sin\beta$——和差必须用和差公式展开，没有任何"分配律". 2. **平移量会被 $\omega$ 放大**：$y=\sin\omega(x+a)$ 中图像平移 $a$，但相位变化 $\omega a$（例 48 的 $\dfrac{5\pi}{12}$ vs $\dfrac{5\pi}{6}$ 陷阱）. 3. <strong>开方必先定号</strong>：$(\sin x-\cos x)^2=\dfrac{49}{25}$ 后写正负号，要靠 $x$ 的象限（例 50）；半角公式同理（例 59）. 4. **均值不等式 $\sin x+\dfrac{1}{\sin x}\geqslant2$ 有前提 $\sin x&gt;0$**（例 55 ④）. 5. 反三角三兄弟别混：$\arcsin$、$\arctan$ 是<strong>奇函数</strong>，$\arccos$ 非奇非偶（$\arccos(-x)=\pi-\arccos x$）；$\arcsin$、$\arccos$ 定义域 $[-1,1]$，$\arctan$ 定义域 $\mathbf{R}$. 6. 主值区间写法：$\arcsin x\in\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$（闭），$\arctan x\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$（开），$\arccos x\in[0,\pi]$（闭）.</p></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="func-symmetry.html"><span>← 上一节</span><b>对称问题</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<a class="pn next" href="seq-concept.html"><span>下一节 →</span><b>数列的概念</b></a>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>直角坐标与极坐标的关系 · 张宇30讲零基础</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <a class="brand" href="index.html">张宇30讲 · <b>零基础</b></a>
+  <span class="crumb">六、坐标系及其变换</span>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar"><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">一</span>基本逻辑</div><ul><li><a href="logic-judgment.html">A、B 是两个判断</a></li><li><a href="logic-opposite.html">对立判断</a></li><li><a href="logic-induction.html">数学归纳法</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">二</span>解析式的概念与运算</div><ul><li><a href="expr-concept.html">解析式的概念</a></li><li><a href="expr-rational.html">有理式的运算</a></li><li><a href="expr-radical.html">无理式的运算</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">三</span>方程与不等式</div><ul><li><a href="eqn-polynomial.html">一元 n 次方程</a></li><li><a href="eqn-inequality.html">重要不等式及其应用</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">四</span>函数</div><ul><li><a href="func-pelt.html">幂函数、指数函数与对数函数</a></li><li><a href="func-symmetry.html">对称问题</a></li><li><a href="func-trig.html">三角函数与反三角函数<span class="star" title="重点小节">★</span></a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">五</span>数列及其单调性</div><ul><li><a href="seq-concept.html">数列的概念</a></li><li><a href="seq-arithmetic.html">等差数列</a></li><li><a href="seq-geometric.html">等比数列</a></li><li><a href="seq-monotonic.html">单调数列</a></li></ul></div><div class="nav-sec"><div class="nav-sec-h"><span class="nav-num">六</span>坐标系及其变换</div><ul><li><a href="coord-cartesian.html">直角坐标系与坐标变换</a></li><li><a href="coord-polar.html">极坐标系</a></li><li><a href="coord-relation.html" class="active">直角坐标与极坐标的关系</a></li></ul></div></nav>
+<main class="main" id="main">
+<div class="page-head">
+  <div class="page-sec">六、坐标系及其变换</div>
+  <h1>直角坐标与极坐标的关系</h1>
+</div>
+<div class="content">
+<div class="box box-kp"><div class="box-title">直角坐标与极坐标的关系（原书）</div><p>下面，我们要建立点的直角坐标与极坐标的关系．它将会对"点与坐标""曲线与方程"的研究带来很多便利．</p>
+<p>设极坐标系的极点与直角坐标系的原点重合，并且极轴与横轴重合，方向也一致（见图 32）．设 $(x,y)$ 是点 $M$ 的直角坐标，$(r,\theta)$ 是同一点 $M$ 的极坐标，且 $r$，$\theta$ 受条件 $(*)$ 的限制．容易看出 $x$，$y$，$r$，$\theta$ 间的关系式是</p>
+<div class="disp">$$x=r\cos\theta,\quad y=r\sin\theta,$$</div>
+<p>也可表示为</p>
+<div class="disp">$$r=\sqrt{x^{2}+y^{2}},\quad \sin\theta=\frac{y}{\sqrt{x^{2}+y^{2}}},\quad \cos\theta=\frac{x}{\sqrt{x^{2}+y^{2}}}.$$</div>
+<p>（图 32：原点 $O$，$x$ 轴，$y$ 轴，同一点 $M$ 记作 $M(x,y)$ 与 $(r,\theta)$，$OM$ 与 $x$ 轴正方向夹角为 $\theta$）</p></div>
+<h3 id="例73">例73</h3>
+<div class="box box-ex"><p>已知点 $M$ 的直角坐标为 $x=-3$，$y=5$，求点 $M$ 的极坐标．</p>
+<p class="solve-label"><span class="chip">解</span> </p>
+<div class="disp">$$ r=\sqrt{(-3)^{2}+5^{2}}=\sqrt{34}, $$</div>
+<div class="disp">$$ \sin\theta=\frac{5}{\sqrt{34}},\quad \cos\theta=\frac{-3}{\sqrt{34}}. $$</div>
+<p>由后两式得知</p>
+<div class="disp">$$ \tan\theta=-\frac{5}{3}\quad\text{且}\quad \frac{\pi}{2}&lt;\theta&lt;\pi. $$</div></div>
+<div class="box box-tip"><p>由 $\sin\theta&gt;0$、$\cos\theta&lt;0$ 知 $M$ 在第二象限，$\theta$ 是第二象限角——**只算 $\tan\theta$ 不看 $\sin$、$\cos$ 的符号会丢掉一半的解**，这正是公式组里保留 $\sin\theta$、$\cos\theta$ 两条的原因.</p></div>
+<h3 id="例74">例74</h3>
+<div class="box box-ex"><p>将下列极坐标系下的方程化为直角坐标系下的方程．</p>
+<p>(1) $r\cos\theta=1$；</p>
+<p>(2) $r^{2}\sin 2\theta=2$；</p>
+<p>(3) $r^{2}\cos 2\theta=1$；</p>
+<p>(4) $r=1+2r\cos\theta$；</p>
+<p>(5) $r=1-\cos\theta$；</p>
+<p>(6) $r=\dfrac{1}{2\cos\theta-\sin\theta}$；</p>
+<p>(7) $r=2\sin\theta$；</p>
+<p>(8) $r=-\sec\theta$．</p>
+<p class="solve-label"><span class="chip">解</span> (1) $x=1$．</p>
+<p>(2) $r^{2}\sin 2\theta=r^{2}\cos\theta\sin\theta\cdot 2=2$，故 $r\cos\theta\cdot r\sin\theta=1$，即 $xy=1$．</p>
+<p>(3) $r^{2}\cos 2\theta=r^{2}\left(\cos^{2}\theta-\sin^{2}\theta\right)=(r\cos\theta)^{2}-(r\sin\theta)^{2}=x^{2}-y^{2}=1$．</p>
+<p>(4) $\sqrt{x^{2}+y^{2}}=1+2x$，即 $y^{2}-3x^{2}-4x-1=0$．</p>
+<p>(5) $r^{2}=r-r\cos\theta$，$x^{2}+y^{2}=\sqrt{x^{2}+y^{2}}-x$，即 $x^{4}+y^{4}+2x^{2}y^{2}+2x^{3}+2xy^{2}-y^{2}=0$．</p>
+<p>(6) $2r\cos\theta-r\sin\theta=1$，即 $2x-y=1$．</p>
+<p>(7) $r^{2}=2r\sin\theta$，即 $x^{2}+y^{2}=2y$，也即 $x^{2}+(y-1)^{2}=1$．</p>
+<p>(8) $r=-\sec\theta=-\dfrac{1}{\cos\theta}$，得 $r\cos\theta=-1$，即 $x=-1$．</p></div>
+<h3 id="例75">例75</h3>
+<div class="box box-ex"><p>将下列直角坐标系下的方程化为极坐标系下的方程．</p>
+<p>(1) $x^{2}+xy+y^{2}=1$；</p>
+<p>(2) $xy=2$；</p>
+<p>(3) $x^{2}+(y-2)^{2}=4$；</p>
+<p>(4) $x+\sqrt{3}y=4$；</p>
+<p>(5) $y=\mathrm{e}^{x}$．</p>
+<p class="solve-label"><span class="chip">解</span> (1) $r^{2}+r^{2}\cos\theta\sin\theta=r^{2}\left(1+\dfrac{1}{2}\sin 2\theta\right)=1$．</p>
+<p>(2) $r\cos\theta\, r\sin\theta=2$，即 $r^{2}\sin 2\theta=4$．</p>
+<p>(3) $r^{2}=4r\sin\theta$，即 $r=4\sin\theta$．</p>
+<p>(4) $r\cos\theta+\sqrt{3}r\sin\theta=4$，即 $\left(\dfrac{\sqrt{3}}{2}\sin\theta+\dfrac{1}{2}\cos\theta\right)r=2$，也即</p>
+<div class="disp">$$ \left(\sin\theta\cos\frac{\pi}{6}+\cos\theta\sin\frac{\pi}{6}\right)r=r\sin\left(\theta+\frac{\pi}{6}\right)=2. $$</div>
+<p>(5) $r\sin\theta=\mathrm{e}^{r\cos\theta}$，得 $r=\csc\theta\,\mathrm{e}^{r\cos\theta}$．</p></div>
+<div class="box box-card"><div class="box-title">速记：极坐标互化工具箱</div><ul><li>代入桥梁：$x=r\cos\theta$，$y=r\sin\theta$；反向：$r=\sqrt{x^{2}+y^{2}}$.</li><li>见 $r^2$ 想到 $x^2+y^2$；见 $r\cos\theta$、$r\sin\theta$ 直接换 $x$、$y$（例 74(1)(6)(8)）.</li><li>遇 $\cos 2\theta$、$\sin 2\theta$ 先用<strong>倍角公式</strong>拆开再"打包"成 $x$、$y$（例 74(2)(3)、例 75(1)(2)）.</li><li>遇 $r$ 的一次项（例 74(7)、例 75(3)）：两边**同乘 $r$** 造出 $r^2$ 与 $r\sin\theta$；除以 $r$ 前留意极点（$r=0$ 通常在曲线上，除法不丢解）.</li><li>直角→极化到底后，还可用<strong>辅助角公式</strong>合并（例 75(4) 的 $r\sin(\theta+\frac{\pi}{6})=2$）.</li></ul></div>
+</div>
+<nav class="pager">
+<a class="pn prev" href="coord-polar.html"><span>← 上一节</span><b>极坐标系</b></a>
+<a class="pn home" href="index.html"><span>返回目录</span><b>总目录</b></a>
+<span class="pn next none">已是最后一节</span>
+</nav>
+</main>
+</div>
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="main.js"></script>
+</body>
+</html>
