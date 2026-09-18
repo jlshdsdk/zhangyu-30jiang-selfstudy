@@ -23,173 +23,273 @@
 <main>
 <h1 class="doc-title">第11讲 · 一元函数积分学的应用（二）——积分等式与积分不等式</h1>
 <p class="doc-sub">据《张宇考研数学基础30讲·高等数学分册（2026版）》整理 · 覆盖原书 P329–P340</p>
-<h2>本讲导读</h2>
-<p>本讲只干两件事：证<strong>积分等式</strong>、证<strong>积分不等式</strong>，考研题型就是解答题（也可能出难度大的小题）。它是第6讲"微分等式与微分不等式"的积分续篇——那边靠微分中值定理，这边多了一整套积分工具：推广的积分中值定理、夹逼准则、分部积分、牛顿-莱布尼茨公式。张宇在知识结构图里把积分等式标成"重中之重"，积分不等式标注"会出大题或者难度大的小题"。动手前建议先把第8讲的积分比较性质（保号性）和第2讲的夹逼准则捡回来。做题先看条件档位——连续、一阶可导还是二阶可导，条件直接决定走哪条路。</p>
-<h2>知识框架</h2>
+<nav class="page-toc" aria-label="本讲索引"><div class="toc-title">本讲索引</div><ol class="toc-links"><li><a href="#sec-1">本讲导读</a></li><li><a href="#sec-2">知识框架</a></li><li><a href="#sec-3">核心概念与定理</a><ul><li><a href="#sec-4">一、积分等式：用中值定理（推广的积分中值定理）</a></li><li><a href="#sec-5">二、中值点何时"跟着动"：三条使用注意</a></li><li><a href="#sec-6">三、积分等式：用夹逼准则</a></li><li><a href="#sec-7">四、积分等式：用积分法</a></li><li><a href="#sec-8">五、积分不等式：用函数的单调性</a></li><li><a href="#sec-9">六、积分不等式：用拉格朗日中值定理</a></li><li><a href="#sec-10">七、积分不等式：用泰勒公式</a></li><li><a href="#sec-11">八、积分不等式：用积分法</a></li><li><a href="#sec-12">九、积分不等式：用牛顿-莱布尼茨公式</a></li><li><a href="#sec-13">十、总纲：联系 \(f\) 与 \(f'\) 只有两招</a></li></ul></li><li><a href="#sec-14">典型例题精讲</a></li><li><a href="#sec-15">易错点与技巧</a></li><li><a href="#sec-16">考点与方法补充（站注）</a></li><li><a href="#sec-17">知识清单自测</a></li><li><a href="#sec-18">自测题</a></li></ol></nav>
+<h2 id="sec-1">本讲导读</h2>
+<p>本讲只干两件事：证<strong>积分等式</strong>、证<strong>积分不等式</strong>，考研题型就是解答题（也可能出难度大的小题）。它是第6讲"微分等式与微分不等式"的积分续篇——那边靠微分中值定理，这边多了一整套积分工具：推广的积分中值定理、夹逼准则、分部积分、牛顿-莱布尼茨公式。张宇在知识结构图里把积分等式标成"重中之重"，积分不等式标注"会出大题或者难度大的小题"。动手前建议先把第8讲的积分比较性质（保号性）和第2讲的夹逼准则捡回来。做题先看条件档位——连续、一阶可导还是二阶可导，条件直接决定走哪条路。原书考情分析把重难点写成两句话：<strong>①求积分；②求积分后再求极限</strong>（印P329）——次序别记反，极限永远在积分算完（或放缩完）之后才登场。</p>
+<p>站注·真题大数据：本讲在真题里属"证明题储备"型考点，高频入口是变限积分构造函数＋单调性、分部积分出对称结构；与之共享骨架的中值定理类证明题在近15年真题里属第二梯队——隔年一道大题（站注素材包 C-L11、C-L6、B 口径）。一考就是大题的考点，平时不动手，考场上一定写不出来。</p>
+<h2 id="sec-2">知识框架</h2>
 <ul>
 <li>积分等式（重中之重，常考 \(\int\) 与 \(\lim\int\) 两型）<ul>
-<li>用中值定理：推广的积分中值定理（柯西中值定理证），注意中值点何时依赖参数</li>
-<li>用夹逼准则：凑微分 + 放缩 + 夹逼；一般结论 \(\lim\limits_{n\to\infty}\int_0^1 x^n f(x)\,\mathrm{d}x=0\)</li>
-<li>用积分法：恒等变形、换元法、分部积分法</li>
+<li>用中值定理：推广的积分中值定理（柯西中值定理证，"常数变量化"），注意中值点何时依赖参数（例11.1、例11.2）</li>
+<li>用夹逼准则：凑微分 + 放缩 + 夹逼<ul>
+<li>一般结论 \(\lim\limits_{n\to\infty}\int_0^1 x^n f(x)\,\mathrm{d}x=0\)（蓝框，\(f\in C[0,1]\)）</li>
+<li>配套极限 \(\lim\limits_{t\to0^+}t^a\ln t=0\ (a&gt;0)\)，分部积分的边界项要用（例11.3、例11.4）</li>
+<li>周期函数 + 整数部分夹逼 + 倒数不等式（例11.5）</li>
+</ul>
+</li>
+<li>用积分法：恒等变形、换元法、分部积分法（"函数×高阶导数"就往回凑；习题11.3 变限被积函数型）</li>
 </ul>
 </li>
 <li>积分不等式（会出大题或难度大的小题）<ul>
-<li>用函数的单调性：变限量化、移项构造辅助函数</li>
-<li>用拉格朗日中值定理：条件"f 一阶可导"、端点值简单</li>
-<li>用泰勒公式：条件"f 二阶可导"、题中有简单函数值</li>
-<li>用积分法：分部积分处理"函数 × 三角函数"型</li>
-<li>用牛顿-莱布尼茨公式：把 \(f(x)\) 写成 \(\int f'(t)\,\mathrm{d}t\) 联系 \(f\) 与 \(f'\)</li>
+<li>用函数的单调性：变限量化 → 移项构造辅助函数 → 求导判号 → \(F(a)=0\) 收尾（例11.7）</li>
+<li>用拉格朗日中值定理：条件"f 一阶可导"、端点值简单；常分段使用（例11.8）</li>
+<li>用泰勒公式：条件"f 二阶可导"、题中有简单函数值；展开点选已知值点（例11.9）</li>
+<li>用积分法：分部积分处理"函数 × 三角函数"型，收尾用 \(|\cos nx|\le1\) 与第8讲比较性质（例11.10）</li>
+<li>用牛顿-莱布尼茨公式：把 \(f(x)\) 写成 \(\int f'(t)\,\mathrm{d}t\) 联系 \(f\) 与 \(f'\)；端点值为零时左右各写一次相加取半（例11.11）</li>
 </ul>
 </li>
+<li>总纲（11.5注，印P340）：对 \(\big|\int f\big|\) 作估计只需对被积函数估计；联系 \(f\) 与 \(f'\) 只有两招——拉格朗日中值定理、牛顿-莱布尼茨公式</li>
 </ul>
-<h2>核心概念与定理</h2>
-<h3>一、积分等式</h3>
-<h4>1. 用中值定理</h4>
-<p>推广的积分中值定理：设 \(f(x),g(x)\) 在 \([a,b]\) 上连续，且 \(g(x)\) 在 \([a,b]\) 上<strong>不变号</strong>，则存在 \(\xi\in(a,b)\)，使得 \(\int_a^b f(x)g(x)\,\mathrm{d}x=f(\xi)\int_a^b g(x)\,\mathrm{d}x\)。证明套路是"常数变量化"：令 \(F(x)=\int_a^x f(t)g(t)\,\mathrm{d}t\)，\(G(x)=\int_a^x g(t)\,\mathrm{d}t\)，对 \(F,G\) 用柯西中值定理（它适用于两个函数）。\(g(x)\equiv1\) 时退化为积分中值定理。书上说：考试可直接使用。</p>
+<h2 id="sec-3">核心概念与定理</h2>
+<h3 id="sec-4">一、积分等式：用中值定理（推广的积分中值定理）</h3>
+<p><strong>定理</strong>（印P330，例11.1(1)）：设 \(f(x),g(x)\) 在 \([a,b]\) 上连续，且 \(g(x)\) 在 \([a,b]\) 上<strong>不变号</strong>，则存在 \(\xi\in(a,b)\)，使得</p>
+<p>\[\int_a^b f(x)g(x)\,\mathrm{d}x=f(\xi)\int_a^b g(x)\,\mathrm{d}x.\]</p>
+<p>什么时候走这条路：要证的等式里有一个"积分号乘连续函数"想提出去，或要求 \(\lim\limits_{n\to\infty}\int_a^b f(x)g_n(x)\,\mathrm{d}x\) 型极限。关键构造是"常数变量化"：令 \(F(x)=\int_a^x f(t)g(t)\,\mathrm{d}t\)，\(G(x)=\int_a^x g(t)\,\mathrm{d}t\)，对 \(F,G\) 用柯西中值定理——柯西中值定理天生就是处理"两个函数联动"的。\(g(x)\equiv1\) 时退化为第8讲的积分中值定理。书上说：考试可直接使用。</p>
+<h3 id="sec-5">二、中值点何时"跟着动"：三条使用注意</h3>
 <figure class="shot"><img src="../assets/img/L11-001.webp" alt="原书 例11.1注 · 印P331" loading="lazy" width="1100" height="504"><figcaption>原书 例11.1注 · 印P331</figcaption></figure>
-<p>这张注要圈起来：被积函数含参数 \(n\) 时，中值点跟着动。\(\int_1^2 f(x)e^{-x^n}\,\mathrm{d}x=f(\xi_n)\int_1^2 e^{-x^n}\,\mathrm{d}x\) 里的 \(\xi_n\) 与 \(n\) 有关；把 \(\int_1^2 e^{-x^n}\,\mathrm{d}x\) 写成 \(e^{-\eta_n^n}\)（\(\eta_n\in(1,2)\)）后，\(\eta_n\) 也与 \(n\) 有关，<strong>不能</strong>写 \(\lim\limits_{n\to\infty}e^{-\eta_n^n}=0\)。拓展记忆：区间变上限 \([a,x]\) 时 \(\xi=\xi(x)\)；被积函数含 \(n\) 时 \(\xi=\xi(n)\)。</p>
-<h4>2. 用夹逼准则</h4>
+<p>这张注要圈起来。第一，由 \(\xi\in(a,b)\subset[a,b]\)，结论在闭区间上也成立（注1）。第二，被积函数含参数 \(n\) 时，中值点跟着动：\(\int_1^2 f(x)e^{-x^n}\,\mathrm{d}x=f(\xi_n)\int_1^2 e^{-x^n}\,\mathrm{d}x\) 里的 \(\xi_n\) 与 \(n\) 有关；把 \(\int_1^2 e^{-x^n}\,\mathrm{d}x\) 写成 \(e^{-\eta_n^n}\)（\(\eta_n\in(1,2)\)）后，\(\eta_n\) 也与 \(n\) 有关，<strong>不能</strong>写 \(\lim\limits_{n\to\infty}e^{-\eta_n^n}=0\)（注2）——正确的收尾永远是"有界 × 无穷小"。拓展记忆：区间变上限 \([a,x]\) 时 \(\xi=\xi(x)\)；被积函数含 \(n\) 时 \(\xi=\xi(n)\)。</p>
+<h3 id="sec-6">三、积分等式：用夹逼准则</h3>
 <p>思路：把含 \(n\) 的积分放缩成能算的上下界，用积分保号性（被积函数逐点比较则积分比较）夹出极限。收尾常配这个蓝框结论：</p>
 <figure class="shot"><img src="../assets/img/L11-002.webp" alt="原书 注 · 一般结论 · 印P332" loading="lazy" width="1100" height="193"><figcaption>原书 注 · 一般结论 · 印P332</figcaption></figure>
-<p>即：设 \(f(x)\) 在 \([0,1]\) 上连续，则 \(\lim\limits_{n\to\infty}\int_0^1 x^n f(x)\,\mathrm{d}x=0\)。证明就是 \(m\le f(x)\le M\) 三面夹：\(\dfrac{m}{n+1}\le\displaystyle\int_0^1 x^nf(x)\,\mathrm{d}x\le\dfrac{M}{n+1}\)。顺手再记一个：\(\lim\limits_{t\to0^+}t^a\ln t=0\ (a&gt;0)\)，分部积分的边界项要用。</p>
-<h4>3. 用积分法</h4>
-<p>恒等变形、换元法、分部积分法。见到"函数 × 高阶导数"同台，就分部积分往回凑；凑微分是本讲出场率最高的动作。</p>
-<h3>二、积分不等式</h3>
-<h4>1. 用函数的单调性</h4>
+<p>即：设 \(f(x)\) 在 \([0,1]\) 上连续，则 \(\lim\limits_{n\to\infty}\int_0^1 x^n f(x)\,\mathrm{d}x=0\)。证明就是 \(m\le f(x)\le M\) 三面夹：\(mx^n\le x^nf(x)\le Mx^n\)，积分得</p>
+<p>\[\frac{m}{n+1}\le\int_0^1x^nf(x)\,\mathrm{d}x\le\frac{M}{n+1}\to0.\]</p>
+<p>顺手再记一个：\(\lim\limits_{t\to0^+}t^a\ln t=0\ (a&gt;0)\)，分部积分的边界项要用（例11.4 的 \(\frac{t^{n+1}}{n+1}\ln t\big|_0^1\) 就是它消掉的）。</p>
+<h3 id="sec-7">四、积分等式：用积分法</h3>
+<p>恒等变形、换元法、分部积分法。见到"函数 × 高阶导数"同台，就分部积分往回凑（例11.6 一次证出 \(f\) 与 \(f''\) 的积分等式）；被积函数里嵌着变限积分（如 \(\int_0^{f(x)}\varphi(t)\,\mathrm{d}t\)），也是分部积分把它拆开（习题11.3）。凑微分是本讲出场率最高的动作。</p>
+<h3 id="sec-8">五、积分不等式：用函数的单调性</h3>
 <figure class="shot"><img src="../assets/img/L11-003.webp" alt="原书 方法框 · 单调性 · 印P334" loading="lazy" width="1100" height="242"><figcaption>原书 方法框 · 单调性 · 印P334</figcaption></figure>
-<p>完整流程：把某一积分限（通常取上限）变化量化 → 移项构造辅助函数 → 求导判号 → 由 \(F(a)=0\) 推 \(F(b)\le0\) 收尾。多用于条件是" \(f(x)\) 在 \([a,b]\) 上连续"。上限里嵌着变限积分时，求导别丢链式法则的内层导数。</p>
-<h4>2. 用拉格朗日中值定理</h4>
+<p>方法框原文（印P334）：首先将某一积分限（通常取上限）变量化，然后移项构造辅助函数，由辅助函数的单调性来证明不等式；多用于所给条件为"\(f(x)\) 在 \([a,b]\) 上连续"的情形。完整流程四步：把积分上限变化量化 \(\to\) 移项构造辅助函数 \(\to\) 求导判号 \(\to\) 由 \(F(a)=0\) 推 \(F(b)\le0\) 收尾。上限里嵌着变限积分时，求导别丢链式法则的内层导数（例11.7 就是这么干的）。</p>
+<h3 id="sec-9">六、积分不等式：用拉格朗日中值定理</h3>
 <figure class="shot"><img src="../assets/img/L11-004.webp" alt="原书 方法框 · 拉格朗日中值定理 · 印P335" loading="lazy" width="945" height="137"><figcaption>原书 方法框 · 拉格朗日中值定理 · 印P335</figcaption></figure>
-<p>多用于条件为" \(f(x)\) 一阶可导"且某一端点值较简单（甚至为 0）的题目——这是由拉格朗日中值定理的条件决定的。口诀（书上手写批注）：见到 \(f(x),f'(x)\)，想拉格朗日中值定理。常配合分段使用、绝对值不等式 \(|a+b|\le|a|+|b|\) 与积分比较性质。</p>
-<h4>3. 用泰勒公式</h4>
+<p>方法框原文（印P335）：多用于所给条件为"\(f(x)\) 一阶可导"且某一端点值较简单（甚至为 0）的题目——这是由拉格朗日中值定理的条件决定的。口诀（书上手写批注）：见到 \(f(x),f'(x)\)，想拉格朗日中值定理。常配合分段使用（例11.8 把 \([0,1]\) 拆两段各用一次）、绝对值不等式 \(|a+b|\le|a|+|b|\) 与积分比较性质。</p>
+<h3 id="sec-10">七、积分不等式：用泰勒公式</h3>
 <figure class="shot"><img src="../assets/img/L11-005.webp" alt="原书 方法框 · 泰勒公式 · 印P335" loading="lazy" width="951" height="145"><figcaption>原书 方法框 · 泰勒公式 · 印P335</figcaption></figure>
-<p>多用于" \(f(x)\) 二阶可导"且题中有简单函数值（甚至为 0）。在已知值点 \(x_0\) 处展开；若像 \(\int_0^{2x_0}(x-x_0)\,\mathrm{d}x=0\) 这样能把一阶项积分为零，证明会非常干净（例11.9 就是范本）。</p>
-<h4>4. 用积分法与用牛顿-莱布尼茨公式</h4>
-<p>用积分法：被积函数是"两项相乘"（如 \(f(x)\sin nx\)）就用分部积分，例11.10 证得 \(\big|\int_0^{2\pi}f(x)\sin nx\,\mathrm{d}x\big|\le\dfrac{2}{n}[f(2\pi)-f(0)]\)（\(f'\ge0\) 保证 \(f(2\pi)\ge f(0)\)）。用牛顿-莱布尼茨公式：把 \(f(x)\) 写成 \(f(x)-f(a)=\int_a^x f'(t)\,\mathrm{d}t\)，例11.11 证得 \(\big|f(x)\big|\le\dfrac12\displaystyle\int_a^b|f'(x)|\,\mathrm{d}x\)。</p>
-<figure class="shot"><img src="../assets/img/L11-006.webp" alt="原书 11.5注 · 联系f与f′ · 印P340" loading="lazy" width="1100" height="283"><figcaption>原书 11.5注 · 联系f与f′ · 印P340</figcaption></figure>
-<p>这张注是全讲的总纲：对 \(\big|\int_0^a f(x)\,\mathrm{d}x\big|\) 作估计，只要对被积函数估计即可；条件给了 \(f'(x)\) 与 \(f(0)=0\)，就要把 \(f\) 和 \(f'\) 联系起来——高数里只有两招：微分学的拉格朗日中值定理，积分学的牛顿-莱布尼茨公式。</p>
-<h2>典型例题精讲</h2>
-<h3>例11.1（推广的积分中值定理 + 有界乘无穷小）</h3>
+<p>方法框原文（印P335）：多用于"\(f(x)\) 二阶可导"且题中有简单函数值（甚至为 0）的题目。在已知值点 \(x_0\) 处展开；若像 \(\int_0^{2x_0}(x-x_0)\,\mathrm{d}x=0\) 这样能把一阶项积分为零，证明会非常干净（例11.9 就是范本：区间 \([0,2]\) 恰关于 \(x_0=1\) 对称）。</p>
+<h3 id="sec-11">八、积分不等式：用积分法</h3>
+<figure class="shot"><img src="../assets/img/L11-018.webp" alt="原书 方法框 · 积分法 · 印P336" loading="lazy" width="1062" height="145"><figcaption>原书 方法框 · 积分法 · 印P336</figcaption></figure>
+<p>方法框原文（印P336）：主要用于处理被积函数为"两项相乘"的形式（如 \(f(x)\sin x\) 等），采用分部积分法，并利用第8讲讲过的性质——若在 \([a,b]\) 上 \(f(x)\le g(x)\)，则 \(\int_a^bf(x)\,\mathrm{d}x\le\int_a^bg(x)\,\mathrm{d}x\)。分部积分把"不好估的 \(f\)"换成"好估的 \(f'\)"，\(n\) 藏在三角函数的周期里，收尾靠 \(|\cos nx|\le1\) 和 \(\int f'=f(b)-f(a)\)（例11.10）。</p>
+<h3 id="sec-12">九、积分不等式：用牛顿-莱布尼茨公式</h3>
+<figure class="shot"><img src="../assets/img/L11-020.webp" alt="原书 方法框 · 牛顿-莱布尼茨公式 · 印P336" loading="lazy" width="463" height="163"><figcaption>原书 方法框 · 牛顿-莱布尼茨公式 · 印P336</figcaption></figure>
+<p>方法框原文（印P336）：多用于所给条件为"\(f'(x)\) 连续"且某两个函数值较简单（甚至为 0）的题目，这是由牛顿-莱布尼茨公式需要的条件所决定的。关键动作就是把 \(f(x)\) 写成 \(f(x)-f(a)=\int_a^xf'(t)\,\mathrm{d}t\)，两边取绝对值再积分放缩（例11.11：\(f(a)=f(b)=0\) 时左右各写一遍、相加取半，直接得到 \(\frac12\int_a^b|f'|\)）。</p>
+<h3 id="sec-13">十、总纲：联系 \(f\) 与 \(f'\) 只有两招</h3>
+<figure class="shot"><img src="../assets/img/L11-006.webp" alt="原书 11.5注 · 联系f与f′ · 印P340" loading="lazy" width="1100" height="306"><figcaption>原书 11.5注 · 联系f与f′ · 印P340</figcaption></figure>
+<p>这张注（印P340）是全讲的总纲，原文复述：对积分 \(\big|\int_0^af(x)\,\mathrm{d}x\big|\) 作估计，只要对被积函数 \(f(x)\) 作估计即可。条件中给出导数 \(f'(x)\) 及 \(f(0)=0\) 的信息，自然想办法把 \(f(x)\) 和 \(f'(x)\) 联系起来。在高等数学中，联系 \(f(x)\) 和 \(f'(x)\) 的有两种常用的办法，一是微分学中的拉格朗日中值定理，二是积分学中的牛顿-莱布尼茨公式。判断题走哪条路，先看这句。</p>
+<h2 id="sec-14">典型例题精讲</h2>
+<h4>例11.1（推广的积分中值定理 + 有界乘无穷小）</h4>
 <figure class="shot"><img src="../assets/img/L11-007.webp" alt="原书 例11.1 · 印P330" loading="lazy" width="1100" height="272"><figcaption>原书 例11.1 · 印P330</figcaption></figure>
-<p><strong>思路</strong> (1) 证推广的积分中值定理，关键动作是"常数变量化"：把端点处的定积分装进变限积分 \(F,G\)，再上柯西中值定理；(2) 直接套 (1) 把 \(f\) 提出来，剩下夹逼 \(\int_1^2 e^{-x^n}\,\mathrm{d}x\)。</p>
-<p><strong>要点</strong> (1) 若 \(g\equiv0\) 结论显然；若 \(g\not\equiv0\)，不妨设 \(g(x)&gt;0\)，令 \(F(x)=\int_a^x f(t)g(t)\,\mathrm{d}t,\ G(x)=\int_a^x g(t)\,\mathrm{d}t\)，在 \([a,b]\) 上用柯西中值定理：</p>
-<p>\[\frac{\int_a^b f(x)g(x)\,\mathrm{d}x-0}{\int_a^b g(x)\,\mathrm{d}x-0}=\frac{f(\xi)g(\xi)}{g(\xi)}=f(\xi),\qquad \xi\in(a,b),\]</p>
-<p>其中 \(\int_a^b g(x)\,\mathrm{d}x&gt;0\)；\(g(x)&lt;0\) 时同理。(2) 由 (1)，\(\int_1^2 f(x)e^{-x^n}\,\mathrm{d}x=f(\xi_n)\int_1^2 e^{-x^n}\,\mathrm{d}x\)，\(1&lt;\xi_n&lt;2\)；\(f\) 在 \([1,2]\) 连续故 \(f(\xi_n)\) 有界。又 \(e^{x^n}&gt;x^n+1&gt;x^n\)，故</p>
-<p>\[0&lt;\int_1^2 e^{-x^n}\,\mathrm{d}x&lt;\int_1^2 x^{-n}\,\mathrm{d}x=\frac{2^{1-n}-1}{1-n}\xrightarrow[n\to\infty]{}0,\]</p>
-<p>由夹逼准则 \(\int_1^2 e^{-x^n}\,\mathrm{d}x\to0\)，于是原极限 \(=0\)（有界 × 无穷小）。</p>
-<p><strong>注</strong> \(\xi_n\) 与 \(n\) 有关，别对 \(f(\xi_n)\) 取极限，见"核心概念"里的注截图（印P331）。</p>
-<h3>例11.2（积分条件翻译成函数值，罗尔 + 两次拉格朗日）</h3>
+<p><strong>题目</strong> (1) 设 \(f(x),g(x)\) 在 \([a,b]\) 上连续，且 \(g(x)\) 在 \([a,b]\) 上不变号，证明存在 \(\xi\in(a,b)\)，使 \(\int_a^bf(x)g(x)\,\mathrm{d}x=f(\xi)\int_a^bg(x)\,\mathrm{d}x\)；(2) 设 \(f(x)\) 在 \([1,2]\) 上连续，求 \(\lim\limits_{n\to\infty}\int_1^2f(x)e^{-x^n}\,\mathrm{d}x\)。</p>
+<p><strong>思路</strong> (1) 证推广的积分中值定理，关键动作是"常数变量化"：把端点处的定积分装进变限积分 \(F,G\)，再上柯西中值定理；(2) 直接套 (1) 把 \(f\) 提出来，剩下夹逼 \(\int_1^2e^{-x^n}\,\mathrm{d}x\)。</p>
+<p><strong>要点</strong> (1) 若 \(g\equiv0\) 结论显然；若 \(g\not\equiv0\)，不妨设 \(g(x)&gt;0\)，则 \(\int_a^bg(x)\,\mathrm{d}x&gt;0\)。令 \(F(x)=\int_a^xf(t)g(t)\,\mathrm{d}t,\ G(x)=\int_a^xg(t)\,\mathrm{d}t\)，在 \([a,b]\) 上用柯西中值定理：</p>
+<p>\[\frac{\int_a^bf(x)g(x)\,\mathrm{d}x-0}{\int_a^bg(x)\,\mathrm{d}x-0}=\frac{F'(\xi)}{G'(\xi)}=\frac{f(\xi)g(\xi)}{g(\xi)}=f(\xi),\qquad \xi\in(a,b),\]</p>
+<p>其中 \(g(\xi)\ne0\)；\(g(x)&lt;0\) 时同理。(2) 由 (1)，\(\int_1^2f(x)e^{-x^n}\,\mathrm{d}x=f(\xi_n)\int_1^2e^{-x^n}\,\mathrm{d}x\)，\(1&lt;\xi_n&lt;2\)；\(f\) 在 \([1,2]\) 连续故 \(f(\xi_n)\) 有界。又 \(e^{x^n}&gt;x^n+1&gt;x^n\)（不等式 \(\lim\limits_{n\to\infty}\left(1+\frac1n\right)^n=e\) 的推论），故</p>
+<p>\[0&lt;\int_1^2e^{-x^n}\,\mathrm{d}x&lt;\int_1^2x^{-n}\,\mathrm{d}x=\frac{2^{1-n}-1}{1-n}\xrightarrow[n\to\infty]{}0,\]</p>
+<p>由夹逼准则 \(\int_1^2e^{-x^n}\,\mathrm{d}x\to0\)，于是原极限 \(=0\)（有界 × 无穷小）。</p>
+<p><strong>注</strong> \(\xi_n\) 与 \(n\) 有关，别对 \(f(\xi_n)\) 取极限，见"核心概念二"的注截图（印P331）。</p>
+<h4>例11.2（积分条件翻译成函数值，罗尔 + 两次拉格朗日）</h4>
 <figure class="shot"><img src="../assets/img/L11-008.webp" alt="原书 例11.2 · 印P331" loading="lazy" width="1100" height="1089"><figcaption>原书 例11.2 · 印P331</figcaption></figure>
+<p><strong>题目</strong> 设 \(f(x)\) 在 \([0,\frac{\pi}{2}]\) 上二阶可导，\(f(0)=2\)，\(f\left(\frac{\pi}{2}\right)=1\)，\(\int_0^{\pi/2}f(x)e^{\sin x}\cos x\,\mathrm{d}x=2(e-1)\)，证明存在 \(\xi\in\left(0,\frac{\pi}{2}\right)\) 使 \(f''(\xi)&lt;0\)。</p>
 <p><strong>思路</strong> 先把积分条件"翻译"成函数值：凑微分 \(\int_0^{\pi/2}e^{\sin x}\cos x\,\mathrm{d}x=e^{\sin x}\big|_0^{\pi/2}=e-1\)，用推广积分中值定理得 \(f(\eta)=2\)；然后把 \(2,2,1\) 三个函数值摆在数轴上，相等用罗尔、不等用拉格朗日。</p>
 <p><strong>要点</strong> 存在 \(\eta\in\left(0,\tfrac{\pi}{2}\right)\) 使 \(f(\eta)(e-1)=2(e-1)\)，即 \(f(\eta)=2\)。由 \(f(0)=f(\eta)=2\)，罗尔定理给 \(\xi_1\in(0,\eta)\)，\(f'(\xi_1)=0\)；由 \(f(\eta)=2\ne1=f\left(\tfrac{\pi}{2}\right)\)，拉格朗日中值定理给 \(\xi_2\in\left(\eta,\tfrac{\pi}{2}\right)\)：</p>
 <p>\[f'(\xi_2)=\frac{f\left(\tfrac{\pi}{2}\right)-f(\eta)}{\tfrac{\pi}{2}-\eta}=\frac{1-2}{\tfrac{\pi}{2}-\eta}&lt;0.\]</p>
 <p>再对 \(f'\) 在 \([\xi_1,\xi_2]\) 上用拉格朗日中值定理，存在 \(\xi\in(\xi_1,\xi_2)\subset\left(0,\tfrac{\pi}{2}\right)\)：</p>
 <p>\[f''(\xi)=\frac{f'(\xi_2)-f'(\xi_1)}{\xi_2-\xi_1}&lt;0.\]</p>
-<p><strong>注</strong> 书上配了拓展：若 \(f(a)=f(b)=f(c)\) 用三次罗尔定理；若三点函数值互不相等，用两次拉格朗日中值定理——习题 11.1 就是这个模板。</p>
-<h3>例11.4（比大小 + 夹逼求极限，典型考研命题形式）</h3>
+<figure class="shot"><img src="../assets/img/L11-022.webp" alt="原书 例11.2注 · 拓展 · 印P331" loading="lazy" width="97" height="148"><figcaption>原书 例11.2注 · 拓展 · 印P331</figcaption></figure>
+<p><strong>注</strong> 书上配了拓展（印P331）：若 \(f(a)=f(b)=f(c)\)，用三次罗尔定理；若三点函数值互不相等，用三次拉格朗日中值定理（示意图标着 \(f'(\xi_1)&lt;0,\ f'(\xi_2)&gt;0\Rightarrow f''(\xi)&gt;0\) 的链路）——习题 11.1 就是这个模板。</p>
+<h4>例11.3（凑微分 + 夹逼：选择题）</h4>
+<figure class="shot"><img src="../assets/img/L11-015.webp" alt="原书 例11.3 · 印P332" loading="lazy" width="1100" height="745"><figcaption>原书 例11.3 · 印P332</figcaption></figure>
+<p><strong>题目</strong> \(\lim\limits_{n\to\infty}\displaystyle\int_0^1(n+1)x^n\ln(1+x)\,\mathrm{d}x=\)（　）。(A) \(\ln 2\)　(B) \(1\)　(C) \(e^2\)　(D) \(+\infty\)</p>
+<p><strong>思路</strong> 见到 \((n+1)x^n\,\mathrm{d}x\) 先凑微分 \(\mathrm{d}(x^{n+1})\)，分部积分把 \(n\) 全赶到边界上去，剩下的尾巴用夹逼掐掉。这是"\(\lim\int\)"型的标准两步。</p>
+<p><strong>要点</strong> 应选 (A)。</p>
+<p>\[\int_0^1(n+1)x^n\ln(1+x)\,\mathrm{d}x=\int_0^1\ln(1+x)\,\mathrm{d}\left(x^{n+1}\right)=\ln(1+x)\,x^{n+1}\Big|_0^1-\int_0^1\frac{x^{n+1}}{1+x}\,\mathrm{d}x=\ln 2-\int_0^1\frac{x^{n+1}}{1+x}\,\mathrm{d}x,\]</p>
+<p>其中边界项在 \(x=0\) 处为零、\(x=1\) 处为 \(\ln2\)。再放缩尾巴：\(0\le\displaystyle\int_0^1\frac{x^{n+1}}{1+x}\,\mathrm{d}x\le\int_0^1x^{n+1}\,\mathrm{d}x=\frac{1}{n+2}\to0\)，由夹逼准则尾巴 \(\to0\)，故极限 \(=\ln 2\)。</p>
+<p><strong>注</strong> 别看被积函数 \((n+1)x^n\ln(1+x)\) 在 \(x=1\) 附近不收敛（\(n+1\) 发散）就想当然选 \(+\infty\)——分部之后 \(n\) 只剩 \(\frac{1}{n+2}\) 的量级。</p>
+<h4>例11.4（比大小 + 夹逼求极限，典型考研命题形式）</h4>
 <figure class="shot"><img src="../assets/img/L11-009.webp" alt="原书 例11.4 · 印P332" loading="lazy" width="1100" height="618"><figcaption>原书 例11.4 · 印P332</figcaption></figure>
+<p><strong>题目</strong> \(u_n=\displaystyle\int_0^1|\ln t|\,[\ln(1+t)]^n\,\mathrm{d}t\)，\(n=1,2,\cdots\)。(1) 证明 \(u_n\le\displaystyle\int_0^1t^n|\ln t|\,\mathrm{d}t\)；(2) 求 \(\lim\limits_{n\to\infty}u_n\)。</p>
 <p><strong>思路</strong> 夹逼两步走：先用 \(0\le\ln(1+t)\le t\ (0\le t\le1)\) 比出大小，再算上界的极限。</p>
-<p><strong>要点</strong> (1) 当 \(0\le t\le1\) 时 \(0\le[\ln(1+t)]^n\le t^n\)，两边同乘 \(|\ln t|\)，再由积分保号性：</p>
-<p>\[\int_0^1|\ln t|\,[\ln(1+t)]^n\,\mathrm{d}t\le\int_0^1 t^n|\ln t|\,\mathrm{d}t.\]</p>
+<p><strong>要点</strong> (1) 当 \(0\le t\le1\) 时 \(0\le[\ln(1+t)]^n\le t^n\)，两边同乘 \(|\ln t|(\ge0)\)，再由积分保号性：</p>
+<p>\[\int_0^1|\ln t|\,[\ln(1+t)]^n\,\mathrm{d}t\le\int_0^1t^n|\ln t|\,\mathrm{d}t.\]</p>
 <p>(2) 对上界分部积分（边界项用 \(\lim\limits_{t\to0^+}t^{n+1}\ln t=0\)）：</p>
-<p>\[\int_0^1 t^n|\ln t|\,\mathrm{d}t=-\int_0^1 t^n\ln t\,\mathrm{d}t=-\frac{t^{n+1}}{n+1}\ln t\bigg|_0^1+\frac{1}{n+1}\int_0^1 t^n\,\mathrm{d}t=\frac{1}{(n+1)^2},\]</p>
+<p>\[\int_0^1t^n|\ln t|\,\mathrm{d}t=-\int_0^1t^n\ln t\,\mathrm{d}t=-\frac{t^{n+1}}{n+1}\ln t\bigg|_0^1+\frac{1}{n+1}\int_0^1t^n\,\mathrm{d}t=\frac{1}{(n+1)^2},\]</p>
 <p>于是 \(0\le u_n\le\dfrac{1}{(n+1)^2}\to0\)，由夹逼准则 \(\lim\limits_{n\to\infty}u_n=0\)。</p>
-<p><strong>注</strong> 一般化结论就是前面蓝框：\(f\in C[0,1]\Rightarrow\lim\limits_{n\to\infty}\int_0^1 x^nf(x)\,\mathrm{d}x=0\)。同页的例11.3（\(\lim\limits_{n\to\infty}\int_0^1(n+1)x^n\ln(1+x)\,\mathrm{d}x\)）是同款套路：凑微分 \(\mathrm{d}(x^{n+1})\) 分部后夹逼 \(\int_0^1\frac{x^{n+1}}{1+x}\mathrm{d}x\le\frac{1}{n+2}\to0\)，选 (A) \(\ln 2\)。</p>
-<h3>例11.5（周期函数积分极限，洛必达禁用）</h3>
+<p><strong>注</strong> 一般化结论就是"核心概念三"的蓝框：\(f\in C[0,1]\Rightarrow\lim\limits_{n\to\infty}\int_0^1x^nf(x)\,\mathrm{d}x=0\)。</p>
+<h4>例11.5（周期函数积分极限，洛必达禁用）</h4>
 <figure class="shot"><img src="../assets/img/L11-010.webp" alt="原书 例11.5 · 印P333" loading="lazy" width="1079" height="893"><figcaption>原书 例11.5 · 印P333</figcaption></figure>
-<p><strong>思路</strong> \(\dfrac{\int_0^x f(t)\,\mathrm{d}t}{x}\) 是 \(\frac{\infty}{\infty}\)，但 \(f(x)=x-[x]\) 含跳跃间断点、无原函数，洛必达法则不能用；\(f\) 以 1 为周期，用整数部分夹逼。</p>
-<p><strong>要点</strong> 由例1.13，\(f\) 是周期为 1 的周期函数，\(\int_0^n f(t)\,\mathrm{d}t=n\int_0^1f(t)\,\mathrm{d}t=\dfrac{n}{2}\)（\(n\) 个三角形面积）。当 \(n\le x&lt;n+1\)，即 \(\dfrac{1}{n+1}&lt;\dfrac{1}{x}\le\dfrac{1}{n}\) 时：</p>
-<p>\[\frac{n}{2}=\int_0^n f(t)\,\mathrm{d}t\le\int_0^x f(t)\,\mathrm{d}t&lt;\int_0^{n+1}f(t)\,\mathrm{d}t=\frac{n+1}{2},\]</p>
-<p>于是 \(\dfrac{n}{2(n+1)}&lt;\dfrac{1}{x}\displaystyle\int_0^x f(t)\,\mathrm{d}t&lt;\dfrac{n+1}{2n}\)。\(x\to+\infty\) 即 \(n\to\infty\)，由夹逼准则得极限 \(=\dfrac12\)。</p>
-<p><strong>注</strong> 书上现场教了个倒数不等式：\(0&lt;a&lt;y&lt;b,\ 0&lt;c&lt;x&lt;d\) 时 \(\dfrac{a}{d}&lt;\dfrac{y}{x}&lt;\dfrac{b}{c}\)，处理"分子分母各卡在区间里"的比值很好用。</p>
-<h3>例11.6（两次分部积分证等式，再放缩成不等式）</h3>
+<p><strong>题目</strong> \(f(x)=x-[x]\)（取整函数），求 \(\lim\limits_{x\to+\infty}\dfrac{1}{x}\displaystyle\int_0^xf(t)\,\mathrm{d}t\)。</p>
+<p><strong>思路</strong> \(\dfrac{\int_0^xf(t)\,\mathrm{d}t}{x}\) 是 \(\frac{\infty}{\infty}\)，但 \(f(x)=x-[x]\) 含跳跃间断点、无原函数，洛必达法则不能用；\(f\) 以 1 为周期，用整数部分夹逼。</p>
+<p><strong>要点</strong> 由例1.13，\(f\) 是周期为 1 的周期函数，\(\int_0^nf(t)\,\mathrm{d}t=n\int_0^1f(t)\,\mathrm{d}t=\dfrac{n}{2}\)（\(n\) 个三角形面积，每个 \(\frac12\)）。当 \(n\le x&lt;n+1\) 时：</p>
+<p>\[\frac{n}{2}=\int_0^nf(t)\,\mathrm{d}t\le\int_0^xf(t)\,\mathrm{d}t&lt;\int_0^{n+1}f(t)\,\mathrm{d}t=\frac{n+1}{2},\]</p>
+<p>又 \(\dfrac{1}{n+1}&lt;\dfrac{1}{x}\le\dfrac{1}{n}\)，相除（用倒数不等式 \(0&lt;a&lt;y&lt;b,\ 0&lt;c&lt;x&lt;d\Rightarrow\dfrac{a}{d}&lt;\dfrac{y}{x}&lt;\dfrac{b}{c}\)，书上手写批注）得</p>
+<p>\[\frac{n}{2(n+1)}&lt;\frac{1}{x}\int_0^xf(t)\,\mathrm{d}t&lt;\frac{n+1}{2n}.\]</p>
+<p>\(x\to+\infty\) 即 \(n\to\infty\)，由夹逼准则得极限 \(=\dfrac12\)。</p>
+<p><strong>注</strong> 分子分母各卡在区间里时，倒数不等式比硬除干净快得多。</p>
+<h4>例11.6（两次分部积分证等式，再放缩成不等式）</h4>
 <figure class="shot"><img src="../assets/img/L11-011.webp" alt="原书 例11.6 · 印P333" loading="lazy" width="1100" height="445"><figcaption>原书 例11.6 · 印P333</figcaption></figure>
-<p><strong>思路</strong> (1) \(f\) 与 \(f''\) 同台，两次分部积分，把 \(x(x-1)\) 逐步"消化"掉；(2) 在 (1) 的等式上取绝对值放缩。</p>
-<p><strong>要点</strong> (1)</p>
-<p>\[\frac12\int_0^1 x(x-1)f''(x)\,\mathrm{d}x=\frac12 x(x-1)f'(x)\Big|_0^1-\frac12\int_0^1(2x-1)f'(x)\,\mathrm{d}x=-\frac12\int_0^1(2x-1)\,\mathrm{d}[f(x)]\]</p>
-<p>\[=-\frac12(2x-1)f(x)\Big|_0^1+\int_0^1f(x)\,\mathrm{d}x,\]</p>
-<p>两次的边界项分别由 \(x(x-1)\) 在 \(0,1\) 为零、\(f(0)=f(1)=0\) 消掉，故 \(\int_0^1f(x)\,\mathrm{d}x=\dfrac12\int_0^1x(x-1)f''(x)\,\mathrm{d}x\)。(2) 记 \(M=\max\limits_{0\le x\le1}\{|f''(x)|\}\)：</p>
+<p><strong>题目</strong> \(f''(x)\) 在 \([0,1]\) 上连续，\(f(0)=f(1)=0\)。(1) 证明 \(\displaystyle\int_0^1f(x)\,\mathrm{d}x=\frac12\displaystyle\int_0^1x(x-1)f''(x)\,\mathrm{d}x\)；(2) 证明 \(\Big|\displaystyle\int_0^1f(x)\,\mathrm{d}x\Big|\le\frac{1}{12}\max\limits_{x\in[0,1]}\{|f''(x)|\}\)。</p>
+<p><strong>思路</strong> (1) \(f\) 与 \(f''\) 同台，两次分部积分，把 \(x(x-1)\) 逐步"消化"掉；(2) 在 (1) 的等式上取绝对值放缩。做 (1) 前先"预判"边界项会怎么消失：\(x(x-1)\) 在端点为零、\(f\) 在端点为零——两次分部的边界项全都死得干干净净，这题才这么设计。</p>
+<p><strong>要点</strong> (1) 第一次分部（\(\mathrm{d}[f'(x)]\)）：</p>
+<p>\[\frac12\int_0^1x(x-1)f''(x)\,\mathrm{d}x=\frac12x(x-1)f'(x)\Big|_0^1-\frac12\int_0^1(2x-1)f'(x)\,\mathrm{d}x=-\frac12\int_0^1(2x-1)\,\mathrm{d}[f(x)],\]</p>
+<p>边界项由 \(x(x-1)\) 在 \(0,1\) 为零而消失。第二次分部：</p>
+<p>\[-\frac12\int_0^1(2x-1)\,\mathrm{d}[f(x)]=-\frac12(2x-1)f(x)\Big|_0^1+\int_0^1f(x)\,\mathrm{d}x,\]</p>
+<p>边界项由 \(f(0)=f(1)=0\) 消失，故 \(\int_0^1f(x)\,\mathrm{d}x=\dfrac12\int_0^1x(x-1)f''(x)\,\mathrm{d}x\)。</p>
+<figure class="shot"><img src="../assets/img/L11-016.webp" alt="原书 例11.6 证明(2) · 印P334" loading="lazy" width="776" height="544"><figcaption>原书 例11.6 证明(2) · 印P334</figcaption></figure>
+<p>(2) 记 \(M=\max\limits_{x\in[0,1]}\{|f''(x)|\}\)，在等式上取绝对值（\(|x(x-1)|=x(1-x)\)，\(x\in[0,1]\)）：</p>
 <p>\[\Big|\int_0^1f(x)\,\mathrm{d}x\Big|=\frac12\Big|\int_0^1x(x-1)f''(x)\,\mathrm{d}x\Big|\le\frac12\int_0^1x(1-x)|f''(x)|\,\mathrm{d}x\le\frac{M}{2}\int_0^1x(1-x)\,\mathrm{d}x=\frac{M}{2}\Big(\frac12-\frac13\Big)=\frac{M}{12}.\]</p>
-<p><strong>注</strong> \(|x(x-1)|=x(1-x)\)（\(x\in[0,1]\)），绝对值别丢；这里用的是第8讲"二、3"的积分比较性质。</p>
-<h3>例11.7（单调性路径，考研以来较复杂的变限积分）</h3>
+<p><strong>注</strong> 绝对值别丢：\(\int_0^1x(1-x)\,\mathrm{d}x=\frac12-\frac13=\frac16\)，\(M/12\) 就是这么来的；这里用的是第8讲"二、3"的积分比较性质。</p>
+<h4>例11.7（单调性路径，考研以来较复杂的变限积分）</h4>
 <figure class="shot"><img src="../assets/img/L11-012.webp" alt="原书 例11.7 · 印P334" loading="lazy" width="889" height="612"><figcaption>原书 例11.7 · 印P334</figcaption></figure>
-<p><strong>思路</strong> (1) 正向积分直接用保号性；(2) 号称考研以来较复杂的变限积分——移项构造 \(F(x)\)（左端积分上限里还嵌着一个变限积分），求导后用 (1) 与 \(f\) 的单调性判号。</p>
+<p><strong>题目</strong> 设 \(f(x),g(x)\) 在 \([a,b]\) 上连续，\(0\le g(x)\le1\)，且 \(f(x)\) 单调增加，证明</p>
+<p>\[\int_a^{\,a+\int_a^bg(t)\,\mathrm{d}t}f(x)\,\mathrm{d}x\le\int_a^bf(x)g(x)\,\mathrm{d}x.\]</p>
+<p><strong>思路</strong> (1) 正向积分直接用保号性；(2) 号称考研以来较复杂的变限积分——移项构造 \(F(x)\)（左端积分上限里还嵌着一个变限积分），求导后用 (1) 与 \(f\) 的单调性判号。三个变量 \(x,u,t\) 要区分开。</p>
 <p><strong>要点</strong> (1) \(0\le g(x)\le1\Rightarrow\int_a^x0\,\mathrm{d}t\le\int_a^xg(t)\,\mathrm{d}t\le\int_a^x1\,\mathrm{d}t\)，即 \(0\le\int_a^xg(t)\,\mathrm{d}t\le x-a\)。(2) 令</p>
-<p>\[F(x)=\int_a^{\,a+\int_a^xg(u)\,\mathrm{d}u}f(x)\,\mathrm{d}x-\int_a^xf(t)g(t)\,\mathrm{d}t,\qquad x\in[a,b]\]</p>
-<p>（三个变量 \(x,u,t\) 要区分开）。变限积分求导，内层 \(\int_a^xg(u)\,\mathrm{d}u\) 的导数是 \(g(x)\)：</p>
+<p>\[F(x)=\int_a^{\,a+\int_a^xg(u)\,\mathrm{d}u}f(x)\,\mathrm{d}x-\int_a^xf(t)g(t)\,\mathrm{d}t,\qquad x\in[a,b].\]</p>
+<p>变限积分求导，内层 \(\int_a^xg(u)\,\mathrm{d}u\) 的导数是 \(g(x)\)（链式法则）：</p>
 <p>\[F'(x)=f\Big[a+\int_a^xg(u)\,\mathrm{d}u\Big]g(x)-f(x)g(x)=\Big\{f\Big[a+\int_a^xg(u)\,\mathrm{d}u\Big]-f(x)\Big\}g(x).\]</p>
 <p>由 (1)，\(a+\int_a^xg(u)\,\mathrm{d}u\le x\)；\(f\) 单调增加，故花括号 \(\le0\)，又 \(g(x)\ge0\)，所以 \(F'(x)\le0\)，\(F\) 在 \([a,b]\) 上单调减少；又 \(F(a)=0\)，故 \(F(b)\le0\)，即</p>
-<p>\[\int_a^{\,a+\int_a^bg(t)\,\mathrm{d}t}f(x)\,\mathrm{d}x\le\int_a^bf(x)g(x)\,\mathrm{d}x.\]</p>
-<h3>例11.8（拉格朗日路径，分段使用）</h3>
+<p>\[\int_a^{\,a+\int_a^bg(t)\,\mathrm{d}t}f(x)\,\mathrm{d}x\le\int_a^bf(x)g(x)\,\mathrm{d}x.\quad\text{证毕.}\]</p>
+<h4>例11.8（拉格朗日路径，分段使用）</h4>
 <figure class="shot"><img src="../assets/img/L11-013.webp" alt="原书 例11.8 · 印P335" loading="lazy" width="1100" height="221"><figcaption>原书 例11.8 · 印P335</figcaption></figure>
-<p><strong>思路</strong> 端点值都是 0，把 \([0,1]\) 拆成 \([0,x]\)、\([x,1]\) 两段各用一次拉格朗日，把 \(|f(x)|\) 用 \(M\) 与 \(x\) 表示，再放缩积分。</p>
+<p><strong>题目</strong> \(f(x)\) 在 \([0,1]\) 上具有一阶连续导数，\(f(0)=f(1)=0\)，\(M=\max\limits_{x\in[0,1]}\{|f'(x)|\}\)，证明 \(\Big|\displaystyle\int_0^1f(x)\,\mathrm{d}x\Big|\le\dfrac{M}{4}\)。</p>
+<p><strong>思路</strong> 端点值都是 0，把 \([0,1]\) 拆成 \([0,x]\)、\([x,1]\) 两段各用一次拉格朗日，把 \(|f(x)|\) 用 \(M\) 与 \(x\) 表示，再放缩积分；最后对得到的"对一切 \(x\) 都成立"的界取最小值收尾。</p>
 <p><strong>要点</strong> 在 \([0,x]\) 上：\(f(x)-f(0)=f(x)=f'(\xi_1)x\)，\(\xi_1\in(0,x)\)，故 \(|f(x)|=|f'(\xi_1)|x\le Mx\)；在 \([x,1]\) 上：\(f(1)-f(x)=-f(x)=f'(\xi_2)(1-x)\)，\(\xi_2\in(x,1)\)，故 \(|f(x)|=|f'(\xi_2)|(1-x)\le M(1-x)\)。于是</p>
-<p>\[\Big|\int_0^1f(x)\,\mathrm{d}x\Big|=\Big|\int_0^xf(t)\,\mathrm{d}t+\int_x^1f(t)\,\mathrm{d}t\Big|\le\int_0^x|f(t)|\,\mathrm{d}t+\int_x^1|f(t)|\,\mathrm{d}t\le M\int_0^xt\,\mathrm{d}t+M\int_x^1(1-t)\,\mathrm{d}t=M\Big[\frac{x^2}{2}+\frac{(1-x)^2}{2}\Big].\]</p>
-<p>上式对每个 \(x\in[0,1]\) 都成立，而 \(\dfrac{x^2}{2}+\dfrac{(1-x)^2}{2}=x^2-x+\dfrac12=\left(x-\dfrac12\right)^2+\dfrac14\) 在 \(x=\dfrac12\) 处取最小值 \(\dfrac14\)，故 \(\Big|\int_0^1f(x)\,\mathrm{d}x\Big|\le\dfrac{M}{4}\)。</p>
-<h3>例11.9（泰勒路径，展开点让一阶项归零）</h3>
+<p>\[\Big|\int_0^1f(x)\,\mathrm{d}x\Big|\le\int_0^1|f(x)|\,\mathrm{d}x\le M\int_0^1\min\{x,1-x\}\,\mathrm{d}x\le M\int_0^xt\,\mathrm{d}t+M\int_x^1(1-t)\,\mathrm{d}t=M\Big[\frac{x^2}{2}+\frac{(1-x)^2}{2}\Big].\]</p>
+<p>（更细的写法：对任意取定的 \(x\)，\(\int_0^x|f|\le M\int_0^xt\,\mathrm{d}t\)、\(\int_x^1|f|\le M\int_x^1(1-t)\,\mathrm{d}t\)，两段分别用各自的估计。）上式对每个 \(x\in[0,1]\) 都成立，而 \(\dfrac{x^2}{2}+\dfrac{(1-x)^2}{2}=x^2-x+\dfrac12=\left(x-\dfrac12\right)^2+\dfrac14\) 在 \(x=\dfrac12\) 处取最小值 \(\dfrac14\)，故 \(\Big|\int_0^1f(x)\,\mathrm{d}x\Big|\le\dfrac{M}{4}\)。</p>
+<p><strong>注</strong> 书上原话是"其中 \(\cdots\ge\frac14\)，故得证"——本质是右端对 \(x\) 取最小；自己写时明确"取 \(x=\frac12\)（最小值点）"更严谨。</p>
+<h4>例11.9（泰勒路径，展开点让一阶项归零）</h4>
 <figure class="shot"><img src="../assets/img/L11-014.webp" alt="原书 例11.9 · 印P335" loading="lazy" width="1100" height="296"><figcaption>原书 例11.9 · 印P335</figcaption></figure>
-<p><strong>思路</strong> 用不上牛顿-莱布尼茨公式（没有现成的 \(f'\) 积分关系），按书上分析：用泰勒公式把被积函数 \(f(x)\) 展开成多项式再做。</p>
-<p><strong>要点</strong> 取 \(x_0=1\)（\(f(1)=0\)）展开：</p>
+<p><strong>题目</strong> \(f''(x)\) 在 \([0,2]\) 上连续，\(f(1)=0\)，\(M=\max\limits_{x\in[0,2]}\{|f''(x)|\}\)，证明 \(\Big|\displaystyle\int_0^2f(x)\,\mathrm{d}x\Big|\le\dfrac{M}{3}\)。</p>
+<p><strong>思路</strong> 书上"分析"：用不上牛顿-莱布尼茨公式（没有现成的 \(f'\) 积分关系），考虑用泰勒公式把被积函数 \(f(x)\) 展开成多项式再做。展开点取已知值点 \(x_0=1\)（\(f(1)=0\)），区间 \([0,2]\) 恰好关于它对称，一阶项积分自动为零。</p>
+<p><strong>要点</strong> 在 \(x_0=1\) 处展开：</p>
 <p>\[f(x)=f(1)+f'(1)(x-1)+\frac{f''(\xi)}{2}(x-1)^2=f'(1)(x-1)+\frac{f''(\xi)}{2}(x-1)^2\]</p>
-<p>（\(\xi\) 介于 \(x\) 与 \(1\) 之间，是关于 \(x\) 的函数）。两边在 \([0,2]\) 积分，一阶项由 \(\int_0^2(x-x_0)\,\mathrm{d}x=0\) 消掉：</p>
+<p>（\(\xi\) 介于 \(x\) 与 \(1\) 之间，是关于 \(x\) 的函数）。两边在 \([0,2]\) 积分，一阶项由 \(\int_0^2(x-1)\,\mathrm{d}x=\left[\dfrac{(x-1)^2}{2}\right]_0^2=0\) 消掉：</p>
+<figure class="shot"><img src="../assets/img/L11-017.webp" alt="原书 例11.9 证明 · 印P336" loading="lazy" width="982" height="435"><figcaption>原书 例11.9 证明 · 印P336</figcaption></figure>
 <p>\[\int_0^2f(x)\,\mathrm{d}x=f'(1)\int_0^2(x-1)\,\mathrm{d}x+\frac12\int_0^2f''(\xi)(x-1)^2\,\mathrm{d}x=\frac12\int_0^2f''(\xi)(x-1)^2\,\mathrm{d}x,\]</p>
-<p>故 \(\Big|\int_0^2f(x)\,\mathrm{d}x\Big|\le\dfrac12M\displaystyle\int_0^2(x-1)^2\,\mathrm{d}x=\dfrac{M}{3}\)。</p>
+<p>故</p>
+<p>\[\Big|\int_0^2f(x)\,\mathrm{d}x\Big|=\frac12\Big|\int_0^2f''(\xi)(x-1)^2\,\mathrm{d}x\Big|\le\frac12\int_0^2|f''(\xi)|(x-1)^2\,\mathrm{d}x\le\frac{M}{2}\int_0^2(x-1)^2\,\mathrm{d}x=\frac{M}{2}\cdot\frac{2}{3}=\frac{M}{3}.\]</p>
 <p><strong>注</strong> 展开点选在已知函数值处、并让一阶项积分恰好为零，是泰勒法证积分不等式的标准起手式。</p>
-<h2>易错点与技巧</h2>
+<h4>例11.10（积分法路径："函数 × 三角函数"分部积分）</h4>
+<figure class="shot"><img src="../assets/img/L11-019.webp" alt="原书 例11.10 · 印P336" loading="lazy" width="1100" height="440"><figcaption>原书 例11.10 · 印P336</figcaption></figure>
+<p><strong>题目</strong> \(f'(x)\) 在 \([0,2\pi]\) 上连续，且 \(f'(x)\ge0\)，证明对 \(n=1,2,\cdots\)，</p>
+<p>\[\Big|\int_0^{2\pi}f(x)\sin nx\,\mathrm{d}x\Big|\le\frac{2}{n}\big[f(2\pi)-f(0)\big].\]</p>
+<p><strong>思路</strong> 被积函数是"两项相乘"，走积分法：分部积分把 \(f\) 换成 \(f'\)（好估，因为 \(f'\ge0\) 时 \(|f'|=f'\) 且能积出来），三角函数的 \(n\) 留在分母。收尾三件套：\(\cos 2n\pi=\cos0=1\)、\(|\cos nx|\le1\)、\(\int_0^{2\pi}f'=f(2\pi)-f(0)\)。</p>
+<p><strong>要点</strong> 分部积分（\(u=f(x)\)，\(\mathrm{d}v=\sin nx\,\mathrm{d}x\)）：</p>
+<p>\[\int_0^{2\pi}f(x)\sin nx\,\mathrm{d}x=-\frac{f(x)\cos nx}{n}\bigg|_0^{2\pi}+\frac{1}{n}\int_0^{2\pi}f'(x)\cos nx\,\mathrm{d}x.\]</p>
+<p>取绝对值。边界项：\(\cos 2n\pi=\cos0=1\)，故</p>
+<p>\[\bigg|-\frac{f(x)\cos nx}{n}\bigg|_0^{2\pi}\bigg|=\frac{1}{n}\big|f(0)-f(2\pi)\big|=\frac{f(2\pi)-f(0)}{n}\]</p>
+<p>（\(f'\ge0\Rightarrow f(2\pi)\ge f(0)\)，保证去绝对值不变号）。第二项：</p>
+<p>\[\frac{1}{n}\bigg|\int_0^{2\pi}f'(x)\cos nx\,\mathrm{d}x\bigg|\le\frac{1}{n}\int_0^{\pi}f'(x)|\cos nx|\,\mathrm{d}x\le\frac{1}{n}\int_0^{2\pi}f'(x)\,\mathrm{d}x=\frac{f(2\pi)-f(0)}{n}.\]</p>
+<p>两项相加即得 \(\Big|\int_0^{2\pi}f(x)\sin nx\,\mathrm{d}x\Big|\le\dfrac{2}{n}\big[f(2\pi)-f(0)\big]\)。</p>
+<p><strong>注</strong> 这题条件里 \(f'\ge0\) 一石二鸟：既保边界项去绝对值的方向，又把 \(\int|f'|\) 写成 \(\int f'\) 才能用牛顿-莱布尼茨。放缩的依据是第8讲的比较性质（方法框原文特意提了它）。</p>
+<h4>例11.11（牛顿-莱布尼茨路径：双端点各写一遍）</h4>
+<figure class="shot"><img src="../assets/img/L11-021.webp" alt="原书 例11.11 · 印P336" loading="lazy" width="1100" height="504"><figcaption>原书 例11.11 · 印P336</figcaption></figure>
+<p><strong>题目</strong> \(f'(x)\) 在 \([a,b]\) 上连续，且 \(f(a)=f(b)=0\)，证明对任意 \(x\in[a,b]\)，\(|f(x)|\le\dfrac12\displaystyle\int_a^b|f'(x)|\,\mathrm{d}x\)。</p>
+<p><strong>思路</strong> 条件档位正中"牛顿-莱布尼茨公式"方法框的靶心：\(f'\) 连续、两个端点值都是 0。把 \(f(x)\) 分别写成从左端、右端出发的变限积分，各取绝对值相加，两段拼成全区间。</p>
+<p><strong>要点</strong> 由 \(f(a)=0\) 与牛顿-莱布尼茨公式：</p>
+<p>\[\big|f(x)\big|=\big|f(x)-f(a)\big|=\Big|\int_a^xf'(t)\,\mathrm{d}t\Big|\le\int_a^x\big|f'(t)\big|\,\mathrm{d}t.\qquad ①\]</p>
+<p>同理由 \(f(b)=0\)：</p>
+<p>\[\big|f(x)\big|=\big|f(x)-f(b)\big|=\Big|\int_b^xf'(t)\,\mathrm{d}t\Big|=\Big|\int_x^bf'(t)\,\mathrm{d}t\Big|\le\int_x^b\big|f'(t)\big|\,\mathrm{d}t.\qquad ②\]</p>
+<p>①+②：</p>
+<p>\[2\big|f(x)\big|\le\int_a^x\big|f'(t)\big|\,\mathrm{d}t+\int_x^b\big|f'(t)\big|\,\mathrm{d}t=\int_a^b\big|f'(x)\big|\,\mathrm{d}x,\quad\text{证毕.}\]</p>
+<p><strong>注</strong> 只有单端点为零（比如习题11.5 只有 \(f(0)=0\)）时，就只能写一边，得到的是 \(\int_a^x|f'|\)，再往下放缩成 \(M(x-a)\) 套路收尾——例题与习题一对照，"写一边还是写两边"就清楚了。</p>
+<h2 id="sec-15">易错点与技巧</h2>
 <ol>
 <li>中值点带参数就别取极限：被积函数含 \(n\) 时 \(\xi=\xi_n\)（\(\eta=\eta_n\)），书上专门加注"此时不能用 \(\lim\limits_{n\to\infty}e^{-\eta_n^n}=0\)"（印P331）。正确的收尾是"有界 × 无穷小"。</li>
-<li>\(f(x)=x-[x]\) 这类含跳跃间断点的函数没有原函数，\(\frac{\infty}{\infty}\) 型积分极限别上来就洛必达（印P333，例11.5 的分析）。</li>
-<li>凑微分先于硬算：\((n+1)x^n\,\mathrm{d}x=\mathrm{d}(x^{n+1})\)、\(e^{\sin x}\cos x\,\mathrm{d}x=\mathrm{d}(e^{\sin x})\)，先凑再放缩，例11.2、11.3、11.4 全是这么破的。</li>
+<li>\(f(x)=x-[x]\) 这类含跳跃间断点的函数没有原函数，\(\frac{\infty}{\infty}\) 型积分极限别上来就洛必达（印P333，例11.5）。</li>
+<li>凑微分先于硬算：\((n+1)x^n\,\mathrm{d}x=\mathrm{d}(x^{n+1})\)、\(e^{\sin x}\cos x\,\mathrm{d}x=\mathrm{d}(e^{\sin x})\)，先凑再放缩，例11.2、11.3、11.4 全是这么破的（印P331–333）。</li>
 <li>分部积分证等式时，边界项为什么是零要交代清楚（\(x(x-1)\) 端点为零、\(f(0)=f(1)=0\)），不能无声消失（印P333–334，例11.6）。</li>
-<li>构造变限辅助函数时几个变量分开写（例11.7 的 \(x,u,t\)）；上限里嵌变限积分，求导记得链式法则乘内层导数 \(g(x)\)。</li>
-<li>泰勒展开点选在已知函数值的点；能像例11.9 那样凑出 \(\int_0^{2x_0}(x-x_0)\,\mathrm{d}x=0\) 消掉 \(f'(x_0)\)，就赚到了。</li>
-<li>证"存在 \(\xi\) 使 \(f''(\xi)&lt;0\)"这类题：先把积分条件翻译成函数值，再在数轴上摆点——函数值相等用罗尔，不等用拉格朗日（例11.2 与习题11.1 同模板）。</li>
+<li>构造变限辅助函数时几个变量分开写（例11.7 的 \(x,u,t\)，印P334）；上限里嵌变限积分，求导记得链式法则乘内层导数 \(g(x)\)。</li>
+<li>泰勒展开点选在已知函数值的点；能像例11.9 那样凑出 \(\int_0^{2x_0}(x-x_0)\,\mathrm{d}x=0\) 消掉 \(f'(x_0)\)，就赚到了（印P335–336）。</li>
+<li>证"存在 \(\xi\) 使 \(f''(\xi)&lt;0\)"这类题：先把积分条件翻译成函数值，再在数轴上摆点——函数值相等用罗尔，不等用拉格朗日（例11.2 与习题11.1 同模板，印P331）。</li>
+<li>\(|x(x-1)|=x(1-x)\)（\(x\in[0,1]\)）——积分号下取绝对值前先把被积函数的绝对值拆干净，例11.6(2)、例11.9 的 \((x-1)^2\) 同理（印P334、336）。</li>
+<li>例11.10 型收尾三件套一个都不能少：\(\cos 2n\pi=\cos0=1\) 拍平边界项、\(|\cos nx|\le1\) 放缩、\(\int_0^{2\pi}f'=f(2\pi)-f(0)\) 收尾；\(f'\ge0\) 的作用（保证 \(f(2\pi)\ge f(0)\)、\(|f'|=f'\)）要在卷面上点明（印P336）。</li>
+<li>两端点都为零时牛顿-莱布尼茨"左右各写一遍再相加取半"（例11.11 的式①②）；只有一个端点为零就只写一边，往下用 \(\int_a^x|f'|\le M(x-a)\) 放缩（习题11.5，印P336–337、340）。</li>
+<li>做题次序照考情分析的"重难点"来：先求积分（或放缩积分），再求极限；\(\lim\int\) 型永远别先对 \(n\) 求极限（印P329、332–333）。</li>
+<li>分子分母各卡在两个数之间时，用倒数不等式 \(0&lt;a&lt;y&lt;b,\ 0&lt;c&lt;x&lt;d\Rightarrow\dfrac{a}{d}&lt;\dfrac{y}{x}&lt;\dfrac{b}{c}\) 直接除（印P333 手写批注）。</li>
 </ol>
-<h2>知识清单自测</h2>
+<h2 id="sec-16">考点与方法补充（站注）</h2>
+<p>以下均为站注（自学站补充，非原书内容），口径来自站注素材包（agent-reach 全网调研 + 新东方真题大数据）。</p>
+<p><strong>站注·考频定位</strong>：积分等式与积分不等式属"证明题储备"型考点——不年年考，但一考就是解答题大分；素材包 C-L11 列的高频入口是"变限积分构造函数＋单调性""分部积分出对称结构"，正是例11.7 与例11.6 的路数。与本讲共享"构造辅助函数"骨架的中值定理证明题，在近15年真题大数据里属第二梯队（隔年一道大题，素材包 B/C-L6）。另外素材包 B"命题趋势"里提到积分计算复杂度持续走高（多次换元），意味着夹逼路线上"算出上下界"这一步本身也在变难，第9讲的计算功底是本讲的地基。</p>
+<p><strong>站注·与第6讲的联动</strong>：第6讲中值定理的两大套路——构造辅助函数（乘积/商求导公式的逆用）、泰勒在端点/中点展开——在本讲各有一记回响：例11.7 的 \(F(x)=\int_a^{a+\int_a^xg}f-\int_a^xfg\) 就是"移项造函数"思想的积分版；例11.9 在中点 \(x_0=1\) 展开消一阶项，与第6讲"对称区间取中点"一脉相承。复习时两讲对着看，构造思路能省一半记忆量。</p>
+<p><strong>站注·张宇方法论"证明题不能放弃"</strong>：张宇公开课/经验贴的共识（素材包 A.1）：中值定理、积分不等式这类证明题是数一数二大题常客，"平时不动手，考场上写不出来"。本讲 11 道例题建议全部遮住解答自己先写一遍，特别是例11.7（书上标三星）、例11.10、例11.11 三道——写不出来的步骤，就是考场上会卡住的地方。同源的方法论还有"尽快结束纯听课阶段，自己动手最重要"（素材包 A.1）：本讲看懂 ≠ 会证，判型（连续？一阶可导？二阶可导？）→ 选路 → 动笔，三步缺一不可。</p>
+<p><strong>站注·书系衔接</strong>：按素材包 A.2 的路线，基础阶段本书配套《300题》巩固，强化阶段《高数18讲》会把这些证明套路升级成题型库。素材包 A.1.d 提到强化36讲第1讲主题即"判定类型，做好计算"——本讲"先看条件档位选路线"就是"判型"思想的预演。真题使用上（素材包 A.4）：本讲内容至少做近十年真题里的中值/积分不等式大题，随机抽 5 道独立完成、正确率 \(\ge90\%\) 才算过关。</p>
+<p><strong>站注·归因提醒</strong>：网上流传的"三大计算"是杨超的提法，不是张宇的，别在笔记里混用；张宇这边对应的关键词是"判定类型，做好计算"和动手算。</p>
+<h2 id="sec-17">知识清单自测</h2>
 <ul class="checklist">
-<li><label><input type="checkbox">会叙述推广的积分中值定理（\(g\) 不变号、\(\xi\in(a,b)\)），知道 \(g\equiv1\) 时退化为积分中值定理</label></li>
+<li><label><input type="checkbox">会叙述推广的积分中值定理（\(g\) 不变号、\(\xi\in(a,b)\)），知道 \(g\equiv1\) 时退化为积分中值定理，且考试可直接使用（印P330）</label></li>
+<li><label><input type="checkbox">知道结论在 \(\xi\in[a,b]\)（闭区间）上也成立（注1，印P331）</label></li>
 <li><label><input type="checkbox">会用"常数变量化 + 柯西中值定理"证明推广的积分中值定理</label></li>
-<li><label><input type="checkbox">能说出中值点何时依赖参数：区间变上限时 \(\xi=\xi(x)\)，被积函数含 \(n\) 时 \(\xi=\xi(n)\)</label></li>
-<li><label><input type="checkbox">会用"有界 × 无穷小 = 无穷小"给极限收尾</label></li>
-<li><label><input type="checkbox">记住并会证 \(\lim\limits_{n\to\infty}\int_0^1x^nf(x)\,\mathrm{d}x=0\ (f\in C[0,1])\)</label></li>
-<li><label><input type="checkbox">记住 \(\lim\limits_{t\to0^+}t^a\ln t=0\ (a&gt;0)\)，会在分部积分的边界项里用它</label></li>
-<li><label><input type="checkbox">会"凑微分 + 放缩 + 夹逼"求 \(\lim\int\)（例11.3、11.4 型）</label></li>
-<li><label><input type="checkbox">会处理周期函数的积分极限：\(\int_0^nf=n\int_0^1f\) 配合夹逼（例11.5 型）</label></li>
-<li><label><input type="checkbox">知道含跳跃间断点的函数无原函数，此类积分极限不能用洛必达</label></li>
-<li><label><input type="checkbox">见 \(f\times f''\) 会两次分部积分建立积分等式（例11.6(1) 型）</label></li>
-<li><label><input type="checkbox">单调性路径完整步骤：变限量化 → 移项构造 \(F(x)\) → 求导判号 → \(F(a)=0\) 收尾</label></li>
-<li><label><input type="checkbox">拉格朗日路径的适用条件：\(f\) 一阶可导、端点值简单；会分段使用</label></li>
-<li><label><input type="checkbox">泰勒路径的适用条件：\(f\) 二阶可导、题中有简单函数值；会选展开点</label></li>
+<li><label><input type="checkbox">能说出中值点何时依赖参数：区间变上限时 \(\xi=\xi(x)\)，被积函数含 \(n\) 时 \(\xi=\xi(n)\)（注2，印P331）</label></li>
+<li><label><input type="checkbox">会用"有界 × 无穷小 = 无穷小"给极限收尾（例11.1(2)）</label></li>
+<li><label><input type="checkbox">记住 \(e^{x^n}&gt;x^n+1\) 这类放缩的来路（\((1+\frac1n)^n\to e\)，例11.1(2)）</label></li>
+<li><label><input type="checkbox">记住并会证 \(\lim\limits_{n\to\infty}\int_0^1x^nf(x)\,\mathrm{d}x=0\ (f\in C[0,1])\)（蓝框，印P332）</label></li>
+<li><label><input type="checkbox">记住 \(\lim\limits_{t\to0^+}t^a\ln t=0\ (a&gt;0)\)，会在分部积分的边界项里用它（例11.4）</label></li>
+<li><label><input type="checkbox">会"凑微分 + 分部 + 夹逼"求 \(\lim\int\)（例11.3、11.4 型：\((n+1)x^n dx=\mathrm{d}(x^{n+1})\)）</label></li>
+<li><label><input type="checkbox">会用 \(0\le\ln(1+t)\le t\ (0\le t\le1)\) 做被积函数放缩（例11.4(1)）</label></li>
+<li><label><input type="checkbox">会处理周期函数的积分极限：\(\int_0^nf=n\int_0^1f\) 配合整数部分夹逼（例11.5 型）</label></li>
+<li><label><input type="checkbox">会背会用倒数不等式 \(0&lt;a&lt;y&lt;b,\ 0&lt;c&lt;x&lt;d\Rightarrow\frac{a}{d}&lt;\frac{y}{x}&lt;\frac{b}{c}\)（印P333 手写批注）</label></li>
+<li><label><input type="checkbox">知道含跳跃间断点的函数无原函数，此类积分极限不能用洛必达（例11.5）</label></li>
+<li><label><input type="checkbox">见 \(f\times f''\) 会两次分部积分建立积分等式，且能说清每次边界项为零的理由（例11.6(1)）</label></li>
+<li><label><input type="checkbox">记住 \(|x(x-1)|=x(1-x)\)、\(\int_0^1x(1-x)\,\mathrm{d}x=\frac16\)（例11.6(2)）</label></li>
+<li><label><input type="checkbox">单调性路径完整四步：变限量化 → 移项构造 \(F(x)\) → 求导判号 → \(F(a)=0\) 收尾（印P334 方法框）</label></li>
+<li><label><input type="checkbox">变限嵌变限的求导会乘内层导数（例11.7 的 \(F'(x)\)）</label></li>
+<li><label><input type="checkbox">拉格朗日路径的适用条件：\(f\) 一阶可导、端点值简单；会分段使用 + 会对参数 \(x\) 取最值收尾（例11.8）</label></li>
+<li><label><input type="checkbox">记住例11.8 的副产品：\(\min\{x,1-x\}\) 在 \(x=\frac12\) 处的拼接估计，最终界 \(M/4\)</label></li>
+<li><label><input type="checkbox">泰勒路径的适用条件：\(f\) 二阶可导、题中有简单函数值；展开点选已知值点，区间对称时一阶项积分归零（例11.9）</label></li>
+<li><label><input type="checkbox">"函数 × 三角函数"型：分部积分 + \(\cos2n\pi=\cos0=1\) + \(|\cos nx|\le1\) + \(\int f'=f(b)-f(a)\)（例11.10）</label></li>
+<li><label><input type="checkbox">牛顿-莱布尼茨路径：双端点为零时左右各写一遍相加取半（例11.11 式①②）</label></li>
 <li><label><input type="checkbox">会用 \(|\int fg|\le\max|g|\cdot\int|f|\) 型放缩（绝对值不等式 + 积分保号性）</label></li>
-<li><label><input type="checkbox">知道联系 \(f\) 与 \(f'\) 只有两招：拉格朗日中值定理、牛顿-莱布尼茨公式</label></li>
+<li><label><input type="checkbox">知道联系 \(f\) 与 \(f'\) 只有两招：拉格朗日中值定理、牛顿-莱布尼茨公式（11.5注，印P340）</label></li>
+<li><label><input type="checkbox">知道本讲重难点次序：先求积分、再求极限（考情分析，印P329）</label></li>
+<li><label><input type="checkbox">摆点法：积分条件先翻译成函数值；相等用罗尔、不等用拉格朗日（例11.2 拓展 + 习题11.1）</label></li>
 </ul>
-<h2>自测题</h2>
-<p><strong>1.</strong> 证明：\(\displaystyle\int_0^{\pi/2}\frac{\cos x}{1+x^2}\,\mathrm{d}x\ge\int_0^{\pi/2}\frac{\sin x}{1+x^2}\,\mathrm{d}x\)。（习题11.2 同款）</p>
+<h2 id="sec-18">自测题</h2>
+<p><strong>1.</strong> 设 \(\varphi(x)\) 是可微函数 \(f(x)\) 的反函数，且 \(f(1)=0\)，证明：\(\displaystyle\int_0^1\left[\int_0^{f(x)}\varphi(t)\,\mathrm{d}t\right]\mathrm{d}x=2\displaystyle\int_0^1xf(x)\,\mathrm{d}x\)。（习题11.3）</p>
+<details class="ans">
+<summary>查看答案</summary>
+<p><strong>解</strong> 记 \(G(x)=\displaystyle\int_0^{f(x)}\varphi(t)\,\mathrm{d}t\)，左端 \(I=\displaystyle\int_0^1G(x)\,\mathrm{d}x\)。被积函数是变限积分，分部积分：</p>
+<p>\[I=\Big[xG(x)\Big]\Big|_0^1-\int_0^1xG'(x)\,\mathrm{d}x=G(1)-\int_0^1x\varphi[f(x)]f'(x)\,\mathrm{d}x.\]</p>
+<p>由 \(f(1)=0\) 得 \(G(1)=\displaystyle\int_0^0\varphi(t)\,\mathrm{d}t=0\)，故 \(I=-\displaystyle\int_0^1x\varphi[f(x)]f'(x)\,\mathrm{d}x\)。令 \(u=f(x)\)（\(x=\varphi(u)\)，\(\mathrm{d}u=f'(x)\,\mathrm{d}x\)）：</p>
+<p>\[I=-\int_{f(0)}^{0}\varphi(u)\cdot\varphi(u)\,\mathrm{d}u=\int_0^{f(0)}\varphi^2(u)\,\mathrm{d}u.\]</p>
+<p>另一方面，对右端 \(J=\displaystyle\int_0^1xf(x)\,\mathrm{d}x\) 作同一换元并分部（注意 \(\varphi(f(0))=0\)，\(\varphi(0)=1\)）：</p>
+<p>\[J=\int_{f(0)}^{0}\varphi(u)\cdot u\cdot\varphi'(u)\,\mathrm{d}u=\Big[\tfrac12u\varphi^2(u)\Big]_{f(0)}^{0}-\tfrac12\int_{f(0)}^{0}\varphi^2(u)\,\mathrm{d}u=\tfrac12\int_0^{f(0)}\varphi^2(u)\,\mathrm{d}u=\tfrac12I.\]</p>
+<p>故 \(I=2J\)，得证。（原书解答做到第一步分部后注明"继而通过换元等手段即可完成证明"。）</p>
+</details>
+<p><strong>2.</strong> 证明：\(\displaystyle\int_0^{\pi/2}\frac{\cos x}{1+x^2}\,\mathrm{d}x\ge\int_0^{\pi/2}\frac{\sin x}{1+x^2}\,\mathrm{d}x\)。（习题11.2）</p>
 <details class="ans">
 <summary>查看答案</summary>
 <p><strong>解</strong> 只需证 \(\displaystyle\int_0^{\pi/2}\frac{\cos x-\sin x}{1+x^2}\,\mathrm{d}x\ge0\)。在 \(\frac{\pi}{4}\) 处拆段，后一段令 \(x=\frac{\pi}{2}-t\)：</p>
 <p>\[\int_{\pi/4}^{\pi/2}\frac{\cos x-\sin x}{1+x^2}\,\mathrm{d}x=\int_0^{\pi/4}(\sin t-\cos t)\cdot\frac{1}{1+\left(\frac{\pi}{2}-t\right)^2}\,\mathrm{d}t,\]</p>
 <p>与第一段合并：</p>
 <p>\[\int_0^{\pi/4}(\cos x-\sin x)\left[\frac{1}{1+x^2}-\frac{1}{1+\left(\frac{\pi}{2}-x\right)^2}\right]\mathrm{d}x\ge0,\]</p>
-<p>因为 \(0\le x\le\frac{\pi}{4}\) 时 \(\cos x\ge\sin x\) 且 \(1+x^2\le1+\left(\frac{\pi}{2}-x\right)^2\)，故原式得证。（另一路：拆段后对 \(1+x^2\) 分别用积分中值定理比较，见原书方法二。）</p>
+<p>因为 \(0\le x\le\frac{\pi}{4}\) 时 \(\cos x\ge\sin x\) 且 \(1+x^2\le1+\left(\frac{\pi}{2}-x\right)^2\)，故原式得证。（另一路：拆段后对 \(\frac{1}{1+x^2}\) 分别用积分中值定理，得 \((\sqrt2-1)\left[\frac{1}{1+\xi^2}-\frac{1}{1+\eta^2}\right]\ge0\)，其中 \(\xi\le\eta\)，见原书方法二，印P338。）</p>
 </details>
-<p><strong>2.</strong> 设 \(f(x)\) 在 \([a,b]\) 上连续且严格单调增加，证明：\((a+b)\displaystyle\int_a^bf(x)\,\mathrm{d}x&lt;2\int_a^bxf(x)\,\mathrm{d}x\)。（习题11.4）</p>
+<p><strong>3.</strong> 设 \(f(x)\) 在 \([a,b]\) 上连续且严格单调增加，证明：\((a+b)\displaystyle\int_a^bf(x)\,\mathrm{d}x&lt;2\int_a^bxf(x)\,\mathrm{d}x\)。（习题11.4）</p>
 <details class="ans">
 <summary>查看答案</summary>
 <p><strong>解</strong> 移项构造 \(F(t)=(a+t)\displaystyle\int_a^tf(x)\,\mathrm{d}x-2\int_a^txf(x)\,\mathrm{d}x,\ t\in[a,b]\)，则</p>
 <p>\[F'(t)=\int_a^tf(x)\,\mathrm{d}x+(a+t)f(t)-2tf(t)=\int_a^tf(x)\,\mathrm{d}x-(t-a)f(t)=\int_a^t\big[f(x)-f(t)\big]\mathrm{d}x.\]</p>
-<p>因为 \(f\) 严格单调增加，\(x&lt;t\) 时 \(f(x)-f(t)&lt;0\)，故 \(F'(t)&lt;0\)，\(F(t)\) 严格单调减少；又 \(F(a)=0\)，所以 \(F(b)&lt;0\)，即 \((a+b)\int_a^bf(x)\,\mathrm{d}x-2\int_a^bxf(x)\,\mathrm{d}x&lt;0\)，得证。</p>
+<p>因为 \(f\) 严格单调增加，\(x&lt;t\) 时 \(f(x)-f(t)&lt;0\)，故 \(F'(t)&lt;0\)，\(F(t)\) 严格单调减少；又 \(F(a)=0\)，所以 \(F(b)&lt;0\)，即 \((a+b)\int_a^bf(x)\,\mathrm{d}x-2\int_a^bxf(x)\,\mathrm{d}x&lt;0\)，得证。（原书还给了方法二：把 \(2\int_a^bxf\) 写成 \(\int_a^b[(x-a)+(x-b)+a+b]f\) 拆项比较，印P339–340。）</p>
 </details>
-<p><strong>3.</strong> 设 \(f'(x)\) 在 \([0,a]\) 上连续，且 \(f(0)=0\)，\(M=\max\limits_{0\le x\le a}|f'(x)|\)，证明：\(\Big|\displaystyle\int_0^af(x)\,\mathrm{d}x\Big|\le\dfrac{Ma^2}{2}\)。（习题11.5）</p>
+<p><strong>4.</strong> 设 \(f'(x)\) 在 \([0,a]\) 上连续，且 \(f(0)=0\)，\(M=\max\limits_{0\le x\le a}|f'(x)|\)，证明：\(\Big|\displaystyle\int_0^af(x)\,\mathrm{d}x\Big|\le\dfrac{Ma^2}{2}\)。（习题11.5）</p>
 <details class="ans">
 <summary>查看答案</summary>
-<p><strong>解</strong> 由牛顿-莱布尼茨公式，\(f(x)=f(x)-f(0)=\displaystyle\int_0^xf'(t)\,\mathrm{d}t\)，故</p>
+<p><strong>解</strong> 方法一（原书，印P340）：由牛顿-莱布尼茨公式，\(f(x)=f(x)-f(0)=\displaystyle\int_0^xf'(t)\,\mathrm{d}t\)，故</p>
 <p>\[|f(x)|=\Big|\int_0^xf'(t)\,\mathrm{d}t\Big|\le\int_0^x|f'(t)|\,\mathrm{d}t\le\int_0^xM\,\mathrm{d}t=Mx.\]</p>
 <p>于是</p>
 <p>\[\Big|\int_0^af(x)\,\mathrm{d}x\Big|\le\int_0^a|f(x)|\,\mathrm{d}x\le\int_0^aMx\,\mathrm{d}x=\frac{Ma^2}{2}.\]</p>
-<p>（对照：这正是"用牛顿-莱布尼茨公式联系 \(f\) 与 \(f'\)"那条路；也可对 \(f(x)=f'(\xi)x\) 用拉格朗日中值定理走方法一。）</p>
+<p>方法二：由拉格朗日中值定理，\(f(x)=f(x)-f(0)=f'(\xi)x\)，故 \(|f(x)|\le Mx\)，下同。（这正是"联系 \(f\) 与 \(f'\) 只有两招"的 11.5注 原型题。）</p>
 </details>
-<p><strong>4.</strong> 设 \(f(x)\) 在区间 \([0,1]\) 上有二阶导数，且 \(f\left(\dfrac12\right)=1\)，\(f''(x)&gt;0\)，证明：\(\displaystyle\int_0^1f(x)\,\mathrm{d}x\ge1\)。（习题11.6）</p>
+<p><strong>5.</strong> 设 \(f(x)\) 在区间 \([0,1]\) 上有二阶导数，且 \(f\left(\dfrac12\right)=1\)，\(f''(x)&gt;0\)，证明：\(\displaystyle\int_0^1f(x)\,\mathrm{d}x\ge1\)。（习题11.6）</p>
 <details class="ans">
 <summary>查看答案</summary>
 <p><strong>解</strong> 在 \(x_0=\frac12\) 处展开泰勒公式：</p>

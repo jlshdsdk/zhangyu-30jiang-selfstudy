@@ -36,8 +36,26 @@
     });
   }
 
+  // 返回顶部按钮
+  function bindBacktop() {
+    var btn = document.createElement('button');
+    btn.id = 'backtop';
+    btn.type = 'button';
+    btn.title = '返回顶部';
+    btn.textContent = '↑';
+    btn.style.display = 'none';
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.body.appendChild(btn);
+    window.addEventListener('scroll', function () {
+      btn.style.display = window.scrollY > 800 ? 'block' : 'none';
+    }, { passive: true });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     bindChecklist();
     renderMath();
+    bindBacktop();
   });
 })();
