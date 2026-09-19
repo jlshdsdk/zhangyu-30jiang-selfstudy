@@ -2,25 +2,45 @@
 (function () {
   'use strict';
 
-  // KaTeX 渲染（本地 vendor 资产，auto-render）
+  var KATEX_OPTS = {
+    delimiters: [
+      { left: '\\[', right: '\\]', display: true },
+      { left: '\\(', right: '\\)', display: false }
+    ],
+    throwOnError: false,
+    ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  };
+
+  // KaTeX 增量渲染: 只渲染视口±800px 内的块, 滚动到再渲染其余
+  // (1000+ 公式的整页同步渲染会把主线程卡住数秒)
   function renderMath() {
     if (typeof renderMathInElement !== 'function') {
       console.warn('KaTeX auto-render 未加载, 公式保持原文');
       return;
     }
-    renderMathInElement(document.body, {
-      delimiters: [
-        { left: '\\[', right: '\\]', display: true },
-        { left: '\\(', right: '\\)', display: false }
-      ],
-      throwOnError: false,
-      ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    });
+    var root = document.querySelector('main') || document.body;
+    if (!('IntersectionObserver' in window)) {
+      renderMathInElement(root, KATEX_OPTS);  // 老浏览器兜底: 全量
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          renderMathInElement(entries[i].target, KATEX_OPTS);
+          io.unobserve(entries[i].target);
+        }
+      }
+    }, { rootMargin: '800px 0px' });
+    for (var i = 0; i < root.children.length; i++) {
+      io.observe(root.children[i]);
+    }
   }
 
-  // 知识清单勾选状态持久化（按页面路径 + 条目序号）
+  // 知识清单勾选状态持久化（按页面路径 + 条目序号; 事件委托）
   function bindChecklist() {
-    var boxes = document.querySelectorAll('ul.checklist input[type="checkbox"]');
+    var list = document.querySelector('ul.checklist');
+    if (!list) return;
+    var boxes = list.querySelectorAll('input[type="checkbox"]');
     var base = 'ck:' + location.pathname;
     boxes.forEach(function (box, i) {
       var key = base + '#' + i;
@@ -28,11 +48,15 @@
         var saved = localStorage.getItem(key);
         if (saved !== null) box.checked = (saved === '1');  // 存过才覆盖 HTML 默认
       } catch (e) { /* 隐私模式忽略 */ }
-      box.addEventListener('change', function () {
-        try {
-          localStorage.setItem(key, box.checked ? '1' : '0');
-        } catch (e) { }
-      });
+    });
+    list.addEventListener('change', function (e) {
+      var box = e.target;
+      if (box.type !== 'checkbox') return;
+      var idx = Array.prototype.indexOf.call(boxes, box);
+      if (idx < 0) return;
+      try {
+        localStorage.setItem(base + '#' + idx, box.checked ? '1' : '0');
+      } catch (e) { }
     });
   }
 

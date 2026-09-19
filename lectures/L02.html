@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>数列极限 · 张宇基础30讲自学站</title>
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="preload" href="../assets/katex/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/katex/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="data:,">
 <script defer src="../assets/katex/katex.min.js"></script>
@@ -49,90 +51,90 @@
 <h2 id="sec-3">核心概念与定理</h2>
 <h3 id="sec-4">1. 数列：本质是整标函数</h3>
 <p>对每个 \(n\in\mathbf{N}_+\) 按某法则对应确定实数 \(x_n\)，按下标从小到大排成 \(x_1,x_2,\cdots,x_n,\cdots\)，就是数列 \(\{x_n\}\)。它就是 \(x_n=f(n)\)，几何上是数轴上的动点；数列一定有无穷多项。子列是从 \(\{a_n\}\) 里挑无穷多项、保持原顺序，记 \(\{a_{n_k}\}\)，下标 \(n_1&lt;n_2&lt;\cdots\) 为正整数，比如取 \(n_k=2k\) 与 \(2k-1\) 得偶、奇两个子列。</p>
-<figure class="shot"><img src="../assets/img/L02-001.webp" alt="原书 数列的概念 · 印P124" loading="lazy" width="1100" height="879"><figcaption>原书 数列的概念 · 印P124</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-001.webp" alt="原书 数列的概念 · 印P124" loading="lazy" decoding="async" width="1100" height="879"><figcaption>原书 数列的概念 · 印P124</figcaption></figure>
 <h3 id="sec-5">2. 有界数列与常用前 \(n\) 项和</h3>
 <p>等差、等比的通项与求和公式初中就熟：\(a_n=a_1+(n-1)d\)，\(S_n=\dfrac n2(a_1+a_n)\)；\(a_n=a_1r^{n-1}\)，\(S_n=\dfrac{a_1(1-r^n)}{1-r}\ (r\neq1)\)。这页真正要记的是：有界数列的定义（存在正实数 \(M\)，对一切 \(n\) 有 \(|a_n|\le M\)），证有界的四招（找 \(M\)、放缩、找最值、基本不等式），以及三组求和公式——第三条裂项相消和夹逼搭配出题率很高。</p>
-<figure class="shot"><img src="../assets/img/L02-002.webp" alt="原书 有界数列与常用前n项和 · 印P125" loading="lazy" width="1100" height="764"><figcaption>原书 有界数列与常用前n项和 · 印P125</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-002.webp" alt="原书 有界数列与常用前n项和 · 印P125" loading="lazy" decoding="async" width="1100" height="764"><figcaption>原书 有界数列与常用前n项和 · 印P125</figcaption></figure>
 <p>同页（印P126）还有一个重要数列：\(\left\{\left(1+\frac1n\right)^n\right\}\) 单调递增有上界，且 \(\lim\limits_{n\to\infty}\left(1+\frac1n\right)^n=e\)。</p>
 <h3 id="sec-6">3. 数列极限的定义</h3>
 <p>设存在常数 \(a\)，对任意 \(\varepsilon&gt;0\)（不论多小），总存在正整数 \(N\)，当 \(n&gt;N\) 时恒有 \(|x_n-a|&lt;\varepsilon\)，就称 \(a\) 是 \(\{x_n\}\) 的极限，记 \(\lim\limits_{n\to\infty}x_n=a\) 或 \(x_n\to a\)；不存在这样的 \(a\) 就叫发散。注意这里的 \(n\to\infty\) 指 \(n\to+\infty\)，而且是"离散"地跳过去。卷面不考用定义做证明题，选择填空考理解：与函数极限比，唯一性相同；有界性不同——函数极限是局部有界，数列极限是全局（每一项）有界；保号性上数列也要 \(n&gt;N\) 之后才保号。</p>
-<figure class="shot"><img src="../assets/img/L02-003.webp" alt="原书 数列极限的定义 · 印P126" loading="lazy" width="1100" height="364"><figcaption>原书 数列极限的定义 · 印P126</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-003.webp" alt="原书 数列极限的定义 · 印P126" loading="lazy" decoding="async" width="1100" height="364"><figcaption>原书 数列极限的定义 · 印P126</figcaption></figure>
 <h3 id="sec-7">4. \(\varepsilon\)-\(N\) 常用语言与子列定理</h3>
 <p>写成逻辑式：\(\lim\limits_{n\to\infty}x_n=a\iff\) 任意 \(\varepsilon&gt;0\)，存在 \(N\in\mathbf{N}_+\)，当 \(n&gt;N\) 时恒有 \(|x_n-a|&lt;\varepsilon\)；\(a=0\) 时 \(x_n\) 就是无穷小量。\(N\) 未必取整数，\(n&gt;10000\) 和 \(n&gt;10000.1\) 一个意思。核心是定理1：<strong>收敛数列的任何子列也收敛，且极限相同</strong>。逆否过来就是判发散的两板斧——找到一个发散的子列，或找到两个收敛到不同极限的子列（如 \(\{(-1)^n\}\) 的子列分别收敛于 \(1\) 和 \(-1\)）。例2.2 顺手证了 \(\lim a_n=A\Rightarrow\lim|a_n|=|A|\)，用的是三角不等式 \(\big||a|-|b|\big|\le|a-b|\)。</p>
-<figure class="shot"><img src="../assets/img/L02-004.webp" alt="原书 ε-N语言与子列定理1 · 印P127" loading="lazy" width="1100" height="1137"><figcaption>原书 ε-N语言与子列定理1 · 印P127</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-004.webp" alt="原书 ε-N语言与子列定理1 · 印P127" loading="lazy" decoding="async" width="1100" height="1137"><figcaption>原书 ε-N语言与子列定理1 · 印P127</figcaption></figure>
 <h3 id="sec-8">5. 收敛数列的三条性质与脱帽戴帽</h3>
 <p>唯一性：极限若存在则唯一。有界性：收敛 \(\Rightarrow\) 有界，反之不对。保号性：\(\lim x_n=a&gt;b\)，则 \(n\) 充分大后 \(x_n&gt;b\)；反过来若从某项起 \(x_n\ge b\) 且极限为 \(a\)，只能得 \(a\ge b\)——这就是脱帽戴帽的方向：脱帽严格（\(\lim x_n&gt;a\Rightarrow x_n&gt;a\)），戴帽不严格（\(x_n\ge a\Rightarrow\lim x_n\ge a\)，且要求极限存在），常考 \(b=0\)。</p>
-<figure class="shot"><img src="../assets/img/L02-005.webp" alt="原书 收敛数列的性质定理 · 印P129" loading="lazy" width="1100" height="521"><figcaption>原书 收敛数列的性质定理 · 印P129</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-005.webp" alt="原书 收敛数列的性质定理 · 印P129" loading="lazy" decoding="async" width="1100" height="521"><figcaption>原书 收敛数列的性质定理 · 印P129</figcaption></figure>
 <p>例2.5 用保号性判断 \(a_n=1-\frac{(-1)^n}{n}\) 的最值：写出 \(1+\frac11,1-\frac12,1+\frac13,\cdots\)，\(n\) 大的项全被挤到 \(1\) 附近没资格竞争，最大最小值只能出在前有限项，选 (A)。</p>
 <h3 id="sec-9">6. 极限四则运算规则</h3>
 <p>若 \(\lim x_n=a,\ \lim y_n=b\)，则 \(\lim(x_n\pm y_n)=a\pm b\)，\(\lim x_ny_n=ab\)，\(b\neq0\) 时 \(\lim\dfrac{x_n}{y_n}=\dfrac ab\)；可推广到有限个数列。前提是两个极限都存在——这个前提才是考点，见下面例2.6。</p>
-<figure class="shot"><img src="../assets/img/L02-006.webp" alt="原书 极限四则运算规则 · 印P129" loading="lazy" width="1056" height="367"><figcaption>原书 极限四则运算规则 · 印P129</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-006.webp" alt="原书 极限四则运算规则 · 印P129" loading="lazy" decoding="async" width="1056" height="367"><figcaption>原书 极限四则运算规则 · 印P129</figcaption></figure>
 <h3 id="sec-10">7. 海涅定理（归结原则）</h3>
 <p>设 \(f(x)\) 在 \(\mathring U(x_0,\delta)\) 内有定义，则 \(\lim\limits_{x\to x_0}f(x)=A\) 存在 \(\iff\) 对任何 \(\mathring U(x_0,\delta)\) 内以 \(x_0\) 为极限的数列 \(\{x_n\}\ (x_n\neq x_0)\)，\(\lim\limits_{n\to\infty}f(x_n)=A\) 存在。它是数列极限与函数极限之间的桥：数列是离散点列不能求导，换成函数极限后洛必达、泰勒、等价无穷小随便用，算完再把值带回来，比如 \(\lim\dfrac{\ln n}{n}=\lim\limits_{x\to+\infty}\dfrac{\ln x}{x}=\lim\dfrac{1/x}{1}=0\)。</p>
-<figure class="shot"><img src="../assets/img/L02-007.webp" alt="原书 海涅定理（归结原则） · 印P130" loading="lazy" width="1100" height="486"><figcaption>原书 海涅定理（归结原则） · 印P130</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-007.webp" alt="原书 海涅定理（归结原则） · 印P130" loading="lazy" decoding="async" width="1100" height="486"><figcaption>原书 海涅定理（归结原则） · 印P130</figcaption></figure>
 <p>常考三种取点：\(x\to0\) 取 \(x_n=\frac1n\)；\(x\to+\infty\) 取 \(x_n=n\)；一般的 \(x_n\to a\) 且 \(x_n\neq a\)。</p>
-<figure class="shot"><img src="../assets/img/L02-008.webp" alt="原书 海涅定理常考取点 · 印P131" loading="lazy" width="1100" height="475"><figcaption>原书 海涅定理常考取点 · 印P131</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-008.webp" alt="原书 海涅定理常考取点 · 印P131" loading="lazy" decoding="async" width="1100" height="475"><figcaption>原书 海涅定理常考取点 · 印P131</figcaption></figure>
 <h3 id="sec-11">8. 夹逼准则与放缩手段</h3>
 <p>从某项起 \(y_n\le x_n\le z_n\)，且 \(\lim y_n=\lim z_n=a\)，则 \(\lim x_n=a\)。不等号带不带等号不用纠结（不需要验证符号），两端一起奔向 \(a\) 就行。难点在放缩，书里列了一整套工具：简单放大缩小（无穷项相加用 \(n\cdot u_{\min}\le u_1+\cdots+u_n\le n\cdot u_{\max}\)）、重要不等式、闭区间连续函数的最值、压缩映射原理、题设条件。</p>
-<figure class="shot"><img src="../assets/img/L02-009.webp" alt="原书 夹逼准则 · 印P132" loading="lazy" width="1100" height="537"><figcaption>原书 夹逼准则 · 印P132</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-009.webp" alt="原书 夹逼准则 · 印P132" loading="lazy" decoding="async" width="1100" height="537"><figcaption>原书 夹逼准则 · 印P132</figcaption></figure>
 <p>重要不等式清单值得整页背下来：三角不等式及其 \(n\) 项推广；均值不等式 \(\sqrt{ab}\le\frac{a+b}2\le\sqrt{\frac{a^2+b^2}2}\)；幂次不等式；\(\frac cb&lt;\frac yx&lt;\frac da\)（\(0&lt;a&lt;x&lt;b,\ 0&lt;c&lt;y&lt;d\)）；\(\sin x&lt;x&lt;\tan x\)，\(\sin x&gt;\frac2\pi x\ (0&lt;x&lt;\frac\pi2)\)；\(\arctan x\le x\le\arcsin x\)；\(e^x\ge x+1\)；\(x-1\ge\ln x\)；\(\frac x{1+x}&lt;\ln(1+x)&lt;x\)。压缩映射原理一：存在 \(0&lt;k&lt;1\) 使 \(|x_{n+1}-a|\le k|x_n-a|\)，则 \(x_n\to a\)（逐次递推 \(k^n|x_1-a|\to0\)）；原理二：\(x_{n+1}=f(x_n)\)，\(f\) 可导，\(a\) 是 \(f(x)=x\) 的唯一解且 \(|f'(x)|\le k&lt;1\)，用拉格朗日中值定理化归为原理一。考试用它俩时要写出证明过程。</p>
-<figure class="shot"><img src="../assets/img/L02-010.webp" alt="原书 重要不等式与压缩映射原理 · 印P134" loading="lazy" width="1100" height="1222"><figcaption>原书 重要不等式与压缩映射原理 · 印P134</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-010.webp" alt="原书 重要不等式与压缩映射原理 · 印P134" loading="lazy" decoding="async" width="1100" height="1222"><figcaption>原书 重要不等式与压缩映射原理 · 印P134</figcaption></figure>
 <p>夹逼的好搭档还有例2.10 的结论（印P135，应当记住）：\(a_i\ge0\) 时 \(\lim\limits_{n\to\infty}\sqrt[n]{a_1^n+a_2^n+\cdots+a_m^n}=\max\{a_1,\cdots,a_m\}\)。例如 \(0&lt;a&lt;b\) 时 \(\lim(a^{-n}+b^{-n})^{1/n}=\frac1a\)；\(0\le x\le\frac\pi2\) 时 \(\lim\sqrt[n]{\sin^nx+\cos^nx}=\max\{\sin x,\cos x\}\)（按 \(\frac\pi4\) 分段），\(\lim\sqrt[n]{1+|x|^{3n}}=\max\{1,|x|^3\}\)。</p>
 <h3 id="sec-12">9. 单调有界准则</h3>
 <p>单调有界数列必有极限，两种情形：单增配有上界、单减配有下界。记住方向别浪费：证出单增只需再证有上界，无须再证有下界，反之亦然。会背这两条即可：\(x_n\le x_{n+1}\le a\Rightarrow\) 极限存在；\(a\le x_{n+1}\le x_n\Rightarrow\) 极限存在。</p>
-<figure class="shot"><img src="../assets/img/L02-011.webp" alt="原书 单调有界准则 · 印P136" loading="lazy" width="1100" height="661"><figcaption>原书 单调有界准则 · 印P136</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-011.webp" alt="原书 单调有界准则 · 印P136" loading="lazy" decoding="async" width="1100" height="661"><figcaption>原书 单调有界准则 · 印P136</figcaption></figure>
 <p>判单调五法：a. 作差 \(x_{n+1}-x_n\) 或作商 \(\frac{x_{n+1}}{x_n}\) 看符号；b. 数学归纳法（验 \(n=1\)、设 \(n=k\)、证 \(n=k+1\)）；c. 重要不等式（如 \(x_{n+1}=\sin x_n&lt;x_n\)、\(x_{n+1}=e^{x_n}-1\ge x_n\)）；d. \(x_n-x_{n-1}\) 与 \(x_{n-1}-x_{n-2}\) 同号；e. \(x_{n+1}=f(x_n)\) 时看 \(f'\)：\(f'&gt;0\) 则 \(\{x_n\}\) 单调（\(x_2&gt;x_1\) 增、\(x_2&lt;x_1\) 减），\(f'&lt;0\) 则不单调。例2.14（印P138–139）是"单减 + 有下界 + 两边取极限 + 唯一根"的完整范本，解答过程需要背。</p>
 <h3 id="sec-13">10. 收敛速度问题</h3>
 <p>同趋于 \(a\) 的两个数列，记 \(u_n=|x_n-a|,\ v_n=|y_n-a|\)，\(I=\lim\dfrac{u_n}{v_n}\)：\(I=0\) 则 \(x_n\) 收敛快（高阶）；\(I=b&gt;0\) 则同阶（速度是 \(\frac1b\) 倍）；\(I=\infty\) 则慢（低阶）。如 \(x_n=\frac1n\) 比 \(y_n=\frac1{\sqrt n}\) 收敛到 \(0\) 快。关键推论：\(\varepsilon\)-\(N\) 定义只体现收敛目标、不体现速度，所以定义里的 \(\varepsilon\) 可以换成不依赖 \(n\) 的任意小正数（如 \(\frac1{2^k}\)，例2.16，等价），不能换成依赖 \(n\) 的量（如 \(\frac1n\)，例2.17 只是充分不必要，反例 \(x_n=a+\frac1{\sqrt n}\)）。</p>
 <h2 id="sec-14">典型例题精讲</h2>
 <h4>例2.1 基本不等式证有界</h4>
-<figure class="shot"><img src="../assets/img/L02-012.webp" alt="原书 例2.1 · 印P126" loading="lazy" width="1100" height="401"><figcaption>原书 例2.1 · 印P126</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-012.webp" alt="原书 例2.1 · 印P126" loading="lazy" decoding="async" width="1100" height="401"><figcaption>原书 例2.1 · 印P126</figcaption></figure>
 <p><strong>思路</strong>：看到 \(\sqrt{A(B-A)}\) 形式，用基本不等式 \(\sqrt{ab}\le\frac{a+b}2\) 把根号压成常数。</p>
 <p><strong>要点</strong>：\(0&lt;x_1&lt;3\Rightarrow x_1,3-x_1\) 均正，\(0&lt;x_2=\sqrt{x_1(3-x_1)}\le\frac{x_1+3-x_1}2=\frac32\)。归纳假设 \(0&lt;x_k\le\frac32\ (k&gt;1)\)，则 \(0&lt;x_{k+1}=\sqrt{x_k(3-x_k)}\le\frac12(x_k+3-x_k)=\frac32\)。故对一切 \(n&gt;1\) 有 \(0&lt;x_n\le\frac32\)，\(\{x_n\}\) 有界。</p>
 <h4>例2.2 取绝对值，极限传承</h4>
-<figure class="shot"><img src="../assets/img/L02-021.webp" alt="原书 例2.2 · 印P127" loading="lazy" width="1050" height="488"><figcaption>原书 例2.2 · 印P127</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-021.webp" alt="原书 例2.2 · 印P127" loading="lazy" decoding="async" width="1050" height="488"><figcaption>原书 例2.2 · 印P127</figcaption></figure>
 <p><strong>思路</strong>：用三角不等式 \(\big||a|-|b|\big|\le|a-b|\) 把 \(|a_n|-|A|\) 夹住，\(\varepsilon\)-\(N\) 语言照搬。</p>
 <p><strong>要点</strong>：任给 \(\varepsilon&gt;0\)，由 \(\lim a_n=A\)，存在 \(N\)，当 \(n&gt;N\) 时 \(|a_n-A|&lt;\varepsilon\)；而
 \[\big||a_n|-|A|\big|\le|a_n-A|&lt;\varepsilon,\]
 故 \(\lim|a_n|=|A|\)。</p>
 <p><strong>注</strong>：反方向只在 \(A=0\) 时成立，这是"证 \(a_n\to0\) 先取绝对值再夹逼"的依据。</p>
 <h4>例2.3 用子列证发散</h4>
-<figure class="shot"><img src="../assets/img/L02-013.webp" alt="原书 例2.3 · 印P128" loading="lazy" width="1100" height="680"><figcaption>原书 例2.3 · 印P128</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-013.webp" alt="原书 例2.3 · 印P128" loading="lazy" decoding="async" width="1100" height="680"><figcaption>原书 例2.3 · 印P128</figcaption></figure>
 <p><strong>思路</strong>：通项带 \((-1)^n\) 的先拆子列，找两个"性格不合"的子列。</p>
 <p><strong>要点</strong>：数列为 \(\frac11,2,\frac13,4,\cdots,\frac1{2n-1},2n,\cdots\)。取子列 \(\{2n\}\)：无界，由"收敛必有界"（定理3）的逆否命题知它发散；再用定理1的逆否命题，原数列极限不存在。</p>
 <p><strong>注</strong>：奇子列 \(\{\frac1{2n-1}\}\) 却收敛于 \(0\)——个别子列收敛保不住原数列，这是单侧检验。</p>
 <h4>例2.4 无界变量不是无穷大量</h4>
-<figure class="shot"><img src="../assets/img/L02-014.webp" alt="原书 例2.4 · 印P128" loading="lazy" width="1100" height="488"><figcaption>原书 例2.4 · 印P128</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-014.webp" alt="原书 例2.4 · 印P128" loading="lazy" decoding="async" width="1100" height="488"><figcaption>原书 例2.4 · 印P128</figcaption></figure>
 <p><strong>思路</strong>：分段数列按奇偶分两路求子列极限，再对照无穷大量定义。</p>
 <p><strong>要点</strong>：\(\lim x_{2n}=\lim\frac1{2n}=0\)；\(\lim x_{2n-1}=\lim\frac{(2n-1)^2+\sqrt{2n-1}}{2n-1}=+\infty\)。两子列极限不同，故 \(\lim x_n\) 不存在，也不是无穷小量；又对某个 \(M&gt;0\)，偶数项总满足 \(x_{2n}\to0&lt;M\)，无穷大量的定义 (\(|x_n|\) 最终大于任何正数) 不成立，所以是无界变量但不是无穷大量，选 (D)。</p>
 <h4>例2.5 保号性定最值项</h4>
-<figure class="shot"><img src="../assets/img/L02-022.webp" alt="原书 例2.5 · 印P129" loading="lazy" width="1056" height="367"><figcaption>原书 例2.5 · 印P129</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-022.webp" alt="原书 例2.5 · 印P129" loading="lazy" decoding="async" width="1056" height="367"><figcaption>原书 例2.5 · 印P129</figcaption></figure>
 <p><strong>思路</strong>：收敛数列的尾巴全挤在极限附近，没资格竞争最值，最值只能出在前有限项。</p>
 <p><strong>要点</strong>：\(a_n=1-\dfrac{(-1)^n}n\)，奇数项 \(1+\dfrac1{2k-1}\) 从 \(2\) 起单调减奔向 \(1\)，偶数项 \(1-\dfrac1{2k}\) 从 \(\dfrac12\) 起单调增奔向 \(1\)，故最大值项为 \(a_1=2\)（\(n=1\)），最小值项为 \(a_2=\dfrac12\)（\(n=2\)），选 (A)。</p>
 <h4>例2.6 四则运算的存在性</h4>
-<figure class="shot"><img src="../assets/img/L02-015.webp" alt="原书 例2.6 · 印P130" loading="lazy" width="1100" height="1117"><figcaption>原书 例2.6 · 印P130</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-015.webp" alt="原书 例2.6 · 印P130" loading="lazy" decoding="async" width="1100" height="1117"><figcaption>原书 例2.6 · 印P130</figcaption></figure>
 <p><strong>思路</strong>：把 \(a_n+b_n,\ a_n-b_n\) 当作极限已知的 \(u_n,v_n\)，反解出 \(a_n,b_n\)。</p>
 <p><strong>要点</strong>：口诀"存在 \(\pm\) 存在 \(=\) 存在；存在 \(\pm\) 不存在 \(=\) 不存在；不存在 \(\pm\) 不存在 \(=\) 不确定"。由 \(\lim(u_n+v_n)=1+3=4\)，\(\lim(u_n-v_n)=1-3=-2\)，而 \(a_n=\frac12(u_n+v_n),\ b_n=\frac12(u_n-v_n)\)，所以 \(\lim a_n=2,\ \lim b_n=-1\)，选 (B)。</p>
 <p><strong>注</strong>：和存在推不出各自存在，反例 \(\lim[\sin n+(-\sin n)]=0\)，但 \(\lim\sin n\) 不存在。</p>
 <h4>例2.7 归结原则判无界量</h4>
-<figure class="shot"><img src="../assets/img/L02-016.webp" alt="原书 例2.7 · 印P131" loading="lazy" width="1100" height="534"><figcaption>原书 例2.7 · 印P131</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-016.webp" alt="原书 例2.7 · 印P131" loading="lazy" decoding="async" width="1100" height="534"><figcaption>原书 例2.7 · 印P131</figcaption></figure>
 <p><strong>思路</strong>：\(\infty\cdot\sin\infty\) 型，取两列趋于 \(0\) 的点，让函数值一条全为 \(0\)、一条冲上 \(+\infty\)。</p>
 <p><strong>要点</strong>：取 \(x_n=\frac1{n\pi}\to0\)，则 \(f(x_n)=n\pi\sin(n\pi)=0\)，极限为 \(0\)；取 \(x_n'=\frac1{(2n+\frac12)\pi}\to0\)，则 \(f(x_n')=(2n+\frac12)\pi\to+\infty\)。由归结原则，\(\lim\limits_{x\to0}\frac1x\sin\frac1x\) 不存在，且它是无界量但不是无穷大量，选 (B)。</p>
 <h4>例2.8 根式 \(1^\infty\) 走海涅</h4>
-<figure class="shot"><img src="../assets/img/L02-017.webp" alt="原书 例2.8 · 印P132" loading="lazy" width="761" height="665"><figcaption>原书 例2.8 · 印P132</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-017.webp" alt="原书 例2.8 · 印P132" loading="lazy" decoding="async" width="761" height="665"><figcaption>原书 例2.8 · 印P132</figcaption></figure>
 <p><strong>思路</strong>：\(n\) 次根开出来是 \(1^\infty\)，写成 \(e\) 指数，指数部分用海涅换成 \(x\to+\infty\) 做等价代换。</p>
 <p><strong>要点</strong>：原式 \(=\lim\left(\cos\frac1{\sqrt n}\right)^n=e^{\lim n\ln\left(\cos\frac1{\sqrt n}\right)}\)。因
 \[\lim_{x\to+\infty}x\ln\left(1+\left(\cos\tfrac1{\sqrt x}-1\right)\right)=\lim_{x\to+\infty}x\left(\cos\tfrac1{\sqrt x}-1\right)=\lim_{x\to+\infty}x\cdot\left[-\frac12\left(\frac1{\sqrt x}\right)^2\right]=-\frac12,\]
 由归结原则指数为 \(-\frac12\)，原式 \(=e^{-\frac12}\)。</p>
 <p><strong>注</strong>：原书顺势给了个等价无穷小（印P132）：\(\left(1+\frac1n\right)^n-e\sim-\frac e2\cdot\frac1n\)，由例1.24 的 \((1+x)^{1/x}-e\sim-\frac e2 x\ (x\to0^+)\) 换元 \(x=\frac1n\) 而来，对应题干里 \(a=-\frac e2\)。</p>
 <h4>例2.9 和式放缩 + 夹逼</h4>
-<figure class="shot"><img src="../assets/img/L02-018.webp" alt="原书 例2.9 · 印P134" loading="lazy" width="1100" height="278"><figcaption>原书 例2.9 · 印P134</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-018.webp" alt="原书 例2.9 · 印P134" loading="lazy" decoding="async" width="1100" height="278"><figcaption>原书 例2.9 · 印P134</figcaption></figure>
 <p><strong>思路</strong>：\(n\) 项和分母各不相同，通分不现实；利用"分母越大分数越小"，把分母放缩成同一个。</p>
 <p><strong>要点</strong>：通项 \(\frac{i}{n^2+n+i}\)，分母介于 \(n^2+n+1\) 与 \(n^2+n+n\) 之间：
 \[\frac{n(n+1)}{2(n^2+n+n)}\le\sum_{i=1}^n\frac{i}{n^2+n+i}\le\frac{n(n+1)}{2(n^2+n+1)},\]
 两端都趋于 \(\frac12\)，由夹逼准则原式 \(=\frac12\)。</p>
 <h4>例2.10 \(n\) 次根号下的和式：最大者称王</h4>
-<figure class="shot"><img src="../assets/img/L02-023.webp" alt="原书 例2.10 · 印P135" loading="lazy" width="1100" height="774"><figcaption>原书 例2.10 · 印P135</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-023.webp" alt="原书 例2.10 · 印P135" loading="lazy" decoding="async" width="1100" height="774"><figcaption>原书 例2.10 · 印P135</figcaption></figure>
 <p><strong>思路</strong>：\(n\) 次方放大最大者的统治力，把整个和式夹在"最大者"与"最大者 \(\times\,m^{1/n}\)"之间。</p>
 <p><strong>要点</strong>：不妨设 \(\max\{a_1,\cdots,a_m\}=a_1\)（若不然重新编号），则
 \[a_1=\sqrt[n]{a_1^n}\le\sqrt[n]{a_1^n+a_2^n+\cdots+a_m^n}\le\sqrt[n]{m\,a_1^n}=a_1\cdot m^{1/n},\]
@@ -140,27 +142,27 @@
 \[\lim_{n\to\infty}\sqrt[n]{a_1^n+a_2^n+\cdots+a_m^n}=\max\{a_1,\cdots,a_m\}\quad(a_i\ge0).\]</p>
 <p><strong>注</strong>：原书明确要求记住结论、可直接使用：(1) \(0&lt;a&lt;b\) 时 \(\lim\left(a^{-n}+b^{-n}\right)^{1/n}=\dfrac1a\)；(2) \(0\le x\le\dfrac\pi2\) 时 \(\lim\sqrt[n]{\sin^nx+\cos^nx}=\max\{\sin x,\cos x\}\)（按 \(\dfrac\pi4\) 分段）；(3) \(\lim\sqrt[n]{1+|x|^{3n}}=\max\{1,|x|^3\}\)（按 \(|x|\) 与 \(1\) 比大小分段）。</p>
 <h4>例2.11 等价无穷小逆用解抽象数列</h4>
-<figure class="shot"><img src="../assets/img/L02-024.webp" alt="原书 例2.11 题与解 · 印P135" loading="lazy" width="1100" height="639"><figcaption>原书 例2.11 题与解 · 印P135</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L02-025.webp" alt="原书 例2.11 解答续 · 印P136" loading="lazy" width="1100" height="551"><figcaption>原书 例2.11 解答续 · 印P136</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-024.webp" alt="原书 例2.11 题与解 · 印P135" loading="lazy" decoding="async" width="1100" height="639"><figcaption>原书 例2.11 题与解 · 印P135</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-025.webp" alt="原书 例2.11 解答续 · 印P136" loading="lazy" decoding="async" width="1100" height="551"><figcaption>原书 例2.11 解答续 · 印P136</figcaption></figure>
 <p><strong>思路</strong>：条件移项凑出 \(1-\cos b_n\)，联想 \(1-\cos x\sim\dfrac12x^2\ (x\to0)\)；先证 \(a_n\to0\)，再整体代换。</p>
 <p><strong>要点</strong>：设 \(\lim\limits_{n\to\infty}b_n=0\)，\(b_n\neq0\ (n=1,2,\cdots)\)，\(\cos a_n-\cos b_n=a_n\)，求 \(\lim\dfrac{a_n}{b_n^2}\)。先定 \(a_n\) 的去向：若 \(a_n\to a\)，由归结原则 \(\cos a_n\to\cos a\)，对条件取极限得 \(\cos a=1+a\)，此方程唯一解为 \(a=0\)，故 \(a_n\to0\)。再由条件移项 \(1-\cos b_n=1-\cos a_n+a_n\)，
 \[\lim_{n\to\infty}\frac{a_n}{b_n^2}=\lim_{n\to\infty}\frac{1-\cos b_n}{b_n^2}\cdot\frac{a_n}{1-\cos a_n+a_n}=\frac12\lim_{n\to\infty}\frac{1}{\dfrac{1-\cos a_n}{a_n}+1}=\frac12\cdot\frac1{0+1}=\frac12,\]
 其中 \(1-\cos a_n\sim\dfrac12a_n^2=o(a_n)\)。</p>
 <p><strong>注</strong>：抽象数列极限的核心动作是恒等变形造出已知等价无穷小的结构（\(1-\cos\)、\(\ln(1+\cdot)\)、\(e^{(\cdot)}-1\)），别急着硬算。</p>
 <h4>例2.12 单调有界求极限（大题模板）</h4>
-<figure class="shot"><img src="../assets/img/L02-019.webp" alt="原书 例2.12 · 印P137" loading="lazy" width="1100" height="866"><figcaption>原书 例2.12 · 印P137</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-019.webp" alt="原书 例2.12 · 印P137" loading="lazy" decoding="async" width="1100" height="866"><figcaption>原书 例2.12 · 印P137</figcaption></figure>
 <p><strong>思路</strong>：递推数列求极限的标准流程——先有界（例2.1 已证 \(0&lt;x_n\le\frac32\)），再证单调，然后设极限、两边取极限、舍根。</p>
 <p><strong>要点</strong>：\(n&gt;1\) 时
 \[x_{n+1}-x_n=\sqrt{x_n(3-x_n)}-x_n=\sqrt{x_n}\left(\sqrt{3-x_n}-\sqrt{x_n}\right)=\frac{2\sqrt{x_n}\left(\frac32-x_n\right)}{\sqrt{3-x_n}+\sqrt{x_n}}\ge0\]
 （分子有理化；\(x_n\le\frac32\Rightarrow3-2x_n\ge0\)），故 \(n&gt;1\) 后 \(\{x_n\}\) 单调增加。由单调有界准则设 \(\lim x_n=a\)，对 \(a=\sqrt{a(3-a)}\) 解得 \(a=\frac32\) 或 \(a=0\)；因 \(\{x_n\}\) 单增且 \(x_n&gt;0\)，舍去 \(a=0\)，故 \(\lim x_n=\frac32\)。</p>
 <h4>例2.13 \(f\) 的单调性决定 \(\{x_n\}\) 的单调性</h4>
-<figure class="shot"><img src="../assets/img/L02-026.webp" alt="原书 例2.13 · 印P138" loading="lazy" width="1100" height="794"><figcaption>原书 例2.13 · 印P138</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-026.webp" alt="原书 例2.13 · 印P138" loading="lazy" decoding="async" width="1100" height="794"><figcaption>原书 例2.13 · 印P138</figcaption></figure>
 <p><strong>思路</strong>：\(x_3=f(x_2)=f(f(x_1))\)，\(f\) 单调增则不等号一路保号传递，\(f\) 单调减则一路反号。</p>
 <p><strong>要点</strong>：① \(f\) 单调增且 \(x_1&lt;x_2\Rightarrow x_2=f(x_1)&lt;f(x_2)=x_3\)，归纳传递下去 \(\{x_n\}\) 单调增加，对；② 同理 \(f\) 单调增且 \(x_1&gt;x_2\Rightarrow\{x_n\}\) 单调减少，对；③ \(f\) 单调减时 \(x_{n+1}\) 与 \(x_n\) 反向跳，奇偶两个子列一个单增一个单减，\(\{x_n\}\) 不单调（非常数列时），对；④ 反例：\(f(x)=x^2\) 在 \([-1,1]\) 上不单调，取 \(x_1=1\) 得常数列 \(x_n\equiv1\)（单调），错。正确命题共 3 个，选 (C)。</p>
 <p><strong>注</strong>：这就是"判单调五法"第 e 条的完整版：\(f\) 增看首两项定方向，\(f\) 减则数列不单调，\(f\) 不单调时数列仍可能单调。</p>
 <h4>例2.14 递推数列大题完整体：先证根唯一，再证收敛</h4>
-<figure class="shot"><img src="../assets/img/L02-027.webp" alt="原书 例2.14 题与证(1) · 印P138" loading="lazy" width="1100" height="839"><figcaption>原书 例2.14 题与证(1) · 印P138</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L02-028.webp" alt="原书 例2.14 证(2) · 印P139" loading="lazy" width="1100" height="1629"><figcaption>原书 例2.14 证(2) · 印P139</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-027.webp" alt="原书 例2.14 题与证(1) · 印P138" loading="lazy" decoding="async" width="1100" height="839"><figcaption>原书 例2.14 题与证(1) · 印P138</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-028.webp" alt="原书 例2.14 证(2) · 印P139" loading="lazy" decoding="async" width="1100" height="1629"><figcaption>原书 例2.14 证(2) · 印P139</figcaption></figure>
 <p><strong>思路</strong>：第(1)问零点定理加单调性证根唯一；第(2)问"验—设—证"归纳守住下界 \(\xi\)，作差定单调，两边取极限后靠根的唯一性定值。</p>
 <p><strong>要点</strong>：(1) 令 \(F(x)=x-2\ln(1+x)\ (x&gt;0)\)，\(F'(x)=\dfrac{x-1}{1+x}\)：\(F\) 在 \((0,1)\) 单减、在 \((1,+\infty)\) 单增；又 \(F(0)=0\)，\(F(1)=1-2\ln2&lt;0\)，\(F(+\infty)=+\infty\)（图 2-2），故 \(F\) 在 \((0,1)\) 内无零点、在 \((1,+\infty)\) 上有唯一零点，即原方程在 \((0,+\infty)\) 内有唯一实根 \(\xi\)（\(\xi&gt;1\)，满足 \(\xi=2\ln(1+\xi)\)）。</p>
 <p>(2) ①验：\(x_1&gt;\xi\)；②设：\(x_k&gt;\xi\)；③证：\(x_{k+1}=2\ln(1+x_k)&gt;2\ln(1+\xi)=\xi\)。故对一切 \(n\) 有 \(x_n&gt;\xi\)（有下界）。又 \(x_n&gt;\xi&gt;1\) 时
@@ -168,23 +170,23 @@
 （\(F\) 在 \((1,+\infty)\) 单增且 \(F(\xi)=0\Rightarrow F(x_n)&gt;0\)），故 \(\{x_n\}\) 单调减少。由单调有界准则 \(\{x_n\}\) 收敛；设 \(\lim x_n=a\)，对递推式两边取极限得 \(a=2\ln(1+a)\)，即 \(a\) 也是 \(F\) 的零点，由零点唯一性及 \(a\ge\xi&gt;1\) 得 \(a=\xi\)，即 \(\lim\limits_{n\to\infty}x_n=\xi\)。</p>
 <p><strong>注</strong>：原书配图 2-4（印P140）画出 \(y=x\) 与 \(y=2\ln(1+x)\) 的迭代路径，\(0&lt;x_1&lt;\xi\) 时迭代点单调上升趋于 \(\xi\)，同理可证。本题是"零点定理 + 单减有下界 + 两边取极限 + 唯一根"的完整范本，解答过程值得整段背下来。</p>
 <h4>例2.15 压缩映射处理不单调的递推</h4>
-<figure class="shot"><img src="../assets/img/L02-020.webp" alt="原书 例2.15 · 印P140" loading="lazy" width="1100" height="1266"><figcaption>原书 例2.15 · 印P140</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-020.webp" alt="原书 例2.15 · 印P140" loading="lazy" decoding="async" width="1100" height="1266"><figcaption>原书 例2.15 · 印P140</figcaption></figure>
 <p><strong>思路</strong>：\(f(x)=\cos x\) 在 \((0,\frac\pi3)\) 单减，\(\{x_n\}\) 不单调，证不了单调有界就改证距离被逐次压缩。</p>
 <p><strong>要点</strong>：(1) 令 \(F(x)=\cos x-x\)，\(F(0)=1&gt;0\)，\(F(\frac\pi3)=\frac12-\frac\pi3&lt;0\)，\(F'(x)=-\sin x-1&lt;0\) 单减，故存在唯一 \(a\in(0,\frac\pi3)\) 使 \(a=\cos a\)。(2) \(n&gt;1\) 时 \(0&lt;x_n\le1&lt;\frac\pi3\)；由拉格朗日中值定理，
 \[|x_{n+1}-a|=|\cos x_n-\cos a|=|-\sin\xi|\cdot|x_n-a|\le\frac{\sqrt3}2|x_n-a|\le\cdots\le\left(\frac{\sqrt3}2\right)^n|x_1-a|\to0\]
 （\(\xi\) 介于 \(a\) 与 \(x_n\) 之间，\(\sin\xi\le\sin\frac\pi3=\frac{\sqrt3}2\)），由夹逼准则 \(x_{n+1}\to a\)，即 \(\lim x_n=a\)。</p>
 <h4>例2.16 \(\varepsilon\) 换成 \(\dfrac1{2^k}\) 仍充要</h4>
-<figure class="shot"><img src="../assets/img/L02-029.webp" alt="原书 例2.16 · 印P141" loading="lazy" width="1100" height="954"><figcaption>原书 例2.16 · 印P141</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-029.webp" alt="原书 例2.16 · 印P141" loading="lazy" decoding="async" width="1100" height="954"><figcaption>原书 例2.16 · 印P141</figcaption></figure>
 <p><strong>思路</strong>：判断 \(\varepsilon\) 的替身合不合法，只看两件事：能否任意小、是否依赖 \(n\)。</p>
 <p><strong>要点</strong>：题干说"对任意给定的 \(k\in\mathbf{N}_+\)，总存在正整数 \(N\)，当 \(n&gt;N\) 时恒有 \(|x_n-a|\le\dfrac1{2^k}\)"。对任意给定的 \(k\)，\(\dfrac1{2^k}\) 可为任意小的正数且<strong>不依赖 \(n\)</strong>，记 \(\varepsilon=\dfrac1{2^k}&gt;0\)，该说法与 \(\varepsilon\)-\(N\) 定义完全等价，是充分必要条件，选 (C)。</p>
 <h4>例2.17 \(\varepsilon\) 换成 \(\dfrac1n\) 只充分</h4>
-<figure class="shot"><img src="../assets/img/L02-030.webp" alt="原书 例2.17 题 · 印P141" loading="lazy" width="900" height="239"><figcaption>原书 例2.17 题 · 印P141</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L02-031.webp" alt="原书 例2.17 解与注 · 印P142" loading="lazy" width="1100" height="1088"><figcaption>原书 例2.17 解与注 · 印P142</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-030.webp" alt="原书 例2.17 题 · 印P141" loading="lazy" decoding="async" width="900" height="239"><figcaption>原书 例2.17 题 · 印P141</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-031.webp" alt="原书 例2.17 解与注 · 印P142" loading="lazy" decoding="async" width="1100" height="1088"><figcaption>原书 例2.17 解与注 · 印P142</figcaption></figure>
 <p><strong>思路</strong>：\(\dfrac1n\) 依赖 \(n\)，定义禁用；构造一个收敛但"收敛得慢"的数列当反例即可拆必要性。</p>
 <p><strong>要点</strong>：若存在 \(N\)，当 \(n&gt;N\) 时恒有 \(|x_n-a|\le\dfrac1n\)，则任给 \(\varepsilon&gt;0\)，取 \(N\) 使 \(\dfrac1{N+1}&lt;\varepsilon\)，即得 \(|x_n-a|&lt;\varepsilon\)，故 \(\lim x_n=a\)，充分性成立。反之取 \(x_n=a+\dfrac1{\sqrt n}\to a\)，但 \(\dfrac1{\sqrt n}&gt;\dfrac1n\)，条件不满足，必要性不成立。所以只是充分不必要条件，选 (A)。</p>
 <p><strong>注</strong>：对收敛速度提要求的命题只能当充分条件，分界线就是"\(\varepsilon\) 是否依赖 \(n\)"——与例2.16 对照记忆。</p>
 <h4>例2.18 极限非零则项的绝对值有正下界</h4>
-<figure class="shot"><img src="../assets/img/L02-032.webp" alt="原书 例2.18 · 印P142" loading="lazy" width="1100" height="451"><figcaption>原书 例2.18 · 印P142</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L02-032.webp" alt="原书 例2.18 · 印P142" loading="lazy" decoding="async" width="1100" height="451"><figcaption>原书 例2.18 · 印P142</figcaption></figure>
 <p><strong>思路</strong>：用三角不等式把 \(|a_n|\) 往下托：\(|a_n|\ge|a|-|a_n-a|\)。</p>
 <p><strong>要点</strong>：设 \(\lim a_n=a\neq0\)，取 \(\varepsilon=\dfrac{|a|}2&gt;0\)，存在 \(N\)，当 \(n&gt;N\) 时 \(|a_n-a|&lt;\dfrac{|a|}2\)，于是
 \[|a_n|\ge|a|-|a_n-a|&gt;|a|-\frac{|a|}2=\frac{|a|}2,\]

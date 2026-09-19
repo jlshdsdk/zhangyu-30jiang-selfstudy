@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>一元函数积分学的应用（一）——几何应用 · 张宇基础30讲自学站</title>
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="preload" href="../assets/katex/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/katex/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="data:,">
 <script defer src="../assets/katex/katex.min.js"></script>
@@ -76,14 +78,14 @@
 <h2 id="sec-3">核心概念与定理</h2>
 <h3 id="sec-4">一、平面图形的面积（直角坐标）</h3>
 <p>曲线 \(y=y_1(x)\)、\(y=y_2(x)\) 与 \(x=a\)、\(x=b\ (a&lt;b)\) 围成的面积就是"上减下"的绝对值积分：\(S=\int_a^b|y_1(x)-y_2(x)|\,\mathrm{d}x\)。微元法两步：先取竖条 \(\Delta S=|y_1(x)-y_2(x)|\,\mathrm{d}x\)，再从 \(a\) 到 \(b\) 积分。绝对值不是装饰——图形翻到 x 轴下方时靠它保持非负（例10.4 的批注原话："保持非负（对应图形在 x 轴下方的部分向上翻折）"，印P314）。区域无界时（向无穷延伸）照样写积分，按收敛的反常积分处理，这是本讲面积公式的一个推广方向（印P311）。</p>
-<figure class="shot"><img src="../assets/img/L10-001.webp" alt="原书 面积公式（直角坐标）与微元法 · 印P311" loading="lazy" width="1094" height="660"><figcaption>原书 面积公式（直角坐标）与微元法 · 印P311</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-001.webp" alt="原书 面积公式（直角坐标）与微元法 · 印P311" loading="lazy" decoding="async" width="1094" height="660"><figcaption>原书 面积公式（直角坐标）与微元法 · 印P311</figcaption></figure>
 <h3 id="sec-5">二、平面图形的面积（极坐标曲边扇形）</h3>
 <p>极坐标下曲线 \(r=r_1(\theta)\)、\(r=r_2(\theta)\) 与射线 \(\theta=\alpha\)、\(\theta=\beta\ (\alpha&lt;\beta)\) 围成的曲边扇形：</p>
 <p>\[
 S=\frac12\int_\alpha^\beta\left|r_1^2(\theta)-r_2^2(\theta)\right|\,\mathrm{d}\theta .
 \]</p>
 <p>微元怎么来的：\(\mathrm{d}\theta\to0\) 时把小扇形当三角形看，\(\Delta S=\frac12|r_2^2(\theta)-r_1^2(\theta)|\,\mathrm{d}\theta\) 是"大三角形减小三角形"。做题第一步永远是先由 \(r\ge0\)（如 \(r^2=a^2\cos2\theta\) 要求 \(\cos2\theta\ge0\)）确定 \(\theta\) 的合法范围，再谈对称性（例10.3 只积到 \(\pi/4\) 的原因）。圆弧、玫瑰线、双纽线、心形线这类"从原点出发好描述"的图形，极坐标比直角坐标省事得多。</p>
-<figure class="shot"><img src="../assets/img/L10-002.webp" alt="原书 面积公式（极坐标曲边扇形）与微元法 · 印P311" loading="lazy" width="1100" height="488"><figcaption>原书 面积公式（极坐标曲边扇形）与微元法 · 印P311</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-002.webp" alt="原书 面积公式（极坐标曲边扇形）与微元法 · 印P311" loading="lazy" decoding="async" width="1100" height="488"><figcaption>原书 面积公式（极坐标曲边扇形）与微元法 · 印P311</figcaption></figure>
 <h3 id="sec-6">三、参数方程下的面积：换元，不是新公式</h3>
 <p>\(x=x(t),\,y=y(t)\ (\alpha\le t\le\beta)\) 不需要新公式——它就是直角坐标面积公式作了换元 \(x=x(t)\)：</p>
 <p>\[
@@ -96,27 +98,27 @@ S=\int_\alpha^\beta y(t)x'(t)\,\mathrm{d}t .
 V_x=\int_a^b\pi y^2(x)\,\mathrm{d}x .
 \]</p>
 <p>适用条件几乎不设限：曲线连续即可（对比柱壳法多出的 \(0\le a&lt;b\)）。图形在 x 轴下方也没关系，平方自动消化符号。遇到"两条曲线围成的区域绕 x 轴"，就变成大圆盘减小圆盘的垫圈：\(V=\pi\int_a^b[y_\text{上}^2-y_\text{下}^2]\,\mathrm{d}x\)（自测题5 就是这个形状）。</p>
-<figure class="shot"><img src="../assets/img/L10-003.webp" alt="原书 旋转体体积公式（圆盘法）· 印P314" loading="lazy" width="1100" height="279"><figcaption>原书 旋转体体积公式（圆盘法）· 印P314</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-003.webp" alt="原书 旋转体体积公式（圆盘法）· 印P314" loading="lazy" decoding="async" width="1100" height="279"><figcaption>原书 旋转体体积公式（圆盘法）· 印P314</figcaption></figure>
 <h3 id="sec-8">五、柱壳法（绕 y 轴的旋转体体积）</h3>
 <p>竖条绕 y 轴转出一层"圆柱壳"，切开挖平是长 \(2\pi x\)、高 \(|y(x)|\)、厚 \(\mathrm{d}x\) 的长方体：</p>
 <p>\[
 V_y=2\pi\int_a^b x|y(x)|\,\mathrm{d}x\qquad(0\le a&lt;b).
 \]</p>
 <p>注意条件比圆盘法多一个 \(0\le a&lt;b\)：壳的半径 \(x\) 必须非负（印P315）。原书的记忆版把两条放一起：\(V_x=\int_a^b\pi\,\square^2\,\mathrm{d}x\)，\(V_y=2\pi\int_a^b x|\square|\,\mathrm{d}x\)，往方框里代曲线就行。什么时候选柱壳：区域是"竖条型"（上下两条曲线夹住）而旋转轴是竖直的，或者反过来"水平条型"配水平轴——条的方向与轴平行时才转得出壳。</p>
-<figure class="shot"><img src="../assets/img/L10-004.webp" alt="原书 旋转体体积公式（柱壳法）及推导 · 印P315" loading="lazy" width="1100" height="668"><figcaption>原书 旋转体体积公式（柱壳法）及推导 · 印P315</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-004.webp" alt="原书 旋转体体积公式（柱壳法）及推导 · 印P315" loading="lazy" decoding="async" width="1100" height="668"><figcaption>原书 旋转体体积公式（柱壳法）及推导 · 印P315</figcaption></figure>
 <h3 id="sec-9">公式10-1 绕一般定直线旋转</h3>
 <p>更一般的：设 \(y=f(x)\ (a\le x\le b)\) 可导，\(L_0:Ax+By+C=0\) 是一条定直线，且过 \(L_0\) 的任一条垂线与曲线至多一个交点（保证旋转体"一层一层"清晰可切），则曲线绕 \(L_0\) 旋转所得旋转体体积为</p>
 <p>\[
 V=\frac{\pi}{(A^2+B^2)^{3/2}}\int_a^b\left[Ax+Bf(x)+C\right]^2\left|Af'(x)-B\right|\mathrm{d}x. \tag{10-1}
 \]</p>
 <p>取 \(A=C=0\)（\(L_0\) 为 x 轴）立刻退化回 \(V=\pi\int_a^bf^2(x)\,\mathrm{d}x\)，所以它是圆盘法的推广。考试里更常用的不是硬背它，而是它的思想：轴平移了，半径就换成"点到直线的距离"；立体有里有外，就"大体积减小体积"（例10.7 绕 \(x=1\)、习题10.9 绕 \(y=3\) 都是这么处理的）。</p>
-<figure class="shot"><img src="../assets/img/L10-022.webp" alt="原书 绕定直线 L₀ 旋转的体积公式(10-1) · 印P316" loading="lazy" width="1100" height="909"><figcaption>原书 绕定直线 L₀ 旋转的体积公式(10-1) · 印P316</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-022.webp" alt="原书 绕定直线 L₀ 旋转的体积公式(10-1) · 印P316" loading="lazy" decoding="async" width="1100" height="909"><figcaption>原书 绕定直线 L₀ 旋转的体积公式(10-1) · 印P316</figcaption></figure>
 <h3 id="sec-10">六、函数的平均值</h3>
 <p>\[
 \bar y=\frac{1}{b-a}\int_a^b y(x)\,\mathrm{d}x,
 \]</p>
 <p>默认 \(y(x)\) 连续，且由积分中值定理有 \(\bar y=y(\xi),\ \xi\in[a,b]\)（印P318）。公式本身一行写完，但考题几乎从不让你直接套——第二层都埋在变限积分里：看到 \(f(x+T)-f(x)\) 就设 \(F(x)=\int_x^{x+T}f(t)\,\mathrm{d}t\) 求导（例10.8），或反过来给平均值反求函数（习题10.5）。</p>
-<figure class="shot"><img src="../assets/img/L10-024.webp" alt="原书 函数的平均值 · 印P318" loading="lazy" width="1100" height="178"><figcaption>原书 函数的平均值 · 印P318</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-024.webp" alt="原书 函数的平均值 · 印P318" loading="lazy" decoding="async" width="1100" height="178"><figcaption>原书 函数的平均值 · 印P318</figcaption></figure>
 <h3 id="sec-11">七、形心坐标公式（仅数一、数二）</h3>
 <p>曲边梯形 \(D=\{(x,y)\,|\,0\le y\le f(x),\,a\le x\le b\}\)（\(f\) 连续）的形心：</p>
 <p>\[
@@ -125,7 +127,7 @@ V=\frac{\pi}{(A^2+B^2)^{3/2}}\int_a^b\left[Ax+Bf(x)+C\right]^2\left|Af'(x)-B\rig
 \bar y=\frac{\dfrac12\int_a^b f^2(x)\,\mathrm{d}x}{\int_a^b f(x)\,\mathrm{d}x}.
 \]</p>
 <p>分子就是"对坐标的矩"：\(\bar x\) 的分子是 \(x\cdot f(x)\)，\(\bar y\) 的分子多一个 \(\frac12\)（来自竖条自己的形心在半高处 \(\frac{y}{2}\)），这个 \(\frac12\) 是最常丢的。例10.9 拿 \(y=\frac14x^2-\frac12\ln x\) 练手，分子分母都要用分部积分处理 \(\ln x\)。</p>
-<figure class="shot"><img src="../assets/img/L10-005.webp" alt="原书 形心坐标公式 · 印P319" loading="lazy" width="1100" height="418"><figcaption>原书 形心坐标公式 · 印P319</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-005.webp" alt="原书 形心坐标公式 · 印P319" loading="lazy" decoding="async" width="1100" height="418"><figcaption>原书 形心坐标公式 · 印P319</figcaption></figure>
 <h3 id="sec-12">八、平面曲线的弧长（仅数一、数二）</h3>
 <p>三种方程三套公式，全是弧微分 \(ds=\sqrt{(\mathrm{d}x)^2+(\mathrm{d}y)^2}\) 的展开（要求 \(|y'(x)|&lt;\infty\)、\(x'(t)\neq0\)、\(r,r'\) 连续，印P320）：</p>
 <p>\[
@@ -134,7 +136,7 @@ s=\int_\alpha^\beta\sqrt{[x'(t)]^2+[y'(t)]^2}\,\mathrm{d}t,\qquad
 s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\,\mathrm{d}\theta.
 \]</p>
 <p>原书的讲法很直白：本讲不推导，记住结论会用。直角坐标的题（例10.10）先看 \(1+y'^2\) 能不能配成完全平方；极坐标的题（例10.11）常配出 \(\int\sqrt{1+\theta^2}\,\mathrm{d}\theta\) 这类"丑"原函数，属正常现象。对称性是省力关键：星形线、心形线都只算四分之一或一半再翻倍（习题10.4）。</p>
-<figure class="shot"><img src="../assets/img/L10-006.webp" alt="原书 弧长公式（三种曲线方程）· 印P320" loading="lazy" width="982" height="512"><figcaption>原书 弧长公式（三种曲线方程）· 印P320</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-006.webp" alt="原书 弧长公式（三种曲线方程）· 印P320" loading="lazy" decoding="async" width="982" height="512"><figcaption>原书 弧长公式（三种曲线方程）· 印P320</figcaption></figure>
 <h3 id="sec-13">九、旋转曲面的面积（侧面积，仅数一、数二）</h3>
 <p>在弧长微元 \(ds\) 上乘"圆周长" \(2\pi|y|\)（绕 x 轴），三种方程：</p>
 <p>\[
@@ -145,18 +147,18 @@ S=2\pi\int_\alpha^\beta|y(t)|\sqrt{(x_t')^2+(y_t')^2}\,\mathrm{d}t,
 S=2\pi\int_\alpha^\beta|r(\theta)\sin\theta|\,\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\,\mathrm{d}\theta .
 \]</p>
 <p>极坐标那套里的 \(|r\sin\theta|\) 就是曲线上点的"y 坐标"（到旋转轴的距离），别只记 \(r\sin\theta\) 把绝对值丢了。原书手写注提醒的一句话值背诵：<strong>算体积用 \(\mathrm{d}x\)，算侧面积用 \(\mathrm{d}s\)</strong>（印P321）——体积是"切片累加"，侧面积是"沿曲线累加"，两者微元根本不同，这也是为什么弧长公式和侧面积公式成对出现。</p>
-<figure class="shot"><img src="../assets/img/L10-007.webp" alt="原书 旋转曲面侧面积公式 · 印P321" loading="lazy" width="1100" height="376"><figcaption>原书 旋转曲面侧面积公式 · 印P321</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-007.webp" alt="原书 旋转曲面侧面积公式 · 印P321" loading="lazy" decoding="async" width="1100" height="376"><figcaption>原书 旋转曲面侧面积公式 · 印P321</figcaption></figure>
 <h3 id="sec-14">十、平行截面面积为已知的立体体积</h3>
 <p>立体夹在 \(x=a\) 与 \(x=b\) 之间，垂直于 x 轴的平面截立体所得截面面积为连续函数 \(A(x)\)，取微元 \(\mathrm{d}V=A(x)\,\mathrm{d}x\)，则</p>
 <p>\[
 V=\int_a^b A(x)\,\mathrm{d}x .
 \]</p>
 <p>旋转体体积是它取 \(A(x)=\pi f^2(x)\) 的特例（印P322，考研至今未直接考过）。但它是处理"绕斜线旋转"的备用武器：例10.14 绕 \(y=x\) 旋转时，截面是圆，半径是曲线上点到 \(y=x\) 的距离 \(r=\frac{\sqrt x-x}{\sqrt2}\)，于是 \(A(x)=\sqrt2\,\pi\left(\frac{\sqrt x-x}{\sqrt2}\right)^2\)——平移截面法比死套公式 (10-1) 更要直觉，原书自己也说这方法"要有足够的经验，供参考"，基础阶段见过、能看懂即可。</p>
-<figure class="shot"><img src="../assets/img/L10-032.webp" alt="原书 平行截面面积为已知的立体体积 · 印P322" loading="lazy" width="1100" height="439"><figcaption>原书 平行截面面积为已知的立体体积 · 印P322</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-032.webp" alt="原书 平行截面面积为已知的立体体积 · 印P322" loading="lazy" decoding="async" width="1100" height="439"><figcaption>原书 平行截面面积为已知的立体体积 · 印P322</figcaption></figure>
 <h2 id="sec-15">典型例题精讲</h2>
 <h4>例10.1（面积 + 数列极限的填空题）</h4>
-<figure class="shot"><img src="../assets/img/L10-019.webp" alt="原书 例10.1 题目 · 印P311" loading="lazy" width="1100" height="194"><figcaption>原书 例10.1 题目 · 印P311</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-020.webp" alt="原书 例10.1 解答（面积累加与裂项）· 印P312" loading="lazy" width="1100" height="1277"><figcaption>原书 例10.1 解答（面积累加与裂项）· 印P312</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-019.webp" alt="原书 例10.1 题目 · 印P311" loading="lazy" decoding="async" width="1100" height="194"><figcaption>原书 例10.1 题目 · 印P311</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-020.webp" alt="原书 例10.1 解答（面积累加与裂项）· 印P312" loading="lazy" decoding="async" width="1100" height="1277"><figcaption>原书 例10.1 解答（面积累加与裂项）· 印P312</figcaption></figure>
 <p><strong>思路</strong> 题目：设 \(A_n\) 是曲线 \(y=x^n\) 与 \(y=x^{n+1}\ (n=1,2,\cdots)\) 所围区域的面积，求 \(\lim_{n\to\infty}\left(2\sum_{k=1}^{n}A_k\right)^n\)。这是"面积 + 数列极限"的综合填空。原书解答两步走：①求交点（\(x^n=x^{n+1}\Rightarrow x=0,1\)）并画图（图10-1），\(0&lt;x&lt;1\) 时 \(x^n&gt;x^{n+1}\)；②把 \(A_n\) 算出来再累加。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -172,8 +174,8 @@ A_n=\int_0^1(x^n-x^{n+1})\,\mathrm{d}x=\frac{1}{n+1}-\frac{1}{n+2}=\frac{1}{(n+1
 <p>应填 \(\mathrm{e}^{-2}\)。</p>
 <p><strong>注</strong> 求和那一步是标准裂项相消；极限那步是第二重要极限的变形（\(1-\frac{2}{n+2}\) 的 \(n\) 次幂）。这题提醒我们：本讲的"面积"只是壳，里面可以装数列极限的芯（印P312）。</p>
 <h4>例10.2（摆线一拱的面积）★★</h4>
-<figure class="shot"><img src="../assets/img/L10-008.webp" alt="原书 例10.2 · 印P312" loading="lazy" width="1100" height="615"><figcaption>原书 例10.2 · 印P312</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-009.webp" alt="原书 例10.2 解答 · 印P313" loading="lazy" width="897" height="942"><figcaption>原书 例10.2 解答 · 印P313</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-008.webp" alt="原书 例10.2 · 印P312" loading="lazy" decoding="async" width="1100" height="615"><figcaption>原书 例10.2 · 印P312</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-009.webp" alt="原书 例10.2 解答 · 印P313" loading="lazy" decoding="async" width="897" height="942"><figcaption>原书 例10.2 解答 · 印P313</figcaption></figure>
 <p><strong>思路</strong> 考试不会给出摆线的图（原书原话），要自己画：一拱对应 \(t:0\to2\pi\)，\(t=0\) 或 \(t=2\pi\) 时 \(y=0\)，曲线正好成一拱。然后不引进新公式，把 \(S=\int_0^{2\pi a}y(x)\,\mathrm{d}x\) 作换元 \(x=a(t-\sin t)\)。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -184,7 +186,7 @@ S=\int_0^{2\pi}a(1-\cos t)\,[a(t-\sin t)]'\,\mathrm{d}t=\int_0^{2\pi}a^2(1-\cos 
 \]</p>
 <p><strong>注</strong> 原书方法总结一句话：参数方程下面积公式的本质，就是直角坐标系下面积公式的换元法形式。想通这条，参数弧长、参数侧面积全是一回事。</p>
 <h4>例10.3（伯努利双纽线的面积）</h4>
-<figure class="shot"><img src="../assets/img/L10-010.webp" alt="原书 例10.3 · 印P313" loading="lazy" width="1100" height="495"><figcaption>原书 例10.3 · 印P313</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-010.webp" alt="原书 例10.3 · 印P313" loading="lazy" decoding="async" width="1100" height="495"><figcaption>原书 例10.3 · 印P313</figcaption></figure>
 <p><strong>思路</strong> 双纽线 \(r^2=a^2\cos2\theta\)，画图后用对称性：总面积是第一象限那一瓣（射线 \(\theta=0\) 与 \(\theta=\frac{\pi}{4}\) 之间）的 4 倍。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -192,7 +194,7 @@ S=4\int_0^{\pi/4}\frac12a^2\cos2\theta\,\mathrm{d}\theta=a^2\sin2\theta\Big|_0^{
 \]</p>
 <p><strong>注</strong> 极坐标题先由 \(r^2\ge0\) 定 \(\theta\) 的范围（\(\cos2\theta\ge0\)），这就是积分限只到 \(\pi/4\) 的原因。双纽线、心形线的对称轴条数要在画图时就数清楚，翻倍才不会翻错。</p>
 <h4>例10.4（无穷区间上的面积：\(\mathrm{e}^{-x}|\sin x|\) 型）</h4>
-<figure class="shot"><img src="../assets/img/L10-021.webp" alt="原书 例10.4 题目与解答（无穷段面积）· 印P314" loading="lazy" width="1100" height="940"><figcaption>原书 例10.4 题目与解答（无穷段面积）· 印P314</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-021.webp" alt="原书 例10.4 题目与解答（无穷段面积）· 印P314" loading="lazy" decoding="async" width="1100" height="940"><figcaption>原书 例10.4 题目与解答（无穷段面积）· 印P314</figcaption></figure>
 <p><strong>思路</strong> 题目：曲线 \(y=\mathrm{e}^{-x}\sin x\ (x\ge0)\) 与 x 轴围成的图形向右无限延伸，且在 x 轴上下方反复穿换。三步：①画图看清"上穿下穿"；②套公式 \(S=\int_0^{+\infty}\mathrm{e}^{-x}|\sin x|\,\mathrm{d}x\)，绝对值对应"图形在 x 轴下方的部分向上翻折"（原书批注）；③做计算——难度全在处理绝对值：按 \([k\pi,(k+1)\pi]\) 分段，段内 \(\sin x\) 定号。</p>
 <p><strong>要点</strong> 每段平移后是同一个积分的等比缩放：</p>
 <p>\[
@@ -206,7 +208,7 @@ S=\frac{1+\mathrm{e}^{-\pi}}{2}\sum_{k=0}^{\infty}\mathrm{e}^{-k\pi}
 \]</p>
 <p><strong>注</strong> \(\int\mathrm{e}^{-x}\sin x\,\mathrm{d}x=-\frac12(\cos x+\sin x)\,\mathrm{e}^{-x}+C\) 这个原函数在例10.4、例10.5 连用两次（原书注框，印P315），必须一次推熟、终身白拿。</p>
 <h4>例10.5（先定定义域，再算旋转体体积）</h4>
-<figure class="shot"><img src="../assets/img/L10-011.webp" alt="原书 例10.5 · 印P314" loading="lazy" width="731" height="307"><figcaption>原书 例10.5 · 印P314</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-011.webp" alt="原书 例10.5 · 印P314" loading="lazy" decoding="async" width="731" height="307"><figcaption>原书 例10.5 · 印P314</figcaption></figure>
 <p><strong>思路</strong> 曲线 \(y=\mathrm{e}^{-x/2}\sqrt{\sin x}\) 在 \([0,2\pi]\) 上并非处处存在：\(\sqrt{\sin x}\) 要求 \(\sin x\ge0\)，故只有 \(x\in[0,\pi]\)，在 \((\pi,2\pi)\) 内 \(y\) 不存在。</p>
 <p><strong>要点</strong> 套圆盘法：</p>
 <p>\[
@@ -215,8 +217,8 @@ V_x=\int_0^{\pi}\pi\left(\mathrm{e}^{-x/2}\sqrt{\sin x}\right)^2\mathrm{d}x=\pi\
 <p>最后一步用 \(\int\mathrm{e}^{-x}\sin x\,\mathrm{d}x=-\frac12(\cos x+\sin x)\,\mathrm{e}^{-x}+C\)（原书注框，印P315）。</p>
 <p><strong>注</strong> 这题的坑不在公式，在看到 \([0,2\pi]\) 就真从 0 积到 \(2\pi\)。</p>
 <h4>例10.6（求 \(f(x)\) + 反函数转柱壳）</h4>
-<figure class="shot"><img src="../assets/img/L10-012.webp" alt="原书 例10.6 · 印P315" loading="lazy" width="1100" height="667"><figcaption>原书 例10.6 · 印P315</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-013.webp" alt="原书 例10.6 解答 · 印P316" loading="lazy" width="1100" height="758"><figcaption>原书 例10.6 解答 · 印P316</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-012.webp" alt="原书 例10.6 · 印P315" loading="lazy" decoding="async" width="1100" height="667"><figcaption>原书 例10.6 · 印P315</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-013.webp" alt="原书 例10.6 解答 · 印P316" loading="lazy" decoding="async" width="1100" height="758"><figcaption>原书 例10.6 解答 · 印P316</figcaption></figure>
 <p><strong>思路</strong> 原书直接引用例1.2 的结果 \(f(x)=\dfrac{x}{\sqrt{1+x^2}}\ (x&gt;0)\)。要算的区域由 \(y=f(x)\)、\(y=\frac12\)、\(y=\frac{\sqrt3}{2}\) 及 y 轴围成——水平条区域，绕 x 轴转。原书的处理：\(x,y\) 地位交换，反解出 \(x=\dfrac{y}{\sqrt{1-y^2}}\ (0&lt;y&lt;1)\)，对 y 用"柱壳"式微元。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -225,9 +227,9 @@ V=2\pi\int_{1/2}^{\sqrt3/2}xy\,\mathrm{d}y=2\pi\int_{1/2}^{\sqrt3/2}\frac{y^2}{\
 \]</p>
 <p><strong>注</strong> 原书方法总结：学会利用反函数，将绕 x 轴旋转用 \(V_y\) 的体积公式表示出来。注框还点明两个综合考查点：把 \(f(x)\) 求出来；\(x,y\) 地位交换、先反解再套公式。</p>
 <h4>例10.7（切线围成的图形：面积 + 绕 \(x=1\) 旋转）</h4>
-<figure class="shot"><img src="../assets/img/L10-023.webp" alt="原书 例10.7 题目 · 印P316" loading="lazy" width="1071" height="237"><figcaption>原书 例10.7 题目 · 印P316</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-014.webp" alt="原书 例10.7 · 印P317" loading="lazy" width="1100" height="846"><figcaption>原书 例10.7 · 印P317</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-015.webp" alt="原书 例10.7 解答 · 印P317" loading="lazy" width="1100" height="466"><figcaption>原书 例10.7 解答 · 印P317</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-023.webp" alt="原书 例10.7 题目 · 印P316" loading="lazy" decoding="async" width="1071" height="237"><figcaption>原书 例10.7 题目 · 印P316</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-014.webp" alt="原书 例10.7 · 印P317" loading="lazy" decoding="async" width="1100" height="846"><figcaption>原书 例10.7 · 印P317</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-015.webp" alt="原书 例10.7 解答 · 印P317" loading="lazy" decoding="async" width="1100" height="466"><figcaption>原书 例10.7 解答 · 印P317</figcaption></figure>
 <p><strong>思路</strong> 题目：过坐标原点作曲线 \(y=\mathrm{e}^x\) 的切线，该切线与曲线及 x 轴围成向 x 轴负向无限伸展的平面图形 \(D\)，求 (1) \(D\) 的面积 \(A\)；(2) \(D\) 绕直线 \(x=1\) 旋转一周所得旋转体的体积 \(V\)。设切点 \(P(x_0,y_0)\)，斜率 \(y'(x_0)=\mathrm{e}^{x_0}\)，切线过原点定出 \(x_0=1\)、\(y_0=\mathrm{e}\)，切线 \(y=\mathrm{e}x\)。区域 \(D\) 向 x 轴负向无限伸展，取水平条面积微元（原书注明：取竖直条再积分会很麻烦，不建议）。</p>
 <p><strong>要点</strong> (1) 右边界是曲线 \(x=\ln y\)、左边界是切线 \(x=\frac{y}{\mathrm{e}}\)：</p>
 <p>\[
@@ -241,14 +243,14 @@ A=\int_0^{\mathrm{e}}\left(\frac{y}{\mathrm{e}}-\ln y\right)\mathrm{d}y
 \]</p>
 <p><strong>注</strong> 原书注给出方法二：直接套公式 (10-1)，\(L_0:x=1\Rightarrow A=1,\ B=0,\ C=-1\)，\(V=V_{\text{大}}-V_{\text{小}}\)，结果相同。绝对值恒等式 \(|B^3|=|B|B^2=B^2|B|\)（印P317–318）要顺手。这题是"切线 + 反常积分 + 平移轴"三合一的样板。</p>
 <h4>例10.8（平均值 + 变限积分联想）</h4>
-<figure class="shot"><img src="../assets/img/L10-025.webp" alt="原书 例10.8 题目与分析 · 印P318" loading="lazy" width="1100" height="267"><figcaption>原书 例10.8 题目与分析 · 印P318</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-016.webp" alt="原书 例10.8 解答 · 印P319" loading="lazy" width="861" height="547"><figcaption>原书 例10.8 解答 · 印P319</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-025.webp" alt="原书 例10.8 题目与分析 · 印P318" loading="lazy" decoding="async" width="1100" height="267"><figcaption>原书 例10.8 题目与分析 · 印P318</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-016.webp" alt="原书 例10.8 解答 · 印P319" loading="lazy" decoding="async" width="861" height="547"><figcaption>原书 例10.8 解答 · 印P319</figcaption></figure>
 <p><strong>思路</strong> 题目：设 \(f(x)\) 连续，\(f(x+2)-f(x)=x\)，\(\int_0^2f(x)\,\mathrm{d}x=0\)，求 \(f\) 在 \([1,3]\) 上的平均值（填空）。平均值 \(=\frac{1}{2}\int_1^3f\,\mathrm{d}x\)，而看到 \(f(x+2)-f(x)\) 要反写成熟悉形式：\(\left[\int_x^{x+2}f(t)\,\mathrm{d}t\right]'=f(x+2)-f(x)\)。原书给了"联想周期性"和"反写经典形式"两条路，都指向同一个 \(F(x)\)；并特别提醒：本题中的 \(f(x)\) 未必具有周期性，周期公式只是联想的跳板。</p>
 <p><strong>要点</strong> 记 \(F(x)=\int_x^{x+2}f(t)\,\mathrm{d}t\)，则 \(F'(x)=f(x+2)-f(x)=x\)，故 \(F(x)=\frac{x^2}{2}+C\)；由 \(F(0)=\int_0^2f\,\mathrm{d}x=0\) 得 \(C=0\)。于是 \(\int_1^3f\,\mathrm{d}x=F(1)=\frac12\)，\(\bar f=\frac{1}{2}\cdot\frac12=\frac14\)，应填 \(\frac14\)。</p>
 <p><strong>注</strong> 区间长度都是 2 是这题的观察点；\(f(x)\) 本身未必有周期性，别把周期结论硬套上去。</p>
 <h4>例10.9（形心横坐标，仅数一数二）</h4>
-<figure class="shot"><img src="../assets/img/L10-026.webp" alt="原书 例10.9 题目与解答开头 · 印P319" loading="lazy" width="1100" height="217"><figcaption>原书 例10.9 题目与解答开头 · 印P319</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-027.webp" alt="原书 例10.9 解答（形心横坐标）· 印P320" loading="lazy" width="512" height="299"><figcaption>原书 例10.9 解答（形心横坐标）· 印P320</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-026.webp" alt="原书 例10.9 题目与解答开头 · 印P319" loading="lazy" decoding="async" width="1100" height="217"><figcaption>原书 例10.9 题目与解答开头 · 印P319</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-027.webp" alt="原书 例10.9 解答（形心横坐标）· 印P320" loading="lazy" decoding="async" width="512" height="299"><figcaption>原书 例10.9 解答（形心横坐标）· 印P320</figcaption></figure>
 <p><strong>思路</strong> 题目：设 \(D\) 是由曲线 \(y=\frac14x^2-\frac12\ln x\)、直线 \(x=e\) 及 x 轴所围成的平面图形（曲线在 \(x=1\) 处取值为 \(\frac14\)，区域介于 \(x=1\) 与 \(x=e\) 之间），求 \(D\) 的形心横坐标 \(\bar x\)。直接套形心公式，分子分母都躲不开 \(\int x\ln x\) 的分部积分。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -260,8 +262,8 @@ A=\int_0^{\mathrm{e}}\left(\frac{y}{\mathrm{e}}-\ln y\right)\mathrm{d}y
 \]</p>
 <p><strong>注</strong> 算完别急着怀疑——形心题答案从来都长这样。把 \(\int x\ln x\,\mathrm{d}x=\frac{x^2}{2}\ln x-\frac{x^2}{4}+C\) 预置进手感，考场上就是纯搬运。</p>
 <h4>例10.10（弧长：先看定义域与完全平方，仅数一数二）</h4>
-<figure class="shot"><img src="../assets/img/L10-028.webp" alt="原书 例10.10 题目 · 印P320" loading="lazy" width="792" height="384"><figcaption>原书 例10.10 题目 · 印P320</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-029.webp" alt="原书 例10.10 解答结尾 · 印P321" loading="lazy" width="767" height="146"><figcaption>原书 例10.10 解答结尾 · 印P321</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-028.webp" alt="原书 例10.10 题目 · 印P320" loading="lazy" decoding="async" width="792" height="384"><figcaption>原书 例10.10 题目 · 印P320</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-029.webp" alt="原书 例10.10 解答结尾 · 印P321" loading="lazy" decoding="async" width="767" height="146"><figcaption>原书 例10.10 解答结尾 · 印P321</figcaption></figure>
 <p><strong>思路</strong> 题目：求曲线 \(y=\ln(1-x^2)\) 相应于 \(0\le x\le\frac12\) 的一段弧的长度。曲线只要求 \(|x|&lt;1\)，区间 \([0,\frac12]\) 合法。求导 \(y'=\frac{-2x}{1-x^2}\)，\(1+y'^2\) 恰好配成完全平方。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -274,7 +276,7 @@ s=\int_0^{1/2}\sqrt{1+\left(\frac{-2x}{1-x^2}\right)^2}\,\mathrm{d}x
 \]</p>
 <p><strong>注</strong> \(\frac{2}{1-x^2}=\frac{1}{1-x}+\frac{1}{1+x}\) 的裂项是化简的关键一步。直角坐标弧长题的固定剧本：\(1+y'^2\) 配方、开方、化有理函数。</p>
 <h4>例10.11（阿基米德螺线的弧长，仅数一数二）</h4>
-<figure class="shot"><img src="../assets/img/L10-017.webp" alt="原书 例10.11 · 印P321" loading="lazy" width="1100" height="658"><figcaption>原书 例10.11 · 印P321</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-017.webp" alt="原书 例10.11 · 印P321" loading="lazy" decoding="async" width="1100" height="658"><figcaption>原书 例10.11 · 印P321</figcaption></figure>
 <p><strong>思路</strong> 极坐标弧长公式直接套：\(r=\theta\)，\(r'=1\)，\(\theta\) 从 0 到 \(2\pi\)。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -284,8 +286,8 @@ s=\int_0^{2\pi}\sqrt{\theta^2+1}\,\mathrm{d}\theta
 \]</p>
 <p><strong>注</strong> \(\int\sqrt{1+\theta^2}\,\mathrm{d}\theta\) 的结果要背熟（原书旁注用 \(\theta=\tan t\) 三角换元推了一遍）。弧长算出来多怪都是对的，别回头改——例10.12（\(y=\sqrt{x-1}\) 的侧面积 \(\frac{\pi}{6}(5\sqrt5-1)\)，印P321–322）也是这个提醒。</p>
 <h4>例10.12（旋转体的表面积，仅数一数二）</h4>
-<figure class="shot"><img src="../assets/img/L10-030.webp" alt="原书 例10.12 题目 · 印P321" loading="lazy" width="1100" height="206"><figcaption>原书 例10.12 题目 · 印P321</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-031.webp" alt="原书 例10.12 解答（表面积）· 印P322" loading="lazy" width="798" height="367"><figcaption>原书 例10.12 解答（表面积）· 印P322</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-030.webp" alt="原书 例10.12 题目 · 印P321" loading="lazy" decoding="async" width="1100" height="206"><figcaption>原书 例10.12 题目 · 印P321</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-031.webp" alt="原书 例10.12 解答（表面积）· 印P322" loading="lazy" decoding="async" width="798" height="367"><figcaption>原书 例10.12 解答（表面积）· 印P322</figcaption></figure>
 <p><strong>思路</strong> 题目（填空）：曲线 \(y=\sqrt{x-1}\ (1\le x\le2)\) 绕 x 轴旋转一周所得旋转体的表面积。套直角坐标侧面积公式，注意 \(y'=\frac{1}{2\sqrt{x-1}}\) 在端点 \(x=1\) 处无界但积分收敛，被积函数能整体化简。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -298,7 +300,7 @@ S=\int_1^22\pi y\sqrt{1+(y')^2}\,\mathrm{d}x
 \]</p>
 <p><strong>注</strong> 中间那步 \(\sqrt{x-1}\) 约掉是本题最舒服的一瞬间——先化简再积分，别一上来就硬扛。</p>
 <h4>例10.13（星形线的侧面积，仅数一数二）</h4>
-<figure class="shot"><img src="../assets/img/L10-018.webp" alt="原书 例10.13 · 印P322" loading="lazy" width="1100" height="708"><figcaption>原书 例10.13 · 印P322</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-018.webp" alt="原书 例10.13 · 印P322" loading="lazy" decoding="async" width="1100" height="708"><figcaption>原书 例10.13 · 印P322</figcaption></figure>
 <p><strong>思路</strong> 星形线 \(x=2\cos^3t,\ y=2\sin^3t\) 关于 y 轴对称，算 y 轴右侧（\(t:0\to\frac{\pi}{2}\)）再乘 2。\(x_t'=-6\cos^2t\sin t\)，\(y_t'=6\sin^2t\cos t\)，第一象限内 \(\sqrt{(x_t')^2+(y_t')^2}=6\sin t\cos t\)。</p>
 <p><strong>要点</strong></p>
 <p>\[
@@ -308,8 +310,8 @@ S=2\int_0^{\pi/2}2\pi y\sqrt{(x_t')^2+(y_t')^2}\,\mathrm{d}t
 \]</p>
 <p><strong>注</strong> 参数侧面积公式要求 \(x'(t)\neq0\)；同型弧长题见习题10.4（\(x=\cos^3t,\ y=\sin^3t\) 全长 \(=6\)，印P326）。星形线是"数一数二几何应用"的御用曲线，\(\cos^2,\sin^2\) 的开方套路值得单独练熟。</p>
 <h4>例10.14（绕 \(y=x\) 旋转：平行截面法，仅数一数二）</h4>
-<figure class="shot"><img src="../assets/img/L10-033.webp" alt="原书 例10.14 题目 · 印P322" loading="lazy" width="1100" height="296"><figcaption>原书 例10.14 题目 · 印P322</figcaption></figure>
-<figure class="shot"><img src="../assets/img/L10-034.webp" alt="原书 例10.14 解答与注（绕 y=x 旋转）· 印P323" loading="lazy" width="1100" height="1676"><figcaption>原书 例10.14 解答与注（绕 y=x 旋转）· 印P323</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-033.webp" alt="原书 例10.14 题目 · 印P322" loading="lazy" decoding="async" width="1100" height="296"><figcaption>原书 例10.14 题目 · 印P322</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L10-034.webp" alt="原书 例10.14 解答与注（绕 y=x 旋转）· 印P323" loading="lazy" decoding="async" width="1100" height="1676"><figcaption>原书 例10.14 解答与注（绕 y=x 旋转）· 印P323</figcaption></figure>
 <p><strong>思路</strong> 题目（填空）：曲线 \(y=\sqrt x\) 与直线 \(y=x\) 围成的图形绕直线 \(y=x\) 旋转一周，求所得旋转体的体积。旋转轴是斜线，圆盘、柱壳都直接失灵，改用平行截面法：曲线上点 \((x,\sqrt x)\) 到 \(y=x\) 的距离</p>
 <p>\[
 r=\frac{\sqrt x-x}{\sqrt2}\qquad(0\le x\le1),

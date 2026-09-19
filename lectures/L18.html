@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>多元函数积分学（仅数学一） · 张宇基础30讲自学站</title>
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="preload" href="../assets/katex/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/katex/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="icon" href="data:,">
 <script defer src="../assets/katex/katex.min.js"></script>
@@ -112,7 +114,7 @@
 <p>例如 \(\Omega=\{(x,y,z)\,|\,x^2+y^2+z^2\le R^2\}\)（球体三个变量地位完全平等），则 \(\iiint_{\Omega}f(x)\,\mathrm{d}v=\iiint_{\Omega}f(y)\,\mathrm{d}v=\iiint_{\Omega}f(z)\,\mathrm{d}v\)。原书反复强调：<strong>用轮换对称性就是为了相加后被积函数变简单</strong>（印 P534），不是为对称而对称。</p>
 <h3 id="sec-7">四、空间区域 \(\Omega\) 大观（画图军火库）</h3>
 <p>原书印 P534–539 用整整数页给出常见曲面与区域的图库：圆柱面 \(x^2+y^2=R^2\)、\(x^2+(y-1)^2=1\)，抛物柱面 \(z=x^2\)、\(2x-3y-6=0\)，平面 \(y+z=1\)，旋转曲面 \(f(\pm\sqrt{x^2+y^2},z)=0\)，球面 \(x^2+y^2+z^2=R^2\)，椭圆抛物面 \(z=\dfrac{x^2}{2p}+\dfrac{y^2}{2q}\ (p,q&gt;0)\)，上半球面 \(z=\sqrt{R^2-x^2-y^2}\)，锥面 \(z=\sqrt{x^2+y^2}\)，旋转单叶/双叶双曲面，\(z=1-x^2-2y^2\ (z\ge 0)\)、\(z^2=2x\)（绕 \(z\) 轴旋转）、\(z=\sqrt{y-1}\)（绕 \(y\) 轴旋转）等等，直到 \(x^2+y^2\le z\le 1\)、\(16(x^2+y^2)=-z+4\) 一类组合体。</p>
-<figure class="shot"><img src="../assets/img/L18-026.webp" alt="原书 空间区域Ω大观（一）· 印P534" loading="lazy" width="1100" height="967"><figcaption>原书 空间区域Ω大观（一）· 印P534</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-026.webp" alt="原书 空间区域Ω大观（一）· 印P534" loading="lazy" decoding="async" width="1100" height="967"><figcaption>原书 空间区域Ω大观（一）· 印P534</figcaption></figure>
 <p>这段没有新定理，但它是本讲所有"定限"的地面：先一后二的穿线、先二后一的截面、球坐标的"转开穿"，全靠先在心里画出这张图。建议按原书要求"时常翻之，看之，动手画图"。</p>
 <h3 id="sec-8">五、三重积分的直角坐标计算：先一后二法</h3>
 <p><strong>先一后二法（先 \(z\) 后 \(xy\)，投影穿线法）</strong>（印 P539）。适用场合：\(\Omega\) 有下曲面 \(z=z_1(x,y)\)、上曲面 \(z=z_2(x,y)\)，无侧面或侧面为柱面。此时</p>
@@ -126,14 +128,14 @@
 \iiint_{\Omega}f(x,y,z)\,\mathrm{d}v=\int_a^b\mathrm{d}z\iint_{D_z}f(x,y,z)\,\mathrm{d}\sigma ,
 \]</p>
 <p>"后积先定限，限内截个面，一刀切入"。原书给的定限总口诀（印 P540）：</p>
-<figure class="shot"><img src="../assets/img/L18-001.webp" alt="原书 先二后一法（定限截面法）· 印P540" loading="lazy" width="1100" height="652"><figcaption>原书 先二后一法（定限截面法）· 印P540</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-001.webp" alt="原书 先二后一法（定限截面法）· 印P540" loading="lazy" decoding="async" width="1100" height="652"><figcaption>原书 先二后一法（定限截面法）· 印P540</figcaption></figure>
 <p><strong>后积先定限，限内画条线，先交写下限，后交写上限。</strong>（先一后二画的是铅直线，先二后一截的是平面。）被积函数只含 \(z\)（或 \(f(z)\) 型）+ 旋转体，是先二后一的黄金组合：\(\iint_{D_z}\mathrm{d}\sigma\) 直接就是截面面积。</p>
 <h3 id="sec-10">七、柱面坐标</h3>
 <p>柱面坐标系 = 极坐标系下的二重积分 + 定积分（印 P542）。在直角坐标计算中，若 \(\iint_{D_{xy}}\mathrm{d}\sigma\) 适合极坐标，令 \(x=r\cos\theta,\ y=r\sin\theta\)，则</p>
 <p>\[
 \iiint_{\Omega}f(x,y,z)\,\mathrm{d}x\mathrm{d}y\mathrm{d}z=\iiint_{\Omega}f(r\cos\theta,\,r\sin\theta,\,z)\,r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z .
 \]</p>
-<figure class="shot"><img src="../assets/img/L18-002.webp" alt="原书 柱面坐标计算公式 · 印P542" loading="lazy" width="843" height="171"><figcaption>原书 柱面坐标计算公式 · 印P542</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-002.webp" alt="原书 柱面坐标计算公式 · 印P542" loading="lazy" decoding="async" width="843" height="171"><figcaption>原书 柱面坐标计算公式 · 印P542</figcaption></figure>
 <p>适用场合：投影域是圆、圆环、扇形，或被积函数含 \(f(x^2+y^2)\)（例 18.2、习题 18.8）。</p>
 <h3 id="sec-11">八、球面坐标</h3>
 <p>令（印 P543）</p>
@@ -146,7 +148,7 @@ z=r\cos\varphi,
 \qquad
 \mathrm{d}v=r^2\sin\varphi\,\mathrm{d}r\,\mathrm{d}\varphi\,\mathrm{d}\theta .
 \]</p>
-<figure class="shot"><img src="../assets/img/L18-003.webp" alt="原书 球面坐标：换元公式与 dv · 印P543" loading="lazy" width="1100" height="376"><figcaption>原书 球面坐标：换元公式与 dv · 印P543</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-003.webp" alt="原书 球面坐标：换元公式与 dv · 印P543" loading="lazy" decoding="async" width="1100" height="376"><figcaption>原书 球面坐标：换元公式与 dv · 印P543</figcaption></figure>
 <p>原书把定限编成一套"球系太极拳"（印 P543）：<strong>第一步"转"</strong>——过 \(z\) 轴的半平面与 \(xOz\) 面的夹角 \(\theta\in[0,2\pi]\)，"拉着一扇门绕 \(z\) 轴（从 \(z\) 轴正向往下看）逆时针旋转"，先碰到 \(\Omega\) 记 \(\theta_1\)、后离开记 \(\theta_2\)；<strong>第二步"开"</strong>——顶点在原点、以 \(z\) 轴为中心轴的圆锥面半顶角 \(\varphi\in[0,\pi]\)，"喇叭花开花，伸展运动，从 \(0^\circ\) 开到 \(180^\circ\)"；<strong>第三步"穿"</strong>——从原点发出射线到无穷远，先碰到 \(\Omega\) 记 \(r_1(\varphi,\theta)\)、后离开记 \(r_2(\varphi,\theta)\)。合起来：</p>
 <p>\[
 \iiint_{\Omega}f\,\mathrm{d}v=\int_{\theta_1}^{\theta_2}\mathrm{d}\theta\int_{\varphi_1(\theta)}^{\varphi_2(\theta)}\mathrm{d}\varphi\int_{r_1(\varphi,\theta)}^{r_2(\varphi,\theta)}f(r\sin\varphi\cos\theta,\,r\sin\varphi\sin\theta,\,r\cos\varphi)\,r^2\sin\varphi\,\mathrm{d}r .
@@ -170,7 +172,7 @@ z=r\cos\varphi,
 \bar{z}=\frac{\iiint_{\Omega}z\rho\,\mathrm{d}v}{\iiint_{\Omega}\rho\,\mathrm{d}v}
 \]</p>
 <p>（"因分子分母都有这个常数，故可约掉——背一个即可"）。<strong>考研范畴内重心就是质心；\(\rho\) 为常数时重心就成了形心</strong>。<strong>形心公式逆用</strong>是本讲最快的秒题技：\(\iiint_{\Omega}x\,\mathrm{d}v=\bar{x}\cdot V\)，若形心与体积都显然（球、椭球、正八面体），积分直接读出来（例 18.6、习题 18.2）。</p>
-<figure class="shot"><img src="../assets/img/L18-014.webp" alt="原书 重心公式与形心活用 · 印P547" loading="lazy" width="1100" height="471"><figcaption>原书 重心公式与形心活用 · 印P547</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-014.webp" alt="原书 重心公式与形心活用 · 印P547" loading="lazy" decoding="async" width="1100" height="471"><figcaption>原书 重心公式与形心活用 · 印P547</figcaption></figure>
 <ul>
 <li><strong>转动惯量</strong>：\(I_x=\iiint_{\Omega}(y^2+z^2)\rho\,\mathrm{d}v\)，\(I_y=\iiint_{\Omega}(z^2+x^2)\rho\,\mathrm{d}v\)，\(I_z=\iiint_{\Omega}(x^2+y^2)\rho\,\mathrm{d}v\)，\(I_O=\iiint_{\Omega}(x^2+y^2+z^2)\rho\,\mathrm{d}v\)（对轴只留"到该轴距离平方"）。微元观点：\(\mathrm{d}I_z=r^2\,\mathrm{d}m\)，\(r\) 为微元到 \(z\) 轴的距离（印 P548 图注）。</li>
 <li><strong>引力</strong>：物体对体外 \(M_0(x_0,y_0,z_0)\) 处质量 \(m\) 的质点的引力分量</li>
@@ -190,7 +192,7 @@ F_y,\,F_z\ \text{轮换写出（印 P548）}.
 <p>普通对称性照搬三重积分：\(\Gamma\) 关于 \(xOz\) 面对称（左右对称，变的是 \(y\)；上下对称变 \(z\)，前后对称变 \(x\)）时，被积函数关于相应变量为偶取 2 倍、为奇取 0（印 P550）。轮换对称性：把 \(x\) 与 \(y\) 对调后 \(\Gamma\) 不变，则 \(\int_{\Gamma}f(x,y,z)\,\mathrm{d}s=\int_{\Gamma}f(y,x,z)\,\mathrm{d}s\)——原因是 \(\mathrm{d}s=\sqrt{(\mathrm{d}x)^2+(\mathrm{d}y)^2+(\mathrm{d}z)^2}\) 在加法交换下不变（印 P551）。</p>
 <h3 id="sec-16">十三、第一型曲线积分的计算</h3>
 <p>"从定积分来，回到定积分去"（印 P551），口诀仍是"一投二代三计算"：一投——把 \(L\) 投到 \(x\) 轴（或参数区间）；二代——\(L\) 上的点受曲线方程约束，必须把 \(y=y(x)\) 等代入 \(f\)（"这里的 \(x,y\) 不是独立的"）；三计算——套弧微分公式。</p>
-<figure class="shot"><img src="../assets/img/L18-004.webp" alt="原书 第一型曲线积分：一投二代三计算 · 印P551" loading="lazy" width="1100" height="803"><figcaption>原书 第一型曲线积分：一投二代三计算 · 印P551</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-004.webp" alt="原书 第一型曲线积分：一投二代三计算 · 印P551" loading="lazy" decoding="async" width="1100" height="803"><figcaption>原书 第一型曲线积分：一投二代三计算 · 印P551</figcaption></figure>
 <ul>
 <li>平面显式 \(y=y(x)\ (a\le x\le b)\)：\(\mathrm{d}s=\sqrt{1+[y'(x)]^2}\,\mathrm{d}x\)；</li>
 <li>参数式 \(x=x(t),\,y=y(t)\ (\alpha\le t\le\beta)\)：\(\mathrm{d}s=\sqrt{[x'(t)]^2+[y'(t)]^2}\,\mathrm{d}t\)；</li>
@@ -210,14 +212,14 @@ F_y,\,F_z\ \text{轮换写出（印 P548）}.
 <p><strong>对称性</strong>（印 P556）：普通对称性照搬（\(\Sigma\) 关于坐标面对称 + 奇偶 \(\Rightarrow\) 2 倍或 0）；轮换对称性——当 \(\Sigma:z=z(x,y)\) 为单值函数且 \(x,y\) 对调后 \(\Sigma\) 不变时，\(\iint_{\Sigma}f(x,y,z)\,\mathrm{d}S=\iint_{\Sigma}f(y,x,z)\,\mathrm{d}S\)（此时 \(\mathrm{d}S\) 表达式也不变）。</p>
 <h3 id="sec-19">十六、第一型曲面积分的计算</h3>
 <p>化为二重积分，口诀"一投二代三计算"（印 P556）：①一投——把 \(\Sigma\) 投到某坐标面（如 \(xOy\) 面）得 \(D_{xy}\)；②二代——把 \(z=z(x,y)\) 或 \(F(x,y,z)=0\) 代入被积函数；③三计算——算 \(z_x',z_y'\)，\(\mathrm{d}S=\sqrt{1+(z_x')^2+(z_y')^2}\,\mathrm{d}x\mathrm{d}y\)：</p>
-<figure class="shot"><img src="../assets/img/L18-005.webp" alt="原书 第一型曲面积分：化为二重积分 · 印P556" loading="lazy" width="1100" height="522"><figcaption>原书 第一型曲面积分：化为二重积分 · 印P556</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-005.webp" alt="原书 第一型曲面积分：化为二重积分 · 印P556" loading="lazy" decoding="async" width="1100" height="522"><figcaption>原书 第一型曲面积分：化为二重积分 · 印P556</figcaption></figure>
 <p>\[
 \iint_{\Sigma}f(x,y,z)\,\mathrm{d}S=\iint_{D_{xy}}f\big[x,y,z(x,y)\big]\sqrt{1+(z_x')^2+(z_y')^2}\,\mathrm{d}x\mathrm{d}y .
 \]</p>
 <p>三件事"无逻辑上的先后顺序，哪件最有利于解题就先做哪件"。<strong>红线：投影点不能重合</strong>（印 P557）——投影到哪个面由你自己决定，但 \(\Sigma\) 上任何两点的投影点不能重合，即 \(z=z(x,y)\) 必须单值；若投影有重合点且对称性用不上，则要么换一个坐标面投，要么把 \(\Sigma\) 拆成若干块（拆分曲线的求法：切平面法向量与 \(z\) 轴垂直的点集，印 P557）。</p>
-<figure class="shot"><img src="../assets/img/L18-030.webp" alt="原书 投影点不能重合与曲面拆分 · 印P557" loading="lazy" width="1100" height="555"><figcaption>原书 投影点不能重合与曲面拆分 · 印P557</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-030.webp" alt="原书 投影点不能重合与曲面拆分 · 印P557" loading="lazy" decoding="async" width="1100" height="555"><figcaption>原书 投影点不能重合与曲面拆分 · 印P557</figcaption></figure>
 <p><strong>三个常用 \(\mathrm{d}S\)，直接背</strong>（印 P557–558，"以下常考，可以背一下"）：</p>
-<figure class="shot"><img src="../assets/img/L18-006.webp" alt="原书 球面、锥面的 dS · 印P558" loading="lazy" width="1100" height="332"><figcaption>原书 球面、锥面的 dS · 印P558</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-006.webp" alt="原书 球面、锥面的 dS · 印P558" loading="lazy" decoding="async" width="1100" height="332"><figcaption>原书 球面、锥面的 dS · 印P558</figcaption></figure>
 <ul>
 <li>柱面 \(x^2+y^2=a^2\)：\(\mathrm{d}S=\dfrac{a}{\sqrt{a^2-x^2}}\,\mathrm{d}x\mathrm{d}z\)；</li>
 <li>球面 \(x^2+y^2+z^2=a^2\)：\(\mathrm{d}S=\dfrac{a}{\sqrt{a^2-x^2-y^2}}\,\mathrm{d}x\mathrm{d}y\)；</li>
@@ -242,7 +244,7 @@ W=\int_L\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{s}=\int_LP(x,y)\,\mathrm{d}x+Q(
 <h3 id="sec-23">公式18.1 格林公式</h3>
 <p>（印 P564–565）理论意义："类似 \(f(x)\,\mathrm{d}x=\mathrm{d}F(x)\)，把一个区间内部要解决的问题转换到端点上去"——格林公式把"环路积分"与"重积分"连接起来，实现<strong>边界与内部的转换</strong>。原书配了个励志故事：格林闭关七天七夜创立格林公式，出关被朋友挖苦"你怎么耐得住寂寞"，格林答"我根本没有寂寞，何来寂寞可耐"——"考研需要闭关修炼，以伟大的数学家格林为榜样"。</p>
 <p><strong>定理</strong>：设平面有界闭区域 \(D\) 由分段光滑曲线 \(L\) 围成，\(P(x,y),Q(x,y)\) 在 \(D\) 上具有一阶连续偏导数，\(L\) 取<strong>正向</strong>（沿 \(L\) 前进时左手始终在 \(D\) 内；想象在环形操场跑步左手始终在草坪中），则</p>
-<figure class="shot"><img src="../assets/img/L18-007.webp" alt="原书 格林公式 · 印P564" loading="lazy" width="1100" height="349"><figcaption>原书 格林公式 · 印P564</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-007.webp" alt="原书 格林公式 · 印P564" loading="lazy" decoding="async" width="1100" height="349"><figcaption>原书 格林公式 · 印P564</figcaption></figure>
 <p>\[
 \oint_LP\,\mathrm{d}x+Q\,\mathrm{d}y=\iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}\sigma .
 \]</p>
@@ -263,17 +265,17 @@ W=\int_L\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{s}=\int_LP(x,y)\,\mathrm{d}x+Q(
 <h3 id="sec-24">公式18.2 平面曲线积分与路径无关</h3>
 <p>（印 P567–569）设 \(G\) 为<strong>单连通区域</strong>（不含"洞"，包括点洞；圆环、去心圆都是复连通区域——"挖洞后会出现点洞"），\(P,Q\) 在 \(G\) 内有一阶连续偏导数，则曲线积分 \(\int_LP\,\mathrm{d}x+Q\,\mathrm{d}y\) 在 \(G\) 内<strong>与路径无关</strong> \(\iff\) 沿 \(G\) 内任意闭曲线积分为零（证明核心：两条路径拼成闭曲线，"负负得正"）。</p>
 <p><strong>六个等价命题</strong>（印 P569，\(D\) 单连通 + 偏导连续的前提下）：</p>
-<figure class="shot"><img src="../assets/img/L18-008.webp" alt="原书 路径无关：6个等价命题 · 印P569" loading="lazy" width="1100" height="514"><figcaption>原书 路径无关：6个等价命题 · 印P569</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-008.webp" alt="原书 路径无关：6个等价命题 · 印P569" loading="lazy" decoding="async" width="1100" height="514"><figcaption>原书 路径无关：6个等价命题 · 印P569</figcaption></figure>
 <p>① \(\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}\)（旋度为零）在 \(D\) 内处处成立（"绝大多数的题都用它"）；② 沿 \(D\) 内任意分段光滑闭曲线积分恒为零；③ 积分与路径无关；④ 存在 \(u(x,y)\) 使 \(\mathrm{d}u=P\,\mathrm{d}x+Q\,\mathrm{d}y\)（\(P\,\mathrm{d}x+Q\,\mathrm{d}y\) 为某二元函数的全微分）；⑤ \(P\,\mathrm{d}x+Q\,\mathrm{d}y=0\) 是全微分方程；⑥ \((P,Q)\) 是某二元函数 \(u\) 的梯度。</p>
 <p><strong>求原函数与算积分</strong>（印 P569）：沿折线（折线必须在 \(D\) 内）计算——</p>
-<figure class="shot"><img src="../assets/img/L18-029.webp" alt="原书 沿折线求原函数 u · 印P569" loading="lazy" width="1100" height="398"><figcaption>原书 沿折线求原函数 u · 印P569</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-029.webp" alt="原书 沿折线求原函数 u · 印P569" loading="lazy" decoding="async" width="1100" height="398"><figcaption>原书 沿折线求原函数 u · 印P569</figcaption></figure>
 <p>\[
 u(x,y)=\int_{x_0}^{x}P(x,y_0)\,\mathrm{d}x+\int_{y_0}^{y}Q(x,y)\,\mathrm{d}y
 \]</p>
 <p>（先横后竖；或先竖后横 \(u(x,y)=\int_{y_0}^{y}Q(x_0,y)\,\mathrm{d}y+\int_{x_0}^{x}P(x,y)\,\mathrm{d}x\)），再加任意常数 \(C\) 得所有原函数；积分值用 \(u(\text{终点})-u(\text{起点})\)。也可以凑微分直接看出结构（如 \(u\,\mathrm{d}v+v\,\mathrm{d}u=\mathrm{d}(uv)\)，印 P570 例 18.21 方法三）。</p>
 <h3 id="sec-25">二十、第二型曲面积分：通量、概念与性质</h3>
 <p><strong>向量场的通量</strong>（印 P571）：曲面上每点对应一个向量 \(\boldsymbol{F}(x,y,z)=P\boldsymbol{i}+Q\boldsymbol{j}+R\boldsymbol{k}\) 就确定一个向量场。设 \(\Sigma\) 为场中有向分片光滑曲面并指定了侧，则 \(\boldsymbol{F}\) 通过 \(\Sigma\) 的<strong>通量</strong>（电通量、磁通量、流量）为</p>
-<figure class="shot"><img src="../assets/img/L18-009.webp" alt="原书 向量场的通量与第二型曲面积分 · 印P571" loading="lazy" width="1100" height="230"><figcaption>原书 向量场的通量与第二型曲面积分 · 印P571</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-009.webp" alt="原书 向量场的通量与第二型曲面积分 · 印P571" loading="lazy" decoding="async" width="1100" height="230"><figcaption>原书 向量场的通量与第二型曲面积分 · 印P571</figcaption></figure>
 <p>\[
 \iint_{\Sigma}\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{S}=\iint_{\Sigma}\boldsymbol{F}\cdot\boldsymbol{n}^{\circ}\,\mathrm{d}S
 =\iint_{\Sigma}P\,\mathrm{d}y\mathrm{d}z+Q\,\mathrm{d}z\mathrm{d}x+R\,\mathrm{d}x\mathrm{d}y ,
@@ -287,7 +289,7 @@ u(x,y)=\int_{x_0}^{x}P(x,y_0)\,\mathrm{d}x+\int_{y_0}^{y}Q(x,y)\,\mathrm{d}y
 <li>若投影点重合，先把 \(\Sigma\) 剖分成若干曲面片，再写 \(z=z(x,y)\)（只有投影点不重合时才写得出单值函数）。</li>
 <li>③一投二代三计算：\(\mathrm{d}x\mathrm{d}y=\pm\mathrm{d}x\mathrm{d}y\)，"\(\pm\)"按法向量方向取（印 P573）：</li>
 </ul>
-<figure class="shot"><img src="../assets/img/L18-031.webp" alt="原书 第二型曲面积分±号规则 · 印P573" loading="lazy" width="1012" height="387"><figcaption>原书 第二型曲面积分±号规则 · 印P573</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-031.webp" alt="原书 第二型曲面积分±号规则 · 印P573" loading="lazy" decoding="async" width="1012" height="387"><figcaption>原书 第二型曲面积分±号规则 · 印P573</figcaption></figure>
 <p>\[
 \iint_{\Sigma}R(x,y,z)\,\mathrm{d}x\mathrm{d}y=\pm\iint_{D_{xy}}R\bigl[x,y,z(x,y)\bigr]\,\mathrm{d}x\mathrm{d}y ,
 \]</p>
@@ -300,7 +302,7 @@ u(x,y)=\int_{x_0}^{x}P(x,y_0)\,\mathrm{d}x+\int_{y_0}^{y}Q(x,y)\,\mathrm{d}y
 \]</p>
 <p>上侧为正取 "\(+\)"、下侧取 "\(-\)"（<strong>上正下负</strong>）；同理 \(\Sigma:y=y(x,z)\) 时 \(\boldsymbol{n}^{\circ}=\pm\dfrac{(1,-y_x',-y_z')}{\sqrt{1+(y_x')^2+(y_z')^2}}\)（<strong>右正左负</strong>），\(\Sigma:x=x(y,z)\) 时 \(\boldsymbol{n}^{\circ}=\pm\dfrac{(-x_y',1,-x_z')}{\sqrt{1+(x_y')^2+(x_z')^2}}\)（<strong>前正后负</strong>）。</p>
 <p><strong>②转换投影定理</strong>：设 \(\Sigma:z=z(x,y)\)，\(P,Q,R\) 在 \(\Sigma\) 上连续，则</p>
-<figure class="shot"><img src="../assets/img/L18-010.webp" alt="原书 转换投影定理 · 印P575" loading="lazy" width="943" height="335"><figcaption>原书 转换投影定理 · 印P575</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-010.webp" alt="原书 转换投影定理 · 印P575" loading="lazy" decoding="async" width="943" height="335"><figcaption>原书 转换投影定理 · 印P575</figcaption></figure>
 <p>\[
 \iint_{\Sigma}P\,\mathrm{d}y\mathrm{d}z+Q\,\mathrm{d}z\mathrm{d}x+R\,\mathrm{d}x\mathrm{d}y
 =\pm\iint_{D_{xy}}\left(-Pz_x'-Qz_y'+R\right)\mathrm{d}x\mathrm{d}y ,
@@ -308,15 +310,15 @@ u(x,y)=\int_{x_0}^{x}P(x,y_0)\,\mathrm{d}x+\int_{y_0}^{y}Q(x,y)\,\mathrm{d}y
 <p>其中 \(p=P[x,y,z(x,y)],\ q=Q[x,y,z(x,y)],\ r=R[x,y,z(x,y)]\)（<strong>\(z\) 必须先代入</strong>），"±"同①的取法。证明（印 P576）就是 \(\iint\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{S}=\iint\boldsymbol{F}\cdot\boldsymbol{n}^{\circ}\,\mathrm{d}S\) 一行展开。一次投影搞定三项，比分三项各投各的省事——这是数一卷面上非常受欢迎的方法。</p>
 <h3 id="sec-28">公式18.3 高斯公式与散度</h3>
 <p>（印 P577）"联想到格林公式"——高斯公式把<strong>边界曲面上的第二型曲面积分化为内部立体的三重积分</strong>。<strong>定理</strong>：设空间有界闭区域 \(\Omega\) 由分片光滑的<strong>封闭</strong>有向曲面 \(\Sigma\) 围成，\(P,Q,R\) 在 \(\Omega\) 上具有一阶连续偏导数，\(\Sigma\) 取<strong>整个边界曲面的外侧</strong>，则</p>
-<figure class="shot"><img src="../assets/img/L18-011.webp" alt="原书 高斯公式 · 印P577" loading="lazy" width="1100" height="346"><figcaption>原书 高斯公式 · 印P577</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-011.webp" alt="原书 高斯公式 · 印P577" loading="lazy" decoding="async" width="1100" height="346"><figcaption>原书 高斯公式 · 印P577</figcaption></figure>
 <p>\[
 \oiint_{\Sigma}P\,\mathrm{d}y\mathrm{d}z+Q\,\mathrm{d}z\mathrm{d}x+R\,\mathrm{d}x\mathrm{d}y
 =\iiint_{\Omega}\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm{d}v .
 \]</p>
 <p><strong>散度与无源场</strong>（印 P577）：记 \(\operatorname{div}\boldsymbol{F}=\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}\)，它是该点"源"的散发强度（"源不断发射物质出来"）。若处处 \(\operatorname{div}\boldsymbol{F}=0\)——"每一点都没有发散，也没有吸收，是个安安静静的场"——称为<strong>无源场</strong>，此时任何内部无奇点的闭曲面上通量为零。</p>
-<figure class="shot"><img src="../assets/img/L18-012.webp" alt="原书 散度与无源场 · 印P577" loading="lazy" width="1100" height="187"><figcaption>原书 散度与无源场 · 印P577</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-012.webp" alt="原书 散度与无源场 · 印P577" loading="lazy" decoding="async" width="1100" height="187"><figcaption>原书 散度与无源场 · 印P577</figcaption></figure>
 <p><strong>使用三分支</strong>（印 P577–579，与格林公式完全平行）：</p>
-<figure class="shot"><img src="../assets/img/L18-028.webp" alt="原书 高斯公式③挖洞换面 · 印P579" loading="lazy" width="885" height="171"><figcaption>原书 高斯公式③挖洞换面 · 印P579</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-028.webp" alt="原书 高斯公式③挖洞换面 · 印P579" loading="lazy" decoding="async" width="885" height="171"><figcaption>原书 高斯公式③挖洞换面 · 印P579</figcaption></figure>
 <ol>
 <li><strong>封闭曲面且内部无奇点</strong>：直接用（例 18.26）。</li>
 <li><strong>非封闭曲面且 \(\operatorname{div}\boldsymbol{F}\ne 0\)</strong>：<strong>补面</strong>使其封闭（加面减面）——一般补一块平行于坐标面的平面（圆盘、矩形），整体用高斯后再减补面上的积分（例 18.27、习题 18.10）。</li>
@@ -329,7 +331,7 @@ u(x,y)=\int_{x_0}^{x}P(x,y_0)\,\mathrm{d}x+\int_{y_0}^{y}Q(x,y)\,\mathrm{d}y
 \]</p>
 <p>（\(P,Q,R\) 中代入参数式；\(t\) 的起止对应曲线起终，与大小无关）。</p>
 <p><strong>②斯托克斯公式——实现边界与内部的转换</strong>：设 \(\Omega\) 为某空间区域，\(\Sigma\) 为 \(\Omega\) 内的分片光滑有向曲面片，\(\Gamma\) 为 \(\Sigma\) 的逐段光滑边界，\(\Gamma\) 的方向与 \(\Sigma\) 的法向量成<strong>右手系</strong>，\(P,Q,R\) 在 \(\Omega\) 内具有连续的一阶偏导数，则</p>
-<figure class="shot"><img src="../assets/img/L18-013.webp" alt="原书 斯托克斯公式 · 印P581" loading="lazy" width="854" height="301"><figcaption>原书 斯托克斯公式 · 印P581</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-013.webp" alt="原书 斯托克斯公式 · 印P581" loading="lazy" decoding="async" width="854" height="301"><figcaption>原书 斯托克斯公式 · 印P581</figcaption></figure>
 <p>\[
 \oint_{\Gamma}P\,\mathrm{d}x+Q\,\mathrm{d}y+R\,\mathrm{d}z
 =\iint_{\Sigma}\begin{vmatrix}\mathrm{d}y\mathrm{d}z &amp; \mathrm{d}z\mathrm{d}x &amp; \mathrm{d}x\mathrm{d}y\\[2pt]
@@ -344,7 +346,7 @@ P &amp; Q &amp; R\end{vmatrix}\mathrm{d}S ,
 <h2 id="sec-30">典型例题精讲</h2>
 <p>本讲共 30 道 例题（印 P540–582），下面 17 道全格式精讲，其余 13 道速览收全；习题 18.1–18.11 的速览附在本节末尾。</p>
 <h4>例18.1 三重积分：轮换对称性 + 先二后一（印P540）</h4>
-<figure class="shot"><img src="../assets/img/L18-015.webp" alt="原书 例18.1 · 印P541" loading="lazy" width="1100" height="804"><figcaption>原书 例18.1 · 印P541</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-015.webp" alt="原书 例18.1 · 印P541" loading="lazy" decoding="async" width="1100" height="804"><figcaption>原书 例18.1 · 印P541</figcaption></figure>
 <p><strong>思路</strong> 设 \(\Omega\) 是由平面 \(x+y+z=1\) 与三个坐标面围成的四面体，求 \(\iiint_{\Omega}(x+2y+3z)\,\mathrm{d}x\mathrm{d}y\mathrm{d}z\)。被积函数各变量地位对称、区域也对称，先用轮换对称性把权数抹平，再用先二后一。原书旁批："此题投影穿线法更简单"——两种方法都该会。
 <strong>要点</strong> 轮换对称性给出 \(\iiint_{\Omega}x\,\mathrm{d}v=\iiint_{\Omega}y\,\mathrm{d}v=\iiint_{\Omega}z\,\mathrm{d}v\)，故 \(I=6\iiint_{\Omega}z\,\mathrm{d}v\)。截面 \(D(z)\)（\(0\le z\le 1\)）是直角边 \(1-z\) 的等腰直角三角形，面积 \(\frac{1}{2}(1-z)^2\)，于是</p>
 <p>\[
@@ -362,7 +364,7 @@ I=\iint_{D_{xy}}\sqrt{x^2+y^2}\cdot\frac{x^2+y^2}{8}\,\mathrm{d}\sigma
 <p>其中柱面方程 \(x^2+y^2-2y=0\) 化为 \(r=2\sin\theta\)（\(\theta\in[0,\pi]\)），\(\int_0^{2\sin\theta}r^4\mathrm{d}r=\frac{(2\sin\theta)^5}{5}\)；最后 \(\int_0^{\pi}\sin^5\theta\,\mathrm{d}\theta=2\cdot\frac{4}{5}\cdot\frac{2}{3}=\frac{16}{15}\) 用点火公式（华里士公式）。
 <strong>注</strong> 这题的常见坑：把 \(x^2+y^2\) 代成柱面方程——不行！\(\Omega\) 是实心立体，\(x^2+y^2\) 在内部取值 \(0\le r\le 2\sin\theta\) 连续变化。</p>
 <h4>例18.3 三重积分：轮换 + 球面坐标（印P544）</h4>
-<figure class="shot"><img src="../assets/img/L18-016.webp" alt="原书 例18.3 · 印P544" loading="lazy" width="1027" height="393"><figcaption>原书 例18.3 · 印P544</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-016.webp" alt="原书 例18.3 · 印P544" loading="lazy" decoding="async" width="1027" height="393"><figcaption>原书 例18.3 · 印P544</figcaption></figure>
 <p><strong>思路</strong> 设 \(\Omega=\{(x,y,z)\,|\,x^2+y^2+z^2\le 1\}\)，求 \(\iiint_{\Omega}z^2\,\mathrm{d}x\mathrm{d}y\mathrm{d}z\)。球体上 \(x,y,z\) 地位完全平等，轮换对称把 \(z^2\) 摊成 \(\frac{1}{3}(x^2+y^2+z^2)\)，后者在球坐标下就是 \(r^2\)。
 <strong>要点</strong></p>
 <p>\[
@@ -372,7 +374,7 @@ I=\iint_{D_{xy}}\sqrt{x^2+y^2}\cdot\frac{x^2+y^2}{8}\,\mathrm{d}\sigma
 \]</p>
 <p><strong>注</strong> 若不用轮换，直接算 \(\int\cos^2\varphi\sin\varphi\,\mathrm{d}\varphi\) 也行，但慢一倍——"后续所有积分，首先考虑用性质进行化简"（印 P552）。</p>
 <h4>例18.4 三重积分：锥体上的球面坐标（印P544）</h4>
-<figure class="shot"><img src="../assets/img/L18-017.webp" alt="原书 例18.4 · 印P544" loading="lazy" width="1100" height="635"><figcaption>原书 例18.4 · 印P544</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-017.webp" alt="原书 例18.4 · 印P544" loading="lazy" decoding="async" width="1100" height="635"><figcaption>原书 例18.4 · 印P544</figcaption></figure>
 <p><strong>思路</strong> 设 \(\Omega=\{(x,y,z)\,|\,\sqrt{x^2+y^2}\le z\le 1\}\)（锥体，印 P544 图 18-8），求 \(\iiint_{\Omega}\dfrac{\mathrm{d}v}{\sqrt{x^2+y^2+z^2}}\)。被积函数含 \(x^2+y^2+z^2\)、区域是锥的部分——两个球坐标适用条件全中。
 <strong>要点</strong> 从原点引射线穿过 \(\Omega\)：锥面 \(z=\sqrt{x^2+y^2}\) 给出 \(\varphi\in[0,\frac{\pi}{4}]\)（"喇叭花开到 \(\frac{\pi}{4}\)"）；从 \(z=1\) 平面穿出，\(r\cos\varphi=1\Rightarrow r=\dfrac{1}{\cos\varphi}\) 为上限。于是</p>
 <p>\[
@@ -408,7 +410,7 @@ I=\iiint_{u^2+v^2+w^2\le 1}\!\!\left(1-u^2-v^2-w^2\right)\cdot\frac{1}{2}\,\math
 \]</p>
 <p><strong>注</strong> 步骤 \((*)\) 处把曲线方程 \(x^2+y^2+z^2=1\) 代入了被积函数——曲线积分的积分区域只有边界线，可以代；对照：三重积分 \(\Omega:x^2+y^2+z^2\le 1\) 是实心球，被积函数里的 \(x^2+y^2+z^2\) <strong>不能</strong>代成 1（印 P553 注，正是本题旁的对比框）。</p>
 <h4>例18.11 第一型曲线积分：轮换 + 形心活用（印P554）</h4>
-<figure class="shot"><img src="../assets/img/L18-018.webp" alt="原书 例18.11 · 印P554" loading="lazy" width="1100" height="565"><figcaption>原书 例18.11 · 印P554</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-018.webp" alt="原书 例18.11 · 印P554" loading="lazy" decoding="async" width="1100" height="565"><figcaption>原书 例18.11 · 印P554</figcaption></figure>
 <p><strong>思路</strong> 设 \(C\) 是曲线 \(x^2+y^2=2(x+y)\)，即圆 \((x-1)^2+(y-1)^2=2\)，求 \(\oint_C(2x^2+3y^2)\,\mathrm{d}s\)。曲线关于 \(y=x\) 对称（\(x,y\) 对调后 \(C\) 不变），轮换 + 形心一步秒。
 <strong>要点</strong> \(\oint_Cx^2\,\mathrm{d}s=\oint_Cy^2\,\mathrm{d}s\)，所以</p>
 <p>\[
@@ -416,7 +418,7 @@ I=\iiint_{u^2+v^2+w^2\le 1}\!\!\left(1-u^2-v^2-w^2\right)\cdot\frac{1}{2}\,\math
 \]</p>
 <p><strong>注</strong> 圆的形心就是圆心 \((1,1)\)，周长 \(l_C=2\pi\sqrt2\)。凡是"闭曲线上的二次型 + \(\mathrm{d}s\)"，先想这一招。</p>
 <h4>例18.15 第二型曲线积分：绝对值 + 物理对称性（印P563）</h4>
-<figure class="shot"><img src="../assets/img/L18-027.webp" alt="原书 例18.15 · 印P563" loading="lazy" width="1100" height="838"><figcaption>原书 例18.15 · 印P563</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-027.webp" alt="原书 例18.15 · 印P563" loading="lazy" decoding="async" width="1100" height="838"><figcaption>原书 例18.15 · 印P563</figcaption></figure>
 <p><strong>思路</strong> 设 \(D\) 是由曲线 \(L:x=\cos^3t,\ y=\sin^3t\ (0\le t\le\pi)\)（星形线上半支）与 \(x\) 轴所围的区域，\(\partial D\) 取逆时针方向，计算 \(I=\oint_{\partial D}|y|\,\mathrm{d}x+|x|\,\mathrm{d}y\)。从物理背景出发：\(\boldsymbol{F}=y\boldsymbol{i}+|x|\boldsymbol{j}\)（上半平面上 \(|y|=y\)），边界分三段处理——\(x\) 轴段、右半弧、左半弧。
 <strong>要点</strong> 在 \(x\) 轴段 \(L_1\) 上 \(y=0,\ \mathrm{d}y=0\)，功为零。在左右两段弧上，点 \((x,y)\) 与 \((-x,y)\) 处：水平方向都在向左运动，微功均为 \(y(-\mathrm{d}x)\)，相加 \(-2y\,\mathrm{d}x\)；铅直方向一位向上一位向下，微功 \(x\,\mathrm{d}y\) 与 \(x(-\mathrm{d}y)\) 相抵为零。于是</p>
 <p>\[
@@ -424,7 +426,7 @@ I=2\int_0^{\pi/2}\sin^3t\cdot 3\cos^2t\,(-\sin t)\,\mathrm{d}t=-6\int_0^{\pi/2}\
 \]</p>
 <p><strong>注</strong> 本题不能套几何对称性、也不能直接上格林公式（\(|x|\) 在 \(x=0\) 处不可导），必须按第二型"物理概念 + 方向"的路线推——这正是印 P562 那段注记的实战版。原书总结：这种题"比较容易出解答题，且具有一定区分度"（印 P564）。</p>
 <h4>例18.18 格林公式：补线（印P566）</h4>
-<figure class="shot"><img src="../assets/img/L18-021.webp" alt="原书 例18.18 · 印P566" loading="lazy" width="1100" height="1009"><figcaption>原书 例18.18 · 印P566</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-021.webp" alt="原书 例18.18 · 印P566" loading="lazy" decoding="async" width="1100" height="1009"><figcaption>原书 例18.18 · 印P566</figcaption></figure>
 <p><strong>思路</strong> 已知 \(L\) 是第一象限中从点 \((0,0)\) 沿圆周 \(x^2+y^2=2x\) 到点 \((2,0)\)、再沿圆周 \(x^2+y^2=4\) 到点 \((0,2)\) 的曲线段，计算 \(I=\int_L3xy\,\mathrm{d}x+(x^3+x-2y)\,\mathrm{d}y\)。两段圆弧不封闭——补 \(y\) 轴上线段 \(L_1:x=0\)（从 \((0,2)\) 到 \((0,0)\)）围成 \(D\)，加线减线。
 <strong>要点</strong> \(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}=(3x^2+1)-3x^2=1\)，格林公式给</p>
 <p>\[
@@ -436,7 +438,7 @@ I=2\int_0^{\pi/2}\sin^3t\cdot 3\cos^2t\,(-\sin t)\,\mathrm{d}t=-6\int_0^{\pi/2}\
 <p>故 \(I=\dfrac{\pi}{2}-4\)。补线一般为规则曲线（此处 \(x=0\)），"多做的功减去即可"。
 <strong>注</strong> 若把 \(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}=1\) 的二重积分写成 \(\frac{\pi}{2}\cdot 2^2-\frac{\pi}{2}\cdot 1^2\) 就错了——大圆是四分之一、小圆是二分之一，看图定系数。</p>
 <h4>例18.19 格林公式：挖洞（印P567）</h4>
-<figure class="shot"><img src="../assets/img/L18-022.webp" alt="原书 例18.19 · 印P567" loading="lazy" width="1100" height="810"><figcaption>原书 例18.19 · 印P567</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-022.webp" alt="原书 例18.19 · 印P567" loading="lazy" decoding="async" width="1100" height="810"><figcaption>原书 例18.19 · 印P567</figcaption></figure>
 <p><strong>思路</strong> 计算 \(I=\oint_L\dfrac{(4x-y)\,\mathrm{d}x+(x+y)\,\mathrm{d}y}{4x^2+y^2}\)，其中 \(L\) 是 \(x^2+y^2=2\)，逆时针。分母 \(4x^2+y^2\) 在 \((0,0)\) 为零——奇点在 \(L\) 内部，格林公式不能直接用；但除原点外 \(\dfrac{\partial Q}{\partial x}=\dfrac{\partial P}{\partial y}\)（无旋场，直接算分子两个偏导相等即可验证），于是挖洞换路径。
 <strong>要点</strong> 取 \(L_1:4x^2+y^2=\varepsilon^2\)（<strong>令分母等于常数</strong>），逆时针，与 \(L\) 同向。在 \(L_1\) 上分母为常数 \(\varepsilon^2\) 提出：</p>
 <p>\[
@@ -497,7 +499,7 @@ I_1=4\iiint_{\Omega_{\text{卦限}}}|xy|\,\mathrm{d}v=4\iint_{\substack{x^2+y^2\
 <p>所以 \(I=\dfrac{1}{6}\)。
 <strong>注</strong> 本题与例 18.15 呼应：被积函数带绝对值/不可导因子时，整体高斯失效，"分卦限 + 对称点通量相抵"的物理论证替代公式；原书注明"本题也可利用高斯公式去解题，方法见解【注】"。（站注：题面被积函数的绝对值因子系由原书解法"偏导在 \(x=0\) 处不存在""一个卦限的通量 \(\times 4\)"及积分展开式反推确认，思路与答案 \(\frac16\) 均经复算。）</p>
 <h4>例18.30 空间曲线积分：一题三解（印P581）</h4>
-<figure class="shot"><img src="../assets/img/L18-025.webp" alt="原书 例18.30 · 印P581" loading="lazy" width="1100" height="922"><figcaption>原书 例18.30 · 印P581</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-025.webp" alt="原书 例18.30 · 印P581" loading="lazy" decoding="async" width="1100" height="922"><figcaption>原书 例18.30 · 印P581</figcaption></figure>
 <p><strong>思路</strong> 已知曲线 \(L:\begin{cases}z=x,\\ x^2+y^2+z^2=2\end{cases}\)（上半球面与平面 \(z=x\) 的交线，取 \(x\ge 0\) 的一段），起点 \(A(0,\sqrt2,0)\)、终点 \(B(0,-\sqrt2,0)\)，计算 \(I=\int_L(y+z)\,\mathrm{d}x+(z^2-x^2+y)\,\mathrm{d}y+x^2y^2\,\mathrm{d}z\)。三法齐上：参数法是基本功，斯托克斯走"补直线 + 平面片"，微元分析走对称性。
 <strong>要点</strong> 消 \(z\)：\(2x^2+y^2=2\)，参数方程 \(x=\cos t,\ y=\sqrt2\sin t,\ z=\cos t\)，\(t\) 从 \(\frac{\pi}{2}\)（起点 \(A\)）到 \(-\frac{\pi}{2}\)（终点 \(B\)）。<strong>方法一（参数法）</strong>：代入化简，奇次项对称消尽，得</p>
 <p>\[
@@ -516,19 +518,19 @@ I=\int_Ly\,\mathrm{d}x=\int_{\pi/2}^{-\pi/2}\sqrt2\sin t\cdot(-\sin t)\,\mathrm{
 <li><strong>例18.9（印P552）</strong> \(L:x^2+y^2=-2y\)，\(I=\oint_L\sqrt{x^2+y^2}\,\mathrm{d}s\)：曲线与被积函数都含平方和，用极坐标 \(r=-2\sin\theta\ (\theta\in[-\pi,0])\)，\(\mathrm{d}s=\sqrt{r^2+r'^2}\,\mathrm{d}\theta=2\,\mathrm{d}\theta\)，\(I=\int_{-\pi}^{0}(-2\sin\theta)\cdot2\,\mathrm{d}\theta=8\)。</li>
 <li><strong>例18.12（印P557）</strong> 求柱面 \(x^2+y^2=R^2\) 被 \(x=0,y=0,z=0,z=1\) 截出的第一卦限部分的 \(\iint_{\Sigma}z\,\mathrm{d}S\)：柱面往 \(xOy\) 投影缩成一条线，必须向 \(xOz\) 面投（"投影点不可重合，故可向 \(xOz\) 面投"），\(\mathrm{d}S=\frac{R}{\sqrt{R^2-x^2}}\mathrm{d}x\mathrm{d}z\)，\(D=\{0\le x\le R,0\le z\le 1\}\)，\(I=R\bigl(\int_0^R\frac{\mathrm{d}x}{\sqrt{R^2-x^2}}\bigr)\bigl(\int_0^1z\,\mathrm{d}z\bigr)=\frac{\pi}{4}R\)。</li>
 </ul>
-<p><figure class="shot"><img src="../assets/img/L18-019.webp" alt="原书 例18.12 · 印P557" loading="lazy" width="1100" height="637"><figcaption>原书 例18.12 · 印P557</figcaption></figure>
+<p><figure class="shot"><img src="../assets/img/L18-019.webp" alt="原书 例18.12 · 印P557" loading="lazy" decoding="async" width="1100" height="637"><figcaption>原书 例18.12 · 印P557</figcaption></figure>
 - <strong>例18.13（印P558）</strong> \(\Sigma\) 为椭球面 \(\frac{x^2}{2}+\frac{y^2}{2}+z^2=1\) 的上半部分，\(\pi\) 为其上点 \(P\) 处的切平面，\(p(x,y,z)\) 为原点到 \(\pi\) 的距离，求 \(\iint_{\Sigma}\frac{z}{p}\,\mathrm{d}S\)：由第 17 讲切平面求法得 \(\pi:\frac{x}{2}X+\frac{y}{2}Y+zZ=1\)，\(p=\dfrac{1}{\sqrt{\frac{x^2}{4}+\frac{y^2}{4}+z^2}}\)；而 \(\frac{z}{p}\,\mathrm{d}S\) 恰好约成 \(\frac{4-x^2-y^2}{4}\mathrm{d}\sigma\)（"dS 有时可与被积函数约掉"），\(D:x^2+y^2\le 2\)，\(I=\frac14\cdot2\pi\int_0^{\sqrt2}(4-r^2)r\,\mathrm{d}r=\frac{3\pi}{2}\)。
 - <strong>例18.14（印P560）</strong> 圆锥面 \(z=\sqrt{x^2+y^2}\) 被柱面 \(z^2=2x\) 割下的有限部分 \(\Sigma\)，密度 \(\mu=9/\sqrt{x^2+y^2+z^2}\)，交线 \(C\)：(1) \(C\) 在 \(xOy\) 面投影曲线 \(\begin{cases}x^2+y^2=2x,\\ z=0\end{cases}\)；(2) 质量 \(M=\iint_{\Sigma}\mu\,\mathrm{d}S\)：锥面上 \(x^2+y^2+z^2=2(x^2+y^2)\)、\(\mathrm{d}S=\sqrt2\,\mathrm{d}\sigma\)，\(\mu\,\mathrm{d}S=\frac{9}{r}\mathrm{d}\sigma\)，\(M=9\int_{-\pi/2}^{\pi/2}\mathrm{d}\theta\int_0^{2\cos\theta}\mathrm{d}r=36\)。
 - <strong>例18.16（印P564）</strong> 在过 \(O(0,0)\) 与 \(A(\pi,0)\) 的曲线族 \(y=a\sin x\ (a&gt;0)\) 中求一条，使 \(\int_L(1+y^3)\,\mathrm{d}x+(2x+y)\,\mathrm{d}y\) 最小：代入 \(y=a\sin x\) 得 \(I(a)=\pi+\frac43a^3-4a\)，\(I'(a)=4(a^2-1)=0\Rightarrow a=1\)（唯一驻点，\(I''(1)=8&gt;0\)），所求 \(y=\sin x\ (0\le x\le\pi)\)——曲线积分 + 一元最值的综合小题，"更可能出选择题"。
 - <strong>例18.17（印P565）</strong> 质点在力 \(\boldsymbol{F}=-x^2y\boldsymbol{i}+xy^2\boldsymbol{j}\) 作用下沿 \(x^2+y^2=1\) 顺时针运动一周，\(W=\oint_C(-x^2y)\,\mathrm{d}x+xy^2\,\mathrm{d}y=-\iint_D(y^2+x^2)\,\mathrm{d}\sigma=-\int_0^{2\pi}\mathrm{d}\theta\int_0^1r^3\,\mathrm{d}r=-\frac{\pi}{2}\)；顺时针添负号，且换二重积分后 \(D\) 是实心区域、\(x^2+y^2\ne 1\) 不能代 1。</p>
-<p><figure class="shot"><img src="../assets/img/L18-020.webp" alt="原书 例18.17 · 印P565" loading="lazy" width="1100" height="518"><figcaption>原书 例18.17 · 印P565</figcaption></figure>
+<p><figure class="shot"><img src="../assets/img/L18-020.webp" alt="原书 例18.17 · 印P565" loading="lazy" decoding="async" width="1100" height="518"><figcaption>原书 例18.17 · 印P565</figcaption></figure>
 - <strong>例18.20（印P569）</strong> 若 \(\int_L\frac{x\,\mathrm{d}x-a y\,\mathrm{d}y}{x^2+y^2-1}\) 在 \(D=\{x^2+y^2&lt;1\}\) 内与路径无关，则 \(a=-1\)：\(\frac{\partial P}{\partial y}=\frac{-2xy}{(x^2+y^2-1)^2}=\frac{\partial Q}{\partial x}=\frac{2axy}{(\cdots)^2}\Rightarrow a=-1\)。
 - <strong>例18.22（印P574）</strong> 直线 \(L\) 过 \(A(-1,0,1)\)、\(B(0,0,0)\) 绕 \(z\) 轴旋转得 \(\Sigma_0:z=\sqrt{x^2+y^2}\)（由第 17 讲旋转曲面求法），\(\Sigma\) 为 \(\Sigma_0\) 与 \(z=1,z=2\) 围成区域的边界外侧，计算 \(\oiint_{\Sigma}\frac{\mathrm{e}^{z}}{\sqrt{x^2+y^2}}\mathrm{d}x\mathrm{d}y\)：分三块直接投影（\(z=1\) 下侧 \(-2\pi\mathrm{e}\)、\(z=2\) 上侧 \(4\pi\mathrm{e}^2\)、锥面外侧 \(-2\pi(\mathrm{e}^2-\mathrm{e})\)），合计 \(2\pi\mathrm{e}^2\)——化成三重积分反而更麻烦，"不是所有封闭曲面都该用高斯"。</p>
-<p><figure class="shot"><img src="../assets/img/L18-023.webp" alt="原书 例18.22 · 印P574" loading="lazy" width="1100" height="1166"><figcaption>原书 例18.22 · 印P574</figcaption></figure>
+<p><figure class="shot"><img src="../assets/img/L18-023.webp" alt="原书 例18.22 · 印P574" loading="lazy" decoding="async" width="1100" height="1166"><figcaption>原书 例18.22 · 印P574</figcaption></figure>
 - <strong>例18.23（印P575）</strong> \(\Sigma:z=\sqrt{x^2+y^2}\) 下侧为正，求正向单位法向量：\(z_x'=\frac{x}{\sqrt{x^2+y^2}},\ z_y'=\frac{y}{\sqrt{x^2+y^2}}\)，\(\sqrt{1+z_x'^2+z_y'^2}=\sqrt2\)，下侧取负，\(\boldsymbol{n}^{\circ}=-\frac{1}{\sqrt2}\Bigl(-\frac{x}{\sqrt{x^2+y^2}},-\frac{y}{\sqrt{x^2+y^2}},1\Bigr)\)。
 - <strong>例18.24（印P575）</strong> 柱面 \(x^2+y^2=1\) 外侧为正，求<strong>后半柱面</strong>正向单位法向量：后半柱面 \(x=-\sqrt{1-y^2}\)、后侧为正，用 \(x=x(y,z)\) 的公式取"\(-\)"，\(\boldsymbol{n}^{\circ}=-\bigl(\sqrt{1-y^2},-y,0\bigr)=\bigl(-\sqrt{1-y^2},\,y,\,0\bigr)\)。
 - <strong>例18.26（印P577）</strong> \(\Omega\) 由柱面 \(x^2+y^2=1\) 与平面 \(z=0,x+z=1\) 围成，\(\Sigma\) 为边界外侧，\(I=\oiint_{\Sigma}2xz\,\mathrm{d}y\mathrm{d}z+xz\cos y\,\mathrm{d}z\mathrm{d}x+3yz\sin x\,\mathrm{d}x\mathrm{d}y\)：高斯后 \(I=\iiint_{\Omega}(2z-xz\sin y+3y\sin x)\,\mathrm{d}v\)，\(\Omega\) 关于 \(xOz\) 面对称砍掉后两项，\(I=\iint_D\mathrm{d}\sigma\int_0^{1-x}2z\,\mathrm{d}z=\iint_D(1-x)^2\mathrm{d}\sigma=\pi+\frac{\pi}{4}=\frac{5\pi}{4}\)（轮换对称性旁批：\(\iint_Dx^2\mathrm{d}\sigma=\frac{\pi}{4}\)，奇次项为零）。方法总结："计算三重积分时，利用好概念、对称性。"</p>
-<figure class="shot"><img src="../assets/img/L18-024.webp" alt="原书 例18.26 · 印P577" loading="lazy" width="1100" height="668"><figcaption>原书 例18.26 · 印P577</figcaption></figure>
+<figure class="shot"><img src="../assets/img/L18-024.webp" alt="原书 例18.26 · 印P577" loading="lazy" decoding="async" width="1100" height="668"><figcaption>原书 例18.26 · 印P577</figcaption></figure>
 <h3 id="sec-32">习题 18.1–18.11 速览（印P583–587）</h3>
 <ul>
 <li><strong>习题18.1</strong> \(L:\begin{cases}x^2+y^2+z^2=9\\ x+y+z=0\end{cases}\)，\(\oint_L(3x^2-y^2-z^2)\,\mathrm{d}s\)：轮换化成 \(\oint_Lx^2\mathrm{d}s=\frac13\oint_L(x^2+y^2+z^2)\mathrm{d}s=3\oint_L\mathrm{d}s=3\cdot 2\pi\cdot3=18\pi\)，选 (B)。</li>
