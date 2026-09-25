@@ -24,14 +24,14 @@ a:hover{text-decoration:underline}
 .topbar{
   position:sticky; top:0; z-index:50; height:52px;
   display:flex; align-items:center; gap:12px; padding:0 16px;
-  background:rgba(255,255,255,.94); backdrop-filter:blur(6px);
+  background:color-mix(in srgb, var(--card) 88%, transparent); backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
 .brand{font-weight:600; color:var(--ink); white-space:nowrap}
 .brand b{color:var(--brand)}
 .crumb{color:var(--ink-2); font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .menu-btn{
-  display:none; border:1px solid var(--line); background:#fff; border-radius:8px;
+  display:none; border:1px solid var(--line); background:var(--card); border-radius:8px;
   width:36px; height:34px; font-size:18px; cursor:pointer; color:var(--ink);
 }
 
@@ -39,7 +39,7 @@ a:hover{text-decoration:underline}
 .layout{display:flex; min-height:calc(100vh - 52px)}
 .sidebar{
   width:var(--sidebar-w); flex:0 0 var(--sidebar-w);
-  background:#fff; border-right:1px solid var(--line);
+  background:var(--card); border-right:1px solid var(--line);
   padding:14px 10px 40px; overflow-y:auto;
   position:sticky; top:52px; height:calc(100vh - 52px);
 }
@@ -59,7 +59,7 @@ a:hover{text-decoration:underline}
   color:var(--ink); font-size:14.5px; line-height:1.45;
 }
 .sidebar li a:hover{background:var(--brand-soft); text-decoration:none}
-.sidebar li a.active{background:var(--brand); color:#fff; font-weight:600}
+.sidebar li a.active{background:var(--brand); color:var(--on-accent, #fff); font-weight:600}
 .sidebar li a.active .star{color:#ffd76a}
 .star{color:#e58a1f; margin-left:2px}
 
@@ -75,28 +75,28 @@ a:hover{text-decoration:underline}
 .content h3{font-size:20px; margin:30px 0 10px; padding-left:10px; border-left:4px solid var(--brand); line-height:1.4}
 .content h4{font-size:17px; margin:22px 0 8px}
 .content p{margin:10px 0}
-.content .fig-desc{color:var(--ink-2); font-size:14px; background:#eef2f6; border-radius:8px; padding:8px 12px}
+.content .fig-desc{color:var(--ink-2); font-size:14px; background:var(--code-bg, #eef2f6); border-radius:8px; padding:8px 12px}
 .code-tree{
   font-family:Consolas,"Courier New",monospace; font-size:14px; line-height:1.5;
-  background:#f2f5f8; border:1px solid var(--line); border-radius:8px;
+  background:var(--code-bg, #f2f5f8); border:1px solid var(--line); border-radius:8px;
   padding:12px 16px; overflow-x:auto; margin:10px 0;
 }
 blockquote{
   margin:10px 0; padding:8px 14px; border-left:3px solid #90a4b7;
-  background:#f6f8fa; border-radius:0 8px 8px 0; color:var(--ink-2); font-size:15px;
+  background:var(--code-bg, #f6f8fa); border-radius:0 8px 8px 0; color:var(--ink-2); font-size:15px;
 }
 blockquote p{margin:4px 0}
 .disp{overflow-x:auto; margin:12px 0; padding:4px 2px}
 .solve-label{margin:14px 0 4px}
 .solve-label .chip{
-  display:inline-block; background:var(--green); color:#fff; font-weight:600;
+  display:inline-block; background:var(--green); color:var(--on-green, #fff); font-weight:600;
   border-radius:6px; padding:1px 12px; font-size:14px; margin-right:8px;
 }
 .tbl-wrap{overflow-x:auto; margin:12px 0}
-table{border-collapse:collapse; width:100%; font-size:14.5px; background:#fff}
+table{border-collapse:collapse; width:100%; font-size:14.5px; background:var(--card)}
 th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; line-height:1.6}
 th{background:var(--brand-soft); color:var(--brand-deep)}
-tbody tr:nth-child(even){background:#f8fafc}
+tbody tr:nth-child(even){background:color-mix(in srgb, var(--ink) 4%, var(--card))}
 ul{padding-left:22px; margin:8px 0}
 
 /* ---------- 盒子卡片 ---------- */
@@ -109,7 +109,7 @@ ul{padding-left:22px; margin:8px 0}
 .box :last-child{margin-bottom:0}
 .box-kp{border-left:4px solid var(--brand); background:var(--brand-soft)}
 .box-kp .box-title{color:var(--brand-deep)}
-.box-note{background:#f6f8fa; border-left:4px solid #90a4b7; box-shadow:none; font-size:15px}
+.box-note{background:var(--code-bg, #f6f8fa); border-left:4px solid var(--line); box-shadow:none; font-size:15px}
 .box-note .box-title{color:var(--ink-2)}
 .box-ex{border:1px solid var(--line); border-top:3px solid var(--green)}
 .box-ex>.box-title{color:var(--green); font-size:16.5px}
@@ -119,17 +119,17 @@ ul{padding-left:22px; margin:8px 0}
 .box-derive .box-title{color:var(--purple)}
 .box-warn{border:1px solid #f2cfc9; background:var(--red-soft); border-left:4px solid var(--red)}
 .box-warn .box-title{color:var(--red)}
-.box-tip{border:1px dashed var(--line); background:#fbfcfe; box-shadow:none}
+.box-tip{border:1px dashed var(--line); background:var(--card); box-shadow:none}
 .box-tip .box-title{color:var(--ink-2)}
-.box-memo{border:1px solid var(--gold-line); background:linear-gradient(135deg,#fffaf0,#fff3e2); border-left:4px solid var(--gold)}
+.box-memo{border:1px solid var(--gold-line); background:var(--gold-soft); border-left:4px solid var(--gold)}
 .box-memo .box-title{color:var(--gold)}
-.box-jump{background:#fff; border:1px solid var(--line); box-shadow:none}
+.box-jump{background:var(--card); border:1px solid var(--line); box-shadow:none}
 .box-jump .box-title{color:var(--ink-2); font-size:13.5px}
 .box-jump a{
   display:inline-block; margin:2px 4px 2px 0; padding:2px 10px; border-radius:999px;
   background:var(--brand-soft); color:var(--brand-deep); font-size:13.5px;
 }
-.box-jump a:hover{background:var(--brand); color:#fff; text-decoration:none}
+.box-jump a:hover{background:var(--brand); color:var(--on-accent, #fff); text-decoration:none}
 .box-anchor-note{background:transparent; border:1px dashed var(--line); box-shadow:none; font-size:13px; color:var(--ink-2); padding:8px 12px}
 .anchor-note{font-size:13px; color:var(--ink-2)}
 .jump{
@@ -137,7 +137,7 @@ ul{padding-left:22px; margin:8px 0}
 }
 .jump a{
   font-size:13.5px; padding:3px 10px; border-radius:999px;
-  background:#fff; border:1px solid var(--line); color:var(--ink-2);
+  background:var(--card); border:1px solid var(--line); color:var(--ink-2);
 }
 .jump a:hover{border-color:var(--brand); color:var(--brand); text-decoration:none}
 
@@ -148,7 +148,7 @@ ul{padding-left:22px; margin:8px 0}
 }
 .pn{
   display:flex; flex-direction:column; gap:2px; padding:10px 14px;
-  border:1px solid var(--line); border-radius:var(--radius); background:#fff;
+  border:1px solid var(--line); border-radius:var(--radius); background:var(--card);
   color:var(--ink); min-width:0;
 }
 .pn span{font-size:12.5px; color:var(--ink-2)}
@@ -166,14 +166,14 @@ ul{padding-left:22px; margin:8px 0}
 .hero .hint{max-width:640px; margin:0 auto 20px; font-size:14.5px; color:var(--ink-2)}
 .hero-links{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
 .btn{
-  padding:9px 20px; border-radius:999px; border:1px solid var(--line); background:#fff;
+  padding:9px 20px; border-radius:999px; border:1px solid var(--line); background:var(--card);
   color:var(--ink); font-weight:600; font-size:15px;
 }
 .btn:hover{border-color:var(--brand); color:var(--brand); text-decoration:none}
-.btn.primary{background:var(--brand); border-color:var(--brand); color:#fff}
-.btn.primary:hover{background:var(--brand-deep); color:#fff}
+.btn.primary{background:var(--brand); border-color:var(--brand); color:var(--on-accent, #fff)}
+.btn.primary:hover{background:var(--brand-deep); color:var(--on-accent, #fff)}
 .toc{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px}
-.toc-sec{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow)}
+.toc-sec{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow)}
 .toc-sec h2{font-size:17px; margin:0 0 10px; display:flex; align-items:center}
 .toc-sec ul{list-style:none; margin:0; padding:0}
 .toc-sec li a{
@@ -189,7 +189,7 @@ ul{padding-left:22px; margin:8px 0}
 .ex-group a{
   font-size:13px; padding:2px 9px; border-radius:999px; background:var(--brand-soft); color:var(--brand-deep);
 }
-.ex-group a:hover{text-decoration:none; background:var(--brand); color:#fff}
+.ex-group a:hover{text-decoration:none; background:var(--brand); color:var(--on-accent, #fff)}
 .foot{margin-top:26px; color:var(--ink-2); font-size:13px; text-align:center}
 
 /* ---------- KaTeX 微调 ---------- */
