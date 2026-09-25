@@ -158,9 +158,10 @@
   function css() {
     var s = document.createElement('style');
     s.textContent = [
-      '#theme-open{position:fixed;left:14px;bottom:16px;z-index:40;height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 "Microsoft YaHei","PingFang SC",sans-serif;cursor:pointer;box-shadow:var(--shadow)}',
-      '#theme-open:hover{border-color:var(--accent);color:var(--accent)}',
-      '#theme-panel{position:fixed;left:14px;bottom:62px;z-index:40;width:min(340px,calc(100vw - 28px));max-height:min(78vh,560px);overflow:auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 14px 12px;font:14px/1.5 "Microsoft YaHei","PingFang SC",sans-serif}',
+      '#theme-open{height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px/1 "Microsoft YaHei","PingFang SC",sans-serif;cursor:pointer;margin-left:8px}',
+      '.topbar>#theme-open{margin-left:auto}',
+      '#theme-open:hover,#theme-open[aria-expanded=true]{border-color:var(--accent);color:var(--accent)}',
+      '#theme-panel{position:fixed;z-index:40;width:min(360px,calc(100vw - 20px));max-height:min(78vh,560px);overflow:auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:14px 14px 12px;font:14px/1.5 "Microsoft YaHei","PingFang SC",sans-serif}',
       '#theme-panel h2{margin:0 0 4px;font-size:15px}',
       '#theme-panel .hint{margin:0 0 10px;color:var(--muted);font-size:12.5px}',
       '#theme-panel .modes{display:flex;gap:6px;margin-bottom:12px}',
@@ -169,8 +170,10 @@
       '#theme-panel fieldset{border:1px solid var(--line);border-radius:10px;margin:0 0 10px;padding:8px 10px 10px}',
       '#theme-panel legend{padding:0 6px;color:var(--muted);font-size:12.5px}',
       '#theme-panel .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}',
-      '#theme-panel label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px}',
-      '#theme-panel input[type=color]{width:36px;height:26px;padding:0;border:1px solid var(--line);border-radius:6px;background:transparent;cursor:pointer}',
+      '#theme-panel label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:6px 8px}',
+      '#theme-panel .swatch{display:flex;align-items:center;gap:6px}',
+      '#theme-panel .hex{font:12px/1 ui-monospace,Consolas,monospace;color:var(--muted)}',
+      '#theme-panel input[type=color]{width:28px;height:28px;padding:0;border:1px solid var(--line);border-radius:8px;background:transparent;cursor:pointer}',
       '#theme-reset{width:100%;border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:8px;padding:6px 0;cursor:pointer;font:inherit;font-size:13px}',
       '#theme-reset:hover{color:var(--accent);border-color:var(--accent)}'
     ].join('');
@@ -234,16 +237,24 @@
       FIELDS.forEach(function (f) {
         var lab = document.createElement('label');
         lab.appendChild(document.createTextNode(f[1]));
+        var swatch = document.createElement('span');
+        swatch.className = 'swatch';
+        var hex = document.createElement('span');
+        hex.className = 'hex';
+        hex.textContent = state[mode][f[0]];
         var input = document.createElement('input');
         input.type = 'color';
         input.value = state[mode][f[0]];
         input.setAttribute('aria-label', (mode === 'light' ? '浅色' : '深色') + f[1]);
         input.addEventListener('input', function () {
           state[mode][f[0]] = input.value.toLowerCase();
+          hex.textContent = state[mode][f[0]];
           save(state);
           apply();
         });
-        lab.appendChild(input);
+        swatch.appendChild(hex);
+        swatch.appendChild(input);
+        lab.appendChild(swatch);
         grid.appendChild(lab);
       });
       fs.appendChild(grid);
@@ -264,14 +275,26 @@
         var modeName = i < 4 ? 'light' : 'dark';
         var key = FIELDS[i % 4][0];
         input.value = state[modeName][key];
+        var hex = input.previousElementSibling;
+        if (hex) hex.textContent = input.value;
       });
     });
     panel.appendChild(reset);
 
+    function place() {
+      var r = btn.getBoundingClientRect();
+      var width = Math.min(360, window.innerWidth - 20);
+      var left = Math.min(Math.max(10, r.right - width), window.innerWidth - width - 10);
+      panel.style.width = width + 'px';
+      panel.style.left = left + 'px';
+      panel.style.top = (r.bottom + 8) + 'px';
+    }
     function setOpen(open) {
+      if (open) place();
       panel.hidden = !open;
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
+    window.addEventListener('resize', function () { if (!panel.hidden) place(); });
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       setOpen(panel.hidden);
@@ -286,7 +309,9 @@
     });
 
     paintModes();
-    document.body.appendChild(btn);
+    var bar = document.querySelector('.topbar .bar-inner') || document.querySelector('.topbar');
+    if (bar) bar.appendChild(btn);
+    else document.body.appendChild(btn);
     document.body.appendChild(panel);
   }
 
