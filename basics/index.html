@@ -33,5 +33,30 @@
 <p>本站为个人学习笔记，内容取自《张宇考研数学基础30讲·高等数学分册（2026版）》零基础部分（P1–P47），例题与解答忠实于原书；★三角函数页的推导卡片与拆解标注为便于记忆所作的整理。仅供个人自学使用。</p>
 </footer>
 </main>
+<script>
+/* Service Worker：回访秒开 + 离线可学；链接预热（不改动任何内容） */
+(function () {
+  var siteRoot = location.pathname
+    .replace(/[^/]*$/, '')
+    .replace(/(?:lectures|basics)\/$/, '');
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(siteRoot + 'sw.js', { scope: siteRoot })
+        .catch(function () {});
+    });
+  }
+  var warmed = {};
+  document.addEventListener('pointerover', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var u = null;
+    try { u = new URL(a.href); } catch (err) { return; }
+    if (u.origin !== location.origin || warmed[u.href]) return;
+    if (!/\.html?$/i.test(u.pathname) && u.pathname !== siteRoot) return;
+    warmed[u.href] = true;
+    fetch(u.href, { credentials: 'same-origin' }).catch(function () {});
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>

@@ -49,4 +49,28 @@
       });
     }
   });
+
+  /* Service Worker：回访秒开 + 离线可学（缓存后台静默更新，内容更新不受影响） */
+  var siteRoot = location.pathname
+    .replace(/[^/]*$/, "")
+    .replace(/(?:lectures|basics)\/$/, "");
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register(siteRoot + "sw.js", { scope: siteRoot })
+        .catch(function () {});
+    });
+  }
+
+  /* 链接预热：指针碰到站内 .html 链接即后台拉取，点开即出 */
+  var warmed = {};
+  document.addEventListener("pointerover", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var u = null;
+    try { u = new URL(a.href); } catch (err) { return; }
+    if (u.origin !== location.origin || warmed[u.href]) return;
+    if (!/\.html?$/i.test(u.pathname) && u.pathname !== siteRoot) return;
+    warmed[u.href] = true;
+    fetch(u.href, { credentials: "same-origin" }).catch(function () {});
+  }, { passive: true });
 })();
