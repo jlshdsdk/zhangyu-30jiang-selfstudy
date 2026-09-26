@@ -88,10 +88,8 @@
     .replace(/[^/]*$/, '')
     .replace(/(?:lectures|basics)\/$/, '');
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register(siteRoot + 'sw.js', { scope: siteRoot })
-        .catch(function () {});
-    });
+    navigator.serviceWorker.register(siteRoot + 'sw.js', { scope: siteRoot })
+      .catch(function () {});
   }
 
   /* 链接预热：指针碰到站内 .html 链接即后台拉取，点开即出 */

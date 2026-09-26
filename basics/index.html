@@ -40,10 +40,8 @@
     .replace(/[^/]*$/, '')
     .replace(/(?:lectures|basics)\/$/, '');
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register(siteRoot + 'sw.js', { scope: siteRoot })
-        .catch(function () {});
-    });
+    navigator.serviceWorker.register(siteRoot + 'sw.js', { scope: siteRoot })
+      .catch(function () {});
   }
   var warmed = {};
   document.addEventListener('pointerover', function (e) {
